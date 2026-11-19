@@ -134,6 +134,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#namespace-does-not-exist">Namespace does not exist</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#remote-sync-fails-or-has-not-run">Remote sync fails or has not run</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#storage-or-content-download-problems">Storage or content download problems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#download-urls-use-http-behind-https">Download URLs use http:// behind HTTPS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#container-image-works-in-a-client-but-not-in-a-job">Container image works in a client but not in a job</a></li>
 </ul>
 </li>
@@ -322,6 +323,19 @@ restore; do not delete content files or PVCs as a quick fix.</p>
 <p>If metadata lists the version but artifact download fails, check the distribution’s content path,
 client reachability/trust of the gateway address, permissions and task/service errors. Preserve
 both the database and content files in <a class="reference internal" href="../administration/backup_restore.html"><span class="std std-doc">backups</span></a>.</p>
+</section>
+<section id="download-urls-use-http-behind-https">
+<h2>Download URLs use http:// behind HTTPS<a class="headerlink" href="#download-urls-use-http-behind-https" title="Link to this heading"></a></h2>
+<p>Before 2026.11.14, automation hub behind an HTTPS Route or Ingress built <code class="docutils literal notranslate"><span class="pre">http://</span></code> URLs: collection download URLs,
+repository URLs and the content origin shown in <strong>Automation Content &gt; Repositories</strong>. Clients that install over
+HTTPS, such as <code class="docutils literal notranslate"><span class="pre">ansible-galaxy</span></code>, were sent to plain-HTTP download URLs. Upgrade the platform to 2026.11.14 or later;
+the platform gateway then passes on the protocol that the Route or the Ingress reports. To check it, the content
+origin is shown without authentication:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>--silent<span class="w"> </span><span class="s2">"https://&lt;platform&gt;/api/galaxy/pulp/api/v3/status/"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>python3<span class="w"> </span>-c<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">'import json, sys; print(json.load(sys.stdin)["content_settings"]["content_origin"])'</span>
+</pre></div>
+</div>
+<p>It must print <code class="docutils literal notranslate"><span class="pre">https://&lt;platform&gt;</span></code>. A Route or Ingress that does not set <code class="docutils literal notranslate"><span class="pre">X-Forwarded-Proto</span></code> still produces <code class="docutils literal notranslate"><span class="pre">http://</span></code>.</p>
 </section>
 <section id="container-image-works-in-a-client-but-not-in-a-job">
 <h2>Container image works in a client but not in a job<a class="headerlink" href="#container-image-works-in-a-client-but-not-in-a-job" title="Link to this heading"></a></h2>

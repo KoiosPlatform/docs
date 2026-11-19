@@ -235,6 +235,11 @@ without one, use a single-node volume (<code class="docutils literal notranslate
 and Redis) ran on one worker with 16 GiB of memory. This is a lab observation, not a production
 minimum or sizing recommendation. Size the platform for its workload, storage, availability needs,
 and the resources consumed by job and activation pods.</p>
+<p>Upgrades and configuration changes roll out new pods before the old ones stop, so keep room for one more pod of each
+component being updated; the platform gateway pod alone requests about 1.5 GiB of memory. On the single-node
+OpenShift test cluster (24 GiB) the complete platform with Event-Driven Ansible and automation hub reserved about 96%
+of the memory and the gateway rollout of an upgrade could not be scheduled until some replicas were reduced. When a
+pod cannot be scheduled, the platform status reports it (<em>Pods that cannot be scheduled: … Insufficient memory</em>).</p>
 </section>
 </section>
 <section id="install-modes-with-olm">
