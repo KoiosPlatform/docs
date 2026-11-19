@@ -1,0 +1,338 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>6. Organizations &ndash; Koios Automation Platform</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ansible.css?v=5657ca2d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/rtd-ethical-ads.css?v=289b023e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/dark.css?v=82723a23" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments-dark.css?v=027e451e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/koios.css?v=808fdb03" />
+
+  
+    <link rel="shortcut icon" href="../_static/images/koios-favicon.svg"/>
+    <link rel="canonical" href="https://docs.koioss.com/userguide/organizations.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2d018451"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=b8bcef97"></script>
+      <script src="../_static/js/theme-toggle.js?v=59cbb094"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="7. Users" href="users.html" />
+    <link rel="prev" title="5. Search" href="search_sort.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+<script>
+  (function () {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('koios-docs-theme');
+    } catch (e) {}
+    // Without a stored choice, follow the system preference (dark when it cannot be read).
+    var light = false;
+    try { light = window.matchMedia('(prefers-color-scheme: light)').matches; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', stored || (light ? 'light' : 'dark'));
+  })();
+</script>
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="#" class="asc-theme-toggle" title="Switch theme" aria-label="Switch theme"><svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg></a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../_static/images/koios-mark-white.svg"
+    alt="Koios">
+  <div class="DocSiteNav-title">Koios Automation Platform</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Koios Automation Platform
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Koios Automation Platform Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Install and upgrade</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade_migration/index.html">Upgrades and Migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configure the platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/index.html">Configure the platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Access management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access/index.html">Authentication and access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation execution</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Automating with Koios Automation Platform</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html">Automating with Koios Automation Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html">1. Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging_in.html">2. Logging In</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main_menu.html">3. The User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main_menu.html#the-settings-menu">4. The Settings Menu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="search_sort.html">5. Search</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">6. Organizations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#creating-a-new-organization">6.1. Creating a New Organization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#users-administrators-and-teams">6.2. Users, administrators and teams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#work-with-notifications">6.3. Work with Notifications</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="users.html">7. Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="teams.html">8. Teams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credentials.html">9. Credentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credential_plugins.html">10. Secret Management System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credential_types.html">11. Custom Credential Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="execution_environments.html">12. Execution Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ee_reference.html">13. Execution Environment Setup Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="projects.html">14. Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project-sign.html">15. Project Signing and Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventories.html">16. Inventories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventory_plugins_templates.html">17. Supported Inventory Plugin Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="labels.html">18. Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_templates.html">19. Job Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_slices.html">20. Job Slicing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflows.html">21. Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_templates.html">22. Workflow Job Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instance_groups.html">23. Instance Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jobs.html">24. Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhooks.html">25. Working with Webhooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notifications.html">26. Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notification_parameters_supported.html">27. Supported Attributes for Custom Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduling.html">28. Schedules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="best_practices.html">29. Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">30. Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html">31. Glossary</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation decisions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../eda/index.html">Event-Driven Ansible</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hub/index.html">Automation hub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operate</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../operate/index.html">Operate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../administration/index.html">Administering Koios Automation Platform Deployments</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration as code and API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/casc.html">Configuration as code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rest_api/index.html">automation controller API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/releases.html">Releases</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Koios Automation Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Automating with Koios Automation Platform</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">6. </span>Organizations</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <section id="organizations">
+<span id="ug-organizations"></span><h1><span class="section-number">6. </span>Organizations<a class="headerlink" href="#organizations" title="Link to this heading"></a></h1>
+<p id="index-0">An <a class="reference internal" href="glossary.html#term-Organization"><span class="xref std std-term">Organization</span></a> provides a shared scope for platform membership and service resources. Teams belong to an organization, while users can participate in more than one organization or team. Access to an inventory, project or credential is determined by role assignments and their scope, not by placing every resource below a team or user in a single ownership tree.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 28.0%" />
+<col style="width: 72.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Relationship</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Organization and teams</p></td>
+<td><p>A team belongs to one organization and provides a way to assign access to a group of users.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Users and membership</p></td>
+<td><p>Users are platform identities. Organization and team memberships associate them with those resources; a user is not owned by one team.</p></td>
+</tr>
+<tr class="row-even"><td><p>Controller resources</p></td>
+<td><p>Projects and inventories have an organization scope. Credentials can have an organization or be unassociated with one; a team does not own them merely because it has a role assignment.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Resource references</p></td>
+<td><p>A job template references a project, inventory and credentials. Those references define what a job uses and do not grant users access by themselves.</p></td>
+</tr>
+<tr class="row-even"><td><p>Effective access</p></td>
+<td><p>Users receive direct grants and grants inherited through team membership. Permissions on an organization can cover related resources according to the role definition and service rules.</p></td>
+</tr>
+</tbody>
+</table>
+<p>See <a class="reference internal" href="security.html#rbac-ug"><span class="std std-ref">Role-Based Access Control</span></a> for role definitions, assignments and scope.</p>
+<p>Organizations, teams and users belong to the platform: they are managed in <strong>Access Management</strong> and
+shared by automation controller, Event-Driven Ansible and automation hub. Open <strong>Access Management &gt;
+Organizations</strong> to see them; the list can be searched by name.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>On a new controller with preload data enabled and no existing organizations, the platform receives a <strong>Default</strong> organization. Existing or customized installations can differ; see <a class="reference internal" href="../quickstart/quick_start.html"><span class="doc">Quick Start</span></a>.</p>
+</div>
+<p><img alt="The Organizations list" src="../_images/organizations-home-showing-example-organization.png" /></p>
+<section id="creating-a-new-organization">
+<span id="ug-organizations-create"></span><h2><span class="section-number">6.1. </span>Creating a New Organization<a class="headerlink" href="#creating-a-new-organization" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Click <strong>Create organization</strong>. The form has two steps, <strong>Organization details</strong> and <strong>Review</strong>.</p></li>
+</ol>
+<p><img alt="The Create organization form" src="../_images/organizations-new-organization-form.png" /></p>
+<ol class="arabic simple" start="2">
+<li><p>Enter the attributes of the organization:</p></li>
+</ol>
+<ul class="simple">
+<li><p><strong>Name</strong> (required) and <strong>Description</strong>.</p></li>
+<li><p><strong>Execution environment</strong>: the default execution environment of the organization. See <a class="reference internal" href="execution_environments.html#ug-execution-environments"><span class="std std-ref">Execution Environments</span></a>.</p></li>
+<li><p><strong>Instance groups</strong> on which to run the jobs of this organization.</p></li>
+<li><p><strong>Galaxy credentials</strong> to install collections and roles for its projects, in order.</p></li>
+<li><p><strong>Policy enforcement</strong>: a policy to evaluate before its jobs run, when policy enforcement is configured.</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p>Click <strong>Next</strong>. When you select more than one instance group or Galaxy credential, the wizard adds
+a step to order them. Review the values and click <strong>Finish</strong>.</p></li>
+</ol>
+<p>The organization page opens on its <strong>Details</strong> tab. <strong>Edit organization</strong> changes it; the menu next to
+it deletes it.</p>
+<p><img alt="Details of an organization" src="../_images/organizations-show-record-for-example-organization.png" /></p>
+<blockquote id="deletion-warning">
+<div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When you delete items, a confirmation window lists them and asks you to confirm the deletion; it does not list the other items that use them. Templates that used a deleted item keep existing without it: a job template without project cannot be launched until you select another one; without inventory, it needs another one, selected in the template or, if the template prompts for it, at launch; a deleted credential is simply removed from the templates, which run without it. Below is an example of the confirmation window:</p>
+<img alt="The confirmation window to permanently delete an inventory" src="../_images/warning-deletion-dependencies.png" />
+</div>
+</div></blockquote>
+</section>
+<section id="users-administrators-and-teams">
+<h2><span class="section-number">6.2. </span>Users, administrators and teams<a class="headerlink" href="#users-administrators-and-teams" title="Link to this heading"></a></h2>
+<p id="index-1">The <strong>Users</strong> tab lists the users of the organization with the organization roles assigned to them
+directly; <strong>Administrators</strong> lists its administrators and <strong>Teams</strong> its teams. A user who belongs to
+a team inherits the roles of that team.</p>
+<p><img alt="The Users tab of an organization" src="../_images/organizations-show-users-permissions-organization.png" /></p>
+<p>To add existing users, click <strong>Assign users</strong> in the <strong>Users</strong> tab, select the users and the roles
+to give them. Users and teams must exist first; see <a class="reference internal" href="users.html#ug-users-create"><span class="std std-ref">Create a User</span></a> and <a class="reference internal" href="teams.html#ug-team-create"><span class="std std-ref">Create a Team</span></a>.
+To manage the roles of one user across the platform, open the user in <strong>Access Management &gt; Users</strong>
+(see <a class="reference internal" href="users.html#ug-users"><span class="std std-ref">Users</span></a>).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Removing membership can remove access inherited through that membership. Direct user assignments and access through other teams are separate grants and must be reviewed independently. A user can belong to multiple organizations; membership is not a move of the user into a single ownership branch.</p>
+</div>
+</section>
+<section id="work-with-notifications">
+<h2><span class="section-number">6.3. </span>Work with Notifications<a class="headerlink" href="#work-with-notifications" title="Link to this heading"></a></h2>
+<p id="index-2">The <strong>Notifications</strong> tab lists the notifiers of automation controller that apply to the jobs of the
+organization, and lets you enable them for each event. For more detail, see
+<a class="reference internal" href="notifications.html#ug-notifications-on-off"><span class="std std-ref">Enable and Disable Notifications</span></a>.</p>
+<p>If no notifiers have been set up, create them in <strong>Automation Execution &gt; Administration &gt;
+Notifiers</strong>.</p>
+<img alt="The Notifications tab of an organization without notifiers" src="../_images/organization-notifications-empty.png" />
+<p>Refer to <a class="reference internal" href="notifications.html#ug-notifications-types"><span class="std std-ref">Notification Types</span></a> for additional details on configuring various notification types.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="search_sort.html" class="btn btn-neutral float-left" title="5. Search" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="users.html" class="btn btn-neutral float-right" title="7. Users" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Koios Solutions. Portions 2026, Red Hat, Inc. and 2026, CtrlIQ, Inc..</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+<p class="koios-legal">Licensed under the <a href="../LICENSE.txt">Apache License 2.0</a>; see the <a href="../NOTICE.txt">NOTICE</a> for the origin of this documentation.</p>
+
+</body>
+</html>

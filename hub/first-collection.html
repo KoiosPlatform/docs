@@ -1,0 +1,418 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Publish your first collection &ndash; Koios Automation Platform</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ansible.css?v=5657ca2d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/rtd-ethical-ads.css?v=289b023e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/dark.css?v=82723a23" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments-dark.css?v=027e451e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/koios.css?v=808fdb03" />
+
+  
+    <link rel="shortcut icon" href="../_static/images/koios-favicon.svg"/>
+    <link rel="canonical" href="https://docs.koioss.com/hub/first-collection.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2d018451"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=b8bcef97"></script>
+      <script src="../_static/js/theme-toggle.js?v=59cbb094"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Remotes and repositories" href="remotes-repositories.html" />
+    <link rel="prev" title="Automation hub" href="index.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+<script>
+  (function () {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('koios-docs-theme');
+    } catch (e) {}
+    // Without a stored choice, follow the system preference (dark when it cannot be read).
+    var light = false;
+    try { light = window.matchMedia('(prefers-color-scheme: light)').matches; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', stored || (light ? 'light' : 'dark'));
+  })();
+</script>
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="#" class="asc-theme-toggle" title="Switch theme" aria-label="Switch theme"><svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg></a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../_static/images/koios-mark-white.svg"
+    alt="Koios">
+  <div class="DocSiteNav-title">Koios Automation Platform</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Koios Automation Platform
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Koios Automation Platform Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Install and upgrade</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade_migration/index.html">Upgrades and Migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configure the platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/index.html">Configure the platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Access management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access/index.html">Authentication and access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation execution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">Automating with Koios Automation Platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation decisions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../eda/index.html">Event-Driven Ansible</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation content</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Automation hub</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Publish your first collection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#before-you-start">Before you start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-namespace">1. Create a namespace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#initialize-and-build-the-collection">2. Initialize and build the collection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configure-the-publishing-client">3. Configure the publishing client</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gateway-api-token-alternative">Gateway API token alternative</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#publish-and-inspect-staging">4. Publish and inspect staging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#approve-the-version">5. Approve the version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-from-published">6. Install from published</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#use-the-hub-from-automation-controller">Use the hub from automation controller</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="remotes-repositories.html">Remotes and repositories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html">Troubleshooting Automation Content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#collections">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#repositories-and-distributions">Repositories and distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#remotes-and-approvals">Remotes and approvals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#tokens-and-clients">Tokens and clients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#using-collections-from-automation-controller">Using collections from automation controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#container-registry">Container registry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#backup-and-restore">Backup and restore</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operate</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../operate/index.html">Operate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../administration/index.html">Administering Koios Automation Platform Deployments</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration as code and API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/casc.html">Configuration as code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rest_api/index.html">automation controller API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/releases.html">Releases</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Koios Automation Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Automation hub</a></li>
+      <li class="breadcrumb-item active">Publish your first collection</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <section id="publish-your-first-collection">
+<span id="hub-first-collection"></span><h1>Publish your first collection<a class="headerlink" href="#publish-your-first-collection" title="Link to this heading"></a></h1>
+<p>Build <code class="docutils literal notranslate"><span class="pre">example.hello:1.0.0</span></code>, publish it to the platform hub, approve it and install it from
+<strong>published</strong>. This is a minimal content-distribution example; the scaffold does not implement a
+module or role that performs automation.</p>
+<p>The build, import, staging-to-published move and installation were validated on the Koios test
+platform on 2026-11-18 using the release execution environment and username/password authentication
+through the internal gateway. The examples below use the public HTTPS address: configure network
+access and certificate trust for your deployment. The UI paths are checked against the platform UI
+sources; the validation performed the upload and approval through the API/CLI.</p>
+<section id="before-you-start">
+<h2>Before you start<a class="headerlink" href="#before-you-start" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Have access to Koios Automation Platform and an account allowed to create a namespace, upload
+to it, approve content and read the published repository. These capabilities can belong to
+separate users in a real review workflow.</p></li>
+<li><p>Use an environment with <code class="docutils literal notranslate"><span class="pre">ansible-galaxy</span></code> available, such as the release execution environment
+or your Ansible workstation. The validated walkthrough used the release EE.</p></li>
+<li><p>Ensure the client can reach the hub through the gateway. If it uses a private CA, configure
+that trust in the client environment; do not disable certificate verification as the normal fix.</p></li>
+<li><p>Use a new working directory. If <code class="docutils literal notranslate"><span class="pre">example.hello:1.0.0</span></code> already exists on your hub, inspect it or
+choose a namespace/version of your own rather than overwriting someone else’s example.</p></li>
+</ul>
+</section>
+<section id="create-a-namespace">
+<h2>1. Create a namespace<a class="headerlink" href="#create-a-namespace" title="Link to this heading"></a></h2>
+<p>Open <strong>Automation Content &gt; Namespaces</strong> and click <strong>Create namespace</strong>. Set <strong>Name</strong> to
+<code class="docutils literal notranslate"><span class="pre">example</span></code> and <strong>Description</strong> to <code class="docutils literal notranslate"><span class="pre">Example</span> <span class="pre">namespace</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">documentation</span></code>. Click
+<strong>Create namespace</strong>.</p>
+<p>The collection’s namespace in <code class="docutils literal notranslate"><span class="pre">galaxy.yml</span></code> must match this name. Creating a platform organization
+with the same name does not create a collection namespace.</p>
+<p><img alt="Details of the example namespace with its description" src="../_images/hub-namespace-example.png" /></p>
+</section>
+<section id="initialize-and-build-the-collection">
+<h2>2. Initialize and build the collection<a class="headerlink" href="#initialize-and-build-the-collection" title="Link to this heading"></a></h2>
+<p>From your working directory:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-galaxy<span class="w"> </span>collection<span class="w"> </span>init<span class="w"> </span>example.hello
+<span class="nb">cd</span><span class="w"> </span>example/hello
+</pre></div>
+</div>
+<p>Edit the generated <code class="docutils literal notranslate"><span class="pre">galaxy.yml</span></code>. Keep the scaffold’s <code class="docutils literal notranslate"><span class="pre">README.md</span></code>; a minimal metadata example is:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">example</span>
+<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hello</span>
+<span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.0.0</span>
+<span class="nt">readme</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">README.md</span>
+<span class="nt">authors</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Example maintainer</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Example collection of the documentation</span>
+<span class="nt">license</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Apache-2.0</span>
+<span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
+<span class="nt">dependencies</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+<span class="nt">build_ignore</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
+</pre></div>
+</div>
+<p>Choose the license appropriate to content you own or are authorized to distribute. This example
+uses Apache-2.0. If adding roles, include a <code class="docutils literal notranslate"><span class="pre">README</span></code> for each role; import validation checks more
+than the top-level metadata.</p>
+<p>Create or edit <strong><code class="docutils literal notranslate"><span class="pre">meta/runtime.yml</span></code></strong> as well:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="nt">requires_ansible</span><span class="p">:</span><span class="w"> </span><span class="s">"&gt;=2.15.0"</span>
+</pre></div>
+</div>
+<p>This field declares the Ansible version requirement of the collection. <strong>It is mandatory for this
+hub import.</strong> The first test upload without it failed with:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>FileParserError: 'requires_ansible' in meta/runtime.yml is mandatory
+</pre></div>
+</div>
+<p>Build the archive, then return to the working directory:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-galaxy<span class="w"> </span>collection<span class="w"> </span>build
+<span class="nb">cd</span><span class="w"> </span>../..
+</pre></div>
+</div>
+<p>The archive is <code class="docutils literal notranslate"><span class="pre">example/hello/example-hello-1.0.0.tar.gz</span></code>. Keep client authentication configuration
+outside <code class="docutils literal notranslate"><span class="pre">example/hello</span></code> so that it is not packaged into a future collection build.</p>
+</section>
+<section id="configure-the-publishing-client">
+<span id="hub-publishing-client"></span><h2>3. Configure the publishing client<a class="headerlink" href="#configure-the-publishing-client" title="Link to this heading"></a></h2>
+<p>Create <code class="docutils literal notranslate"><span class="pre">ansible-publish.cfg</span></code> in the working directory:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[galaxy]</span>
+<span class="na">server_list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">koios</span>
+
+<span class="k">[galaxy_server.koios]</span>
+<span class="na">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">https://&lt;platform&gt;/api/galaxy/</span>
+<span class="na">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;platform-user&gt;</span>
+</pre></div>
+</div>
+<p>Replace the host and username. Use an account with upload permission on <strong>example</strong>. In a Bash
+terminal, read the password without echoing it and pass it through the server-specific variable:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">unset</span><span class="w"> </span>ANSIBLE_GALAXY_SERVER_KOIOS_TOKEN
+<span class="nb">read</span><span class="w"> </span>-r<span class="w"> </span>-s<span class="w"> </span>-p<span class="w"> </span><span class="s1">'Platform password: '</span><span class="w"> </span>ANSIBLE_GALAXY_SERVER_KOIOS_PASSWORD
+<span class="nb">printf</span><span class="w"> </span><span class="s1">'\n'</span>
+<span class="nb">export</span><span class="w"> </span>ANSIBLE_GALAXY_SERVER_KOIOS_PASSWORD
+<span class="nb">export</span><span class="w"> </span><span class="nv">ANSIBLE_CONFIG</span><span class="o">=</span><span class="s2">"</span><span class="nv">$PWD</span><span class="s2">/ansible-publish.cfg"</span>
+</pre></div>
+</div>
+<p>The server ID <code class="docutils literal notranslate"><span class="pre">koios</span></code> determines the variable name: another ID uses
+<code class="docutils literal notranslate"><span class="pre">ANSIBLE_GALAXY_SERVER_&lt;ID&gt;_PASSWORD</span></code> with the ID in uppercase. Do not put the password in the
+archive or a versioned configuration file. Username/password requires gateway Basic authentication
+to be enabled and an account whose password the gateway can validate.</p>
+<section id="gateway-api-token-alternative">
+<h3>Gateway API token alternative<a class="headerlink" href="#gateway-api-token-alternative" title="Link to this heading"></a></h3>
+<p>A platform user’s API token is an alternative to username/password. Obtain it from
+<a class="reference internal" href="../access/tokens.html"><span class="std std-doc">API Tokens</span></a>, remove <code class="docutils literal notranslate"><span class="pre">username</span></code> from the server configuration, unset
+<code class="docutils literal notranslate"><span class="pre">ANSIBLE_GALAXY_SERVER_KOIOS_PASSWORD</span></code>, and supply the token with
+<code class="docutils literal notranslate"><span class="pre">ANSIBLE_GALAXY_SERVER_KOIOS_TOKEN</span></code>. The token must belong to a user with the required permissions
+and have a scope permitting publication. Use only one authentication method for a server entry.</p>
+<p>Gateway tokens were validated for hub access and collection installation in the earlier hub
+integration workflow. The <code class="docutils literal notranslate"><span class="pre">example.hello</span></code> publication walkthrough specifically used
+username/password. A token from the standalone hub’s own token endpoint does not authenticate
+through the platform gateway in this deployment.</p>
+</section>
+</section>
+<section id="publish-and-inspect-staging">
+<h2>4. Publish and inspect staging<a class="headerlink" href="#publish-and-inspect-staging" title="Link to this heading"></a></h2>
+<p>With the publishing configuration selected:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-galaxy<span class="w"> </span>collection<span class="w"> </span>publish<span class="w"> </span>example/hello/example-hello-1.0.0.tar.gz
+</pre></div>
+</div>
+<p>The validated command reported <strong>successfully published and imported</strong>. Import success means the
+archive passed processing; it does not mean the version was approved or made available in every
+repository. In the tested approval configuration, <code class="docutils literal notranslate"><span class="pre">example.hello:1.0.0</span></code> was present in <strong>staging</strong>
+and absent from <strong>published</strong>.</p>
+<p>To upload through the UI instead, open <strong>Automation Content &gt; Collections</strong> and click
+<strong>Upload collection</strong>. Select the archive in <strong>Collection file</strong> and choose <strong>staging</strong> in the repository table,
+then click <strong>Upload collection</strong>. Inspect its import status/logs;
+see <a class="reference internal" href="troubleshooting.html#import-failed"><span class="std std-ref">Import failures</span></a>.</p>
+<p><img alt="The Upload collection form with the collection file field and the staging repository selected" src="../_images/hub-upload-collection.png" />
+<img alt="example.hello version 1.0.0 in the staging repository, before approval" src="../_images/hub-collection-staging.png" /></p>
+</section>
+<section id="approve-the-version">
+<h2>5. Approve the version<a class="headerlink" href="#approve-the-version" title="Link to this heading"></a></h2>
+<p>Open <strong>Automation Content &gt; Collection Approvals</strong>. Find <strong>example.hello</strong>, version <strong>1.0.0</strong>,
+in <strong>staging</strong>, and choose <strong>Approve collection</strong>. Confirm the approval when prompted.
+If the deployment requires signing, the action and prerequisites differ: the UI can show
+<strong>Approve and sign collection</strong>. This tutorial does not configure a signing service.</p>
+<p>Wait for the operation to finish. Verify the version in the <strong>published</strong> repository using
+<strong>Automation Content &gt; Collections</strong> and the repository selector. The validated API equivalent
+moved the version from staging to published and returned <code class="docutils literal notranslate"><span class="pre">202</span></code>; that status indicated an accepted
+operation, so the client waited and checked its result.</p>
+<p><img alt="Collection Approvals with example.hello 1.0.0 from staging in Needs review status and the approve and reject actions" src="../_images/hub-collection-approval.png" />
+<img alt="example.hello version 1.0.0 in the published repository after approval" src="../_images/hub-collection-published.png" /></p>
+</section>
+<section id="install-from-published">
+<span id="hub-install-from-published"></span><h2>6. Install from published<a class="headerlink" href="#install-from-published" title="Link to this heading"></a></h2>
+<p>Create a separate <code class="docutils literal notranslate"><span class="pre">ansible-published.cfg</span></code> in the working directory:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[galaxy]</span>
+<span class="na">server_list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">koios</span>
+
+<span class="k">[galaxy_server.koios]</span>
+<span class="na">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">https://&lt;platform&gt;/api/galaxy/content/published/</span>
+<span class="na">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;platform-user&gt;</span>
+</pre></div>
+</div>
+<p>Use the same password environment variable for a permitted reader, or the gateway token alternative
+above. Select this configuration and install the exact version into an empty destination:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">ANSIBLE_CONFIG</span><span class="o">=</span><span class="s2">"</span><span class="nv">$PWD</span><span class="s2">/ansible-published.cfg"</span>
+ansible-galaxy<span class="w"> </span>collection<span class="w"> </span>install<span class="w"> </span>-p<span class="w"> </span>./installed<span class="w"> </span>example.hello:1.0.0
+</pre></div>
+</div>
+<p>Before approval, the validated attempt against this <strong>published</strong> endpoint did not find the
+version. After approval, it reported:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>example.hello:1.0.0 was installed successfully
+</pre></div>
+</div>
+<p>The installed collection has a <code class="docutils literal notranslate"><span class="pre">MANIFEST.json</span></code> under
+<code class="docutils literal notranslate"><span class="pre">installed/ansible_collections/example/hello/</span></code>. Installing the local tarball would not test approval
+or access to the hub; use the collection name and version against the published server for this
+verification.</p>
+<p>When finished with the client session, remove the authentication variables from that shell:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">unset</span><span class="w"> </span>ANSIBLE_GALAXY_SERVER_KOIOS_PASSWORD<span class="w"> </span>ANSIBLE_GALAXY_SERVER_KOIOS_TOKEN
+</pre></div>
+</div>
+</section>
+<section id="use-the-hub-from-automation-controller">
+<h2>Use the hub from automation controller<a class="headerlink" href="#use-the-hub-from-automation-controller" title="Link to this heading"></a></h2>
+<p>Follow <a class="reference internal" href="index.html#using-collections-from-automation-controller"><span class="std std-ref">Using collections from automation controller</span></a>:
+add a gateway-token <strong>Ansible Galaxy/Automation Hub API Token</strong> credential to the organization’s
+<strong>Galaxy credentials</strong>, then reference the collection in the controller project’s
+<code class="docutils literal notranslate"><span class="pre">collections/requirements.yml</span></code>:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">collections</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">example.hello</span>
+<span class="w">    </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">"1.0.0"</span>
+</pre></div>
+</div>
+<p>Update the project and inspect its result. Controller consumption through this integration was
+validated with another test collection containing a role; a controller job using this new minimal
+<code class="docutils literal notranslate"><span class="pre">example.hello</span></code> scaffold has not been validated. See <a class="reference internal" href="../userguide/projects.html"><span class="std std-doc">Projects</span></a> and
+<a class="reference internal" href="../configure/casc.html"><span class="std std-doc">Configuration as code</span></a> before adapting the workflow to a real collection.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Automation hub" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="remotes-repositories.html" class="btn btn-neutral float-right" title="Remotes and repositories" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Koios Solutions. Portions 2026, Red Hat, Inc. and 2026, CtrlIQ, Inc..</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+<p class="koios-legal">Licensed under the <a href="../LICENSE.txt">Apache License 2.0</a>; see the <a href="../NOTICE.txt">NOTICE</a> for the origin of this documentation.</p>
+
+</body>
+</html>

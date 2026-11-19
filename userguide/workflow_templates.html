@@ -1,0 +1,633 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>22. Workflow Job Templates &ndash; Koios Automation Platform</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ansible.css?v=5657ca2d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/rtd-ethical-ads.css?v=289b023e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/dark.css?v=82723a23" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments-dark.css?v=027e451e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/koios.css?v=808fdb03" />
+
+  
+    <link rel="shortcut icon" href="../_static/images/koios-favicon.svg"/>
+    <link rel="canonical" href="https://docs.koioss.com/userguide/workflow_templates.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2d018451"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=b8bcef97"></script>
+      <script src="../_static/js/theme-toggle.js?v=59cbb094"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="23. Instance Groups" href="instance_groups.html" />
+    <link rel="prev" title="21. Workflows" href="workflows.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+<script>
+  (function () {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('koios-docs-theme');
+    } catch (e) {}
+    // Without a stored choice, follow the system preference (dark when it cannot be read).
+    var light = false;
+    try { light = window.matchMedia('(prefers-color-scheme: light)').matches; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', stored || (light ? 'light' : 'dark'));
+  })();
+</script>
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="#" class="asc-theme-toggle" title="Switch theme" aria-label="Switch theme"><svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg></a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../_static/images/koios-mark-white.svg"
+    alt="Koios">
+  <div class="DocSiteNav-title">Koios Automation Platform</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Koios Automation Platform
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Koios Automation Platform Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Install and upgrade</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade_migration/index.html">Upgrades and Migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configure the platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/index.html">Configure the platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Access management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access/index.html">Authentication and access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation execution</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Automating with Koios Automation Platform</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html">Automating with Koios Automation Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html">1. Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging_in.html">2. Logging In</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main_menu.html">3. The User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main_menu.html#the-settings-menu">4. The Settings Menu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="search_sort.html">5. Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="organizations.html">6. Organizations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="users.html">7. Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="teams.html">8. Teams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credentials.html">9. Credentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credential_plugins.html">10. Secret Management System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credential_types.html">11. Custom Credential Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="execution_environments.html">12. Execution Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ee_reference.html">13. Execution Environment Setup Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="projects.html">14. Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project-sign.html">15. Project Signing and Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventories.html">16. Inventories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventory_plugins_templates.html">17. Supported Inventory Plugin Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="labels.html">18. Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_templates.html">19. Job Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_slices.html">20. Job Slicing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflows.html">21. Workflows</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">22. Workflow Job Templates</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-workflow-template">22.1. Create a Workflow Template</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#work-with-permissions">22.2. Work with Permissions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#work-with-notifications">22.3. Work with Notifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#view-completed-jobs">22.4. View Completed Jobs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#work-with-schedules">22.5. Work with Schedules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#schedule-a-workflow-template">22.5.1. Schedule a Workflow Template</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#surveys">22.6. Surveys</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#create-a-survey">22.6.1. Create a Survey</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#optional-survey-questions">22.6.2. Optional Survey Questions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#workflow-visualizer">22.7. Workflow Visualizer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#build-a-workflow">22.7.1. Build a Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#launch-a-workflow-template">22.8. Launch a Workflow Template</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#copy-a-workflow-template">22.9. Copy a Workflow Template</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#extra-variables">22.10. Extra Variables</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="instance_groups.html">23. Instance Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jobs.html">24. Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhooks.html">25. Working with Webhooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notifications.html">26. Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notification_parameters_supported.html">27. Supported Attributes for Custom Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduling.html">28. Schedules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="best_practices.html">29. Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">30. Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html">31. Glossary</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation decisions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../eda/index.html">Event-Driven Ansible</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hub/index.html">Automation hub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operate</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../operate/index.html">Operate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../administration/index.html">Administering Koios Automation Platform Deployments</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration as code and API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/casc.html">Configuration as code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rest_api/index.html">automation controller API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/releases.html">Releases</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Koios Automation Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Automating with Koios Automation Platform</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">22. </span>Workflow Job Templates</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <section id="workflow-job-templates">
+<span id="ug-wf-templates"></span><h1><span class="section-number">22. </span>Workflow Job Templates<a class="headerlink" href="#workflow-job-templates" title="Link to this heading"></a></h1>
+<p id="index-0">A <a class="reference internal" href="glossary.html#term-Workflow-Job-Template"><span class="xref std std-term">workflow job template</span></a> links together a sequence of disparate resources that accomplishes the task of tracking the full set of jobs that were part of the release process as a single unit. These resources may include:</p>
+<ul class="simple">
+<li><p>job templates</p></li>
+<li><p>workflow job templates</p></li>
+<li><p>project syncs</p></li>
+<li><p>inventory source syncs</p></li>
+<li><p>approvals</p></li>
+<li><p>management jobs</p></li>
+</ul>
+<p>Open <strong>Automation Execution &gt; Templates</strong>. The <strong>Automation Templates</strong> list shows the job templates and workflow job templates you can see, with their type, labels, organization and when they last ran. Expand a row with the arrow next to it to see more details. The list is sorted by name, but you can sort by other criteria, or search by various fields and attributes of a template.</p>
+<p>Workflow job templates have <strong>View workflow visualizer</strong> (graph icon) in their row, as a shortcut to the workflow editor, besides <strong>Launch template</strong>, <strong>Edit template</strong> and, in the row menu, <strong>Duplicate template</strong> and <strong>Delete template</strong>.</p>
+<p><img alt="The Automation Templates list with a workflow job template and its View workflow visualizer icon" src="../_images/wf-templates-home-with-example-wf-template.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Workflow templates can be used as building blocks for another workflow template. Many parameters in a workflow template allow you to enable <strong>Prompt on launch</strong> that can be modified at the workflow job template level, and do not affect the values assigned at the individual workflow template level. For instructions, see the <a class="reference internal" href="#ug-wf-editor"><span class="std std-ref">Workflow Visualizer</span></a> section.</p>
+</div>
+<section id="create-a-workflow-template">
+<h2><span class="section-number">22.1. </span>Create a Workflow Template<a class="headerlink" href="#create-a-workflow-template" title="Link to this heading"></a></h2>
+<p>To create a new workflow job template:</p>
+<ol class="arabic simple">
+<li><p>In the Templates list, click <strong>Create template</strong> and select <strong>Create workflow job template</strong>.</p></li>
+</ol>
+<p><img alt="The Create workflow job template form" src="../_images/wf-templates-create-new-wf-template.png" /></p>
+<ol class="arabic simple" start="2">
+<li><p>Enter the appropriate details into the following fields:</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If a field has the <strong>Prompt on launch</strong> checkbox selected, launching the workflow template, or when the workflow template is used within another workflow template, it will prompt for the value for that field upon launch. Most prompted values will override any values set in the workflow job template; exceptions are noted below.</p>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 13.3%" />
+<col style="width: 46.7%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Options</p></th>
+<th class="head"><p>Prompt on launch</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Name</strong></p></td>
+<td><p>Enter a name for the workflow job template (required).</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Description</strong></p></td>
+<td><p>Enter an arbitrary description as appropriate (optional).</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Organization</strong></p></td>
+<td><p>Choose the organization to be used with this template from the organizations available to the currently logged in user.</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Inventory</strong></p></td>
+<td><p>Optionally choose the inventory to be used with this template from the inventories available to the currently logged in user. It is used by the nodes that prompt for an inventory.</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Limit</strong></p></td>
+<td><p>A host pattern to further constrain the list of hosts managed or affected by the playbook. Multiple patterns can be separated by colons (<code class="docutils literal notranslate"><span class="pre">:</span></code>). As with core Ansible, <code class="docutils literal notranslate"><span class="pre">a:b</span></code> means “in group a or b”, <code class="docutils literal notranslate"><span class="pre">a:b:&amp;c</span></code> means “in a or b but must be in c”, and <code class="docutils literal notranslate"><span class="pre">a:!b</span></code> means “in a, and definitely not in b”. For more information and examples refer to <a class="reference external" href="https://docs.ansible.com/ansible/latest/inventory_guide/intro_patterns.html">Patterns</a> in the Ansible documentation.</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Source control branch</strong></p></td>
+<td><p>Select a branch for the workflow. This branch is applied to all workflow job template nodes that prompt for a branch.</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Labels</strong></p></td>
+<td><ul class="simple">
+<li><p>Optionally supply labels that describe this workflow job template, such as “dev” or “test”. Labels can be used to group and filter workflow job templates and completed jobs.</p></li>
+<li><p>Type a name to select an existing label or to create a new one. Labels belong to the organization of the workflow job template. Members of the organization can create labels on a workflow template if they have edit permissions (such as an admin role).</p></li>
+<li><p>Workflow jobs get the labels of the template when they are launched, and keep them: removing a label from the template does not remove it from the workflow jobs that were already launched.</p></li>
+<li><p>Labels are only applied to the workflow templates, not to the job template nodes that are used in the workflow.</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p>Yes. If selected, even if a default value is supplied, you will be prompted upon launch to supply additional labels if needed.</p></li>
+<li><p>You cannot remove the default labels at launch, only the ones you added.</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Job tags</strong></p></td>
+<td><p>Type and select or create the tags that specify which parts of the playbooks should be executed.</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Skip tags</strong></p></td>
+<td><p>Type and select or create the tags of the tasks or parts of the playbooks to skip.</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Extra variables</strong></p></td>
+<td><ul class="simple">
+<li><p>Pass extra command line variables to the playbooks. This is the “-e” or “–extra-vars” command line parameter for ansible-playbook that is documented in the Ansible documentation at <a class="reference external" href="https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_variables.html#defining-variables-at-runtime">Defining variables at runtime</a>.</p></li>
+<li><p>Provide key/value pairs using either YAML or JSON. These variables have a maximum value of precedence and overrides other variables specified elsewhere. An example value might be:</p></li>
+</ul>
+<blockquote>
+<div><div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="nt">git_branch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">production</span>
+<span class="nt">release_version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.5</span>
+</pre></div>
+</div>
+</div></blockquote>
+</td>
+<td><ul class="simple">
+<li><p>Yes. If you want to be able to specify <code class="docutils literal notranslate"><span class="pre">extra_vars</span></code> on a schedule, you must select <strong>Prompt on launch</strong> for <strong>Extra variables</strong> on the workflow job template, or enable a survey on the workflow job template, then those answered survey questions become <code class="docutils literal notranslate"><span class="pre">extra_vars</span></code>.</p></li>
+<li><p>For more information about extra variables, refer to <a class="reference internal" href="#ug-wf-templates-extravars"><span class="std std-ref">Extra Variables</span></a>.</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>For more information about <strong>Job tags</strong> and <strong>Skip tags</strong>, refer to <a class="reference external" href="https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_tags.html">Tags</a> in the Ansible documentation.</p>
+<ol class="arabic simple" start="3">
+<li><p><strong>Options</strong>: Specify options for launching this workflow job template, if necessary.</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p>Check <strong>Enable webhook</strong> to turn on the ability to launch the workflow job template from a GitHub, GitLab or Bitbucket Data Center webhook.</p></li>
+</ul>
+</div></blockquote>
+<blockquote id="ug-wfjt-enable-webhooks">
+<div><p>If you enable webhooks, the <strong>Webhook details</strong> section asks for additional information:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Webhook service</strong>: Select which service to listen for webhooks from.</p></li>
+<li><p><strong>Webhook URL</strong>: Automatically populated with the URL for the webhook service to POST requests to.</p></li>
+<li><p><strong>Webhook key</strong>: The shared secret used by the webhook service to sign payloads sent to automation controller. A new key is generated when the template is saved, and you can regenerate it with the button next to the field. Configure it in the webhook settings of the service so that automation controller accepts its webhooks.</p></li>
+<li><p><strong>Webhook credential</strong>: A token credential used to send status updates to the webhook service. For supported providers and configuration, see <a class="reference internal" href="webhooks.html#ug-webhooks"><span class="std std-ref">Working with Webhooks</span></a>; the credential types and their fields are documented in <a class="reference internal" href="credentials.html#ug-credentials-cred-types"><span class="std std-ref">Credential Types</span></a>.</p></li>
+</ul>
+<p>For additional information on setting up webhooks, see <a class="reference internal" href="webhooks.html#ug-webhooks"><span class="std std-ref">Working with Webhooks</span></a>.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>Check <strong>Enable concurrent jobs</strong> to allow simultaneous runs of this workflow. Refer to <a class="reference internal" href="jobs.html#ug-job-concurrency"><span class="std std-ref">Automation controller Capacity Determination and Job Impact</span></a> for additional information.</p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li><p>When you have completed configuring the workflow template, click <strong>Create workflow job template</strong>. The Workflow Visualizer opens to build the workflow; see <a class="reference internal" href="#ug-wf-editor"><span class="std std-ref">Workflow Visualizer</span></a>.</p></li>
+</ol>
+<p>Later, the template opens in its <strong>Details</strong> tab, with <strong>View workflow visualizer</strong>, <strong>Launch template</strong> and <strong>Edit template</strong> at the top and the <strong>Team Access</strong>, <strong>User Access</strong>, <strong>Schedules</strong>, <strong>Jobs</strong>, <strong>Survey</strong> and, when your permissions allow it, <strong>Notifications</strong> tabs. Click <strong>View workflow visualizer</strong> to change the workflow. A workflow cannot be launched until it has at least one node.</p>
+<img alt="Details of a workflow job template" src="../_images/wf-templates-wf-template-saved.png" />
+</section>
+<section id="work-with-permissions">
+<h2><span class="section-number">22.2. </span>Work with Permissions<a class="headerlink" href="#work-with-permissions" title="Link to this heading"></a></h2>
+<p>The <strong>User Access</strong> and <strong>Team Access</strong> tabs list the users and teams with roles on the workflow job template; <strong>Assign users</strong> and <strong>Assign teams</strong> give roles to more of them, such as <strong>WorkflowJobTemplate Execute</strong> to launch it or <strong>WorkflowJobTemplate Approve</strong> to approve its approval nodes. Users must exist first; see <a class="reference internal" href="users.html#ug-users"><span class="std std-ref">Users</span></a>.</p>
+<img alt="The User Access tab of a workflow job template with a user that has the WorkflowJobTemplate Approve role" src="../_images/wf-template-completed-permissions-view.png" />
+</section>
+<section id="work-with-notifications">
+<h2><span class="section-number">22.3. </span>Work with Notifications<a class="headerlink" href="#work-with-notifications" title="Link to this heading"></a></h2>
+<p>The <strong>Notifications</strong> tab lists the notifiers you can use with the workflow job template.</p>
+<img alt="The Notifications tab of a workflow job template with a notifier enabled for approvals, success and failure" src="../_images/wf-template-completed-notifications-view.png" />
+<p>Use the <strong>Approval</strong>, <strong>Start</strong>, <strong>Success</strong> and <strong>Failure</strong> toggles to enable or disable each notifier for the workflow jobs of this template; <strong>Approval</strong> notifies when an approval node is waiting, approved, denied or timed out. For more detail, see <a class="reference internal" href="notifications.html#ug-notifications-on-off"><span class="std std-ref">Enable and Disable Notifications</span></a>.</p>
+<p>If no notifiers have been set up, see <a class="reference internal" href="notifications.html#ug-notifications-create"><span class="std std-ref">Create a Notification Template</span></a> for detail. Refer to <a class="reference internal" href="notifications.html#ug-notifications-types"><span class="std std-ref">Notification Types</span></a> for additional details on configuring various notification types.</p>
+</section>
+<section id="view-completed-jobs">
+<h2><span class="section-number">22.4. </span>View Completed Jobs<a class="headerlink" href="#view-completed-jobs" title="Link to this heading"></a></h2>
+<p>The <strong>Jobs</strong> tab lists the workflow jobs launched from the template. Expand a row to see more details; the row actions cancel a running workflow job or relaunch it.</p>
+<img alt="The Jobs tab of a workflow job template with a running workflow job" src="../_images/wf-template-completed-jobs-list.png" />
+<p>Click a workflow job to see its graphical representation, with the status and elapsed time of each node. The example below shows a workflow job waiting at its approval node.</p>
+<img alt="Output of a workflow job with the graph of its nodes" src="../_images/wf-template-jobID-detail-example.png" />
+<p>The nodes are marked with icons that help you identify them at a glance. See the <a class="reference internal" href="#legend">legend</a> in the <a class="reference internal" href="#ug-wf-editor"><span class="std std-ref">Workflow Visualizer</span></a> section for more information.</p>
+</section>
+<section id="work-with-schedules">
+<h2><span class="section-number">22.5. </span>Work with Schedules<a class="headerlink" href="#work-with-schedules" title="Link to this heading"></a></h2>
+<p id="index-1">The <strong>Schedules</strong> tab lists the schedules set up for this template.</p>
+<img alt="The Schedules tab of a workflow job template with a monthly schedule" src="../_images/wf-template-schedules.png" />
+<section id="schedule-a-workflow-template">
+<h3><span class="section-number">22.5.1. </span>Schedule a Workflow Template<a class="headerlink" href="#schedule-a-workflow-template" title="Link to this heading"></a></h3>
+<p id="index-2">To schedule a workflow job template run, click <strong>Create schedule</strong> in the <strong>Schedules</strong> tab. Existing schedules can be edited, enabled or disabled from the same tab. Refer to <a class="reference internal" href="scheduling.html#ug-scheduling"><span class="std std-ref">Schedules</span></a> for more information.</p>
+<p>If the workflow job template prompts for values on launch, such as the inventory, the schedule asks for them too. If it has a survey with required questions, the schedule must answer them.</p>
+</section>
+</section>
+<section id="surveys">
+<span id="ug-wf-surveys"></span><h2><span class="section-number">22.6. </span>Surveys<a class="headerlink" href="#surveys" title="Link to this heading"></a></h2>
+<p id="index-3">Workflow job templates provide a way to set up surveys. Surveys set extra variables for the workflow, similar to <strong>Prompt on launch</strong> for <strong>Extra variables</strong>, but in a user-friendly question and answer way. Surveys also allow for validation of user input. Click the <strong>Survey</strong> tab to create a survey.</p>
+<p>Use cases for surveys are numerous. An example might be if operations wanted to give developers a “push to stage” button they could run without advanced Ansible knowledge. When launched, this task could prompt for answers to questions such as, “What tag should we release?”</p>
+<p>Many types of questions can be asked, including multiple-choice questions.</p>
+<section id="create-a-survey">
+<span id="ug-wf-surveys-create"></span><h3><span class="section-number">22.6.1. </span>Create a Survey<a class="headerlink" href="#create-a-survey" title="Link to this heading"></a></h3>
+<p id="index-4">To create a survey:</p>
+<ol class="arabic simple">
+<li><p>In the <strong>Survey</strong> tab, click <strong>Create survey question</strong>.</p></li>
+</ol>
+<img alt="The form to create a survey question of a workflow job template" src="../_images/wf-template-create-survey.png" />
+<ol class="arabic simple" start="2">
+<li><p>A survey can consist of any number of questions. For each question, enter the following information:</p></li>
+</ol>
+<ul class="simple">
+<li><p><strong>Question</strong>: The question to ask the user.</p></li>
+<li><p><strong>Description</strong>: (optional) A description of what’s being asked of the user.</p></li>
+<li><p><strong>Answer variable name</strong>: The Ansible variable name to store the user’s response in. This is the variable to be used by the playbook. Variable names cannot contain spaces.</p></li>
+<li><p><strong>Answer type</strong>: Choose from the following question types.</p>
+<ul>
+<li><p><em>Text</em>: A single line of text. You can set the minimum and maximum length (in characters) for this answer.</p></li>
+<li><p><em>Textarea</em>: A multi-line text field. You can set the minimum and maximum length (in characters) for this answer.</p></li>
+<li><p><em>Password</em>: Responses are treated as sensitive information, much like an actual password is treated. You can set the minimum and maximum length (in characters) for this answer.</p></li>
+<li><p><em>Multiple Choice (single select)</em>: A list of options, of which only one can be selected at a time.</p></li>
+<li><p><em>Multiple Choice (multiple select)</em>: A list of options, any number of which can be selected at a time.</p></li>
+<li><p><em>Integer</em>: An integer number. You can set the minimum and maximum value for this answer.</p></li>
+<li><p><em>Float</em>: A decimal number. You can set the minimum and maximum value for this answer.</p></li>
+</ul>
+</li>
+<li><p><strong>Required</strong>: Whether or not an answer to this question is required from the user.</p></li>
+<li><p><strong>Default answer</strong>: Depending on which type chosen, you can supply the default answer to the question. This value is pre-filled in the interface and is used if the answer is not provided by the user.</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p>Once you have entered the question information, click <strong>Create survey question</strong>.</p></li>
+</ol>
+<p>The question displays in the <strong>Survey</strong> tab. Use the <strong>Survey enabled</strong> switch to enable or disable the survey, the pencil icon to edit a question, and <strong>Manage question order</strong> and <strong>Delete survey questions</strong> in the toolbar menu to reorder or delete questions.</p>
+<p><img alt="The Survey tab of a workflow job template with one question" src="../_images/wf-template-completed-survey.png" /></p>
+</section>
+<section id="optional-survey-questions">
+<h3><span class="section-number">22.6.2. </span>Optional Survey Questions<a class="headerlink" href="#optional-survey-questions" title="Link to this heading"></a></h3>
+<p id="index-5">The <strong>Required</strong> setting on a survey question determines whether the answer is optional or not for the user interacting with it.</p>
+<p>Behind the scenes, optional survey variables can be passed to the playbook in <code class="docutils literal notranslate"><span class="pre">extra_vars</span></code>, even when they aren’t filled in.</p>
+<ul class="simple">
+<li><p>If a non-text variable (input type) is marked as optional, and is not filled in, no survey <code class="docutils literal notranslate"><span class="pre">extra_var</span></code> is passed to the playbook.</p></li>
+<li><p>If a text input or text area input is marked as optional, is not filled in, and has a minimum <code class="docutils literal notranslate"><span class="pre">length</span> <span class="pre">&gt;</span> <span class="pre">0</span></code>, no survey <code class="docutils literal notranslate"><span class="pre">extra_var</span></code> is passed to the playbook.</p></li>
+<li><p>If a text input or text area input is marked as optional, is not filled in, and has a minimum <code class="docutils literal notranslate"><span class="pre">length</span> <span class="pre">===</span> <span class="pre">0</span></code>, that survey <code class="docutils literal notranslate"><span class="pre">extra_var</span></code> is passed to the playbook, with the value set to an empty string ( “” ).</p></li>
+</ul>
+</section>
+</section>
+<section id="workflow-visualizer">
+<span id="ug-wf-editor"></span><h2><span class="section-number">22.7. </span>Workflow Visualizer<a class="headerlink" href="#workflow-visualizer" title="Link to this heading"></a></h2>
+<p id="index-6">The Workflow Visualizer provides a graphical way of linking together job templates, workflow templates, project syncs, inventory syncs, approvals and management jobs to build a workflow template. Before building a workflow template, refer to the <a class="reference internal" href="workflows.html#ug-workflows"><span class="std std-ref">Workflows</span></a> section for considerations associated with various scenarios on parent, child, and sibling nodes.</p>
+<section id="build-a-workflow">
+<h3><span class="section-number">22.7.1. </span>Build a Workflow<a class="headerlink" href="#build-a-workflow" title="Link to this heading"></a></h3>
+<p>Each node (step) is represented by an icon with its alias or name, while the relationships and their run conditions are represented by the lines (links) that connect them. The example below runs a project sync, then a job template; if the job template succeeds, an approval node waits for a user before the last job template, and if it fails, an inventory source sync runs.</p>
+<img alt="The Workflow Visualizer with a workflow of five nodes" src="../_images/wf-editor-create-new-add-template-example.png" />
+<ol class="arabic simple">
+<li><p>Open the workflow job template and click <strong>View workflow visualizer</strong>, or click the graph icon in its row of the Templates list.</p></li>
+<li><p>Click <strong>Add step</strong> in the toolbar of the visualizer. The <strong>Add step</strong> wizard opens on the right.</p></li>
+</ol>
+<img alt="The Add step wizard of the Workflow Visualizer" src="../_images/wf-editor-create-new-add-template-list.png" />
+<ol class="arabic simple" start="3">
+<li><p>In <strong>Node type</strong>, select the type of node you want to add: <strong>Job Template</strong>, <strong>Workflow Job Template</strong>, <strong>Approval</strong>, <strong>Project Sync</strong>, <strong>Inventory Source Sync</strong> or <strong>Management Job</strong>.</p></li>
+</ol>
+<img alt="The Node type options of the Add step wizard" src="../_images/wf-add-node-selections.png" />
+<p>If selecting an <strong>Approval</strong> node, see <a class="reference internal" href="#ug-wf-approval-nodes"><span class="std std-ref">Approval nodes</span></a> for further detail.</p>
+<p>Selecting a node type shows the fields associated with it, such as the template, project or inventory source to run.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you select a job template that does not have a default inventory when populating a workflow graph, the inventory of the parent workflow will be used. Though a credential is not required in a job template, you will not be able to choose a job template for your workflow if it has a credential that requires a password, unless the credential is replaced by a prompted credential.</p>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>When the step is added after an existing node (with <strong>Add step and link</strong> in the menu of that node, see below), select in <strong>Status</strong> when it runs:</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Always run</strong>: Execute regardless of the parent node final state.</p></li>
+<li><p><strong>Run on success</strong>: Execute when the parent node results in a successful state.</p></li>
+<li><p><strong>Run on fail</strong>: Execute when the parent node results in a failure state.</p></li>
+</ul>
+<p>Nodes added with <strong>Add step</strong> in the toolbar, or in the menu of the <strong>Start</strong> node, are root nodes, which always run when the workflow starts.</p>
+</div></blockquote>
+<ol class="arabic simple" id="convergence-node" start="5">
+<li><p>Select the behavior of the node if it is a convergent node in the <strong>Convergence</strong> field:</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Any</strong> is the default behavior, allowing <em>any</em> of the nodes to complete as specified, before triggering the next converging node. As long as the status of one parent meets one of those run conditions, an ANY child node will run. In other words, an ANY node requires <strong>all</strong> nodes to complete, but only one node must complete with the expected outcome.</p></li>
+<li><p>Choose <strong>All</strong> to ensure that <em>all</em> nodes complete as specified, before converging and triggering the next node. The purpose of ALL nodes is to make sure that every parent met it’s expected outcome in order to run the child node. The workflow checks to make sure every parent behaved as expected in order to run the child node. Otherwise, it will not run the child node.</p></li>
+</ul>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If a node is a root node, or a node that does not have any nodes converging into it, setting the <strong>Convergence</strong> rule does not apply, as its behavior is dictated by the action that triggers it.</p>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>Optionally enter a <strong>Node alias</strong>, the name shown for the node in the graph.</p></li>
+<li><p>Click <strong>Next</strong>. If a job template or workflow job template used in the node has <strong>Prompt on launch</strong> selected for any of its parameters, the <strong>Prompts</strong> step lets you set those values for this node, and the <strong>Survey</strong> step asks for its survey answers. Review the node in the <strong>Review</strong> step and click <strong>Finish</strong>.</p></li>
+</ol>
+<p>Likewise, if a workflow template used in the workflow has <strong>Prompt on launch</strong> selected for the inventory option, supply the inventory in the <strong>Prompts</strong> step. If the parent workflow has its own inventory, it will override any inventory that is supplied here.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For templates with promptable fields that are required, but do not have a default, you must provide those values when creating a node. The two cases are: 1) when you select the <strong>Prompt on launch</strong> checkbox in a template, but do not provide a default, or 2) when you create a survey question that is required but do not provide a default answer. However, this is <strong>NOT</strong> the case with credentials. Credentials that require a password on launch are <strong>not permitted</strong> when creating a workflow node, since everything needed to launch the node must be provided when the node is created. So, if a template prompts for credentials, automation controller prevents you from being able to select a credential that requires a password.</p>
+</div>
+<p>Once the node is created, it is shown with the icon of its node type. A template that is associated with each workflow node will run based on the selected run scenario as it proceeds. Click <strong>Legend</strong> at the bottom of the visualizer to display the meaning of each icon and color.</p>
+<img alt="The legend of the Workflow Visualizer" id="legend" src="../_images/wf-editor-key-dropdown-list.png" />
+<ol class="arabic simple" start="8">
+<li><p>The menu (⋮) next to the name of each node has <strong>Edit step</strong>, <strong>Add step and link</strong> (a new step that runs after it) and <strong>Remove step</strong>; the menu of the <strong>Start</strong> node has <strong>Add step</strong>. The menu of each link sets its run condition (<strong>Run on success</strong>, <strong>Run always</strong> or <strong>Run on fail</strong>) or removes it with <strong>Remove link</strong>.</p></li>
+<li><p>When done with building your workflow template, click <strong>Save</strong> in the toolbar of the visualizer. <strong>Launch workflow</strong> launches it once saved.</p></li>
+</ol>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Closing the Workflow Visualizer with unsaved changes asks whether to <strong>Save and exit</strong> or <strong>Exit without saving</strong>; changes that are not saved are lost.</p>
+</div>
+<p>The buttons at the bottom of the visualizer zoom in and out, fit the workflow to the screen and reset the view. You can also drag the workflow diagram to reposition it on the screen or use the scroll on your mouse to zoom.</p>
+<section id="approval-nodes">
+<span id="ug-wf-approval-nodes"></span><h4><span class="section-number">22.7.1.1. </span>Approval nodes<a class="headerlink" href="#approval-nodes" title="Link to this heading"></a></h4>
+<p>Choosing an <strong>Approval</strong> node requires user intervention in order to advance the workflow. This functions as a means to pause the workflow in between playbooks so that a user can give approval to continue on to the next playbook in the workflow, giving the user a specified amount of time to intervene, but also allows the user to continue as quickly as possible without having to wait on some other trigger.</p>
+<img alt="The Add step wizard for an Approval node" src="../_images/wf-node-approval-form.png" />
+<p>An approval node needs a <strong>Name</strong>, and optionally a <strong>Description</strong> and a <strong>Timeout</strong> in minutes and seconds. The default for the timeout is none, but you can specify the length of time before the request expires and automatically gets denied. The node displays on the graphical view with a clock icon.</p>
+<p>Pending approvals are listed in <strong>Automation Execution &gt; Administration &gt; Workflow Approvals</strong>, with the time left before they expire; they also appear as notifications in the panel of the bell at the top of the page (its counter shows the unread notifications, not the pending approvals). Select them and click <strong>Approve</strong> or <strong>Deny</strong>, or use the actions of each row.</p>
+<img alt="The Workflow Approvals list with a pending approval" src="../_images/wf-node-approval-notifications.png" />
+<p>Launching the workflow does not grant the right to approve its nodes. The approvers are:</p>
+<ul class="simple">
+<li><p>system administrators</p></li>
+<li><p>the administrators of the workflow job template, and the users with the <strong>Organization WorkflowJobTemplate Admin</strong> role</p></li>
+<li><p>the administrators of the organization of the workflow job template</p></li>
+<li><p>the users with the <strong>WorkflowJobTemplate Approve</strong> role on the workflow job template, or the <strong>Organization Approval</strong> role on its organization</p></li>
+</ul>
+<p>Users who can see the workflow job template can see its approvals.</p>
+<p>If pending approval nodes are not approved within the specified time limit (if an expiration was assigned) or they are denied, then they are marked as “timed out” or “failed”, respectively, and move on to the next “on fail node” or “always node”. If approved, the “on success” path is taken. If you try to POST in the API to a node that has already been approved, denied or timed out, an error message notifies you that this action is redundant, and no further steps will be taken.</p>
+</section>
+<section id="node-building-scenarios">
+<span id="ug-wf-building-scenarios"></span><h4><span class="section-number">22.7.1.2. </span>Node building scenarios<a class="headerlink" href="#node-building-scenarios" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>To add a node that runs after another one, open the menu of the parent node and click <strong>Add step and link</strong>. Adding several steps to the same parent creates sibling nodes, which run in parallel.</p></li>
+<li><p>To add another root node, which depicts a split scenario from the start, click <strong>Add step</strong> in the toolbar.</p></li>
+<li><p>To link two existing nodes, drag the connector that appears when you hover over the parent node onto the child node, and set the run condition of the new link in its menu.</p></li>
+<li><p>To change the run condition of a link, open the menu of the link and select <strong>Run on success</strong>, <strong>Run always</strong> or <strong>Run on fail</strong>.</p></li>
+<li><p>To remove a link, open the menu of the link and click <strong>Remove link</strong>.</p></li>
+<li><p>To edit a node, open its menu and click <strong>Edit step</strong>; to delete it, click <strong>Remove step</strong>.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When you remove a node, its child nodes are linked to its parent nodes and keep the run condition of their link, with two exceptions: if a link between the parent and the child already exists, it keeps the condition of that link, and if the new parent is <strong>Start</strong>, the link becomes <strong>Run always</strong>. Check the run conditions after removing nodes.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When adding a new node, the <strong>Prompts</strong> and <strong>Survey</strong> steps apply to workflow templates as well. Workflow templates will prompt for inventory and surveys.</p>
+</div>
+<p>Remember to refer to the <strong>Legend</strong> to identify the meaning of the symbols and colors associated with the graphical depiction.</p>
+</section>
+</section>
+</section>
+<section id="launch-a-workflow-template">
+<h2><span class="section-number">22.8. </span>Launch a Workflow Template<a class="headerlink" href="#launch-a-workflow-template" title="Link to this heading"></a></h2>
+<p id="index-7">Launch a workflow template by any of the following ways:</p>
+<ul class="simple">
+<li><p>In the Templates list, click <strong>Launch template</strong> (rocket icon) in the row of the workflow job template.</p></li>
+<li><p>In the workflow job template, click <strong>Launch template</strong>.</p></li>
+<li><p>In the Workflow Visualizer, click <strong>Launch workflow</strong>.</p></li>
+</ul>
+<p>If the template prompts for values or has a survey, the launch wizard asks for them before launching. Along with any extra variables set in the workflow job template and survey, automation controller automatically adds the same job variables as those added for a job template upon launch (see <a class="reference internal" href="job_templates.html#ug-jt-job-variables"><span class="std std-ref">the job variables</span></a>). Automation controller then opens the output of the workflow job, displaying the progress and the results.</p>
+<p>Events related to approvals on workflows display in the Activity Stream with detailed information about the approval requests, if any.</p>
+</section>
+<section id="copy-a-workflow-template">
+<h2><span class="section-number">22.9. </span>Copy a Workflow Template<a class="headerlink" href="#copy-a-workflow-template" title="Link to this heading"></a></h2>
+<p>Automation controller allows you the ability to copy a workflow template. If you choose to copy a workflow template, it <strong>does not</strong> copy any associated schedule, notifications, or permissions. Schedules and notifications must be recreated by the user or admin creating the copy of the workflow template. The user copying the workflow template will be granted the admin permission, but no permissions are assigned (copied) to the workflow template.</p>
+<ol class="arabic simple">
+<li><p>In the Templates list, open the row menu of the workflow job template you want to copy and click <strong>Duplicate template</strong>.</p></li>
+</ol>
+<p>The new template, named after the original one with a timestamp, displays in the list of templates.</p>
+<ol class="arabic simple" start="2">
+<li><p>Click the new template, click <strong>Edit template</strong> and replace the contents of the <strong>Name</strong> field with a new name, and provide or modify the entries in the other fields to complete this template.</p></li>
+<li><p>Click <strong>Save workflow job template</strong> when done.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If a resource has a related resource that you don’t have the right level of permission to, you cannot copy the resource, such as in the case where a project uses a credential that a current user only has <em>Read</em> access. However, for a workflow template, if any of its nodes uses an unauthorized job template, inventory, or credential, the workflow template can still be copied. But in the copied workflow template, the corresponding fields in the workflow template node will be absent.</p>
+</div>
+</section>
+<section id="extra-variables">
+<span id="ug-wf-templates-extravars"></span><h2><span class="section-number">22.10. </span>Extra Variables<a class="headerlink" href="#extra-variables" title="Link to this heading"></a></h2>
+<span class="target" id="index-8"></span><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">extra_vars</span></code> passed to the job launch API are only honored if one of the following is true:</p>
+<ul class="simple">
+<li><p>They correspond to variables in an enabled survey</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ask_variables_on_launch</span></code> is set to True</p></li>
+</ul>
+</div>
+<p>When you pass survey variables, they are passed as extra variables (<code class="docutils literal notranslate"><span class="pre">extra_vars</span></code>). This can be tricky, as passing extra variables to a workflow template (as you would do with a survey) can override other variables being passed from the inventory and project.</p>
+<p>For example, say that you have a defined variable for an inventory for <code class="docutils literal notranslate"><span class="pre">debug</span> <span class="pre">=</span> <span class="pre">true</span></code>. It is entirely possible that this variable, <code class="docutils literal notranslate"><span class="pre">debug</span> <span class="pre">=</span> <span class="pre">true</span></code>, can be overridden in a workflow template survey, because <code class="docutils literal notranslate"><span class="pre">extra_vars</span></code> have the highest precedence over inventory, group and host variables.</p>
+<p>Within <code class="docutils literal notranslate"><span class="pre">extra_vars</span></code>, the values given at launch (prompted extra variables and survey answers) override the defaults of the template and of the survey. A survey question therefore does not protect a variable: to keep a value fixed, define it only in the template’s <strong>Extra variables</strong> and do not prompt for it nor ask for it in the survey.</p>
+<p id="index-9">For a job template launched by a workflow, the extra variables of the job are combined in this order, where later ones override earlier ones with the same name:</p>
+<ol class="arabic simple">
+<li><p>the extra variables of the job template, as in <a class="reference internal" href="job_templates.html#ug-jobtemplates-extravars"><span class="std std-ref">Extra Variables</span></a>;</p></li>
+<li><p>the extra variables prompted in the workflow node;</p></li>
+<li><p>the artifacts of the previous jobs in the workflow (the variables they set with <code class="docutils literal notranslate"><span class="pre">set_stats</span></code>);</p></li>
+<li><p>the extra variables of the workflow job: those of the workflow job template, then the answers of its survey (including default values), then the extra variables given at launch.</p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="workflows.html" class="btn btn-neutral float-left" title="21. Workflows" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="instance_groups.html" class="btn btn-neutral float-right" title="23. Instance Groups" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Koios Solutions. Portions 2026, Red Hat, Inc. and 2026, CtrlIQ, Inc..</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+<p class="koios-legal">Licensed under the <a href="../LICENSE.txt">Apache License 2.0</a>; see the <a href="../NOTICE.txt">NOTICE</a> for the origin of this documentation.</p>
+
+</body>
+</html>

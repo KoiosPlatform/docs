@@ -1,0 +1,271 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>13. Metrics &ndash; Koios Automation Platform</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ansible.css?v=5657ca2d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/rtd-ethical-ads.css?v=289b023e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/dark.css?v=82723a23" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments-dark.css?v=027e451e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/koios.css?v=808fdb03" />
+
+  
+    <link rel="shortcut icon" href="../_static/images/koios-favicon.svg"/>
+    <link rel="canonical" href="https://docs.koioss.com/administration/metrics.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2d018451"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=b8bcef97"></script>
+      <script src="../_static/js/theme-toggle.js?v=59cbb094"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="14. Improving Automation Controller Performance" href="performance.html" />
+    <link rel="prev" title="12. Logging and Aggregation" href="logging.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+<script>
+  (function () {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('koios-docs-theme');
+    } catch (e) {}
+    // Without a stored choice, follow the system preference (dark when it cannot be read).
+    var light = false;
+    try { light = window.matchMedia('(prefers-color-scheme: light)').matches; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', stored || (light ? 'light' : 'dark'));
+  })();
+</script>
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="#" class="asc-theme-toggle" title="Switch theme" aria-label="Switch theme"><svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg></a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../_static/images/koios-mark-white.svg"
+    alt="Koios">
+  <div class="DocSiteNav-title">Koios Automation Platform</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Koios Automation Platform
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Koios Automation Platform Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Install and upgrade</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade_migration/index.html">Upgrades and Migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configure the platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/index.html">Configure the platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Access management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access/index.html">Authentication and access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation execution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">Automating with Koios Automation Platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation decisions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../eda/index.html">Event-Driven Ansible</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hub/index.html">Automation hub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operate</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../operate/index.html">Operate</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Administering Koios Automation Platform Deployments</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html">Administering Koios Automation Platform Deployments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="init_script.html">1. Starting, Stopping, and Restarting Koios Automation Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="supported_architectures.html">2. Supported Architectures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom_inventory_script.html">3. Custom Inventory Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scm-inv-source.html">4. Inventory File Importing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi-creds-assignment.html">5. Multi-Credential Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="management_jobs.html">6. Management Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clustering.html">7. Clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="containers_instance_groups.html">8. Container and Instance Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instances.html">9. Managing Capacity With Instances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topology_viewer.html">10. Topology Viewer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logfiles.html">11. Automation controller Logfiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">12. Logging and Aggregation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">13. Metrics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#set-up-prometheus">13.1. Set up Prometheus</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html">14. Improving Automation Controller Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secret_handling.html">15. Secret handling and connection security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proxy_support.html">16. Proxy Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backup_restore.html">17. Backup and Restore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security_best_practices.html">18. Security Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awx-manage.html">19. The <em>awx-manage</em> Utility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configure_koios.html">20. Automation Controller Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="isolation_variables.html">21. Isolation functionality and variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kerberos_auth.html">22. Kerberos Authentication for Windows Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html">23. Troubleshooting Automation Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tipsandtricks.html">24. Automation controller Tips and Tricks</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration as code and API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/casc.html">Configuration as code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rest_api/index.html">automation controller API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/releases.html">Releases</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Koios Automation Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Administering Koios Automation Platform Deployments</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">13. </span>Metrics</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <section id="metrics">
+<span id="ag-metrics"></span><h1><span class="section-number">13. </span>Metrics<a class="headerlink" href="#metrics" title="Link to this heading"></a></h1>
+<p id="index-0">A metrics endpoint is available in the API: <code class="docutils literal notranslate"><span class="pre">/api/controller/v2/metrics/</span></code> that surfaces instantaneous metrics about automation controller, which can be consumed by system monitoring software like the open source project Prometheus.</p>
+<p>The type of data shown at the <code class="docutils literal notranslate"><span class="pre">metrics/</span></code> endpoint is <code class="docutils literal notranslate"><span class="pre">Content-type:</span> <span class="pre">text/plain</span></code> and <code class="docutils literal notranslate"><span class="pre">application/json</span></code> as well. This endpoint contains useful information, such as counts of how many active user sessions there are, or how many jobs are actively running on each automation controller node. Prometheus can be configured to scrape these metrics from automation controller by hitting automation controller metrics endpoint and storing this data in a time-series database. Clients can later use Prometheus in conjunction with other software like Grafana or Metricsbeat to visualize that data and set up alerts.</p>
+<section id="set-up-prometheus">
+<h2><span class="section-number">13.1. </span>Set up Prometheus<a class="headerlink" href="#set-up-prometheus" title="Link to this heading"></a></h2>
+<p>To set up and use Prometheus, you will need to install Prometheus on a virtual machine or container. Refer to the <a class="reference external" href="https://prometheus.io/docs/introduction/first_steps/">Prometheus documentation</a> for further detail.</p>
+<ol class="arabic simple">
+<li><p>Create a token of a platform user that can read the metrics (for example a platform auditor) in
+<strong>Access Management &gt; API Tokens</strong>, or through <code class="docutils literal notranslate"><span class="pre">/api/gateway/v1/tokens/</span></code> (see <a class="reference internal" href="../access/tokens.html"><span class="doc">API tokens and OAuth applications</span></a>).
+In the Prometheus config file (typically <code class="docutils literal notranslate"><span class="pre">prometheus.yml</span></code>), scrape the metrics of automation
+controller through the platform address with that token:</p></li>
+</ol>
+<blockquote>
+<div><div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="nt">scrape_configs</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="s">'koios-controller'</span>
+<span class="w">    </span><span class="nt">metrics_path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/api/controller/v2/metrics/</span>
+<span class="w">    </span><span class="nt">scrape_interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30s</span>
+<span class="w">    </span><span class="nt">scheme</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https</span>
+<span class="w">    </span><span class="nt">authorization</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">credentials</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;token_value&gt;</span>
+<span class="w">    </span><span class="nt">tls_config</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">ca_file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/prometheus/koios-ca.crt</span><span class="w">   </span><span class="c1"># remove tls_config if the certificate is publicly trusted</span>
+<span class="w">    </span><span class="nt">static_configs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">targets</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;koios_host&gt;</span>
+</pre></div>
+</div>
+<p>For help configuring other aspects of Prometheus, such as alerts and service discovery configurations, refer to the <a class="reference external" href="https://prometheus.io/docs/prometheus/latest/configuration/configuration/">Prometheus configuration docs</a>.</p>
+<blockquote>
+<div></div></blockquote>
+<p>If Prometheus is already running, reload its configuration: send it <code class="docutils literal notranslate"><span class="pre">SIGHUP</span></code>, or make a <strong>POST</strong> to <code class="docutils literal notranslate"><span class="pre">/-/reload</span></code> when it runs with <code class="docutils literal notranslate"><span class="pre">--web.enable-lifecycle</span></code>.</p>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>Use a browser to navigate to your graph in the Prometheus UI at <code class="docutils literal notranslate"><span class="pre">http://your_prometheus:9090/graph</span></code> and test out some queries. For example, you can query the number of sessions stored by automation controller with <code class="docutils literal notranslate"><span class="pre">awx_sessions_total{type=&quot;user&quot;}</span></code>; platform logins are sessions of the platform gateway, which this metric does not count.</p></li>
+</ol>
+<p>Refer to the metrics endpoint of the automation controller API (<code class="docutils literal notranslate"><span class="pre">/api/controller/v2/metrics/</span></code>) for more ways to query.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="logging.html" class="btn btn-neutral float-left" title="12. Logging and Aggregation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="performance.html" class="btn btn-neutral float-right" title="14. Improving Automation Controller Performance" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Koios Solutions. Portions 2026, Red Hat, Inc. and 2026, CtrlIQ, Inc..</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+<p class="koios-legal">Licensed under the <a href="../LICENSE.txt">Apache License 2.0</a>; see the <a href="../NOTICE.txt">NOTICE</a> for the origin of this documentation.</p>
+
+</body>
+</html>

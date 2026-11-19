@@ -1,0 +1,299 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>20. Automation Controller Configuration &ndash; Koios Automation Platform</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ansible.css?v=5657ca2d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/rtd-ethical-ads.css?v=289b023e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/dark.css?v=82723a23" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments-dark.css?v=027e451e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/koios.css?v=808fdb03" />
+
+  
+    <link rel="shortcut icon" href="../_static/images/koios-favicon.svg"/>
+    <link rel="canonical" href="https://docs.koioss.com/administration/configure_koios.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2d018451"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=b8bcef97"></script>
+      <script src="../_static/js/theme-toggle.js?v=59cbb094"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="21. Isolation functionality and variables" href="isolation_variables.html" />
+    <link rel="prev" title="19. The awx-manage Utility" href="awx-manage.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+<script>
+  (function () {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('koios-docs-theme');
+    } catch (e) {}
+    // Without a stored choice, follow the system preference (dark when it cannot be read).
+    var light = false;
+    try { light = window.matchMedia('(prefers-color-scheme: light)').matches; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', stored || (light ? 'light' : 'dark'));
+  })();
+</script>
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="#" class="asc-theme-toggle" title="Switch theme" aria-label="Switch theme"><svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg></a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../_static/images/koios-mark-white.svg"
+    alt="Koios">
+  <div class="DocSiteNav-title">Koios Automation Platform</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Koios Automation Platform
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Koios Automation Platform Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Install and upgrade</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade_migration/index.html">Upgrades and Migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configure the platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/index.html">Configure the platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Access management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access/index.html">Authentication and access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation execution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">Automating with Koios Automation Platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation decisions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../eda/index.html">Event-Driven Ansible</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hub/index.html">Automation hub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operate</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../operate/index.html">Operate</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Administering Koios Automation Platform Deployments</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html">Administering Koios Automation Platform Deployments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="init_script.html">1. Starting, Stopping, and Restarting Koios Automation Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="supported_architectures.html">2. Supported Architectures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom_inventory_script.html">3. Custom Inventory Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scm-inv-source.html">4. Inventory File Importing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi-creds-assignment.html">5. Multi-Credential Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="management_jobs.html">6. Management Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clustering.html">7. Clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="containers_instance_groups.html">8. Container and Instance Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instances.html">9. Managing Capacity With Instances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topology_viewer.html">10. Topology Viewer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logfiles.html">11. Automation controller Logfiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">12. Logging and Aggregation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">13. Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html">14. Improving Automation Controller Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secret_handling.html">15. Secret handling and connection security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proxy_support.html">16. Proxy Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backup_restore.html">17. Backup and Restore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security_best_practices.html">18. Security Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awx-manage.html">19. The <em>awx-manage</em> Utility</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">20. Automation Controller Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#authentication">20.1. Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#job-settings">20.2. Job Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#system-settings">20.3. System Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#user-interface">20.4. User Interface</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#configure-the-login-page">20.4.1. Configure the login page</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#custom-login-logo">20.4.2. Custom login logo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#custom-login-information">20.4.3. Custom login information</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#restore-the-default-login-page">20.4.4. Restore the default login page</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="isolation_variables.html">21. Isolation functionality and variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kerberos_auth.html">22. Kerberos Authentication for Windows Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html">23. Troubleshooting Automation Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tipsandtricks.html">24. Automation controller Tips and Tricks</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration as code and API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/casc.html">Configuration as code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rest_api/index.html">automation controller API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/releases.html">Releases</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Koios Automation Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Administering Koios Automation Platform Deployments</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">20. </span>Automation Controller Configuration</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <section id="automation-controller-configuration">
+<span id="ag-configure-koios"></span><h1><span class="section-number">20. </span>Automation Controller Configuration<a class="headerlink" href="#automation-controller-configuration" title="Link to this heading"></a></h1>
+<p id="configure-koios-overview"><span id="index-0"></span>Koios Automation Platform separates service settings from deployment configuration. Use <strong>Settings &gt; Automation Execution</strong> for controller settings, <strong>Settings &gt; Platform gateway</strong> for gateway settings, and the <code class="docutils literal notranslate"><span class="pre">KoiosPlatform</span></code> custom resource for deployment configuration. Authentication providers and mappings belong to the gateway; see <a class="reference internal" href="../access/authentication.html"><span class="doc">Authentication methods</span></a>.</p>
+<img alt="Settings navigation showing Platform gateway and the Automation Execution categories." src="../_images/ug-settings-menu-screen.png" />
+<p>Open a controller settings page and click <strong>Edit</strong>. Change the fields you need, then click <strong>Save</strong> to return to its details page, or <strong>Cancel</strong> to discard the edits. Boolean settings are check boxes. Field help explains the accepted values and units.</p>
+<p>Fields that support resetting have a reset control. <strong>Revert all to default</strong> opens a confirmation dialog for a broader reset; it is not limited to the field you are editing. Review its scope before confirming with <strong>Revert all</strong>.</p>
+<p>Settings supplied by the operator as deployment settings are read-only in the API and UI. Change them in the <code class="docutils literal notranslate"><span class="pre">KoiosPlatform</span></code> instead of editing files in a pod. See <a class="reference internal" href="troubleshooting.html#admin-troubleshooting-extra-settings"><span class="std std-ref">Deployment-managed settings</span></a> and <a class="reference internal" href="../reference/koiosplatform.html"><span class="doc">KoiosPlatform</span></a>.</p>
+<section id="authentication">
+<h2><span class="section-number">20.1. </span>Authentication<a class="headerlink" href="#authentication" title="Link to this heading"></a></h2>
+<p>Users log in through the platform gateway, which handles authentication across services. Configure authentication under <strong>Access Management &gt; Authentication Methods</strong>; see <a class="reference internal" href="../access/authentication.html"><span class="doc">Authentication methods</span></a>. Session and gateway security settings are under <strong>Settings &gt; Platform gateway</strong>; see <a class="reference internal" href="../access/sessions.html"><span class="doc">Sessions and passwords</span></a>.</p>
+</section>
+<section id="job-settings">
+<span id="configure-koios-jobs"></span><h2><span class="section-number">20.2. </span>Job Settings<a class="headerlink" href="#job-settings" title="Link to this heading"></a></h2>
+<p>Open <strong>Settings &gt; Automation Execution &gt; Job</strong> and click <strong>Edit</strong>. This page includes controller job defaults, allowed ad hoc modules, job timeouts, Galaxy access, and execution isolation settings. Available fields depend on the settings exposed by the controller API.</p>
+<img alt="Job settings edit form with current controller settings." src="../_images/configure-koios-jobs.png" />
+<p>Use the help text for each field rather than assuming all numeric fields have the same unit. For Galaxy configuration, see <a class="reference internal" href="../userguide/projects.html#ug-galaxy"><span class="std std-ref">Ansible Galaxy Support</span></a>; for execution environments, see <a class="reference internal" href="../userguide/execution_environments.html#ug-execution-environments"><span class="std std-ref">Execution Environments</span></a>. Click <strong>Save</strong> to apply the changes.</p>
+</section>
+<section id="system-settings">
+<span id="configure-koios-system"></span><h2><span class="section-number">20.3. </span>System Settings<a class="headerlink" href="#system-settings" title="Link to this heading"></a></h2>
+<p>Open <strong>Settings &gt; Automation Execution &gt; System</strong> and click <strong>Edit</strong>. This page includes <strong>Base URL of the service</strong>, activity stream settings, user visibility settings, and the default execution environment.</p>
+<p>Verify <strong>Base URL of the service</strong> (<code class="docutils literal notranslate"><span class="pre">TOWER_URL_BASE</span></code>) against the public platform URL so notification links point to the address users can reach. Changing this setting does not change the gateway Route, Ingress or TLS configuration; configure those through the <code class="docutils literal notranslate"><span class="pre">KoiosPlatform</span></code>.</p>
+<img alt="System settings including the public base URL and activity stream controls." src="../_images/configure-koios-system.png" />
+<p><strong>Logging</strong>, <strong>Policy</strong> and <strong>Troubleshooting</strong> are separate pages under <strong>Settings &gt; Automation Execution</strong>. For external logging, open <strong>Logging</strong>; see <a class="reference internal" href="logging.html#ag-logging"><span class="std std-ref">Logging and Aggregation</span></a>.</p>
+<img alt="Logging settings with the Logging Aggregator Type choices expanded." src="../_images/configure-koios-system-logging-types.png" />
+<p>Controller token and authentication settings do not configure platform gateway tokens or sign-in. For platform tokens, see <a class="reference internal" href="../access/tokens.html"><span class="doc">API tokens and OAuth applications</span></a>.</p>
+</section>
+<section id="user-interface">
+<span id="configure-koios-ui"></span><h2><span class="section-number">20.4. </span>User Interface<a class="headerlink" href="#user-interface" title="Link to this heading"></a></h2>
+<p id="index-1">Koios Automation Platform supports a custom logo and notice on the platform gateway login page. The application header and browser title retain the platform branding; there are no <strong>Custom Header Logo</strong> or <strong>Custom Browser Title</strong> settings in the current platform UI.</p>
+<section id="configure-the-login-page">
+<h3><span class="section-number">20.4.1. </span>Configure the login page<a class="headerlink" href="#configure-the-login-page" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>As a platform administrator, open <strong>Settings &gt; Platform gateway</strong>.</p></li>
+<li><p>Click <strong>Edit platform gateway settings</strong> and find <strong>Custom Login</strong>.</p></li>
+<li><p>Upload an image in <strong>Custom logo</strong> (<code class="docutils literal notranslate"><span class="pre">custom_logo</span></code>) and enter a notice in <strong>Custom Login Information</strong> (<code class="docutils literal notranslate"><span class="pre">custom_login_info</span></code>), as needed.</p></li>
+<li><p>Click <strong>Save platform gateway settings</strong>.</p></li>
+</ol>
+<img alt="Platform gateway settings edit form showing the Custom Login text fields." src="../_images/configure-koios-ui.png" />
+<p>The gateway settings API is <code class="docutils literal notranslate"><span class="pre">/api/gateway/v1/settings/all/</span></code>. Controller settings such as <code class="docutils literal notranslate"><span class="pre">CUSTOM_LOGO</span></code> and <code class="docutils literal notranslate"><span class="pre">CUSTOM_LOGIN_INFO</span></code> do not configure the platform login page.</p>
+</section>
+<section id="custom-login-logo">
+<h3><span class="section-number">20.4.2. </span>Custom login logo<a class="headerlink" href="#custom-login-logo" title="Link to this heading"></a></h3>
+<p>Upload a GIF, PNG or JPEG file: <strong>Browse</strong> opens a file selector, or drag the file onto the field. The form stores it as a base64 data URL (<code class="docutils literal notranslate"><span class="pre">data:image/png;base64,&lt;encoded</span> <span class="pre">image&gt;</span></code>), which is the value to supply when you configure <code class="docutils literal notranslate"><span class="pre">custom_logo</span></code> through the gateway settings API. SVG is not supported by this setting. The platform login page displays the custom image at a height of 64 pixels; choose its proportions accordingly.</p>
+<img alt="The Custom Login section of the platform gateway settings with an example notice and an uploaded logo." src="../_images/configure-koios-ui-logo-filled.png" />
+<p>Open the login page in a separate signed-out browser session to check the result. Check the image in both light and dark themes.</p>
+</section>
+<section id="custom-login-information">
+<h3><span class="section-number">20.4.3. </span>Custom login information<a class="headerlink" href="#custom-login-information" title="Link to this heading"></a></h3>
+<p><strong>Custom Login Information</strong> adds text to the login form, such as a legal notice. The login component sanitizes the content before rendering it as HTML. Use plain text or simple HTML and verify the result on the login page; do not rely on scripts or unsupported markup.</p>
+</section>
+<section id="restore-the-default-login-page">
+<h3><span class="section-number">20.4.4. </span>Restore the default login page<a class="headerlink" href="#restore-the-default-login-page" title="Link to this heading"></a></h3>
+<p>Click <strong>Clear</strong> in <strong>Custom logo</strong> and empty <strong>Custom Login Information</strong> (<code class="docutils literal notranslate"><span class="pre">custom_login_info</span></code>) in <strong>Settings &gt; Platform gateway</strong>, then click <strong>Save platform gateway settings</strong>. An empty logo value restores the default platform login logo, and an empty notice removes the custom text. Reload the signed-out login page to check the result.</p>
+<p><strong>Revert all to default</strong> resets gateway settings beyond branding, so avoid it when you only intend to remove a logo or notice.</p>
+<img alt="Platform gateway login page with the default Koios Automation Platform logo." src="../_images/login-form.png" />
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="awx-manage.html" class="btn btn-neutral float-left" title="19. The awx-manage Utility" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="isolation_variables.html" class="btn btn-neutral float-right" title="21. Isolation functionality and variables" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Koios Solutions. Portions 2026, Red Hat, Inc. and 2026, CtrlIQ, Inc..</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+<p class="koios-legal">Licensed under the <a href="../LICENSE.txt">Apache License 2.0</a>; see the <a href="../NOTICE.txt">NOTICE</a> for the origin of this documentation.</p>
+
+</body>
+</html>

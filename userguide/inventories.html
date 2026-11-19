@@ -1,0 +1,1133 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>16. Inventories &ndash; Koios Automation Platform</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ansible.css?v=5657ca2d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/rtd-ethical-ads.css?v=289b023e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/dark.css?v=82723a23" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments-dark.css?v=027e451e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/koios.css?v=808fdb03" />
+
+  
+    <link rel="shortcut icon" href="../_static/images/koios-favicon.svg"/>
+    <link rel="canonical" href="https://docs.koioss.com/userguide/inventories.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2d018451"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=b8bcef97"></script>
+      <script src="../_static/js/theme-toggle.js?v=59cbb094"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="17. Supported Inventory Plugin Templates" href="inventory_plugins_templates.html" />
+    <link rel="prev" title="15. Project Signing and Verification" href="project-sign.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+<script>
+  (function () {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('koios-docs-theme');
+    } catch (e) {}
+    // Without a stored choice, follow the system preference (dark when it cannot be read).
+    var light = false;
+    try { light = window.matchMedia('(prefers-color-scheme: light)').matches; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', stored || (light ? 'light' : 'dark'));
+  })();
+</script>
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="#" class="asc-theme-toggle" title="Switch theme" aria-label="Switch theme"><svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg></a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../_static/images/koios-mark-white.svg"
+    alt="Koios">
+  <div class="DocSiteNav-title">Koios Automation Platform</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Koios Automation Platform
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Koios Automation Platform Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Install and upgrade</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade_migration/index.html">Upgrades and Migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configure the platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/index.html">Configure the platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Access management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access/index.html">Authentication and access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation execution</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Automating with Koios Automation Platform</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html">Automating with Koios Automation Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html">1. Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging_in.html">2. Logging In</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main_menu.html">3. The User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main_menu.html#the-settings-menu">4. The Settings Menu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="search_sort.html">5. Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="organizations.html">6. Organizations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="users.html">7. Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="teams.html">8. Teams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credentials.html">9. Credentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credential_plugins.html">10. Secret Management System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credential_types.html">11. Custom Credential Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="execution_environments.html">12. Execution Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ee_reference.html">13. Execution Environment Setup Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="projects.html">14. Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project-sign.html">15. Project Signing and Verification</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">16. Inventories</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#smart-inventories">16.1. Smart Inventories</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#smart-host-filter">16.1.1. Smart Host Filter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#define-host-filter-with-ansible-facts">16.1.2. Define host filter with ansible_facts</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#constructed-inventories">16.2. Constructed Inventories</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#group-name-and-variables-filtering">16.2.1. Group name and variables filtering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nested-groups">16.2.2. Nested groups</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ansible-facts">16.2.3. Ansible facts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user-interface">16.2.4. User interface</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#inventory-plugins">16.3. Inventory Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-a-new-inventory">16.4. Add a new inventory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#add-permissions">16.4.1. Add permissions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#add-groups">16.4.2. Add groups</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#add-hosts">16.4.3. Add hosts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#add-source">16.4.4. Add source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#view-completed-jobs">16.4.5. View completed jobs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#running-ad-hoc-commands">16.5. Running Ad Hoc Commands</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="inventory_plugins_templates.html">17. Supported Inventory Plugin Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="labels.html">18. Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_templates.html">19. Job Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_slices.html">20. Job Slicing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflows.html">21. Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_templates.html">22. Workflow Job Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instance_groups.html">23. Instance Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jobs.html">24. Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhooks.html">25. Working with Webhooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notifications.html">26. Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notification_parameters_supported.html">27. Supported Attributes for Custom Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduling.html">28. Schedules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="best_practices.html">29. Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">30. Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html">31. Glossary</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation decisions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../eda/index.html">Event-Driven Ansible</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hub/index.html">Automation hub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operate</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../operate/index.html">Operate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../administration/index.html">Administering Koios Automation Platform Deployments</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration as code and API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/casc.html">Configuration as code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rest_api/index.html">automation controller API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/releases.html">Releases</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Koios Automation Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Automating with Koios Automation Platform</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">16. </span>Inventories</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <section id="inventories">
+<span id="ug-inventories"></span><h1><span class="section-number">16. </span>Inventories<a class="headerlink" href="#inventories" title="Link to this heading"></a></h1>
+<p id="index-0">An <a class="reference internal" href="glossary.html#term-Inventory"><span class="xref std std-term">Inventory</span></a> is a collection of hosts against which jobs may be launched, the same as an Ansible inventory file. Inventories are divided into groups and these groups contain the actual hosts. Hosts and groups can be entered manually in automation controller or imported from an inventory source, such as a project or a supported cloud provider.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you have a custom dynamic inventory script, or a cloud provider that is not yet supported natively in automation controller, you can also import that into automation controller. Refer to <a class="reference internal" href="../administration/scm-inv-source.html#ag-inv-import"><span class="std std-ref">Inventory File Importing</span></a> in the <em>Administration Guide</em>.</p>
+</div>
+<p>Open <strong>Automation Execution &gt; Infrastructure &gt; Inventories</strong>. The list shows the inventories you can see; it can be searched and sorted, and its columns can be chosen with the column management button.</p>
+<p><img alt="The Inventories list with a standard, a smart and a constructed inventory" src="../_images/inventories-home-with-examples.png" /></p>
+<p>The list includes:</p>
+<ul class="simple">
+<li><p><strong>Name</strong>: The inventory name. Click it to open the inventory and its tabs.</p></li>
+<li><p><strong>Status</strong>: The result of the last synchronization of the inventory sources: <strong>Success</strong>, <strong>Failed</strong>, a running state, or <strong>Disabled</strong> when the inventory has no inventory source. Smart and constructed inventories show no status here.</p></li>
+<li><p><strong>Type</strong>: <strong>Inventory</strong> (a standard inventory), <strong>Smart inventory</strong> or <strong>Constructed inventory</strong>.</p></li>
+<li><p><strong>Organization</strong>: The organization to which the inventory belongs.</p></li>
+<li><p><strong>Labels</strong>, <strong>Hosts</strong>, <strong>Host failures</strong> and other counters.</p></li>
+<li><p><strong>Actions</strong>: <strong>Edit inventory</strong> (pencil icon) and, in the menu of each row, <strong>Duplicate inventory</strong>, <strong>Sync inventory</strong> (when it has sources) and <strong>Delete inventory</strong>.</p></li>
+</ul>
+<section id="smart-inventories">
+<span id="ug-inventories-smart"></span><h2><span class="section-number">16.1. </span>Smart Inventories<a class="headerlink" href="#smart-inventories" title="Link to this heading"></a></h2>
+<p id="index-1">A Smart Inventory is a collection of hosts defined by a stored search that can be viewed like a standard inventory and made to be easily used with job runs. Organization administrators have admin permission to inventories in their organization and can create Smart Inventories. A Smart Inventory is identified by <code class="docutils literal notranslate"><span class="pre">kind=smart</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Smart inventories are deprecated and will be removed in a future release. Users are encouraged to consider moving to constructed inventory for enhancements and replacement.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">Inventory</span></code> model has the following fields that are blank by default but are set accordingly for Smart Inventories:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">kind</span></code> is set to <code class="docutils literal notranslate"><span class="pre">smart</span></code> for Smart Inventories</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">host_filter</span></code> is set AND <code class="docutils literal notranslate"><span class="pre">kind</span></code> is set to <code class="docutils literal notranslate"><span class="pre">smart</span></code> for Smart Inventories.</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">host</span></code> model has a related endpoint, <code class="docutils literal notranslate"><span class="pre">smart_inventories</span></code> that identifies a set of all the Smart Inventory a host is associated with. The membership table is updated every time a job runs against a smart inventory.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To update the memberships more frequently, set <code class="docutils literal notranslate"><span class="pre">AWX_REBUILD_SMART_MEMBERSHIP</span></code> to <code class="docutils literal notranslate"><span class="pre">True</span></code> (default is <code class="docutils literal notranslate"><span class="pre">False</span></code>) as an extra setting of automation controller (see <a class="reference internal" href="../administration/troubleshooting.html#admin-troubleshooting-extra-settings"><span class="std std-ref">Deployment-managed settings</span></a>). This will update memberships in the following events:</p>
+<ul class="simple">
+<li><p>a new host is added</p></li>
+<li><p>an existing host is modified (updated or deleted)</p></li>
+<li><p>a new Smart Inventory is added</p></li>
+<li><p>an existing Smart Inventory is modified (updated or deleted)</p></li>
+</ul>
+</div>
+<p>A Smart Inventory has no groups and no sources of its own: its <strong>Hosts</strong> tab shows the hosts that match the filter, read-only. You cannot create hosts from a Smart Inventory host endpoint (<code class="docutils literal notranslate"><span class="pre">/inventories/N/hosts/</span></code>) as with a normal inventory. The administrator of a Smart Inventory has permission to edit fields such as the name, description, variables, and the ability to delete, but does not have the permission to modify the <code class="docutils literal notranslate"><span class="pre">host_filter</span></code>, because that will affect which hosts (that have a primary membership inside another inventory) are included in the smart inventory. Note, <code class="docutils literal notranslate"><span class="pre">host_filter</span></code> only applies to hosts inside of inventories inside of the Smart Inventory’s organization.</p>
+<p>In order to modify the <code class="docutils literal notranslate"><span class="pre">host_filter</span></code>, you need an inventory administration role on the inventory’s organization: <strong>Organization Admin</strong> or <strong>Organization Inventory Admin</strong>. Both already have implicit “admin” access to all inventories inside the organization, therefore, this does not convey any permissions they did not already possess.</p>
+<p>Administrators of the Smart Inventory can grant other users (who are not also admins of your organization) roles such as “use” or “ad hoc” on the smart inventory, and these will allow the actions indicated by the role, just like other standard inventories. However, this will not give them any special permissions to hosts (which live in a different inventory). It will not allow them direct read permission to hosts, although they can still view the hosts in the <strong>Hosts</strong> tab of the smart inventory.</p>
+<p>Hosts associated with the Smart Inventory are manifested at view time. If the results of a Smart Inventory contains more than one host with identical hostnames, only one of the matching hosts will be included as part of the Smart Inventory, ordered by Host ID.</p>
+<section id="smart-host-filter">
+<span id="ug-host-filters"></span><h3><span class="section-number">16.1.1. </span>Smart Host Filter<a class="headerlink" href="#smart-host-filter" title="Link to this heading"></a></h3>
+<p>The <strong>Smart host filter</strong> populates the hosts of a smart inventory with a search. This feature uses the capability of the fact searching feature.</p>
+<p>Facts generated by an Ansible playbook during a Job Template run are stored by automation controller into the database whenever <code class="docutils literal notranslate"><span class="pre">use_fact_cache=True</span></code> is set per-Job Template. New facts are merged with existing facts and are per-host. These stored facts can be used to filter hosts via the <code class="docutils literal notranslate"><span class="pre">/api/controller/v2/hosts</span></code> endpoint, using the <code class="docutils literal notranslate"><span class="pre">GET</span></code> query parameter <code class="docutils literal notranslate"><span class="pre">host_filter</span></code> For example: <code class="docutils literal notranslate"><span class="pre">/api/controller/v2/hosts?host_filter=ansible_facts__ansible_processor_vcpus=8</span></code></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">host_filter</span></code> parameter allows for:</p>
+<ul class="simple">
+<li><p>grouping via ()</p></li>
+<li><p>use of the boolean <code class="docutils literal notranslate"><span class="pre">and</span></code> and <code class="docutils literal notranslate"><span class="pre">or</span></code> operators</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__</span></code> to reference related fields in relational fields</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__</span></code> on ansible_facts to separate keys in a JSON key path</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[]</span></code> to denote a json array in the path specification</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> in the value when spaces are wanted in the value</p></li>
+<li><p>“classic” Django queries embedded in the <code class="docutils literal notranslate"><span class="pre">host_filter</span></code></p></li>
+</ul>
+<p>Examples:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">/api/controller/v2/hosts/?host_filter=name=localhost</span>
+<span class="l l-Scalar l-Scalar-Plain">/api/controller/v2/hosts/?host_filter=ansible_facts__ansible_date_time__weekday_number="3"</span>
+<span class="l l-Scalar l-Scalar-Plain">/api/controller/v2/hosts/?host_filter=ansible_facts__ansible_processor[]="GenuineIntel"</span>
+<span class="l l-Scalar l-Scalar-Plain">/api/controller/v2/hosts/?host_filter=ansible_facts__ansible_lo__ipv6[]__scope="host"</span>
+<span class="l l-Scalar l-Scalar-Plain">/api/controller/v2/hosts/?host_filter=ansible_facts__ansible_processor_vcpus=8</span>
+<span class="l l-Scalar l-Scalar-Plain">/api/controller/v2/hosts/?host_filter=ansible_facts__ansible_env__PYTHONUNBUFFERED="true"</span>
+<span class="l l-Scalar l-Scalar-Plain">/api/controller/v2/hosts/?host_filter=(name=localhost or name=database) and (groups__name=east or groups__name="west coast")</span>
+</pre></div>
+</div>
+<p>You can search <code class="docutils literal notranslate"><span class="pre">host_filter</span></code> by host name, group name, and Ansible facts. The <strong>Smart host filter</strong> field of the form takes the same expression as the <code class="docutils literal notranslate"><span class="pre">host_filter</span></code> parameter, without the endpoint. For example:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">name__icontains=web</span>
+<span class="l l-Scalar l-Scalar-Plain">groups__name=groupA</span>
+<span class="l l-Scalar l-Scalar-Plain">ansible_facts__ansible_fips=false</span>
+</pre></div>
+</div>
+<p>If a search term in <code class="docutils literal notranslate"><span class="pre">host_filter</span></code> is of string type, to make the value a number (e.g. <code class="docutils literal notranslate"><span class="pre">2.66</span></code>), or a JSON keyword (e.g. <code class="docutils literal notranslate"><span class="pre">null</span></code>, <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code>) valid, add double quotations around the value to prevent automation controller from mistakenly parsing it as a non-string:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">host_filter=ansible_facts__packages__dnsmasq[]__version="2.66"</span>
+</pre></div>
+</div>
+</section>
+<section id="define-host-filter-with-ansible-facts">
+<span id="ug-host-filter-facts"></span><h3><span class="section-number">16.1.2. </span>Define host filter with ansible_facts<a class="headerlink" href="#define-host-filter-with-ansible-facts" title="Link to this heading"></a></h3>
+<p>To use <code class="docutils literal notranslate"><span class="pre">ansible_facts</span></code> to define the host filter when creating Smart Inventories, perform the following steps:</p>
+<ol class="arabic simple">
+<li><p>In the Inventories list, click <strong>Create inventory &gt; Create smart inventory</strong>.</p></li>
+<li><p>Enter the name and organization, and type the filter in the <strong>Smart host filter</strong> field. For example, to select the hosts whose processor is from Intel, enter <code class="docutils literal notranslate"><span class="pre">ansible_facts__ansible_processor[]=&quot;GenuineIntel&quot;</span></code> (no extra spaces). The example below selects the hosts whose name contains <code class="docutils literal notranslate"><span class="pre">web</span></code>.</p></li>
+</ol>
+<img alt="The Create smart inventory form with a smart host filter" src="../_images/inventories-smart-create-filter-added.png" />
+<ol class="arabic simple" start="3">
+<li><p>Click <strong>Create inventory</strong>.</p></li>
+</ol>
+<p>The <strong>Details</strong> tab of the new Smart Inventory opens and displays the filter in the <strong>Smart host filter</strong> field. The <strong>Hosts</strong> tab lists the matching hosts.</p>
+<img alt="Details of a smart inventory with its smart host filter" src="../_images/inventories-smart-create-details.png" />
+<ol class="arabic simple" start="4">
+<li><p>To change the filter, click <strong>Edit inventory</strong>.</p></li>
+</ol>
+</section>
+</section>
+<section id="constructed-inventories">
+<span id="ug-inventories-constructed"></span><h2><span class="section-number">16.2. </span>Constructed Inventories<a class="headerlink" href="#constructed-inventories" title="Link to this heading"></a></h2>
+<p id="index-2">As a platform user, this feature allows creation of a new inventory (called a constructed inventory) from a list of input inventories. The constructed inventory contains copies of hosts and groups in its input inventories, allowing jobs to target groups of servers across multiple inventories. Groups and hostvars can be added to the inventory content, and hosts can be filtered to limit the size of the constructed inventory. Constructed inventories address some limitations of the Smart Inventories host filtering model and makes use of the <a class="reference external" href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/constructed_inventory.html#ansible-builtin-constructed-inventory-uses-jinja2-to-construct-vars-and-groups-based-on-existing-inventory">Ansible core constructed inventory model</a>.</p>
+<p>The key factors that distinguish a constructed inventory from a Smart Inventory are:</p>
+<ul class="simple">
+<li><p>the normal Ansible hostvars namespace is available</p></li>
+<li><p>they provide groups</p></li>
+</ul>
+<p>Smart inventories take a <code class="docutils literal notranslate"><span class="pre">host_filter</span></code> as input and create a resultant inventory with hosts from inventories in its organization. Constructed inventories take <code class="docutils literal notranslate"><span class="pre">source_vars</span></code> and <code class="docutils literal notranslate"><span class="pre">limit</span></code> as inputs and transform its <code class="docutils literal notranslate"><span class="pre">input_inventories</span></code> into a new inventory, complete with groups. Groups (existing or constructed) can then be referenced in the <code class="docutils literal notranslate"><span class="pre">limit</span></code> field to reduce the number of hosts produced.</p>
+<p>For instance, you can construct groups based on these host properties:</p>
+<ul class="simple">
+<li><p>RHEL major/minor versions</p></li>
+<li><p>Windows hosts</p></li>
+<li><p>Cloud based instances tagged in a certain region</p></li>
+<li><p>other</p></li>
+</ul>
+<p>These examples described in the subsequent sections are organized by the structure of the input inventories.</p>
+<section id="group-name-and-variables-filtering">
+<h3><span class="section-number">16.2.1. </span>Group name and variables filtering<a class="headerlink" href="#group-name-and-variables-filtering" title="Link to this heading"></a></h3>
+<p>Two different conditions are demonstrated here to describe the input inventory content:</p>
+<ul class="simple">
+<li><p>First condition is that the <code class="docutils literal notranslate"><span class="pre">state</span></code> variable defined on the host is set to <code class="docutils literal notranslate"><span class="pre">shutdown</span></code></p></li>
+<li><p>Second condition is membership in a group with <code class="docutils literal notranslate"><span class="pre">account_alias</span></code> variable set to <code class="docutils literal notranslate"><span class="pre">product_dev</span></code></p></li>
+</ul>
+<p>The variable <code class="docutils literal notranslate"><span class="pre">account_alias</span></code> is used to demonstrate a group variable. In this hypothetical, each account has its own group, with group variables giving metadata about those accounts, which is common in cloud-source inventories. These variables are shown in the general hostvars namespace in Ansible, which is why it has no special treatment in <code class="docutils literal notranslate"><span class="pre">source_vars</span></code>.</p>
+<p>The hosts inside the input inventory will fit one condition, the other condition,
+neither, or both. This results in four hosts total for demonstration purposes.</p>
+<img alt="Venn diagram illustrating hosts selected for a constructed inventory from its input inventories" src="../_images/inventories-constructed-inventory-venn.png" />
+<p>This folder defines the inventory as an ini type named <code class="docutils literal notranslate"><span class="pre">two_conditions.ini</span></code>:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">[</span><span class="nv">account_1234</span><span class="p p-Indicator">]</span>
+<span class="l l-Scalar l-Scalar-Plain">host1</span>
+<span class="l l-Scalar l-Scalar-Plain">host2 state=shutdown</span>
+
+<span class="l l-Scalar l-Scalar-Plain">[account_4321]</span>
+<span class="l l-Scalar l-Scalar-Plain">host3</span>
+<span class="l l-Scalar l-Scalar-Plain">host4 state=shutdown</span>
+
+<span class="l l-Scalar l-Scalar-Plain">[account_1234:vars]</span>
+<span class="l l-Scalar l-Scalar-Plain">account_alias=product_dev</span>
+
+<span class="l l-Scalar l-Scalar-Plain">[account_4321:vars]</span>
+<span class="l l-Scalar l-Scalar-Plain">account_alias=sustaining</span>
+</pre></div>
+</div>
+<p>The goal here is to return only shutdown hosts that are present in the group with the <code class="docutils literal notranslate"><span class="pre">account_alias</span></code> variable of <code class="docutils literal notranslate"><span class="pre">product_dev</span></code>.
+There are two approaches to this, both shown in yaml format. The first one suggested is recommended.</p>
+<ol class="arabic simple" id="constr-inv-example">
+<li><p><strong>Construct 2 groups, limit to intersection</strong></p></li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">source_vars</span></code>:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="nt">plugin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">constructed</span>
+<span class="nt">strict</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">groups</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">is_shutdown</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">state | default("running") == "shutdown"</span>
+<span class="w">  </span><span class="nt">product_dev</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">account_alias == "product_dev"</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">limit</span></code>: <code class="docutils literal notranslate"><span class="pre">is_shutdown:&amp;product_dev</span></code></p>
+<p>This constructed inventory input creates a group for both of the categories and uses the <code class="docutils literal notranslate"><span class="pre">limit</span></code> (host pattern) to only return hosts that are in the intersection of those two groups, which is documented in <a class="reference external" href="https://docs.ansible.com/ansible/latest/inventory_guide/intro_patterns.html">host patterns in Ansible</a>.</p>
+<p>Also, when a variable may or may not be defined (depending on the host), you can give a default, like with <code class="docutils literal notranslate"><span class="pre">|</span> <span class="pre">default(&quot;running&quot;)</span></code> if you know what value it should have when it is not defined. This helps with debugging, as described in the <a class="reference internal" href="#constr-inv-debugging"><span class="std std-ref">Debugging tips</span></a> section.</p>
+<ol class="arabic simple" start="2">
+<li><p><strong>Construct 1 group, limit to group</strong></p></li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">source_vars</span></code>:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="nt">plugin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">constructed</span>
+<span class="nt">strict</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">groups</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">shutdown_in_product_dev</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">state | default("running") == "shutdown" and account_alias == "product_dev"</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">limit</span></code>: <code class="docutils literal notranslate"><span class="pre">shutdown_in_product_dev</span></code></p>
+<p>This input creates one group that only includes hosts that match both criteria. The limit is then just the group name by itself, returning just <strong>host2</strong>, same as the previous approach.</p>
+<section id="debugging-tips">
+<span id="constr-inv-debugging"></span><h4><span class="section-number">16.2.1.1. </span>Debugging tips<a class="headerlink" href="#debugging-tips" title="Link to this heading"></a></h4>
+<p>It is very important to set the <code class="docutils literal notranslate"><span class="pre">strict</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">True</span></code> so that you can debug problems with your templates. If the template fails to render, you will get an error in the associated inventory update for that constructed inventory.</p>
+<p>When encountering errors, increase verbosity to get more details.</p>
+<p>Giving a default, like with <code class="docutils literal notranslate"><span class="pre">|</span> <span class="pre">default(&quot;running&quot;)</span></code> is a generic use of Jinja2 templates in Ansible. Doing this avoids errors from the particular template when you set <code class="docutils literal notranslate"><span class="pre">strict:</span> <span class="pre">true</span></code>. You could also set <code class="docutils literal notranslate"><span class="pre">strict:</span> <span class="pre">false</span></code>, and allow the template to produce an error, which results in the host not getting included in that group. However, doing so makes it difficult to debug issues in the future if your templates continue to grow in complexity.</p>
+<p>However, you may still have to debug the intended function of the templates if they are not producing the expected inventory content. For example, if a <code class="docutils literal notranslate"><span class="pre">groups</span></code> group has a complex filter (like <code class="docutils literal notranslate"><span class="pre">shutdown_in_product_dev</span></code>) but does not contain any hosts in the resultant constructed inventory, then use the <code class="docutils literal notranslate"><span class="pre">compose</span></code> parameter to help debug. Like this:</p>
+<p><code class="docutils literal notranslate"><span class="pre">source_vars</span></code>:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="nt">plugin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">constructed</span>
+<span class="nt">strict</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">groups</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">shutdown_in_product_dev</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">state | default("running") == "shutdown" and account_alias == "product_dev"</span>
+<span class="nt">compose</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">resolved_state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">state | default("running")</span>
+<span class="w">  </span><span class="nt">is_in_product_dev</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">account_alias == "product_dev"</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">limit</span></code>: ``</p>
+<p>Running with a blank <code class="docutils literal notranslate"><span class="pre">limit</span></code> will return all hosts. You can use this to inspect specific variables on specific hosts, giving insight into where problems in the <code class="docutils literal notranslate"><span class="pre">groups</span></code> lie.</p>
+</section>
+</section>
+<section id="nested-groups">
+<h3><span class="section-number">16.2.2. </span>Nested groups<a class="headerlink" href="#nested-groups" title="Link to this heading"></a></h3>
+<p>The inventory contents of two groups where one is a child of the other is used here to demonstrate nested groups. The child group has a host inside of it, and the parent group has a variable defined. Due to how Ansible core works, the variable of the parent group will be available in the namespace as a playbook is running, and can be used for filtering.</p>
+<p>Define the inventory file in a yaml format named <code class="docutils literal notranslate"><span class="pre">nested.yml</span></code>:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="nt">all</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">children</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">groupA</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">vars</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">filter_var</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">filter_val</span>
+<span class="w">      </span><span class="nt">children</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">groupB</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">hosts</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">host1</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+<span class="w">    </span><span class="nt">ungrouped</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">hosts</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">host2</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+</pre></div>
+</div>
+<p>The goal here is to filter hosts based on indirect membership in a group (because <code class="docutils literal notranslate"><span class="pre">host1</span></code> is in <code class="docutils literal notranslate"><span class="pre">groupB</span></code>, it is also in <code class="docutils literal notranslate"><span class="pre">groupA</span></code>).</p>
+<section id="filter-on-nested-group-names">
+<h4><span class="section-number">16.2.2.1. </span>Filter on nested group names<a class="headerlink" href="#filter-on-nested-group-names" title="Link to this heading"></a></h4>
+<p>Use the following yaml format to filter on nested group names:</p>
+<p><code class="docutils literal notranslate"><span class="pre">source_vars</span></code>:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="nt">plugin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">constructed</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">limit</span></code>: <code class="docutils literal notranslate"><span class="pre">groupA</span></code></p>
+</section>
+<section id="filter-on-nested-group-property">
+<h4><span class="section-number">16.2.2.2. </span>Filter on nested group property<a class="headerlink" href="#filter-on-nested-group-property" title="Link to this heading"></a></h4>
+<p>This shows how you can filter on a group variable, even if the host is indirectly a member of that group.</p>
+<p>In the inventory contents, you can see that <code class="docutils literal notranslate"><span class="pre">host2</span></code> is not expected to have the variable <code class="docutils literal notranslate"><span class="pre">filter_var</span></code> defined, because it is not in any of the groups. Because of using <code class="docutils literal notranslate"><span class="pre">strict:</span> <span class="pre">true</span></code>, use a default value so that hosts without that variable defined. With this, <code class="docutils literal notranslate"><span class="pre">host2</span></code>, will return <code class="docutils literal notranslate"><span class="pre">False</span></code> from the expression, as opposed to producing an error. <code class="docutils literal notranslate"><span class="pre">host1</span></code> will inherit the variable from its groups, and will be returned.</p>
+<p><code class="docutils literal notranslate"><span class="pre">source_vars</span></code>:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="nt">plugin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">constructed</span>
+<span class="nt">strict</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">groups</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">filter_var_is_filter_val</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">filter_var | default("") == "filter_val"</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">limit</span></code>: <code class="docutils literal notranslate"><span class="pre">filter_var_is_filter_val</span></code></p>
+</section>
+</section>
+<section id="ansible-facts">
+<h3><span class="section-number">16.2.3. </span>Ansible facts<a class="headerlink" href="#ansible-facts" title="Link to this heading"></a></h3>
+<p>To create an inventory with Ansible facts, you need to run a playbook against the inventory that has <code class="docutils literal notranslate"><span class="pre">gather_facts:</span> <span class="pre">true</span></code>. The actual facts will differ system-to-system. The following example problems exemplify some example cases and are not intended to address all known scenarios.</p>
+<section id="filter-on-environment-variables">
+<h4><span class="section-number">16.2.3.1. </span>Filter on environment variables<a class="headerlink" href="#filter-on-environment-variables" title="Link to this heading"></a></h4>
+<p>An example problem is demonstrated here that involves filtering on env vars using the yaml format:</p>
+<p><code class="docutils literal notranslate"><span class="pre">source_vars</span></code>:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="nt">plugin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">constructed</span>
+<span class="nt">strict</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">groups</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">hosts_using_xterm</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ansible_env.TERM == "xterm"</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">limit</span></code>: <code class="docutils literal notranslate"><span class="pre">hosts_using_xterm</span></code></p>
+</section>
+<section id="filter-hosts-by-processor-type">
+<h4><span class="section-number">16.2.3.2. </span>Filter hosts by processor type<a class="headerlink" href="#filter-hosts-by-processor-type" title="Link to this heading"></a></h4>
+<p>An example problem is demonstrated here that involves filtering hosts by processor type (Intel) using the yaml format:</p>
+<p><code class="docutils literal notranslate"><span class="pre">source_vars</span></code>:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="nt">plugin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">constructed</span>
+<span class="nt">strict</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">groups</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">intel_hosts</span><span class="p">:</span><span class="w"> </span><span class="s">"GenuineIntel"</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">in ansible_processor</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">limit</span></code>: <code class="docutils literal notranslate"><span class="pre">intel_hosts</span></code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Like with Smart Inventories, hosts in constructed inventories are not counted against an organization’s host limit, because they reference the original inventory host. Also, hosts that are disabled in the original inventories will not be included in the constructed inventory.</p>
+</div>
+<p>An inventory update ran via <code class="docutils literal notranslate"><span class="pre">ansible-inventory</span></code> creates the constructed inventory contents. This is always configured to update-on-launch before a job, but you can still select a cache timeout value in case this takes too long.</p>
+<p>When creating a constructed inventory, the API enforces that it always has one inventory source associated with it. All inventory updates have an associated inventory source, and the fields needed for constructed inventory (<code class="docutils literal notranslate"><span class="pre">source_vars</span></code> and <code class="docutils literal notranslate"><span class="pre">limit</span></code>) are fields already present on the inventory source model.</p>
+</section>
+</section>
+<section id="user-interface">
+<h3><span class="section-number">16.2.4. </span>User interface<a class="headerlink" href="#user-interface" title="Link to this heading"></a></h3>
+<p>Follow the procedure described in the subsequent section, <a class="reference internal" href="#ug-inventories-add"><span class="std std-ref">Add a new inventory</span></a> to create a new constructed inventory. A constructed inventory has no <strong>Sources</strong> tab: click <strong>Sync inventory</strong> to run the update that builds its hosts and groups.</p>
+<p>Example of a constructed inventory details view:</p>
+<img alt="Details of a constructed inventory with its input inventories, limit and source variables" src="../_images/inventories-constructed-inventory-details.png" />
+</section>
+</section>
+<section id="inventory-plugins">
+<span id="ug-inventories-plugins"></span><h2><span class="section-number">16.3. </span>Inventory Plugins<a class="headerlink" href="#inventory-plugins" title="Link to this heading"></a></h2>
+<p id="index-3">Inventory updates use dynamically-generated YAML files which are parsed by their respective inventory plugin. Users can provide the new style inventory plugin config directly to automation controller via the inventory source <code class="docutils literal notranslate"><span class="pre">source_vars</span></code> for all the following inventory sources:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#ug-source-ec2"><span class="std std-ref">Amazon EC2</span></a></p></li>
+<li><p><a class="reference internal" href="#ug-source-openshift-virtualization"><span class="std std-ref">OpenShift Virtualization</span></a></p></li>
+<li><p><a class="reference internal" href="#ug-source-aap"><span class="std std-ref">Red Hat Ansible Automation Platform</span></a></p></li>
+<li><p><a class="reference internal" href="#ug-source-terraform"><span class="std std-ref">Terraform State</span></a></p></li>
+<li><p><a class="reference internal" href="#ug-source-cloud-unavailable"><span class="std std-ref">Additional cloud and virtualization sources</span></a>: Google Compute Engine, Microsoft Azure Resource Manager, VMware vCenter, VMware ESXi, Red Hat Satellite 6, OpenStack, Red Hat Virtualization and Red Hat Insights</p></li>
+</ul>
+<p>Newly created configurations for inventory sources will contain the default plugin configuration values. If you want your newly created inventory sources to match the output of legacy sources, you must apply a specific set of configuration values for that source. To ensure backward compatibility, automation controller uses “templates” for each of these sources to force the output of inventory plugins into the legacy format. Refer to <a class="reference internal" href="inventory_plugins_templates.html#ir-inv-plugin-templates-reference"><span class="std std-ref">Supported Inventory Plugin Templates</span></a> section of this guide for each source and their respective templates to help you migrate to the new style inventory plugin output.</p>
+<p><code class="docutils literal notranslate"><span class="pre">source_vars</span></code> that contain <code class="docutils literal notranslate"><span class="pre">plugin:</span> <span class="pre">foo.bar.baz</span></code> as a top-level key will be replaced with the appropriate fully-qualified inventory plugin name at runtime based on the <code class="docutils literal notranslate"><span class="pre">InventorySource</span></code> source. For example, if ec2 is selected for the <code class="docutils literal notranslate"><span class="pre">InventorySource</span></code> then, at run-time, plugin will be set to <code class="docutils literal notranslate"><span class="pre">amazon.aws.aws_ec2</span></code>.</p>
+</section>
+<section id="add-a-new-inventory">
+<span id="ug-inventories-add"></span><h2><span class="section-number">16.4. </span>Add a new inventory<a class="headerlink" href="#add-a-new-inventory" title="Link to this heading"></a></h2>
+<p id="index-4">Adding a new inventory involves several components:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#ug-inventories-add-permissions"><span class="std std-ref">Add permissions</span></a></p></li>
+<li><p><a class="reference internal" href="#ug-inventories-add-groups"><span class="std std-ref">Add groups</span></a></p></li>
+<li><p><a class="reference internal" href="#ug-inventories-add-host"><span class="std std-ref">Add hosts</span></a></p></li>
+<li><p><a class="reference internal" href="#ug-inventories-add-source"><span class="std std-ref">Add source</span></a></p></li>
+<li><p><a class="reference internal" href="#ug-inventories-view-completed-jobs"><span class="std std-ref">View completed jobs</span></a></p></li>
+</ul>
+<p>To create a new standard inventory, Smart inventory or constructed inventory:</p>
+<ol class="arabic simple">
+<li><p>In the Inventories list, click <strong>Create inventory</strong> and select <strong>Create inventory</strong>, <strong>Create smart inventory</strong> or <strong>Create constructed inventory</strong>.</p></li>
+</ol>
+<img alt="The Create inventory menu with the three types of inventory" src="../_images/inventories-create-menu.png" />
+<p>The title of the form shows the type of inventory.</p>
+<p><img alt="The Create inventory form" src="../_images/inventories-create-new-inventory.png" /></p>
+<ol class="arabic simple" start="2">
+<li><p>Enter the appropriate details into the following fields:</p></li>
+</ol>
+<ul class="simple">
+<li><p><strong>Name</strong>: Enter a name appropriate for this inventory.</p></li>
+<li><p><strong>Description</strong>: Enter an arbitrary description as appropriate (optional).</p></li>
+<li><p><strong>Organization</strong>: Required. Choose among the available organizations.</p></li>
+<li><p><strong>Smart host filter</strong>: (Only applicable to Smart Inventories) Required. Enter the filter that selects the hosts of this inventory, for example <code class="docutils literal notranslate"><span class="pre">name__icontains=web</span></code>. Whether a filter is case-sensitive depends on its lookup: <code class="docutils literal notranslate"><span class="pre">name=web</span></code> and <code class="docutils literal notranslate"><span class="pre">name__contains=web</span></code> are, <code class="docutils literal notranslate"><span class="pre">name__icontains=web</span></code> is not. Refer to the <a class="reference internal" href="#ug-host-filters"><span class="std std-ref">Smart Host Filter</span></a> section for more information.</p></li>
+<li><p><strong>Instance groups</strong>: Choose the instance group(s) for this inventory to run on. If the list is extensive, type in the field to narrow the options. You may select multiple instance groups; they are used in the order selected.</p></li>
+<li><p><strong>Input inventories</strong>: (Only applicable to constructed inventories) Required. Select the inventories whose hosts and groups the constructed inventory takes. Empty groups from input inventories will be copied into the constructed inventory.</p></li>
+<li><p><strong>Cache timeout (seconds)</strong>: (Only applicable to constructed inventories) Optionally set for how many seconds the last update of the constructed inventory can be reused when a job is launched, before another update runs.</p></li>
+<li><p><strong>Verbosity</strong>: (Only applicable to constructed inventories) Control the level of output Ansible produces as the playbook executes related to inventory sources associated with constructed inventories. Choose the verbosity from Normal to various Verbose or Debug settings. This only appears in the “details” report view. Verbose logging includes the output of all commands. Debug logging is exceedingly verbose and includes information on SSH operations that can be useful in certain support instances. Most users do not need to see debug mode output.</p></li>
+<li><p><strong>Limit</strong>: (Only applicable to constructed inventories) Restricts the number of returned hosts for the inventory source associated with the constructed inventory. You can paste a group name into the limit field to only include hosts in that group. See <a class="reference internal" href="#constr-inv-source-vars"><span class="std std-ref">Source vars</span></a> for more detail.</p></li>
+<li><p><strong>Labels</strong>: (Not applicable to Smart Inventories) Optionally supply labels that describe this inventory, so they can be used to group and filter inventories and jobs.</p></li>
+<li><p><strong>Policy enforcement</strong>: A policy to evaluate before the jobs that use this inventory run, when policy enforcement is configured (optional).</p></li>
+</ul>
+<ul class="simple" id="constr-inv-source-vars">
+<li><p><strong>Variables</strong> (<strong>Source variables</strong> for constructed inventories):</p>
+<ul>
+<li><p><strong>Variables</strong>: Variable definitions and values to be applied to all hosts in this inventory. Enter variables using either JSON or YAML syntax. Use the <strong>YAML</strong> and <strong>JSON</strong> buttons to toggle between the two.</p></li>
+<li><p><strong>Source variables</strong> for constructed inventories: Required, with the <code class="docutils literal notranslate"><span class="pre">plugin</span></code> key. It creates groups, specifically under the <code class="docutils literal notranslate"><span class="pre">groups</span></code> key of the data. It accepts Jinja2 template syntax, renders it for every host, makes a <code class="docutils literal notranslate"><span class="pre">True</span></code>/<code class="docutils literal notranslate"><span class="pre">False</span></code> evaluation, and includes the host in the group (from key of the entry) if the result is <code class="docutils literal notranslate"><span class="pre">True</span></code>. This is particularly useful because you can paste that group name into the limit field to only include hosts in that group. See an example <a class="reference internal" href="#constr-inv-example"><span class="std std-ref">here</span></a>.</p></li>
+</ul>
+</li>
+<li><p><strong>Options</strong>: Check <strong>Prevent instance group fallback</strong> (only applicable to standard inventories) to allow only the instance groups listed in the <strong>Instance groups</strong> field above to execute the job. If unchecked, all available instances in the execution pool will be used based on the hierarchy described in <a class="reference internal" href="../administration/containers_instance_groups.html#ag-instance-groups-control-where-job-runs"><span class="std std-ref">Control Where a Job Runs</span></a>. Click the help icon next to the option for additional information.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Set the <code class="docutils literal notranslate"><span class="pre">prevent_instance_group_fallback</span></code> option for Smart Inventories through the API.</p>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Click <strong>Create inventory</strong> when done.</p></li>
+</ol>
+<p>The <strong>Details</strong> tab of the new inventory opens. The tabs of an inventory depend on its type: a standard inventory has <strong>Details</strong>, <strong>User Access</strong>, <strong>Team Access</strong>, <strong>Groups</strong>, <strong>Hosts</strong>, <strong>Sources</strong>, <strong>Jobs</strong> and <strong>Job Templates</strong>; a smart inventory has no <strong>Groups</strong> or <strong>Sources</strong>, and a constructed inventory has no <strong>Sources</strong>.</p>
+<p><img alt="Details of a standard inventory and its tabs" src="../_images/inventories-create-new-saved-inventory.png" /></p>
+<p>After saving the new inventory, you can proceed with configuring permissions, groups, hosts, sources, and view completed jobs, if applicable to the type of inventory. For more instructions, refer to the subsequent sections.</p>
+<section id="add-permissions">
+<span id="ug-inventories-add-permissions"></span><h3><span class="section-number">16.4.1. </span>Add permissions<a class="headerlink" href="#add-permissions" title="Link to this heading"></a></h3>
+<p>The <strong>User Access</strong> and <strong>Team Access</strong> tabs list the users and teams with roles on the inventory; <strong>Assign users</strong> and <strong>Assign teams</strong> give roles to more of them. Users must exist first; see <a class="reference internal" href="users.html#ug-users"><span class="std std-ref">Users</span></a>. The organization roles also apply to the inventories of the organization.</p>
+</section>
+<section id="add-groups">
+<span id="ug-inventories-add-groups"></span><h3><span class="section-number">16.4.2. </span>Add groups<a class="headerlink" href="#add-groups" title="Link to this heading"></a></h3>
+<p id="index-5">Inventories are divided into groups, which may contain hosts and other groups. Groups are only applicable to standard inventories and cannot be configured directly in a Smart Inventory. From the <strong>Groups</strong> tab of a standard inventory you can:</p>
+<ul class="simple">
+<li><p>Create a new group</p></li>
+<li><p>Run a command on the selected groups (see <a class="reference internal" href="#ug-inventories-run-ad-hoc"><span class="std std-ref">Running Ad Hoc Commands</span></a>)</p></li>
+<li><p>Edit or delete groups</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Inventory sources are not associated with groups. Spawned groups are top-level and may still have child groups, and all of these spawned groups may have hosts.</p>
+</div>
+<p>To create a new group for an inventory:</p>
+<ol class="arabic simple">
+<li><p>In the <strong>Groups</strong> tab, click <strong>Create group</strong> to open the <strong>Create group</strong> form.</p></li>
+</ol>
+<p><img alt="The Create group form" src="../_images/inventories-add-group-new.png" /></p>
+<ol class="arabic simple" start="2">
+<li><p>Enter the appropriate details into the required and optional fields:</p></li>
+</ol>
+<ul class="simple">
+<li><p><strong>Name</strong>: Required</p></li>
+<li><p><strong>Description</strong>: Enter an arbitrary description as appropriate (optional)</p></li>
+<li><p><strong>Variables</strong>: Enter definitions and values to be applied to all hosts in this group. Enter variables using either JSON or YAML syntax. Use the <strong>YAML</strong> and <strong>JSON</strong> buttons to toggle between the two.</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p>When done, click <strong>Create group</strong>.</p></li>
+</ol>
+<section id="add-groups-within-groups">
+<h4><span class="section-number">16.4.2.1. </span>Add groups within groups<a class="headerlink" href="#add-groups-within-groups" title="Link to this heading"></a></h4>
+<p>To add groups within groups:</p>
+<ol class="arabic simple">
+<li><p>Click the name of the group in the <strong>Groups</strong> tab and open its <strong>Related Groups</strong> tab.</p></li>
+<li><p>Click <strong>Add group</strong>, and select <strong>Add existing group</strong> to choose a group that already exists in the inventory, or <strong>Create group</strong> to create a new one.</p></li>
+<li><p>If creating a new group, enter the appropriate details into the required and optional fields:</p></li>
+</ol>
+<ul class="simple">
+<li><p><strong>Name</strong>: Required</p></li>
+<li><p><strong>Description</strong>: Enter an arbitrary description as appropriate (optional)</p></li>
+<li><p><strong>Variables</strong>: Enter definitions and values to be applied to all hosts in this group. Enter variables using either JSON or YAML syntax. Use the <strong>YAML</strong> and <strong>JSON</strong> buttons to toggle between the two.</p></li>
+</ul>
+<ol class="arabic simple" start="4">
+<li><p>When done, click <strong>Create group</strong>.</p></li>
+</ol>
+<p>The new group displays in the <strong>Related Groups</strong> tab of the group that it was created for. In the example below, <code class="docutils literal notranslate"><span class="pre">webservers</span></code> is a child group of <code class="docutils literal notranslate"><span class="pre">production</span></code>.</p>
+<p><img alt="The Related Groups tab of a group with a child group" src="../_images/inventories-add-group-subgroup-added.png" /></p>
+<p>If you chose to add an existing group, the available groups appear in the <strong>Select groups</strong> window. Select one or more and click <strong>Add groups</strong>.</p>
+<p><img alt="The Select groups window" src="../_images/inventories-add-group-existing-subgroup.png" /></p>
+<p>To remove a child group from a group without deleting it, select it in the <strong>Related Groups</strong> tab and click <strong>Disassociate groups</strong>.</p>
+<p>5. To configure additional groups and hosts under the subgroup, click on the name of the subgroup from the
+list of groups and repeat the same steps described in this section.</p>
+</section>
+<section id="view-or-edit-inventory-groups">
+<h4><span class="section-number">16.4.2.2. </span>View or edit inventory groups<a class="headerlink" href="#view-or-edit-inventory-groups" title="Link to this heading"></a></h4>
+<p>The <strong>Groups</strong> tab lists all the groups of the inventory. Click a group to see its <strong>Details</strong>, <strong>Related Groups</strong> and <strong>Hosts</strong>, and click <strong>Edit group</strong> to change it.</p>
+<p>When you delete a group that has child groups or hosts, a confirmation dialog asks what to do with them:</p>
+<ul class="simple">
+<li><p><strong>Delete all groups and hosts</strong>: deletes the group and its descendants, except the groups and hosts that also belong to other groups, which are kept there.</p></li>
+<li><p><strong>Promote child groups and hosts</strong>: keeps them and moves them to the parent groups of the deleted group; if it had no parent groups, they become top-level groups and hosts of the inventory.</p></li>
+</ul>
+<img alt="The Delete group dialog with the options to delete or promote the child groups and hosts" src="../_images/inventories-groups-delete-root-with-children.png" />
+</section>
+</section>
+<section id="add-hosts">
+<span id="ug-inventories-add-host"></span><h3><span class="section-number">16.4.3. </span>Add hosts<a class="headerlink" href="#add-hosts" title="Link to this heading"></a></h3>
+<p>You can configure hosts for the inventory as well as for groups and groups within groups. To configure hosts:</p>
+<ol class="arabic simple">
+<li><p>Open the <strong>Hosts</strong> tab of the inventory, or the <strong>Hosts</strong> tab of a group.</p></li>
+<li><p>In the <strong>Hosts</strong> tab of the inventory, click <strong>Create host</strong>. In the <strong>Hosts</strong> tab of a group, click <strong>Add host</strong> and select <strong>Add existing host</strong> to add a host that already exists in the inventory, or <strong>Create host</strong> to create a new one.</p></li>
+<li><p>If creating a new host, enter the appropriate details into the required and optional fields:</p></li>
+</ol>
+<ul class="simple">
+<li><p><strong>Name</strong>: Required</p></li>
+<li><p><strong>Description</strong>: Enter an arbitrary description as appropriate (optional)</p></li>
+<li><p><strong>Enabled</strong>: Whether the host is included when running jobs. You can also enable or disable a host with the switch of its row in the list.</p></li>
+<li><p><strong>Variables</strong>: Enter definitions and values to be applied to this host. Enter variables using either JSON or YAML syntax. Use the <strong>YAML</strong> and <strong>JSON</strong> buttons to toggle between the two.</p></li>
+</ul>
+<ol class="arabic simple" start="4">
+<li><p>When done, click <strong>Create host</strong>.</p></li>
+</ol>
+<p>The new host displays in the list of hosts of the inventory or of the group it was created for. The <strong>Related groups</strong> column shows the groups of each host.</p>
+<p><img alt="The Hosts tab of an inventory" src="../_images/inventories-add-group-host-added.png" /></p>
+<p>If you chose to add an existing host, the available hosts appear in the <strong>Select host</strong> window. Select one or more and click <strong>Add hosts</strong>.</p>
+<p><img alt="The Select host window of a group" src="../_images/inventories-add-existing-host.png" /></p>
+<p>To remove hosts from a group without deleting them, select them in the <strong>Hosts</strong> tab of the group and click <strong>Disassociate hosts</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You may also run ad hoc commands from this screen. Refer to <a class="reference internal" href="#ug-inventories-run-ad-hoc"><span class="std std-ref">Running Ad Hoc Commands</span></a> for more detail.</p>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Click the name of a host to open it. The <strong>Details</strong> tab shows its inventory and variables; <strong>Host enabled</strong> and <strong>Edit host</strong> are at the top.</p></li>
+</ol>
+<p><img alt="Details of a host" src="../_images/inventories-add-group-host-details.png" /></p>
+<ol class="arabic simple" start="6">
+<li><p>The <strong>Facts</strong> tab shows the facts stored for the host by the job templates that use the fact cache.</p></li>
+<li><p>The <strong>Groups</strong> tab lists the groups of the host. Click <strong>Associate group</strong> to add the host to existing groups: select them in the <strong>Select groups</strong> window and click <strong>Confirm</strong>.</p></li>
+</ol>
+<blockquote>
+<div><img alt="The Select groups window of a host" src="../_images/inventories-add-group-hosts-add-groups.png" />
+</div></blockquote>
+<ol class="arabic simple" start="8">
+<li><p>If a host was used to run a job, the <strong>Jobs</strong> tab of the host lists those jobs. Expand a row to see more details, or click the job to open its output.</p></li>
+</ol>
+<img alt="The Jobs tab of a host" src="../_images/inventories-add-host-view-completed-jobs.png" />
+<div class="admonition note" id="ug-inventories-add-host-bulk-api">
+<p class="admonition-title">Note</p>
+<p>You may create hosts in bulk using the endpoint <code class="docutils literal notranslate"><span class="pre">/api/controller/v2/bulk/host_create/</span></code> of the API. This endpoint accepts JSON and you can specify the target inventory and a list of hosts to add to the inventory. These hosts must be unique within the inventory. Either all hosts are added, or an error is returned indicating why the operation was not able to complete. Use the <strong>OPTIONS</strong> request to return relevant schema. <code class="docutils literal notranslate"><span class="pre">/api/controller/v2/bulk/host_delete/</span></code> deletes hosts in bulk.</p>
+</div>
+</section>
+<section id="add-source">
+<span id="ug-inventories-add-source"></span><h3><span class="section-number">16.4.4. </span>Add source<a class="headerlink" href="#add-source" title="Link to this heading"></a></h3>
+<p>Inventory sources are not associated with groups. Spawned groups are top-level and may still have child groups, and all of these spawned groups may have hosts. Adding a source to an inventory only applies to standard inventories. Smart inventories inherit their source from the standard inventories they are associated with. To configure the source for the inventory:</p>
+<ol class="arabic simple">
+<li><p>In the inventory you want to add a source, click the <strong>Sources</strong> tab.</p></li>
+<li><p>Click <strong>Create source</strong>.</p></li>
+</ol>
+<p>This opens the <strong>Create source</strong> form.</p>
+<p><img alt="The Create source form" src="../_images/inventories-create-source.png" /></p>
+<ol class="arabic simple" start="3">
+<li><p>Enter the appropriate details into the required and optional fields:</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Name</strong>: Required</p></li>
+<li><p><strong>Description</strong>: Enter an arbitrary description as appropriate (optional)</p></li>
+<li><p><strong>Execution environment</strong>: Optionally select the execution environment with which you want to run your inventory imports. Refer to the <a class="reference internal" href="execution_environments.html#ug-execution-environments"><span class="std std-ref">Execution Environments</span></a> section for details on building an execution environment.</p></li>
+<li><p><strong>Source</strong>: Choose a source for your inventory. Refer to the <a class="reference internal" href="#ug-inventory-sources"><span class="std std-ref">Inventory Sources</span></a> section for more information about each source and details for entering the appropriate information.</p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" id="ug-add-inv-common-fields" start="4">
+<li><p>After completing the required information for your chosen <a class="reference internal" href="#ug-inventory-sources"><span class="std std-ref">inventory source</span></a>, you can continue to optionally specify other common parameters, such as verbosity, host filters, and variables.</p></li>
+<li><p>Select the appropriate level of output on any inventory source’s update jobs from the <strong>Verbosity</strong> drop-down menu.</p></li>
+<li><p>Use the <strong>Host filter</strong> field to specify only matching host names to be imported into automation controller.</p></li>
+<li><p>In the <strong>Enabled variable</strong>, specify automation controller to retrieve the enabled state from the given dictionary of host variables. The enabled variable may be specified using dot notation as ‘foo.bar’, in which case the lookup will traverse into nested dicts, equivalent to: <code class="docutils literal notranslate"><span class="pre">from_dict.get('foo',</span> <span class="pre">{}).get('bar',</span> <span class="pre">default)</span></code>.</p></li>
+<li><p>If you specified a dictionary of host variables in the <strong>Enabled variable</strong> field, you can provide a value to enable on import in <strong>Enabled value</strong>. For example, if <code class="docutils literal notranslate"><span class="pre">enabled_var='status.power_state'</span></code> and <code class="docutils literal notranslate"><span class="pre">enabled_value='powered_on'</span></code> with the following host variables, the host would be marked enabled:</p></li>
+</ol>
+<blockquote>
+<div><div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">{</span>
+<span class="s">"status"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">{</span>
+<span class="s">"power_state"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"powered_on"</span><span class="p p-Indicator">,</span>
+<span class="s">"created"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"2020-08-04T18:13:04+00:00"</span><span class="p p-Indicator">,</span>
+<span class="s">"healthy"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">true</span>
+<span class="p p-Indicator">},</span>
+<span class="s">"name"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"foobar"</span><span class="p p-Indicator">,</span>
+<span class="s">"ip_address"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"192.168.2.1"</span>
+<span class="p p-Indicator">}</span>
+</pre></div>
+</div>
+<p>If <code class="docutils literal notranslate"><span class="pre">power_state</span></code> were any value other than <code class="docutils literal notranslate"><span class="pre">powered_on</span></code>, then the host would be disabled when imported into automation controller. If the key is not found, an existing host keeps its current state and a new host is created enabled.</p>
+</div></blockquote>
+<ol class="arabic simple" start="9">
+<li><p>All inventory sources have the following update options:</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Overwrite</strong>: If checked, any hosts and groups that were previously present on the external source but are now removed, will be removed from automation controller inventory. Hosts and groups that were not managed by the inventory source will be promoted to the next manually created group, or if there is no manually created group to promote them into, they will be left in the “all” default group for the inventory.</p></li>
+</ul>
+<blockquote>
+<div><p>When not checked, local child hosts and groups not found on the external source will remain untouched by the inventory update process.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>Overwrite variables</strong>: If checked, all variables for child groups and hosts will be removed and replaced by those found on the external source. Inventory variables this source added on an earlier sync (for example from a <code class="docutils literal notranslate"><span class="pre">group_vars/all.yml</span></code> file) are removed once the source no longer provides them, unless they were edited since or another source of this inventory still provides them. When not checked, a merge will be performed, combining local variables with those found on the external source.</p></li>
+<li><p><strong>Update on launch</strong>: Each time a job runs using this inventory, refresh the inventory from the selected source before executing job tasks. To avoid job overflows if jobs are spawned faster than the inventory can sync, selecting this allows you to configure a <strong>Cache timeout (seconds)</strong> to cache prior inventory syncs for a certain number of seconds.</p></li>
+</ul>
+<blockquote>
+<div><p>The “Update on launch” setting refers to a dependency system for projects and inventory, and it will not specifically exclude two jobs from running at the same time. If a cache timeout is specified, then the dependencies for the second job is created and it uses the project and inventory update that the first job spawned. Both jobs then wait for that project and/or inventory update to finish before proceeding. If they are different job templates, they can then both start and run at the same time, if the system has the capacity to do so. If you intend to use automation controller’s provisioning callback feature with a dynamic inventory source, <strong>Update on launch</strong> should be set for the inventory source.</p>
+<p>If you sync an inventory source that uses a project that has <strong>Update revision on launch</strong> set, then the project may automatically update (according to cache timeout rules) before the inventory update starts.</p>
+<p>You can create a job template that uses an inventory that sources from the same project that the template uses. In this case, the project will update and then the inventory will update (if updates are not already in-progress, or if the cache timeout has not already expired).</p>
+</div></blockquote>
+</div></blockquote>
+<ol class="arabic simple" start="10">
+<li><p>Use the <strong>Source variables</strong> field to override the variables of the inventory plugin, in YAML or JSON.</p></li>
+<li><p>Review your entries and selections and click <strong>Create source</strong> when done.</p></li>
+</ol>
+<p>The source opens with its <strong>Details</strong>, <strong>Schedules</strong> and <strong>Notifications</strong> tabs. <strong>Sync inventory source</strong> runs an update of this source.</p>
+<img alt="Details of an inventory source with its Schedules and Notifications tabs" src="../_images/inventories-create-source-with-notifications-tab.png" />
+<ol class="arabic simple" start="12">
+<li><p>To configure schedules associated with this inventory source, click the <strong>Schedules</strong> tab. Refer to <a class="reference internal" href="scheduling.html#ug-scheduling"><span class="std std-ref">Schedules</span></a> for more information.</p></li>
+<li><p>To configure notifications for the source, click the <strong>Notifications</strong> tab and use the toggles to enable or disable the notifications to use with your particular source. For more detail, see <a class="reference internal" href="notifications.html#ug-notifications-on-off"><span class="std std-ref">Enable and Disable Notifications</span></a>; to create notifiers, refer to <a class="reference internal" href="notifications.html#ug-notifications"><span class="std std-ref">Notifications</span></a>.</p></li>
+</ol>
+<p>Once a source is defined, it displays as an entry in the <strong>Sources</strong> tab of the inventory. From there you can sync a single source with its sync button, or all of them at once with <strong>Sync inventory sources</strong> in the toolbar menu. You can also edit or delete a source.</p>
+<p><img alt="The Sources tab of an inventory" src="../_images/inventories-view-sources.png" /></p>
+<section id="inventory-sources">
+<span id="ug-inventory-sources"></span><h4><span class="section-number">16.4.4.1. </span>Inventory Sources<a class="headerlink" href="#inventory-sources" title="Link to this heading"></a></h4>
+<p>Choose a source which matches the inventory type against which a host can be entered:</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#sourced-from-a-project" id="id3">Sourced from a Project</a></p></li>
+<li><p><a class="reference internal" href="#amazon-ec2" id="id4">Amazon EC2</a></p></li>
+<li><p><a class="reference internal" href="#openshift-virtualization" id="id5">OpenShift Virtualization</a></p></li>
+<li><p><a class="reference internal" href="#red-hat-ansible-automation-platform" id="id6">Red Hat Ansible Automation Platform</a></p></li>
+<li><p><a class="reference internal" href="#terraform-state" id="id7">Terraform State</a></p></li>
+<li><p><a class="reference internal" href="#additional-cloud-and-virtualization-sources" id="id8">Additional cloud and virtualization sources</a></p></li>
+<li><p><a class="reference internal" href="#google-compute-engine" id="id9">Google Compute Engine</a></p></li>
+<li><p><a class="reference internal" href="#microsoft-azure-resource-manager" id="id10">Microsoft Azure Resource Manager</a></p></li>
+<li><p><a class="reference internal" href="#vmware-vcenter" id="id11">VMware vCenter</a></p></li>
+<li><p><a class="reference internal" href="#vmware-esxi" id="id12">VMware ESXi</a></p></li>
+<li><p><a class="reference internal" href="#red-hat-satellite-6" id="id13">Red Hat Satellite 6</a></p></li>
+<li><p><a class="reference internal" href="#openstack" id="id14">OpenStack</a></p></li>
+<li><p><a class="reference internal" href="#red-hat-virtualization" id="id15">Red Hat Virtualization</a></p></li>
+<li><p><a class="reference internal" href="#red-hat-insights" id="id16">Red Hat Insights</a></p></li>
+</ul>
+</nav>
+<section id="sourced-from-a-project">
+<h5><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">16.4.4.1.1. </span>Sourced from a Project</a><a class="headerlink" href="#sourced-from-a-project" title="Link to this heading"></a></h5>
+<p id="index-6">An inventory that is sourced from a project reads an inventory file, directory or script from the content of that project, which automation controller gets from its source control.</p>
+<ol class="arabic simple">
+<li><p>To configure a project-sourced inventory, select <strong>Sourced from a Project</strong> from the <strong>Source</strong> field.</p></li>
+<li><p>The <strong>Source Details</strong> section shows additional fields. Enter the following details:</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Credential</strong>: Optionally specify a cloud or Kubernetes credential whose values the inventory file or script needs.</p></li>
+<li><p><strong>Project</strong>: Required. Select the project this inventory is using as its source.</p></li>
+<li><p><strong>Source control branch</strong>: Optionally enter the branch, tag or commit to check out. It only displays if the selected project has the <strong>Allow branch override</strong> option checked. If left blank, the default branch of the project is used.</p></li>
+<li><p><strong>Inventory path</strong>: Required. Select an inventory file of the project, or <code class="docutils literal notranslate"><span class="pre">.</span> <span class="pre">(project</span> <span class="pre">root)</span></code>. If not already listed, you can type it into the field. In addition to a flat file inventory, you can point to a directory or an inventory script.</p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>You can optionally specify the verbosity, host filter, enabled variable/value, and update options as described in the main procedure for <a class="reference internal" href="#ug-add-inv-common-fields"><span class="std std-ref">adding a source</span></a>.</p></li>
+<li><p>Use <strong>Source variables</strong> to pass environment variables to an inventory script; you may also place inventory scripts in source control and then run it from a project. See <a class="reference internal" href="../administration/scm-inv-source.html#ag-inv-import"><span class="std std-ref">Inventory File Importing</span></a> in the <em>Administration Guide</em> for detail.</p></li>
+</ol>
+<p><img alt="The Create source form for a source sourced from a project" src="../_images/inventories-create-source-sourced-from-project-example.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are executing a custom inventory script from source control, please make sure you set the execution bit (i.e. <code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">+x</span></code>) on the script in your upstream source control. If you do not, automation controller will throw a <code class="docutils literal notranslate"><span class="pre">[Errno</span> <span class="pre">13]</span> <span class="pre">Permission</span> <span class="pre">denied</span></code> error upon execution.</p>
+</div>
+</section>
+<section id="amazon-ec2">
+<span id="ug-source-ec2"></span><h5><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">16.4.4.1.2. </span>Amazon EC2</a><a class="headerlink" href="#amazon-ec2" title="Link to this heading"></a></h5>
+<ol class="arabic simple" id="index-7">
+<li><p>To configure an AWS EC2-sourced inventory, select <strong>Amazon EC2</strong> from the <strong>Source</strong> field.</p></li>
+<li><p>The <strong>Credential</strong> field is optional for this source and lists <a class="reference internal" href="credentials.html#ug-credentials-aws"><span class="std std-ref">Amazon Web Services credentials</span></a>. Without a credential, the plugin uses the AWS credentials available where the update runs; for example, the IAM role of the instance, when the execution node is an EC2 instance with an assigned IAM role. For more information on using IAM Roles, refer to the <a class="reference external" href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html">IAM roles for Amazon EC2 documentation</a>.</p></li>
+<li><p>You can optionally specify the verbosity, host filter, enabled variable/value, and update options as described in the main procedure for <a class="reference internal" href="#ug-add-inv-common-fields"><span class="std std-ref">adding a source</span></a>.</p></li>
+<li><p>Use the <strong>Source variables</strong> field to override variables used by the <code class="docutils literal notranslate"><span class="pre">aws_ec2</span></code> inventory plugin. Enter variables using either JSON or YAML syntax. For a detailed description of these variables, view the <a class="reference external" href="https://docs.ansible.com/ansible/latest/collections/amazon/aws/aws_ec2_inventory.html">aws_ec2 inventory plugin documentation</a>.</p></li>
+</ol>
+<p><img alt="The Create source form for an Amazon EC2 source" src="../_images/inventories-create-source-AWS-example.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you only use <code class="docutils literal notranslate"><span class="pre">include_filters</span></code>, the AWS plugin always returns all the hosts. To use this properly, the first condition on the <code class="docutils literal notranslate"><span class="pre">or</span></code> must be on <code class="docutils literal notranslate"><span class="pre">filters</span></code> and then build the rest of the <code class="docutils literal notranslate"><span class="pre">OR</span></code> conditions on a list of <code class="docutils literal notranslate"><span class="pre">include_filters</span></code>.</p>
+</div>
+</section>
+<section id="openshift-virtualization">
+<span id="ug-source-openshift-virtualization"></span><h5><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">16.4.4.1.3. </span>OpenShift Virtualization</a><a class="headerlink" href="#openshift-virtualization" title="Link to this heading"></a></h5>
+<p id="index-8">This source imports the virtual machines of OpenShift Virtualization (KubeVirt) with the <code class="docutils literal notranslate"><span class="pre">kubevirt.core.kubevirt</span></code> inventory plugin.</p>
+<ol class="arabic simple">
+<li><p>Select <strong>Supported OpenShift Virtualization</strong> from the <strong>Source</strong> field.</p></li>
+<li><p>In <strong>Credential</strong>, choose an <strong>OpenShift or Kubernetes API Bearer Token</strong> credential (required); see <a class="reference internal" href="credentials.html#ug-credentials"><span class="std std-ref">Credentials</span></a>.</p></li>
+<li><p>You can optionally specify the verbosity, host filter, enabled variable/value, and update options as described in the main procedure for <a class="reference internal" href="#ug-add-inv-common-fields"><span class="std std-ref">adding a source</span></a>.</p></li>
+<li><p>Use the <strong>Source variables</strong> field to set the options of the plugin, for example the namespaces to read. The execution environment must include the <code class="docutils literal notranslate"><span class="pre">kubevirt.core</span></code> collection.</p></li>
+</ol>
+</section>
+<section id="red-hat-ansible-automation-platform">
+<span id="ug-source-aap"></span><h5><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">16.4.4.1.4. </span>Red Hat Ansible Automation Platform</a><a class="headerlink" href="#red-hat-ansible-automation-platform" title="Link to this heading"></a></h5>
+<p id="index-9">This source imports an inventory of another automation controller with the <code class="docutils literal notranslate"><span class="pre">awx.awx.tower</span></code> inventory plugin.</p>
+<ol class="arabic simple">
+<li><p>To configure this type of sourced inventory, select <strong>Supported Red Hat Ansible Automation Platform</strong> from the <strong>Source</strong> field.</p></li>
+<li><p>In <strong>Credential</strong>, choose a <strong>Red Hat Ansible Automation Platform</strong> credential (required) with the address and credentials of the other platform. For more information, refer to <a class="reference internal" href="credentials.html#ug-credentials"><span class="std std-ref">Credentials</span></a>.</p></li>
+<li><p>You can optionally specify the verbosity, host filter, enabled variable/value, and update options as described in the main procedure for <a class="reference internal" href="#ug-add-inv-common-fields"><span class="std std-ref">adding a source</span></a>.</p></li>
+</ol>
+<blockquote>
+<div><img alt="The Create source form for a Red Hat Ansible Automation Platform source" src="../_images/inventories-create-source-rhaap-example.png" />
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li><p>Use the <strong>Source variables</strong> field to override variables used by the <code class="docutils literal notranslate"><span class="pre">awx.awx.tower</span></code> inventory plugin, for example the <code class="docutils literal notranslate"><span class="pre">inventory_id</span></code> of the inventory to import. Enter variables using either JSON or YAML syntax.</p></li>
+</ol>
+</section>
+<section id="terraform-state">
+<span id="ug-source-terraform"></span><h5><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">16.4.4.1.5. </span>Terraform State</a><a class="headerlink" href="#terraform-state" title="Link to this heading"></a></h5>
+<p id="index-10">This inventory source uses the <a class="reference external" href="https://github.com/ansible-collections/cloud.terraform/blob/main/docs/cloud.terraform.terraform_state_inventory.rst">terraform_state</a> inventory plugin from the <a class="reference external" href="https://github.com/ansible-collections/cloud.terraform">cloud.terraform</a> collection. The plugin will parse a terraform state file and add hosts for AWS EC2, GCE, and Azure instances.</p>
+<ol class="arabic simple">
+<li><p>To configure this type of sourced inventory, select <strong>Terraform State</strong> from the <strong>Source</strong> field.</p></li>
+<li><p>The optional <strong>Credential</strong> field lists <a class="reference internal" href="credentials.html#ug-credentials-terraform"><span class="std std-ref">Terraform backend configuration credentials</span></a>. Select one when the backend needs authentication or other backend settings.</p></li>
+<li><p>You can optionally specify the verbosity, host filter, enabled variable/value, and update options as described in the main procedure for <a class="reference internal" href="#ug-add-inv-common-fields"><span class="std std-ref">adding a source</span></a>. For Terraform, enable <strong>Overwrite</strong> and <strong>Update on launch</strong> options.</p></li>
+<li><p>Use the <strong>Source variables</strong> field to override variables used by the <code class="docutils literal notranslate"><span class="pre">terraform</span></code> inventory plugin. Enter variables using either JSON or YAML syntax. For more information on these variables, see the <a class="reference external" href="https://github.com/ansible-collections/cloud.terraform/blob/main/docs/cloud.terraform.terraform_state_inventory.rst">terraform_state</a> file for detail.</p></li>
+</ol>
+<blockquote>
+<div><p>The <code class="docutils literal notranslate"><span class="pre">backend_type</span></code> variable is required by the Terraform state inventory plugin. Here is an example for an Amazon S3 backend:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="nt">backend_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">s3</span>
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="5">
+<li><p>Select in the <strong>Execution environment</strong> field (required for this source) an execution environment that contains a Terraform binary. This is required for the inventory plugin to run the Terraform commands that read inventory data from the Terraform state file. Refer to the <a class="reference external" href="https://github.com/ansible-cloud/terraform_ee">Terraform EE readme</a> that contains an example execution environment configuration with a Terraform binary.</p></li>
+</ol>
+<blockquote>
+<div><img alt="The Create source form for a Terraform State source" src="../_images/inventories-create-source-terraform-example.png" />
+</div></blockquote>
+<ol class="arabic simple" start="6">
+<li><p>To add hosts for AWS EC2, GCE, and Azure instances, the Terraform state file in the backend must contain state for resources already deployed to EC2, GCE, or Azure. Refer to each of the Terraform providers’ respective documentation to provision instances.</p></li>
+</ol>
+</section>
+<section id="additional-cloud-and-virtualization-sources">
+<span id="ug-source-cloud-unavailable"></span><h5><a class="toc-backref" href="#id8" role="doc-backlink"><span class="section-number">16.4.4.1.6. </span>Additional cloud and virtualization sources</a><a class="headerlink" href="#additional-cloud-and-virtualization-sources" title="Link to this heading"></a></h5>
+<p>The following sources are available with their managed credentials in Koios Automation Platform
+2026.11.8. In <strong>Automation Execution &gt; Infrastructure &gt; Inventories</strong>, open a standard inventory,
+select <strong>Sources</strong>, then click <strong>Create source</strong>. Enter <strong>Name</strong>, select <strong>Source</strong> and the matching
+<strong>Credential</strong>, and optionally select an <strong>Execution environment</strong> containing the inventory plugin
+and its dependencies. <strong>Source variables</strong> accepts YAML or JSON plugin options. Review the
+<a class="reference internal" href="#ug-add-inv-common-fields"><span class="std std-ref">common update options</span></a>, click <strong>Create source</strong>, then
+<strong>Sync inventory source</strong> to import hosts and groups. Saving a source does not prove that its
+remote service is reachable or that its credentials have sufficient permissions.</p>
+</section>
+<section id="google-compute-engine">
+<span id="ug-source-gce"></span><h5><a class="toc-backref" href="#id9" role="doc-backlink"><span class="section-number">16.4.4.1.7. </span>Google Compute Engine</a><a class="headerlink" href="#google-compute-engine" title="Link to this heading"></a></h5>
+<ol class="arabic simple">
+<li><p>Select <strong>Google Compute Engine</strong> in <strong>Source</strong>.</p></li>
+</ol>
+<img alt="Create source form with Google Compute Engine selected and no credential selected" src="../_images/inventories-create-source-GCE-example.png" />
+<ol class="arabic simple" start="2">
+<li><p>In <strong>Credential</strong> (required), select a <a class="reference internal" href="credentials.html#ug-credentials-gce"><span class="std std-ref">Google Compute Engine credential</span></a>.</p></li>
+<li><p>The source uses <code class="docutils literal notranslate"><span class="pre">google.cloud.gcp_compute</span></code>. Ensure that the selected EE includes the corresponding collection and its dependencies.</p></li>
+<li><p>Set the GCP project and other discovery options in <strong>Source variables</strong> as needed. Use a service account authorized to list the target resources.</p></li>
+<li><p>Finish the common fields and sync the source as described above.</p></li>
+</ol>
+</section>
+<section id="microsoft-azure-resource-manager">
+<span id="ug-source-azure"></span><h5><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">16.4.4.1.8. </span>Microsoft Azure Resource Manager</a><a class="headerlink" href="#microsoft-azure-resource-manager" title="Link to this heading"></a></h5>
+<ol class="arabic simple">
+<li><p>Select <strong>Microsoft Azure Resource Manager</strong> in <strong>Source</strong>.</p></li>
+</ol>
+<img alt="Create source form with Microsoft Azure Resource Manager selected and no credential selected" src="../_images/inventories-create-source-azurerm-example.png" />
+<ol class="arabic simple" start="2">
+<li><p>In <strong>Credential</strong> (required), select a <a class="reference internal" href="credentials.html#ug-credentials-azure-rm"><span class="std std-ref">Microsoft Azure Resource Manager credential</span></a>.</p></li>
+<li><p>The source uses <code class="docutils literal notranslate"><span class="pre">azure.azcollection.azure_rm</span></code>. Ensure that the selected EE includes the corresponding collection and its dependencies.</p></li>
+<li><p>Use <strong>Source variables</strong> to select discovery options supported by the Azure inventory plugin. The account must have access to the subscription and resources being imported.</p></li>
+<li><p>Finish the common fields and sync the source as described above.</p></li>
+</ol>
+</section>
+<section id="vmware-vcenter">
+<span id="ug-source-vmvcenter"></span><h5><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">16.4.4.1.9. </span>VMware vCenter</a><a class="headerlink" href="#vmware-vcenter" title="Link to this heading"></a></h5>
+<ol class="arabic simple">
+<li><p>Select <strong>VMware vCenter</strong> in <strong>Source</strong>.</p></li>
+</ol>
+<img alt="Create source form with VMware vCenter selected and no credential selected" src="../_images/inventories-create-source-vmware-example.png" />
+<ol class="arabic simple" start="2">
+<li><p>In <strong>Credential</strong> (required), select a <a class="reference internal" href="credentials.html#ug-credentials-vmware"><span class="std std-ref">VMware vCenter credential</span></a>.</p></li>
+<li><p>The source uses <code class="docutils literal notranslate"><span class="pre">community.vmware.vmware_vm_inventory</span></code>. Ensure that the selected EE includes the corresponding collection and its dependencies.</p></li>
+<li><p>Use <strong>Source variables</strong> to select VMware properties, filters, groups and certificate-validation options supported by the inventory plugin.</p></li>
+<li><p>Finish the common fields and sync the source as described above.</p></li>
+</ol>
+</section>
+<section id="vmware-esxi">
+<span id="ug-source-vmware-esxi"></span><h5><a class="toc-backref" href="#id12" role="doc-backlink"><span class="section-number">16.4.4.1.10. </span>VMware ESXi</a><a class="headerlink" href="#vmware-esxi" title="Link to this heading"></a></h5>
+<ol class="arabic simple">
+<li><p>Select <strong>VMware ESXi</strong> in <strong>Source</strong>.</p></li>
+</ol>
+<img alt="Create source form with VMware ESXi selected and no credential selected" src="../_images/inventories-create-source-vmware-esxi-example.png" />
+<ol class="arabic simple" start="2">
+<li><p>In <strong>Credential</strong> (required), select a <a class="reference internal" href="credentials.html#ug-credentials-vmware"><span class="std std-ref">VMware vCenter credential</span></a>.</p></li>
+<li><p>Ensure that the selected EE includes the VMware ESXi inventory plugin and its dependencies.</p></li>
+<li><p>Select a <strong>VMware vCenter</strong> credential whose <strong>VCenter Host</strong> is the ESXi endpoint. There is no separate ESXi credential type. Use <strong>Source variables</strong> for the options accepted by the ESXi inventory plugin in the selected EE.</p></li>
+<li><p>Finish the common fields and sync the source as described above.</p></li>
+</ol>
+</section>
+<section id="red-hat-satellite-6">
+<span id="ug-source-satellite"></span><h5><a class="toc-backref" href="#id13" role="doc-backlink"><span class="section-number">16.4.4.1.11. </span>Red Hat Satellite 6</a><a class="headerlink" href="#red-hat-satellite-6" title="Link to this heading"></a></h5>
+<ol class="arabic simple">
+<li><p>Select <strong>Supported Red Hat Satellite 6</strong> in <strong>Source</strong>.</p></li>
+</ol>
+<img alt="Create source form with Supported Red Hat Satellite 6 selected and no credential selected" src="../_images/inventories-create-source-rhsat6-example.png" />
+<ol class="arabic simple" start="2">
+<li><p>In <strong>Credential</strong> (required), select a <a class="reference internal" href="credentials.html#ug-credentials-satellite6"><span class="std std-ref">Red Hat Satellite 6 credential</span></a>.</p></li>
+<li><p>The source uses <code class="docutils literal notranslate"><span class="pre">theforeman.foreman.foreman</span></code>. Ensure that the selected EE includes the corresponding collection and its dependencies.</p></li>
+<li><p>Use <strong>Source variables</strong> for Foreman/Satellite discovery and grouping options. If expected related groups are missing, check the plugin configuration and the account’s access to the Satellite resources.</p></li>
+<li><p>Finish the common fields and sync the source as described above.</p></li>
+</ol>
+</section>
+<section id="openstack">
+<span id="ug-source-openstack"></span><h5><a class="toc-backref" href="#id14" role="doc-backlink"><span class="section-number">16.4.4.1.12. </span>OpenStack</a><a class="headerlink" href="#openstack" title="Link to this heading"></a></h5>
+<ol class="arabic simple">
+<li><p>Select <strong>OpenStack</strong> in <strong>Source</strong>.</p></li>
+</ol>
+<img alt="Create source form with OpenStack selected and no credential selected" src="../_images/inventories-create-source-openstack-example.png" />
+<ol class="arabic simple" start="2">
+<li><p>In <strong>Credential</strong> (required), select a <a class="reference internal" href="credentials.html#ug-credentials-openstack"><span class="std std-ref">OpenStack credential</span></a>.</p></li>
+<li><p>The source uses <code class="docutils literal notranslate"><span class="pre">openstack.cloud.openstack</span></code>. Ensure that the selected EE includes the corresponding collection and its dependencies.</p></li>
+<li><p>The managed credential exposes username/password authentication and project/domain/region settings; it does not expose Keystone application-credential fields. Configure discovery options in <strong>Source variables</strong>.</p></li>
+<li><p>Finish the common fields and sync the source as described above.</p></li>
+</ol>
+</section>
+<section id="red-hat-virtualization">
+<span id="ug-source-rhv"></span><h5><a class="toc-backref" href="#id15" role="doc-backlink"><span class="section-number">16.4.4.1.13. </span>Red Hat Virtualization</a><a class="headerlink" href="#red-hat-virtualization" title="Link to this heading"></a></h5>
+<ol class="arabic simple">
+<li><p>Select <strong>Supported Red Hat Virtualization</strong> in <strong>Source</strong>.</p></li>
+</ol>
+<img alt="Create source form with Supported Red Hat Virtualization selected and no credential selected" src="../_images/inventories-create-source-rhv-example.png" />
+<ol class="arabic simple" start="2">
+<li><p>In <strong>Credential</strong> (required), select a <a class="reference internal" href="credentials.html#ug-credentials-rhv"><span class="std std-ref">Red Hat Virtualization credential</span></a>.</p></li>
+<li><p>The source uses <code class="docutils literal notranslate"><span class="pre">ovirt.ovirt.ovirt</span></code>. Ensure that the selected EE includes the corresponding collection and its dependencies.</p></li>
+<li><p>If the credential specifies <strong>CA File</strong>, make that path available inside the inventory update EE. Configure discovery options in <strong>Source variables</strong>.</p></li>
+<li><p>Finish the common fields and sync the source as described above.</p></li>
+</ol>
+</section>
+<section id="red-hat-insights">
+<span id="ug-source-insights"></span><h5><a class="toc-backref" href="#id16" role="doc-backlink"><span class="section-number">16.4.4.1.14. </span>Red Hat Insights</a><a class="headerlink" href="#red-hat-insights" title="Link to this heading"></a></h5>
+<ol class="arabic simple">
+<li><p>Select <strong>Supported Red Hat Insights</strong> in <strong>Source</strong>.</p></li>
+</ol>
+<img alt="Create source form with Supported Red Hat Insights selected and no credential selected" src="../_images/inventories-create-source-insights-example.png" />
+<ol class="arabic simple" start="2">
+<li><p>In <strong>Credential</strong> (required), select a <a class="reference internal" href="credentials.html#ug-credentials-insights"><span class="std std-ref">Insights credential</span></a>.</p></li>
+<li><p>The source uses <code class="docutils literal notranslate"><span class="pre">redhatinsights.insights.insights</span></code>. Ensure that the selected EE includes the corresponding collection and its dependencies.</p></li>
+<li><p>Use an <strong>Insights</strong> credential with the authentication values needed by the Insights service. Configure discovery and grouping options in <strong>Source variables</strong>.</p></li>
+<li><p>Finish the common fields and sync the source as described above.</p></li>
+</ol>
+</section>
+</section>
+<section id="export-old-inventory-scripts">
+<span id="ug-customscripts"></span><h4><span class="section-number">16.4.4.2. </span>Export old inventory scripts<a class="headerlink" href="#export-old-inventory-scripts" title="Link to this heading"></a></h4>
+<p id="index-11">Despite the removal of the custom inventory scripts API, the scripts are still saved in the database of an installation that had them, for example after migrating from an old version. The <code class="docutils literal notranslate"><span class="pre">awx-manage</span> <span class="pre">export_custom_scripts</span></code> command recovers them in a format that is suitable for you to subsequently check into source control. Run it in the task container of automation controller and copy the file out of the pod:</p>
+<p>Choose one task pod and use it in both commands, since the file is written inside that pod:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">$ POD=$(kubectl get pods -n &lt;namespace&gt; -l app.kubernetes.io/name=&lt;platform&gt;-controller-task -o name | head -1)</span>
+<span class="l l-Scalar l-Scalar-Plain">$ kubectl exec -n &lt;namespace&gt; $POD -c &lt;platform&gt;-controller-task -- \</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">awx-manage export_custom_scripts --filename=/tmp/my_scripts.tar</span>
+<span class="l l-Scalar l-Scalar-Plain">Dump of old custom inventory scripts at /tmp/my_scripts.tar</span>
+<span class="l l-Scalar l-Scalar-Plain">$ kubectl cp -n &lt;namespace&gt; -c &lt;platform&gt;-controller-task ${POD#pod/}:/tmp/my_scripts.tar my_scripts.tar</span>
+</pre></div>
+</div>
+<p>Making use of the output:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">$ mkdir my_scripts</span>
+<span class="l l-Scalar l-Scalar-Plain">$ tar -xf my_scripts.tar -C my_scripts</span>
+</pre></div>
+</div>
+<p>The naming of the scripts is <code class="docutils literal notranslate"><span class="pre">_&lt;pk&gt;__&lt;name&gt;</span></code>. This is the naming scheme used for project folders.</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">$ ls my_scripts</span>
+<span class="l l-Scalar l-Scalar-Plain">_10__inventory_script_rawhook             _19__                                       _30__inventory_script_listenhospital</span>
+<span class="l l-Scalar l-Scalar-Plain">_11__inventory_script_upperorder          _1__inventory_script_commercialinternet45   _4__inventory_script_whitestring</span>
+<span class="l l-Scalar l-Scalar-Plain">_12__inventory_script_eastplant           _22__inventory_script_pinexchange           _5__inventory_script_literaturepossession</span>
+<span class="l l-Scalar l-Scalar-Plain">_13__inventory_script_governmentculture   _23__inventory_script_brainluck             _6__inventory_script_opportunitytelephone</span>
+<span class="l l-Scalar l-Scalar-Plain">_14__inventory_script_bottomguess         _25__inventory_script_buyerleague           _7__inventory_script_letjury</span>
+<span class="l l-Scalar l-Scalar-Plain">_15__inventory_script_wallisland          _26__inventory_script_lifesport             _8__random_inventory_script_</span>
+<span class="l l-Scalar l-Scalar-Plain">_16__inventory_script_wallisland          _27__inventory_script_exchangesomewhere     _9__random_inventory_script_</span>
+<span class="l l-Scalar l-Scalar-Plain">_17__inventory_script_bidstory            _28__inventory_script_boxchild</span>
+<span class="l l-Scalar l-Scalar-Plain">_18__p                                    _29__inventory_script_wearstress</span>
+</pre></div>
+</div>
+<p>Each file contains a script. Scripts can be <code class="docutils literal notranslate"><span class="pre">bash/python/ruby/more</span></code>, so the extension is not included. They are all directly executable (assuming the scripts worked). If you execute the script, it dumps the inventory data.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./my_scripts/_11__inventory_script_upperorder
+<span class="o">{</span><span class="s2">"group_𐒰숎笎𗏫넫듐髆𗬇濹셻"</span>:<span class="w"> </span><span class="o">{</span><span class="s2">"hosts"</span>:
+<span class="o">[</span><span class="s2">"host_𘒭梶穑鎴槏쏂𗶾𘂒ㅃ拇"</span>,
+<span class="s2">"host_恗㦅ὠﻻᬢ봭ꤌ𖡩ፄ鴕"</span>,
+<span class="s2">"host_碠𘋳鉞槚ꕉ𓉾𗢑𒇑埖𐙗"</span>,
+<span class="s2">"host_𞠭ퟷꆊ瞚𐎋礃𘊭䅔𒈕霑"</span>,
+<span class="s2">"host_ᢡ鵯ࢬ瓂哢琎异𗗮ﯖ䔆"</span><span class="o">]</span>,<span class="w"> </span><span class="s2">"vars"</span>:<span class="w"> </span><span class="o">{</span><span class="s2">"ansible_host"</span>:<span class="w"> </span><span class="s2">"127.0.0.1"</span>,<span class="w"> </span><span class="s2">"ansible_connection"</span>:
+<span class="s2">"local"</span><span class="o">}}}</span>
+</pre></div>
+</div>
+<p>You can verify functionality with <code class="docutils literal notranslate"><span class="pre">ansible-inventory</span></code>. This should give the same data, but reformatted.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ansible-inventory<span class="w"> </span>-i<span class="w"> </span>./my_scripts/_11__inventory_script_upperorder<span class="w"> </span>--list<span class="w"> </span>--export
+</pre></div>
+</div>
+<p>In the above example, you could <code class="docutils literal notranslate"><span class="pre">cd</span></code> into <code class="docutils literal notranslate"><span class="pre">my_scripts</span></code> and then issue a <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">init</span></code> command, add the scripts you want, push it to source control, and then create an inventory source sourced from a project in the automation controller user interface.</p>
+<p>For more information on syncing or using custom inventory scripts, refer to <a class="reference internal" href="../administration/scm-inv-source.html#ag-inv-import"><span class="std std-ref">Inventory File Importing</span></a> in the <em>Administration Guide</em>.</p>
+</section>
+</section>
+<section id="view-completed-jobs">
+<span id="ug-inventories-view-completed-jobs"></span><h3><span class="section-number">16.4.5. </span>View completed jobs<a class="headerlink" href="#view-completed-jobs" title="Link to this heading"></a></h3>
+<p>If an inventory was used to run a job, the <strong>Jobs</strong> tab of the inventory lists those jobs, including ad hoc commands. Expand a row to see more details, or click the job to open its output.</p>
+<p><img alt="The Jobs tab of an inventory" src="../_images/inventories-view-completed-jobs.png" /></p>
+<p>The <strong>Job Templates</strong> tab lists the job templates that use the inventory.</p>
+</section>
+</section>
+<section id="running-ad-hoc-commands">
+<span id="ug-inventories-run-ad-hoc"></span><h2><span class="section-number">16.5. </span>Running Ad Hoc Commands<a class="headerlink" href="#running-ad-hoc-commands" title="Link to this heading"></a></h2>
+<p id="index-12">To run an ad hoc command:</p>
+<ol class="arabic simple">
+<li><p>Open the <strong>Hosts</strong> or <strong>Groups</strong> tab of the inventory, or the <strong>Hosts</strong> tab of a group. Optionally select the hosts or groups to target; otherwise the command targets all the hosts of the inventory.</p></li>
+</ol>
+<p><img alt="The Hosts tab of an inventory with the Run command button" src="../_images/inventories-add-group-host-added.png" /></p>
+<ol class="arabic simple" start="2">
+<li><p>Click <strong>Run command</strong>.</p></li>
+</ol>
+<p>The <strong>Run command</strong> wizard opens.</p>
+<img alt="The Details step of the Run command wizard" src="../_images/ad-hoc-run-execute-command.png" />
+<ol class="arabic simple" start="3">
+<li><p>Enter the details for the following fields:</p></li>
+</ol>
+<ul>
+<li><p><strong>Module</strong>: Select one of the modules that automation controller supports running commands against. The list comes from the <code class="docutils literal notranslate"><span class="pre">AD_HOC_COMMANDS</span></code> setting of automation controller; by default:</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>command</p></td>
+<td><p>apt_repository</p></td>
+<td><p>mount</p></td>
+<td><p>win_service</p></td>
+</tr>
+<tr class="row-even"><td><p>shell</p></td>
+<td><p>apt_rpm</p></td>
+<td><p>ping</p></td>
+<td><p>win_updates</p></td>
+</tr>
+<tr class="row-odd"><td><p>yum</p></td>
+<td><p>service</p></td>
+<td><p>selinux</p></td>
+<td><p>win_group</p></td>
+</tr>
+<tr class="row-even"><td><p>apt</p></td>
+<td><p>group</p></td>
+<td><p>setup</p></td>
+<td rowspan="2"><p>win_user</p></td>
+</tr>
+<tr class="row-odd"><td><p>apt_key</p></td>
+<td><p>user</p></td>
+<td><p>win_ping</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p><strong>Arguments</strong>: Provide arguments to be used with the module you selected.</p></li>
+<li><p><strong>Verbosity</strong>: Select a verbosity level for the standard output.</p></li>
+<li><p><strong>Limit</strong>: Enter the limit used to target hosts in the inventory. To target all hosts in the inventory enter <code class="docutils literal notranslate"><span class="pre">all</span></code> or <code class="docutils literal notranslate"><span class="pre">*</span></code>, or leave the field blank. This is automatically populated with whatever was selected in the previous view prior to clicking <strong>Run command</strong>.</p></li>
+<li><p><strong>Forks</strong>: If needed, select the number of parallel or simultaneous processes to use while executing the command.</p></li>
+<li><p><strong>Show changes</strong>: Select to enable the display of Ansible changes in the standard output. The default is off.</p></li>
+<li><p><strong>Privilege escalation</strong>: If enabled, the command is run with administrator privileges. This is the equivalent of passing the <code class="docutils literal notranslate"><span class="pre">--become</span></code> option to the <code class="docutils literal notranslate"><span class="pre">ansible</span></code> command.</p></li>
+<li><p><strong>Extra Variables</strong>: Provide extra command line variables to be applied when running this inventory. Enter variables using either JSON or YAML syntax.</p></li>
+</ul>
+<p><img alt="The Details step with the ping module and a limit" src="../_images/ad-hoc-commands-inventory-run-command.png" /></p>
+<ol class="arabic simple" start="4">
+<li><p>Click <strong>Next</strong> to choose the execution environment you want the ad-hoc command to be run against. If you leave it empty, the default execution environment is used.</p></li>
+</ol>
+<img alt="The Execution Environment step of the Run command wizard" src="../_images/ad-hoc-commands-inventory-run-command-ee.png" />
+<ol class="arabic simple" start="5">
+<li><p>Click <strong>Next</strong> to choose the credential to use when accessing the remote hosts: the machine credential with the user name and the SSH key or password that Ansible needs to log into them. If the credential asks for passwords at launch, the <strong>Credential Passwords</strong> step requests them.</p></li>
+<li><p>Review the command in the <strong>Review</strong> step and click <strong>Finish</strong> to launch it.</p></li>
+</ol>
+<p>The results display in the <strong>Output</strong> tab of the job.</p>
+<p><img alt="Output of an ad hoc ping command" src="../_images/ad-hoc-commands-inventory-results-example.png" /></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="project-sign.html" class="btn btn-neutral float-left" title="15. Project Signing and Verification" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="inventory_plugins_templates.html" class="btn btn-neutral float-right" title="17. Supported Inventory Plugin Templates" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Koios Solutions. Portions 2026, Red Hat, Inc. and 2026, CtrlIQ, Inc..</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+<p class="koios-legal">Licensed under the <a href="../LICENSE.txt">Apache License 2.0</a>; see the <a href="../NOTICE.txt">NOTICE</a> for the origin of this documentation.</p>
+
+</body>
+</html>

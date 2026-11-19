@@ -1,0 +1,64 @@
+/* Koios Ink palette over the Ascender/Ansible docsite structure (DOCS-PUBLISH-01, preview 2026-11-18).
+ * Ink #151515 bars with the white Koios logo (as on the platform login page), the platform UI blue for links,
+ * and Koios teal as the accent: #00796b on light surfaces, #4db6ac on dark ones. Loaded after ansible.css and dark.css. */
+:root {
+    --koios-ink: #151515;
+    --koios-teal: #00796b;        /* 5.3:1 on white */
+    --koios-teal-light: #4db6ac;  /* 7.5:1 on ink, 6.9:1 on #1a1e25 */
+    --koios-link: #0066cc;        /* 5.6:1 on white */
+    --koios-link-hover: #004080;
+}
+html[data-theme="dark"] {
+    --asc-link: #92c5f9;          /* 9.2:1 on #1a1e25 */
+    --asc-link-hover: #b9dafc;
+    --asc-brand: #4db6ac;
+}
+
+/* Bars and navigation header: ink with the white logo, in both themes, and a thin teal edge. */
+.DocSite-globalNav, .DocSite-nav, .wy-nav-top,
+.wy-side-nav-search, html[data-theme="dark"] .wy-side-nav-search, html[data-theme="dark"] .wy-nav-top {
+    background-color: var(--koios-ink);
+}
+.DocSite-globalNav, .wy-nav-top { border-bottom: 3px solid var(--koios-teal-light); }
+.wy-side-nav-search > a, .wy-side-nav-search .wy-dropdown > a,
+html[data-theme="dark"] .wy-side-nav-search > a { color: #ffffff; }
+
+/* Section captions: teal light on the dark navigation, teal on light content. */
+.wy-menu-vertical p.caption, .wy-menu-vertical p.caption span,
+html[data-theme="dark"] .wy-menu-vertical p.caption,
+html[data-theme="dark"] .wy-menu-vertical p.caption span { color: var(--koios-teal-light); }
+.rst-content .toctree-wrapper > p.caption { color: var(--koios-teal); }
+html[data-theme="dark"] .rst-content .toctree-wrapper > p.caption { color: var(--koios-teal-light); }
+
+/* Links: the platform UI blue, underlined so that they do not rely on color alone. */
+.rst-content a, .rst-content a:visited { color: var(--koios-link); text-decoration: underline; text-underline-offset: 2px; }
+.rst-content a:hover { color: var(--koios-link-hover); }
+html[data-theme="dark"] .rst-content a, html[data-theme="dark"] .rst-content a:visited { color: var(--asc-link); }
+html[data-theme="dark"] .rst-content a:hover { color: var(--asc-link-hover); }
+.rst-content a.headerlink, .rst-content .toctree-wrapper a { text-decoration: none; }
+a:focus-visible { outline: 2px solid var(--koios-teal-light); outline-offset: 2px; }
+
+/* Tip, hint and important admonitions carry the Koios teal (their icon and title keep the meaning). */
+.rst-content .tip .admonition-title, .rst-content .hint .admonition-title, .rst-content .important .admonition-title {
+    background: var(--koios-teal); color: #ffffff;
+}
+.rst-content .tip, .rst-content .hint, .rst-content .important { background: #e0f2f1; }
+html[data-theme="dark"] .rst-content .tip .admonition-title,
+html[data-theme="dark"] .rst-content .hint .admonition-title,
+html[data-theme="dark"] .rst-content .important .admonition-title { background: var(--koios-teal-light); color: #151515; }
+html[data-theme="dark"] .rst-content .tip, html[data-theme="dark"] .rst-content .hint,
+html[data-theme="dark"] .rst-content .important { background: var(--asc-surface); }
+
+/* Top bar: the white Koios mark (the platform icon without its background) and the product name. */
+/* The mark sits on the baseline of the title with the cap height of its font (0.70em measured on the rendered title), so it lines up with the capitals whatever font, zoom or pixel density the reader has. */
+.DocSite-nav .DocSiteNav-logo { display: none; }
+.DocSite-nav .DocSiteNav-title { color: #ffffff; margin-left: 0; }
+.DocSite-nav .DocSiteNav-title::before {
+  content: ""; display: inline-block; vertical-align: baseline;
+  height: 0.70em; width: calc(0.70em * 93.6 / 186); margin-right: 0.5em;
+  background: url("../images/koios-mark-white.svg") no-repeat center / contain;
+}
+
+/* Navigation column background in the light theme: the inherited #343131, kept by the user (2026-11-18). */
+:root { --koios-sidebar: #343131; }
+html:not([data-theme="dark"]) .wy-nav-side, html:not([data-theme="dark"]) .wy-side-scroll { background: var(--koios-sidebar); }

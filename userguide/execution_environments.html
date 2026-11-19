@@ -1,0 +1,306 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>12. Execution Environments &ndash; Koios Automation Platform</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ansible.css?v=5657ca2d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/rtd-ethical-ads.css?v=289b023e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/dark.css?v=82723a23" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments-dark.css?v=027e451e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/koios.css?v=808fdb03" />
+
+  
+    <link rel="shortcut icon" href="../_static/images/koios-favicon.svg"/>
+    <link rel="canonical" href="https://docs.koioss.com/userguide/execution_environments.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2d018451"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=b8bcef97"></script>
+      <script src="../_static/js/theme-toggle.js?v=59cbb094"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="13. Execution Environment Setup Reference" href="ee_reference.html" />
+    <link rel="prev" title="11. Custom Credential Types" href="credential_types.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+<script>
+  (function () {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('koios-docs-theme');
+    } catch (e) {}
+    // Without a stored choice, follow the system preference (dark when it cannot be read).
+    var light = false;
+    try { light = window.matchMedia('(prefers-color-scheme: light)').matches; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', stored || (light ? 'light' : 'dark'));
+  })();
+</script>
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="#" class="asc-theme-toggle" title="Switch theme" aria-label="Switch theme"><svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg></a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../_static/images/koios-mark-white.svg"
+    alt="Koios">
+  <div class="DocSiteNav-title">Koios Automation Platform</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Koios Automation Platform
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Koios Automation Platform Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Install and upgrade</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade_migration/index.html">Upgrades and Migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configure the platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/index.html">Configure the platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Access management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access/index.html">Authentication and access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation execution</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Automating with Koios Automation Platform</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html">Automating with Koios Automation Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html">1. Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging_in.html">2. Logging In</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main_menu.html">3. The User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main_menu.html#the-settings-menu">4. The Settings Menu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="search_sort.html">5. Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="organizations.html">6. Organizations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="users.html">7. Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="teams.html">8. Teams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credentials.html">9. Credentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credential_plugins.html">10. Secret Management System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credential_types.html">11. Custom Credential Types</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">12. Execution Environments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#building-an-execution-environment">12.1. Building an Execution Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#use-an-execution-environment-in-jobs">12.2. Use an execution environment in jobs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#execution-environment-mount-options">12.3. Execution environment mount options</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ee_reference.html">13. Execution Environment Setup Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="projects.html">14. Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project-sign.html">15. Project Signing and Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventories.html">16. Inventories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventory_plugins_templates.html">17. Supported Inventory Plugin Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="labels.html">18. Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_templates.html">19. Job Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_slices.html">20. Job Slicing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflows.html">21. Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_templates.html">22. Workflow Job Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instance_groups.html">23. Instance Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jobs.html">24. Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhooks.html">25. Working with Webhooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notifications.html">26. Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notification_parameters_supported.html">27. Supported Attributes for Custom Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduling.html">28. Schedules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="best_practices.html">29. Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">30. Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html">31. Glossary</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation decisions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../eda/index.html">Event-Driven Ansible</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hub/index.html">Automation hub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operate</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../operate/index.html">Operate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../administration/index.html">Administering Koios Automation Platform Deployments</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration as code and API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/casc.html">Configuration as code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rest_api/index.html">automation controller API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/releases.html">Releases</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Koios Automation Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Automating with Koios Automation Platform</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">12. </span>Execution Environments</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <section id="execution-environments">
+<span id="ug-execution-environments"></span><h1><span class="section-number">12. </span>Execution Environments<a class="headerlink" href="#execution-environments" title="Link to this heading"></a></h1>
+<p id="index-0">The ability to build and deploy Python virtual environments for automation has been replaced by Ansible execution environments. Unlike legacy virtual environments, execution environments are container images that make it possible to incorporate system-level dependencies and collection-based content. Each execution environment allows you to have a customized image to run jobs, and each of them contain only what you need when running the job, nothing more.</p>
+<section id="building-an-execution-environment">
+<span id="ug-build-ees"></span><h2><span class="section-number">12.1. </span>Building an Execution Environment<a class="headerlink" href="#building-an-execution-environment" title="Link to this heading"></a></h2>
+<p>The <a class="reference external" href="https://ansible.readthedocs.io/en/latest/getting_started_ee/index.html">Getting started with Execution Environments guide</a> will give you a brief technology overview and show you how to build and test your first execution environment in a few easy steps.</p>
+</section>
+<section id="use-an-execution-environment-in-jobs">
+<h2><span class="section-number">12.2. </span>Use an execution environment in jobs<a class="headerlink" href="#use-an-execution-environment-in-jobs" title="Link to this heading"></a></h2>
+<p>Open <strong>Automation Execution &gt; Infrastructure &gt; Execution Environments</strong> to see the execution environments available. The platform provides the <strong>Default execution environment</strong>, used by jobs that do not set one, and the <strong>Control Plane Execution Environment</strong>, used for project updates and other control tasks; both point to the execution environment image of the release (see <a class="reference internal" href="../reference/releases.html"><span class="doc">Releases</span></a>).</p>
+<img alt="The Execution Environments list" src="../_images/ee-list.png" />
+<p>An execution environment without an organization is available globally, to every user who can create or edit templates; an execution environment assigned to an organization is available to the users who can see that organization. Creating an execution environment requires being a system administrator or having the execution environment administration permission of its organization.</p>
+<p>To add an execution environment:</p>
+<ol class="arabic simple">
+<li><p>Open <strong>Automation Execution &gt; Infrastructure &gt; Execution Environments</strong> and click <strong>Create execution environment</strong>.</p></li>
+<li><p>Enter the appropriate details into the following fields:</p></li>
+</ol>
+<ul class="simple">
+<li><p><strong>Name</strong> (required): a name for the execution environment.</p></li>
+<li><p><strong>Image</strong> (required): the full image reference, including the registry, the repository, the image name and a tag or digest, in the format <code class="docutils literal notranslate"><span class="pre">&lt;registry&gt;/&lt;repository&gt;/&lt;image&gt;:&lt;tag&gt;</span></code> or <code class="docutils literal notranslate"><span class="pre">&lt;registry&gt;/&lt;repository&gt;/&lt;image&gt;&#64;sha256:&lt;digest&gt;</span></code>. A digest pins the exact image.</p></li>
+<li><p><strong>Pull</strong>: optionally choose when the image is pulled before running a job:</p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Always pull container before running</strong>: pulls the image every time.</p></li>
+<li><p><strong>Only pull the image if not present before running</strong>: pulls it only if the node does not have it.</p></li>
+<li><p><strong>Never pull container before running</strong>: never pulls it; the image must already be present.</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>Description</strong>: optional.</p></li>
+<li><p><strong>Organization</strong>: optionally assign the execution environment to an organization. Leave it blank to make the execution environment globally available; a global execution environment cannot be reassigned to an organization afterwards.</p></li>
+<li><p><strong>Registry credential</strong>: if the registry requires authentication, select a <strong>Container Registry</strong> credential. In container groups, automation controller creates an image pull secret from it for the job pod.</p></li>
+</ul>
+<img alt="The Create execution environment form filled with an example" src="../_images/ee-new-ee-form-filled.png" />
+<ol class="arabic simple" start="3">
+<li><p>Click <strong>Create execution environment</strong>. The details of the new execution environment open; its <strong>Templates</strong> tab lists the templates that use it, and, for an execution environment of an organization, <strong>Team Access</strong> and <strong>User Access</strong> control who can use it.</p></li>
+</ol>
+<img alt="Details of the Example Execution Environment" src="../_images/ee-details.png" />
+<p>To use an execution environment in a job template, select it in the <strong>Execution environment</strong> field of the template. If the field is empty, the job uses the first one set of: the default execution environment of the project, the default execution environment of the organization, the default execution environment of the organization of the inventory, and finally the global default execution environment (the <strong>Default execution environment</strong> unless another one is set in the <strong>Global default execution environment</strong> field of <strong>Settings &gt; Automation Execution &gt; System</strong>). Project updates always use the <strong>Control Plane Execution Environment</strong>. For more information on setting up a job template, see <a class="reference internal" href="job_templates.html#ug-jobtemplates"><span class="std std-ref">Job Templates</span></a>.</p>
+<img alt="The Execution environment field of a job template with the available execution environments" src="../_images/job-template-with-example-ee-selected.png" />
+</section>
+<section id="execution-environment-mount-options">
+<h2><span class="section-number">12.3. </span>Execution environment mount options<a class="headerlink" href="#execution-environment-mount-options" title="Link to this heading"></a></h2>
+<p id="index-1">The <strong>Paths to expose to isolated jobs</strong> field of <strong>Settings &gt; Automation Execution &gt; Job</strong> lists host paths that are mounted into the execution environment of each job, in the Podman volume syntax <code class="docutils literal notranslate"><span class="pre">&lt;host</span> <span class="pre">path&gt;:&lt;container</span> <span class="pre">path&gt;:&lt;options&gt;</span></code>. By default it exposes the system trust store (<code class="docutils literal notranslate"><span class="pre">/etc/pki/ca-trust</span></code> and <code class="docutils literal notranslate"><span class="pre">/usr/share/pki</span></code>) so that jobs trust the same certificate authorities as the node. Refer to the <a class="reference external" href="https://docs.podman.io/en/latest/markdown/podman-run.1.html#volume-v-source-volume-host-dir-container-dir-options">Podman documentation</a> for detail on the options.</p>
+<img alt="The edit form of the Job settings with the Paths to expose to isolated jobs field and its defaults" src="../_images/settings-paths2expose-iso-jobs.png" />
+<p>These paths apply directly to jobs run with Podman on execution nodes. For example, if a customized execution environment includes <code class="docutils literal notranslate"><span class="pre">/etc/ssh/*</span></code> files and exposing <code class="docutils literal notranslate"><span class="pre">/etc/ssh/ssh_config.d:/etc/ssh/ssh_config.d:O</span></code> causes an SSH error because the ownership is not mapped correctly, change the ownership of the directory on the node to <code class="docutils literal notranslate"><span class="pre">root</span></code> and expose it again. The <code class="docutils literal notranslate"><span class="pre">:O</span></code> option (overlay) is only supported for directories; be as specific as possible, because mounting <code class="docutils literal notranslate"><span class="pre">/etc</span></code> or <code class="docutils literal notranslate"><span class="pre">/usr</span></code> directly makes problems difficult to troubleshoot.</p>
+<p>Jobs in container groups, the default in Koios Automation Platform, run in pods of the cluster. The same paths are mounted there as <code class="docutils literal notranslate"><span class="pre">hostPath</span></code> volumes of the Kubernetes node that runs the pod only when <strong>Expose host paths for Container Groups</strong> is enabled; the cluster must allow <code class="docutils literal notranslate"><span class="pre">hostPath</span></code> volumes for the service account of the pods.</p>
+<img alt="The Options of the Job settings with the Expose host paths for Container Groups check box" src="../_images/settings-paths2expose-iso-jobs-mount-containers.png" />
+<p>With that option enabled and the path <code class="docutils literal notranslate"><span class="pre">/srv/data:/data:ro</span></code>, the pod spec of each job includes:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">containers</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">volumeMounts</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">volume-0</span>
+<span class="w">          </span><span class="nt">mountPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/data</span>
+<span class="w">          </span><span class="nt">readOnly</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">volume-0</span>
+<span class="w">      </span><span class="nt">hostPath</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/srv/data</span>
+</pre></div>
+</div>
+<p>Only the <code class="docutils literal notranslate"><span class="pre">ro</span></code> option is kept (as <code class="docutils literal notranslate"><span class="pre">readOnly</span></code>); Podman options such as <code class="docutils literal notranslate"><span class="pre">:O</span></code>, <code class="docutils literal notranslate"><span class="pre">:z</span></code> or <code class="docutils literal notranslate"><span class="pre">:Z</span></code> are ignored in pods. In particular, the default paths with <code class="docutils literal notranslate"><span class="pre">:O</span></code> become writable <code class="docutils literal notranslate"><span class="pre">hostPath</span></code> mounts of the node, without the overlay protection they have with Podman: use <code class="docutils literal notranslate"><span class="pre">:ro</span></code> for every path that must be read-only before enabling this option. For storage that is not on the nodes, customize the pod spec of the container group instead (see <a class="reference internal" href="../administration/containers_instance_groups.html#ag-container-groups"><span class="std std-ref">Container Groups</span></a>).</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="credential_types.html" class="btn btn-neutral float-left" title="11. Custom Credential Types" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ee_reference.html" class="btn btn-neutral float-right" title="13. Execution Environment Setup Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Koios Solutions. Portions 2026, Red Hat, Inc. and 2026, CtrlIQ, Inc..</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+<p class="koios-legal">Licensed under the <a href="../LICENSE.txt">Apache License 2.0</a>; see the <a href="../NOTICE.txt">NOTICE</a> for the origin of this documentation.</p>
+
+</body>
+</html>

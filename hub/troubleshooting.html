@@ -1,0 +1,371 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Troubleshooting Automation Content &ndash; Koios Automation Platform</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ansible.css?v=5657ca2d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/rtd-ethical-ads.css?v=289b023e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/dark.css?v=82723a23" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments-dark.css?v=027e451e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/koios.css?v=808fdb03" />
+
+  
+    <link rel="shortcut icon" href="../_static/images/koios-favicon.svg"/>
+    <link rel="canonical" href="https://docs.koioss.com/hub/troubleshooting.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2d018451"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=b8bcef97"></script>
+      <script src="../_static/js/theme-toggle.js?v=59cbb094"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Operate" href="../operate/index.html" />
+    <link rel="prev" title="Remotes and repositories" href="remotes-repositories.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+<script>
+  (function () {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('koios-docs-theme');
+    } catch (e) {}
+    // Without a stored choice, follow the system preference (dark when it cannot be read).
+    var light = false;
+    try { light = window.matchMedia('(prefers-color-scheme: light)').matches; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', stored || (light ? 'light' : 'dark'));
+  })();
+</script>
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="#" class="asc-theme-toggle" title="Switch theme" aria-label="Switch theme"><svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg></a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../_static/images/koios-mark-white.svg"
+    alt="Koios">
+  <div class="DocSiteNav-title">Koios Automation Platform</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Koios Automation Platform
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Koios Automation Platform Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Install and upgrade</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade_migration/index.html">Upgrades and Migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configure the platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/index.html">Configure the platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Access management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access/index.html">Authentication and access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation execution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">Automating with Koios Automation Platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation decisions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../eda/index.html">Event-Driven Ansible</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation content</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Automation hub</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="first-collection.html">Publish your first collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="remotes-repositories.html">Remotes and repositories</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Troubleshooting Automation Content</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#import-failed">Import failed</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#missing-requires-ansible">Missing requires_ansible</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#or-403-when-publishing-or-installing">401 or 403 when publishing or installing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-version-is-in-staging-but-cannot-be-installed">The version is in staging but cannot be installed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#version-conflicts">Version conflicts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#namespace-does-not-exist">Namespace does not exist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#remote-sync-fails-or-has-not-run">Remote sync fails or has not run</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#storage-or-content-download-problems">Storage or content download problems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#container-image-works-in-a-client-but-not-in-a-job">Container image works in a client but not in a job</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#collections">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#repositories-and-distributions">Repositories and distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#remotes-and-approvals">Remotes and approvals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#tokens-and-clients">Tokens and clients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#using-collections-from-automation-controller">Using collections from automation controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#container-registry">Container registry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#backup-and-restore">Backup and restore</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operate</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../operate/index.html">Operate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../administration/index.html">Administering Koios Automation Platform Deployments</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration as code and API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/casc.html">Configuration as code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rest_api/index.html">automation controller API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/releases.html">Releases</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Koios Automation Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Automation hub</a></li>
+      <li class="breadcrumb-item active">Troubleshooting Automation Content</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <section id="troubleshooting-automation-content">
+<span id="hub-troubleshooting"></span><h1>Troubleshooting Automation Content<a class="headerlink" href="#troubleshooting-automation-content" title="Link to this heading"></a></h1>
+<p>Follow the collection version through its separate stages: upload, import task, repository
+membership, approval/distribution and client installation. A successful step does not establish
+that every later one succeeded.</p>
+<p>The missing-runtime-metadata failure, successful import, staging/published separation and final
+installation in <a class="reference internal" href="first-collection.html"><span class="std std-doc">Publish your first collection</span></a> were validated on the Koios
+test platform on 2026-11-18. Other diagnostic cases below describe source behavior and configuration
+checks; they are not claims that each failure was reproduced in that walkthrough.</p>
+<section id="import-failed">
+<h2>Import failed<a class="headerlink" href="#import-failed" title="Link to this heading"></a></h2>
+<p>Inspect the complete import result rather than only the last lines printed by <code class="docutils literal notranslate"><span class="pre">ansible-galaxy</span></code>.
+An upload can be accepted before asynchronous validation fails.</p>
+<ul class="simple">
+<li><p>In <strong>Automation Content &gt; Collection Approvals</strong>, use <strong>View import logs</strong> on the relevant
+version to open the import view.</p></li>
+<li><p>In <strong>Automation Content &gt; Namespaces</strong>, open the namespace and choose <strong>Imports</strong> to open
+<strong>My imports</strong>. This view lists imports and displays their messages and error details; it is not
+a separate visible sidebar item in the platform navigation. Select the collection and matching
+import/version as appropriate. Uploading to staging in the platform UI returns to Collection
+Approvals; use <strong>Imports</strong> when you need the complete import history.</p></li>
+<li><p>On an existing collection version, inspect its <strong>Import Log</strong> view when available. If the failed
+import never created a usable collection version, use <strong>My imports</strong> instead of looking only in
+published collections.</p></li>
+<li><p>A platform administrator can inspect the import task and hub worker logs when the client/UI
+message is incomplete. Follow the platform’s explicit context/namespace and diagnostic guidance
+in <a class="reference internal" href="../administration/troubleshooting.html"><span class="std std-doc">Troubleshooting</span></a>; redact sensitive information before
+sharing logs.</p></li>
+</ul>
+<p><img alt="My imports for the example namespace with a failed import of hello 1.0.0 and the error that meta/runtime.yml must declare requires_ansible" src="../_images/hub-import-missing-runtime.png" /></p>
+<section id="missing-requires-ansible">
+<h3>Missing requires_ansible<a class="headerlink" href="#missing-requires-ansible" title="Link to this heading"></a></h3>
+<p>The validated first upload failed with:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>FileParserError: 'requires_ansible' in meta/runtime.yml is mandatory
+</pre></div>
+</div>
+<p>Add the file to the collection source:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="nt">requires_ansible</span><span class="p">:</span><span class="w"> </span><span class="s">"&gt;=2.15.0"</span>
+</pre></div>
+</div>
+<p>Ensure the declared range is appropriate for the collection’s actual content. Rebuild the archive
+and check that <code class="docutils literal notranslate"><span class="pre">meta/runtime.yml</span></code> is included. The normal scaffold alone was not sufficient for
+this hub import. If the failed import created no version, retry the corrected archive as in the
+tutorial; if a version already exists, follow <a class="reference internal" href="#version-conflicts">Version conflicts</a> instead.</p>
+<p>In the test, the worker log exposed the parser error even though it was absent from the CLI’s
+last few output lines. Do not diagnose this case as authentication failure just because the final
+client message is brief.</p>
+<p>Other import failures can come from invalid metadata, missing role READMEs, malformed documentation
+or dependency information. Fix the reported validation error, rebuild and inspect the next import
+result rather than bypassing validation.</p>
+</section>
+</section>
+<section id="or-403-when-publishing-or-installing">
+<h2>401 or 403 when publishing or installing<a class="headerlink" href="#or-403-when-publishing-or-installing" title="Link to this heading"></a></h2>
+<p>Authentication and authorization are separate checks. Confirm the following:</p>
+<ol class="arabic simple">
+<li><p><strong>Server URL:</strong> publishing uses <code class="docutils literal notranslate"><span class="pre">https://&lt;platform&gt;/api/galaxy/</span></code>; the local approved-content
+installation URL is <code class="docutils literal notranslate"><span class="pre">https://&lt;platform&gt;/api/galaxy/content/published/</span></code>. Use the gateway address,
+not a standalone hub token/API configuration from another deployment.</p></li>
+<li><p><strong>Selected configuration:</strong> <code class="docutils literal notranslate"><span class="pre">ANSIBLE_CONFIG</span></code> points at the intended file, its <code class="docutils literal notranslate"><span class="pre">server_list</span></code>
+includes the server ID, and the credential environment variable uses that ID in uppercase.
+The tutorial’s ID <code class="docutils literal notranslate"><span class="pre">koios</span></code> uses <code class="docutils literal notranslate"><span class="pre">ANSIBLE_GALAXY_SERVER_KOIOS_PASSWORD</span></code> or
+<code class="docutils literal notranslate"><span class="pre">ANSIBLE_GALAXY_SERVER_KOIOS_TOKEN</span></code>.</p></li>
+<li><p><strong>Authentication method:</strong> use a platform username/password with gateway Basic authentication
+enabled, or a valid gateway API token. A hub-issued standalone token does not authenticate
+through the platform gateway in this setup. Clear stale credentials from the unused method.</p></li>
+<li><p><strong>Scope and permissions:</strong> the account can upload to the namespace and selected destination,
+or read the published distribution as required. A publisher is not automatically an approver;
+a reader does not acquire write permissions through a token.</p></li>
+<li><p><strong>Token/account validity:</strong> check expiry, revocation and the token’s read/write scope. A user
+that signs in only through an external SSO method may need a token instead of a password.</p></li>
+</ol>
+<p>Do not put passwords or tokens into diagnostic commands whose output will be shared. Disabling TLS
+verification does not fix a missing permission; certificate/hostname errors require trust or
+networking changes rather than a different hub role.</p>
+</section>
+<section id="the-version-is-in-staging-but-cannot-be-installed">
+<h2>The version is in staging but cannot be installed<a class="headerlink" href="#the-version-is-in-staging-but-cannot-be-installed" title="Link to this heading"></a></h2>
+<p>In the tested configuration, import success placed the version in <strong>staging</strong>. A client using the
+<strong>published</strong> distribution could not find it until approval moved it to <strong>published</strong>.</p>
+<p>Check the selected repository in <strong>Automation Content &gt; Collections</strong>. An authorized reviewer uses
+<strong>Automation Content &gt; Collection Approvals</strong> and <strong>Approve collection</strong>, then waits for the
+operation and verifies destination membership. Inspect task/import errors if the version does not
+appear. A <code class="docutils literal notranslate"><span class="pre">202</span></code> API response alone only means the operation was accepted.</p>
+<p>Also check the installation URL, requested version, dependencies and local installed collections.
+Use an empty destination for verification so that an already installed local copy does not hide a
+server-side availability problem. See the <a class="reference internal" href="first-collection.html#hub-install-from-published"><span class="std std-ref">install step</span></a>.</p>
+</section>
+<section id="version-conflicts">
+<h2>Version conflicts<a class="headerlink" href="#version-conflicts" title="Link to this heading"></a></h2>
+<p>Treat namespace/name/version as an immutable release identity. You cannot overwrite an existing
+version with different content by rebuilding an archive using the same version number. The
+version-conflict case was not exercised in this walkthrough; it is not a supported way to replace
+an artifact.</p>
+<p>If the version exists, inspect the existing artifact/import and its SHA-256 before retrying. An
+existing version with the desired content may need approval or access correction, not another
+upload. For changed content, bump <code class="docutils literal notranslate"><span class="pre">version</span></code> in <code class="docutils literal notranslate"><span class="pre">galaxy.yml</span></code>, build a new archive and publish that
+new version. Do not delete a previously consumed version or change its content as a normal update
+procedure.</p>
+</section>
+<section id="namespace-does-not-exist">
+<h2>Namespace does not exist<a class="headerlink" href="#namespace-does-not-exist" title="Link to this heading"></a></h2>
+<p>Create the namespace in <strong>Automation Content &gt; Namespaces</strong> before publishing. Its name must
+match <code class="docutils literal notranslate"><span class="pre">namespace</span></code> in the archive’s <code class="docutils literal notranslate"><span class="pre">galaxy.yml</span></code>; renaming the tarball does not change that metadata.</p>
+<p>A platform organization or container repository with the same text is not a collection namespace.
+If the namespace already exists, request appropriate upload access rather than trying to recreate
+it. A read-only user may be able to see content without permission to create namespaces or upload.</p>
+</section>
+<section id="remote-sync-fails-or-has-not-run">
+<h2>Remote sync fails or has not run<a class="headerlink" href="#remote-sync-fails-or-has-not-run" title="Link to this heading"></a></h2>
+<p>A saved remote is only a configuration resource. Inspect its requirements, URL, upstream
+credentials and CA settings, the repository’s selected remote, and the task result. Access to a
+private upstream service is not granted by being a Koios platform user.</p>
+<p>Collection synchronization from a remote is <strong>not validated</strong> in this documentation. See
+<a class="reference internal" href="remotes-repositories.html"><span class="std std-doc">Remotes and repositories</span></a> before testing it. Do not interpret the earlier
+validation of gateway organization/team synchronization as a successful community or rh-certified
+collection sync.</p>
+</section>
+<section id="storage-or-content-download-problems">
+<h2>Storage or content download problems<a class="headerlink" href="#storage-or-content-download-problems" title="Link to this heading"></a></h2>
+<p>Automation hub stores content on a <code class="docutils literal notranslate"><span class="pre">ReadWriteMany</span></code> volume by default. When the cluster has no RWX
+StorageClass, the documented single-node option is <code class="docutils literal notranslate"><span class="pre">hub.file_storage_access_mode:</span> <span class="pre">ReadWriteOnce</span></code>.
+See <a class="reference internal" href="../install/index.html"><span class="std std-doc">installation requirements</span></a> and
+<a class="reference internal" href="../configure/index.html#automation-hub-storage"><span class="std std-ref">Automation hub storage</span></a>.</p>
+<p>Check PVC binding, available capacity and the pod’s access to the content volume. RWO is not a
+substitute for a shared volume across arbitrary nodes or a highly available content-store design.
+Change storage configuration through supported <code class="docutils literal notranslate"><span class="pre">KoiosPlatform</span></code> fields and plan data migration or
+restore; do not delete content files or PVCs as a quick fix.</p>
+<p>If metadata lists the version but artifact download fails, check the distribution’s content path,
+client reachability/trust of the gateway address, permissions and task/service errors. Preserve
+both the database and content files in <a class="reference internal" href="../administration/backup_restore.html"><span class="std std-doc">backups</span></a>.</p>
+</section>
+<section id="container-image-works-in-a-client-but-not-in-a-job">
+<h2>Container image works in a client but not in a job<a class="headerlink" href="#container-image-works-in-a-client-but-not-in-a-job" title="Link to this heading"></a></h2>
+<p>Push/pull with <code class="docutils literal notranslate"><span class="pre">podman</span></code> or <code class="docutils literal notranslate"><span class="pre">skopeo</span></code> demonstrates client access, not access from the cluster node’s
+container runtime. Jobs and rulebook activations need nodes that resolve, reach and trust the
+registry hostname, plus the appropriate image pull authentication.</p>
+<p>Running controller execution environments or EDA decision environments hosted in the hub registry
+remains <strong>not validated</strong>, blocked pending the required public hostname/TLS setup. Keep the
+<a class="reference internal" href="index.html#container-registry"><span class="std std-ref">container registry limit</span></a> visible rather than treating collection
+publish/install validation as image-runtime validation.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="remotes-repositories.html" class="btn btn-neutral float-left" title="Remotes and repositories" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../operate/index.html" class="btn btn-neutral float-right" title="Operate" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Koios Solutions. Portions 2026, Red Hat, Inc. and 2026, CtrlIQ, Inc..</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+<p class="koios-legal">Licensed under the <a href="../LICENSE.txt">Apache License 2.0</a>; see the <a href="../NOTICE.txt">NOTICE</a> for the origin of this documentation.</p>
+
+</body>
+</html>

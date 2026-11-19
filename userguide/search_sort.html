@@ -1,0 +1,282 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5. Search &ndash; Koios Automation Platform</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ansible.css?v=5657ca2d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/rtd-ethical-ads.css?v=289b023e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/dark.css?v=82723a23" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments-dark.css?v=027e451e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/koios.css?v=808fdb03" />
+
+  
+    <link rel="shortcut icon" href="../_static/images/koios-favicon.svg"/>
+    <link rel="canonical" href="https://docs.koioss.com/userguide/search_sort.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2d018451"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=b8bcef97"></script>
+      <script src="../_static/js/theme-toggle.js?v=59cbb094"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6. Organizations" href="organizations.html" />
+    <link rel="prev" title="3. The User Interface" href="main_menu.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+<script>
+  (function () {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('koios-docs-theme');
+    } catch (e) {}
+    // Without a stored choice, follow the system preference (dark when it cannot be read).
+    var light = false;
+    try { light = window.matchMedia('(prefers-color-scheme: light)').matches; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', stored || (light ? 'light' : 'dark'));
+  })();
+</script>
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="#" class="asc-theme-toggle" title="Switch theme" aria-label="Switch theme"><svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg></a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../_static/images/koios-mark-white.svg"
+    alt="Koios">
+  <div class="DocSiteNav-title">Koios Automation Platform</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Koios Automation Platform
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Koios Automation Platform Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Install and upgrade</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade_migration/index.html">Upgrades and Migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configure the platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/index.html">Configure the platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Access management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access/index.html">Authentication and access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation execution</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Automating with Koios Automation Platform</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html">Automating with Koios Automation Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html">1. Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging_in.html">2. Logging In</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main_menu.html">3. The User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main_menu.html#the-settings-menu">4. The Settings Menu</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">5. Search</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#filtering-by-field">5.1. Filtering by field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#api-queries">5.2. API queries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#date-filtering">5.3. Date filtering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sort">5.4. Sort</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="organizations.html">6. Organizations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="users.html">7. Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="teams.html">8. Teams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credentials.html">9. Credentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credential_plugins.html">10. Secret Management System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credential_types.html">11. Custom Credential Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="execution_environments.html">12. Execution Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ee_reference.html">13. Execution Environment Setup Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="projects.html">14. Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project-sign.html">15. Project Signing and Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventories.html">16. Inventories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventory_plugins_templates.html">17. Supported Inventory Plugin Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="labels.html">18. Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_templates.html">19. Job Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_slices.html">20. Job Slicing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflows.html">21. Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_templates.html">22. Workflow Job Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instance_groups.html">23. Instance Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jobs.html">24. Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhooks.html">25. Working with Webhooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notifications.html">26. Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notification_parameters_supported.html">27. Supported Attributes for Custom Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduling.html">28. Schedules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="best_practices.html">29. Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">30. Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html">31. Glossary</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation decisions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../eda/index.html">Event-Driven Ansible</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hub/index.html">Automation hub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operate</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../operate/index.html">Operate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../administration/index.html">Administering Koios Automation Platform Deployments</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration as code and API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/casc.html">Configuration as code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rest_api/index.html">automation controller API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/releases.html">Releases</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Koios Automation Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Automating with Koios Automation Platform</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">5. </span>Search</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <section id="search">
+<span id="ug-search"></span><h1><span class="section-number">5. </span>Search<a class="headerlink" href="#search" title="Link to this heading"></a></h1>
+<p id="index-0">Use the filter toolbar above a resource list to narrow the results. The available fields depend on the resource and your permissions. Lists such as <strong>Automation Execution &gt; Templates</strong> and <strong>Automation Execution &gt; Jobs</strong> offer <strong>Search</strong>, <strong>Name</strong>, <strong>Labels</strong> and other resource fields.</p>
+<img alt="Templates filter toolbar with the available filter fields expanded." src="../_images/search-bar-key.png" />
+<section id="filtering-by-field">
+<h2><span class="section-number">5.1. </span>Filtering by field<a class="headerlink" href="#filtering-by-field" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Select a field from the filter selector.</p></li>
+<li><p>Enter text or choose values from the offered options. For a text field with an arrow button, press Enter or click the arrow to apply it. <strong>Search</strong> updates as you type; selection filters update when you choose values.</p></li>
+<li><p>Add another filter to narrow the results further. Remove an applied filter chip to clear that criterion.</p></li>
+</ol>
+<p>Use <strong>Search</strong> for a general text search. Use a specific field to constrain the match, such as <strong>Organization</strong> to select an organization or <strong>Labels</strong> to select label names. Some fields offer text matching, others offer a list of resources, choices or boolean values. The field selector determines how the value is interpreted; typing <code class="docutils literal notranslate"><span class="pre">name:localhost</span></code> or <code class="docutils literal notranslate"><span class="pre">organization.name:Default</span></code> does not select a field.</p>
+<p>For details about label matching in Templates and Jobs, see <a class="reference internal" href="labels.html#ug-labels"><span class="std std-ref">Labels</span></a>.</p>
+</section>
+<section id="api-queries">
+<h2><span class="section-number">5.2. </span>API queries<a class="headerlink" href="#api-queries" title="Link to this heading"></a></h2>
+<p>For queries beyond the filters offered by the UI, use controller API query parameters. For example:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/api/controller/v2/job_templates/?name__icontains=localhost
+/api/controller/v2/job_templates/?organization__name=Default
+/api/controller/v2/job_templates/?project__name=A%20Project
+</pre></div>
+</div>
+<p>These are API queries, not expressions to paste into the UI search box. Use <code class="docutils literal notranslate"><span class="pre">OPTIONS</span></code> on the relevant endpoint to inspect its fields and related search fields. Available relationships depend on the resource. See <a class="reference internal" href="../rest_api/filtering.html"><span class="doc">Filtering</span></a> for lookup operators, related fields and combining queries.</p>
+</section>
+<section id="date-filtering">
+<h2><span class="section-number">5.3. </span>Date filtering<a class="headerlink" href="#date-filtering" title="Link to this heading"></a></h2>
+<p id="index-1">Where a date/time field is offered, select it in the toolbar and choose a relative range: <strong>Last hour</strong>, <strong>Last 24 hours</strong>, <strong>Last 7 days</strong> or <strong>Last 30 days</strong>. For example, choose <strong>Created</strong> on <strong>Automation Execution &gt; Jobs</strong> to find recently created jobs. These ranges set a lower time boundary relative to the current time; they do not offer the old date/operator search controls.</p>
+<img alt="Jobs filter toolbar with Created selected and the relative date ranges expanded." src="../_images/search-date-filter.png" />
+<p>For a fixed interval, use the API with explicit boundaries. For example, the following query selects jobs created during June 2026 in UTC:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/api/controller/v2/unified_jobs/?created__gte=2026-06-01T00:00:00Z&amp;created__lt=2026-07-01T00:00:00Z
+</pre></div>
+</div>
+<p>Specify a time zone in timestamp queries. A job with no finish time cannot match a bounded finish-time interval. Displayed timestamps may use your local time zone.</p>
+</section>
+<section id="sort">
+<h2><span class="section-number">5.4. </span>Sort<a class="headerlink" href="#sort" title="Link to this heading"></a></h2>
+<p id="index-2">Click a sortable column header to change the sort order; click it again to reverse the order. The arrow shows the current direction. Available sort columns depend on the list.</p>
+<img alt="Schedules list with a sorted column and its sort direction arrow." src="../_images/sort-order-example.png" />
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="main_menu.html" class="btn btn-neutral float-left" title="3. The User Interface" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="organizations.html" class="btn btn-neutral float-right" title="6. Organizations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Koios Solutions. Portions 2026, Red Hat, Inc. and 2026, CtrlIQ, Inc..</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+<p class="koios-legal">Licensed under the <a href="../LICENSE.txt">Apache License 2.0</a>; see the <a href="../NOTICE.txt">NOTICE</a> for the origin of this documentation.</p>
+
+</body>
+</html>

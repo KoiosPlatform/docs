@@ -1,0 +1,264 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Koios Automation Platform 2026.11.0 — release notes &ndash; Koios Automation Platform</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/ansible.css?v=5657ca2d" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/rtd-ethical-ads.css?v=289b023e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/dark.css?v=82723a23" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/pygments-dark.css?v=027e451e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/koios.css?v=808fdb03" />
+
+  
+    <link rel="shortcut icon" href="../../_static/images/koios-favicon.svg"/>
+    <link rel="canonical" href="https://docs.koioss.com/reference/release-notes/2026.11.0.html" />
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=2d018451"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=b8bcef97"></script>
+      <script src="../../_static/js/theme-toggle.js?v=59cbb094"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Koios Automation Platform 2026.11.1 — release notes" href="2026.11.1.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+<script>
+  (function () {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('koios-docs-theme');
+    } catch (e) {}
+    // Without a stored choice, follow the system preference (dark when it cannot be read).
+    var light = false;
+    try { light = window.matchMedia('(prefers-color-scheme: light)').matches; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', stored || (light ? 'light' : 'dark'));
+  })();
+</script>
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="#" class="asc-theme-toggle" title="Switch theme" aria-label="Switch theme"><svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg></a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../../_static/images/koios-mark-white.svg"
+    alt="Koios">
+  <div class="DocSiteNav-title">Koios Automation Platform</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Koios Automation Platform
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart/index.html">Koios Automation Platform Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Install and upgrade</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../install/index.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../upgrade_migration/index.html">Upgrades and Migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configure the platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../configure/index.html">Configure the platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Access management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../access/index.html">Authentication and access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation execution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/index.html">Automating with Koios Automation Platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation decisions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../eda/index.html">Event-Driven Ansible</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../hub/index.html">Automation hub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operate</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../operate/index.html">Operate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../administration/index.html">Administering Koios Automation Platform Deployments</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration as code and API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../configure/casc.html">Configuration as code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rest_api/index.html">automation controller API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../releases.html">Releases</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="2026.11.13.html">Koios Automation Platform 2026.11.13 — release notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2026.11.12.html">Koios Automation Platform 2026.11.12 — release notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2026.11.11.html">Koios Automation Platform 2026.11.11 — release notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2026.11.10.html">Koios Automation Platform 2026.11.10 — release notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2026.11.9.html">Koios Automation Platform 2026.11.9 — release notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2026.11.8.html">Koios Automation Platform 2026.11.8 — release notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2026.11.7.html">Koios Automation Platform 2026.11.7 — release notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2026.11.6.html">Koios Automation Platform 2026.11.6 — release notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2026.11.5.html">Koios Automation Platform 2026.11.5 — release notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2026.11.4.html">Koios Automation Platform 2026.11.4 — release notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2026.11.3.html">Koios Automation Platform 2026.11.3 — release notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2026.11.2.html">Koios Automation Platform 2026.11.2 — release notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2026.11.1.html">Koios Automation Platform 2026.11.1 — release notes</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Koios Automation Platform 2026.11.0 — release notes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#upgrading-from-the-2026-10-0-demo">Upgrading from the 2026.10.0 demo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#kubernetes-without-readwritemany-storage">Kubernetes without ReadWriteMany storage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#highlights">Highlights</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../releases.html#images-of-2026-11-13">Images of 2026.11.13</a></li>
+</ul>
+</li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Koios Automation Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../releases.html">Releases</a></li>
+      <li class="breadcrumb-item active">Koios Automation Platform 2026.11.0 — release notes</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <!-- Generated by koios-build build/docs/generate.py from koios-build docs/release-notes-2026.11.0.md. Do not edit. -->
+<section id="koios-automation-platform-2026-11-0-release-notes">
+<h1>Koios Automation Platform 2026.11.0 — release notes<a class="headerlink" href="#koios-automation-platform-2026-11-0-release-notes" title="Link to this heading"></a></h1>
+<p>First stable release, published 2026-10-31 in the private registry <code class="docutils literal notranslate"><span class="pre">ghcr.io/koiosplatform</span></code>. Install it
+from the <strong>Koios Operators</strong> catalog
+(<code class="docutils literal notranslate"><span class="pre">ghcr.io/koiosplatform/koios-operator-catalog&#64;sha256:6cbdb1ec4d9a64a588d8efd52a2a0504fdaedbc16657cba13de3743498915598</span></code>)
+after configuring registry access, see <a class="reference internal" href="../../install/openshift.html"><span class="std std-doc">olm-install.md</span></a>.</p>
+<section id="upgrading-from-the-2026-10-0-demo">
+<h2>Upgrading from the 2026.10.0 demo<a class="headerlink" href="#upgrading-from-the-2026-10-0-demo" title="Link to this heading"></a></h2>
+<p><strong>Automation hub cache (Redis → Valkey).</strong> 2026.11.0 replaces Redis 7.4 with Valkey 8.1
+(BSD-3-Clause). Valkey cannot read the RDB file that Redis 7.4 wrote in the hub cache volume, so
+after the upgrade the hub Redis pod fails with <code class="docutils literal notranslate"><span class="pre">Can't</span> <span class="pre">handle</span> <span class="pre">RDB</span> <span class="pre">format</span> <span class="pre">version</span> <span class="pre">12</span></code>. The volume only
+holds the Pulp cache; delete it once and the hub operator recreates it:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>-n<span class="w"> </span>&lt;namespace&gt;<span class="w"> </span>scale<span class="w"> </span>deployment<span class="w"> </span>&lt;hub&gt;-redis<span class="w"> </span>--replicas<span class="o">=</span><span class="m">0</span>
+kubectl<span class="w"> </span>-n<span class="w"> </span>&lt;namespace&gt;<span class="w"> </span>delete<span class="w"> </span>pvc<span class="w"> </span>&lt;hub&gt;-redis-data
+</pre></div>
+</div>
+<p>The platform Redis and the controller Redis sidecar keep no data and need no action.</p>
+<p><strong>PostgreSQL.</strong> The managed PostgreSQL is renamed to <code class="docutils literal notranslate"><span class="pre">&lt;platform&gt;-postgres-15</span></code> and the data is
+migrated and verified automatically (row counts per table). The previous volume is kept until you
+delete it; <code class="docutils literal notranslate"><span class="pre">status.retainedPostgresClaims</span></code> lists it.</p>
+</section>
+<section id="kubernetes-without-readwritemany-storage">
+<h2>Kubernetes without ReadWriteMany storage<a class="headerlink" href="#kubernetes-without-readwritemany-storage" title="Link to this heading"></a></h2>
+<p>Automation hub requests a <code class="docutils literal notranslate"><span class="pre">ReadWriteMany</span></code> volume by default. On clusters without such a
+StorageClass set <code class="docutils literal notranslate"><span class="pre">spec.hub.file_storage_access_mode:</span> <span class="pre">ReadWriteOnce</span></code>; the platform status reports a
+pending hub or EDA volume with its access mode.</p>
+</section>
+<section id="highlights">
+<h2>Highlights<a class="headerlink" href="#highlights" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Koios Automation Platform branding in the UI and in the OpenShift console (OLM).</p></li>
+<li><p>OLM catalog with <code class="docutils literal notranslate"><span class="pre">stable-YYYY.MM</span></code> and <code class="docutils literal notranslate"><span class="pre">stable-YYYY.MM-cluster-scoped</span></code> channels.</p></li>
+<li><p>Fields of the AnsibleAutomationPlatform form: external Redis for the gateway, <code class="docutils literal notranslate"><span class="pre">idle_aap</span></code>,
+<code class="docutils literal notranslate"><span class="pre">database.postgres_ssl_mode</span></code>, exposure, gateway, database and status fields.</p></li>
+<li><p>Same templates on OpenShift and Kubernetes: Koios Valkey and Envoy images run as numeric
+non-root users.</p></li>
+<li><p>Koios PostgreSQL image: PostgreSQL 15 on Rocky Linux 9 (same interface and data directory as
+the previous image; existing data is used as is).</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="2026.11.1.html" class="btn btn-neutral float-left" title="Koios Automation Platform 2026.11.1 — release notes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Koios Solutions. Portions 2026, Red Hat, Inc. and 2026, CtrlIQ, Inc..</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+<p class="koios-legal">Licensed under the <a href="../../LICENSE.txt">Apache License 2.0</a>; see the <a href="../../NOTICE.txt">NOTICE</a> for the origin of this documentation.</p>
+
+</body>
+</html>

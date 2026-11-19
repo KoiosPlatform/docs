@@ -1,0 +1,433 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>7. Clustering &ndash; Koios Automation Platform</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ansible.css?v=5657ca2d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/rtd-ethical-ads.css?v=289b023e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/dark.css?v=82723a23" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments-dark.css?v=027e451e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/koios.css?v=808fdb03" />
+
+  
+    <link rel="shortcut icon" href="../_static/images/koios-favicon.svg"/>
+    <link rel="canonical" href="https://docs.koioss.com/administration/clustering.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2d018451"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=b8bcef97"></script>
+      <script src="../_static/js/theme-toggle.js?v=59cbb094"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="8. Container and Instance Groups" href="containers_instance_groups.html" />
+    <link rel="prev" title="6. Management Jobs" href="management_jobs.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+<script>
+  (function () {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('koios-docs-theme');
+    } catch (e) {}
+    // Without a stored choice, follow the system preference (dark when it cannot be read).
+    var light = false;
+    try { light = window.matchMedia('(prefers-color-scheme: light)').matches; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', stored || (light ? 'light' : 'dark'));
+  })();
+</script>
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="#" class="asc-theme-toggle" title="Switch theme" aria-label="Switch theme"><svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg></a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../_static/images/koios-mark-white.svg"
+    alt="Koios">
+  <div class="DocSiteNav-title">Koios Automation Platform</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Koios Automation Platform
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Koios Automation Platform Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Install and upgrade</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade_migration/index.html">Upgrades and Migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configure the platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/index.html">Configure the platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Access management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access/index.html">Authentication and access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation execution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">Automating with Koios Automation Platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation decisions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../eda/index.html">Event-Driven Ansible</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hub/index.html">Automation hub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operate</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../operate/index.html">Operate</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Administering Koios Automation Platform Deployments</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html">Administering Koios Automation Platform Deployments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="init_script.html">1. Starting, Stopping, and Restarting Koios Automation Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="supported_architectures.html">2. Supported Architectures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom_inventory_script.html">3. Custom Inventory Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scm-inv-source.html">4. Inventory File Importing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi-creds-assignment.html">5. Multi-Credential Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="management_jobs.html">6. Management Jobs</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">7. Clustering</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#scaling-the-web-and-task-pods">7.1. Scaling the web and task pods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#assigning-automation-controller-pods-to-specific-nodes">7.2. Assigning automation controller pods to specific nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#status-and-monitoring">7.3. Status and monitoring</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#failure-behavior">7.4. Failure behavior</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#job-runtime-behavior">7.5. Job runtime behavior</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#job-runs">7.5.1. Job runs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="containers_instance_groups.html">8. Container and Instance Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instances.html">9. Managing Capacity With Instances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topology_viewer.html">10. Topology Viewer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logfiles.html">11. Automation controller Logfiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">12. Logging and Aggregation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">13. Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html">14. Improving Automation Controller Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secret_handling.html">15. Secret handling and connection security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proxy_support.html">16. Proxy Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backup_restore.html">17. Backup and Restore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security_best_practices.html">18. Security Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awx-manage.html">19. The <em>awx-manage</em> Utility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configure_koios.html">20. Automation Controller Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="isolation_variables.html">21. Isolation functionality and variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kerberos_auth.html">22. Kerberos Authentication for Windows Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html">23. Troubleshooting Automation Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tipsandtricks.html">24. Automation controller Tips and Tricks</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration as code and API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/casc.html">Configuration as code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rest_api/index.html">automation controller API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/releases.html">Releases</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Koios Automation Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Administering Koios Automation Platform Deployments</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">7. </span>Clustering</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <section id="clustering">
+<span id="ag-clustering"></span><h1><span class="section-number">7. </span>Clustering<a class="headerlink" href="#clustering" title="Link to this heading"></a></h1>
+<p id="index-0">In Koios Automation Platform, automation controller runs as two Kubernetes deployments that the Koios
+operator manages:</p>
+<ul class="simple">
+<li><p><strong>web</strong> pods serve the controller API behind the platform gateway;</p></li>
+<li><p><strong>task</strong> pods run the dispatcher, the callback receiver and the other background services. Each task
+pod is a <strong>control</strong> instance of the controller cluster: it registers itself when it starts.</p></li>
+</ul>
+<p>Playbook jobs run separately from the controller services. By default they run as pods of their own, in the namespace of the
+platform, through the <code class="docutils literal notranslate"><span class="pre">default</span></code> container group (see <a class="reference internal" href="containers_instance_groups.html#ag-instance-groups"><span class="std std-ref">Instance Groups</span></a>). The <code class="docutils literal notranslate"><span class="pre">controlplane</span></code>
+instance group holds the control instances, which run project updates and other internal work. A new
+platform has one control instance, and the cluster grows by adding task pods.</p>
+<p>Controller web and task pods share the controller’s PostgreSQL database. The operator can deploy the database or connect the controller to an external database (see <a class="reference internal" href="../reference/koiosplatform.html"><span class="doc">KoiosPlatform</span></a>). Other platform services use their own databases, even when the platform-managed PostgreSQL server hosts them together.</p>
+<p>The deployment relationships are:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 26.0%" />
+<col style="width: 46.0%" />
+<col style="width: 28.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Component</p></th>
+<th class="head"><p>Responsibility</p></th>
+<th class="head"><p>Deployment relationship</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Platform gateway</p></td>
+<td><p>Jewel handles platform identity and access; Envoy routes public API requests to the appropriate service.</p></td>
+<td><p>Separate from controller web and task Deployments; it is the public entry point.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Controller web pods</p></td>
+<td><p>Serve the controller API behind the gateway.</p></td>
+<td><p>Replicas of the controller web Deployment.</p></td>
+</tr>
+<tr class="row-even"><td><p>Controller task pods</p></td>
+<td><p>Run scheduling, dispatch, callback processing and control-plane Receptor services. Internal work such as project updates can run in their control-plane execution environment container.</p></td>
+<td><p>Replicas of the controller task Deployment; each registers a control instance.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Controller local Redis/Valkey</p></td>
+<td><p>Provides local controller queueing and communication within each web or task pod.</p></td>
+<td><p>A sidecar in each controller pod, not a Redis process installed on each Kubernetes host.</p></td>
+</tr>
+<tr class="row-even"><td><p>Platform shared Redis/Valkey</p></td>
+<td><p>Supplies the Redis-compatible service used by gateway and other configured platform components.</p></td>
+<td><p>Separate from the controller’s local sidecars; managed or externally supplied according to the platform configuration.</p></td>
+</tr>
+<tr class="row-odd"><td><p>PostgreSQL</p></td>
+<td><p>Persists service data, including controller job and event records.</p></td>
+<td><p>Platform-managed database server or external database configuration.</p></td>
+</tr>
+<tr class="row-even"><td><p>Job execution</p></td>
+<td><p>Runs the selected playbook in its execution environment.</p></td>
+<td><p>Container group job pods by default; external execution nodes are also supported through Receptor.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Increasing controller replicas does not duplicate a complete platform stack on each Kubernetes node. Pod placement, execution capacity and availability of the database, Redis-compatible services and gateway must be considered separately.</p>
+<section id="scaling-the-web-and-task-pods">
+<h2><span class="section-number">7.1. </span>Scaling the web and task pods<a class="headerlink" href="#scaling-the-web-and-task-pods" title="Link to this heading"></a></h2>
+<p>Set the replicas of the controller under <code class="docutils literal notranslate"><span class="pre">spec.controller</span></code> of the <code class="docutils literal notranslate"><span class="pre">KoiosPlatform</span></code>; the operator
+passes these fields to the controller deployments:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">replicas</span></code> scales both the web and the task pods to the same number;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">web_replicas</span></code> and <code class="docutils literal notranslate"><span class="pre">task_replicas</span></code> set each deployment on its own, and take precedence over
+<code class="docutils literal notranslate"><span class="pre">replicas</span></code>.</p></li>
+</ul>
+<p>The operator manages the replicas while <code class="docutils literal notranslate"><span class="pre">web_manage_replicas</span></code> and <code class="docutils literal notranslate"><span class="pre">task_manage_replicas</span></code> are
+<code class="docutils literal notranslate"><span class="pre">true</span></code>, the default; set them to <code class="docutils literal notranslate"><span class="pre">false</span></code> to scale the deployments yourself, for example with a
+HorizontalPodAutoscaler.</p>
+<p>For example, two web pods and three task pods (three control instances):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>patch<span class="w"> </span>koiosplatform<span class="w"> </span>koios<span class="w"> </span>-n<span class="w"> </span>koios<span class="w"> </span>--type<span class="w"> </span>merge<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-p<span class="w"> </span><span class="s1">'{"spec": {"controller": {"web_replicas": 2, "task_replicas": 3}}}'</span>
+</pre></div>
+</div>
+<p>New task pods register as control instances and join the <code class="docutils literal notranslate"><span class="pre">controlplane</span></code> group on their own.</p>
+</section>
+<section id="assigning-automation-controller-pods-to-specific-nodes">
+<span id="ag-assign-pods-to-nodes"></span><h2><span class="section-number">7.2. </span>Assigning automation controller pods to specific nodes<a class="headerlink" href="#assigning-automation-controller-pods-to-specific-nodes" title="Link to this heading"></a></h2>
+<p>The same fields constrain where the controller pods run. Each one applies to both deployments, and
+its <code class="docutils literal notranslate"><span class="pre">web_</span></code> and <code class="docutils literal notranslate"><span class="pre">task_</span></code> variants to one of them:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field (under <code class="docutils literal notranslate"><span class="pre">spec.controller</span></code>)</p></th>
+<th class="head"><p>Applies to</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">node_selector</span></code></p></td>
+<td><p>nodeSelector of the web and task pods</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">web_node_selector</span></code>,
+<code class="docutils literal notranslate"><span class="pre">task_node_selector</span></code></p></td>
+<td><p>nodeSelector of one deployment</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">tolerations</span></code></p></td>
+<td><p>Tolerations of the web and task pods</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">web_tolerations</span></code>,
+<code class="docutils literal notranslate"><span class="pre">task_tolerations</span></code></p></td>
+<td><p>Tolerations of one deployment</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">affinity</span></code></p></td>
+<td><p>Affinity rules of the web and task pods</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">web_affinity</span></code>, <code class="docutils literal notranslate"><span class="pre">task_affinity</span></code></p></td>
+<td><p>Affinity rules of one deployment</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">topology_spread_constraints</span></code></p></td>
+<td><p>topologySpreadConstraints of the web and task
+pods</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">web_topology_spread_constraints</span></code>,
+<code class="docutils literal notranslate"><span class="pre">task_topology_spread_constraints</span></code></p></td>
+<td><p>topologySpreadConstraints of one deployment</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">annotations</span></code></p></td>
+<td><p>Annotations of the web and task pods</p></td>
+</tr>
+</tbody>
+</table>
+<p><code class="docutils literal notranslate"><span class="pre">node_selector</span></code>, <code class="docutils literal notranslate"><span class="pre">tolerations</span></code>, <code class="docutils literal notranslate"><span class="pre">topology_spread_constraints</span></code>, <code class="docutils literal notranslate"><span class="pre">annotations</span></code> and their
+variants take YAML as a string; <code class="docutils literal notranslate"><span class="pre">affinity</span></code> takes an object. A <code class="docutils literal notranslate"><span class="pre">web_</span></code> or <code class="docutils literal notranslate"><span class="pre">task_</span></code> variant replaces
+the common value for its deployment; it is not merged with it. For example, task pods on dedicated nodes:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">controller</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">task_node_selector</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">      </span><span class="no">node-role.example.com/automation: "true"</span>
+<span class="w">    </span><span class="nt">task_tolerations</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">      </span><span class="no">- key: dedicated</span>
+<span class="w">        </span><span class="no">operator: Equal</span>
+<span class="w">        </span><span class="no">value: automation</span>
+<span class="w">        </span><span class="no">effect: NoSchedule</span>
+</pre></div>
+</div>
+<p>The pods of jobs are placed by their container group: set a node selector or tolerations in its pod
+specification (see <a class="reference internal" href="containers_instance_groups.html#ag-customize-pod-spec"><span class="std std-ref">Customize the pod spec</span></a>). The gateway, Event-Driven Ansible, automation hub
+and PostgreSQL have their own placement fields in the <code class="docutils literal notranslate"><span class="pre">KoiosPlatform</span></code> (see
+<a class="reference internal" href="../reference/koiosplatform.html"><span class="doc">KoiosPlatform</span></a>).</p>
+</section>
+<section id="status-and-monitoring">
+<h2><span class="section-number">7.3. </span>Status and monitoring<a class="headerlink" href="#status-and-monitoring" title="Link to this heading"></a></h2>
+<p>The controller reports the state of its cluster at <code class="docutils literal notranslate"><span class="pre">/api/controller/v2/ping/</span></code>, without
+authentication: the node that served the request, registered non-hop instances with their last heartbeat, and the
+instance groups. More detail, such as running jobs and capacity, is at
+<code class="docutils literal notranslate"><span class="pre">/api/controller/v2/instances/</span></code> and <code class="docutils literal notranslate"><span class="pre">/api/controller/v2/instance_groups/</span></code>, and in the user
+interface under <strong>Automation Execution &gt; Infrastructure</strong>, in <strong>Instances</strong> and <strong>Instance Groups</strong>.</p>
+<img alt="The Instances page with the control instance of a new platform, its task pod." src="../_images/infra-instances.png" />
+<p>For the state of the deployment itself, look at the <code class="docutils literal notranslate"><span class="pre">KoiosPlatform</span></code>: its conditions say whether its
+last reconciliation succeeded and, if not, why (see <a class="reference internal" href="../operate/index.html"><span class="doc">Operate</span></a>).</p>
+</section>
+<section id="failure-behavior">
+<h2><span class="section-number">7.4. </span>Failure behavior<a class="headerlink" href="#failure-behavior" title="Link to this heading"></a></h2>
+<p>Each task pod runs several services: the dispatcher, which runs the work; the callback receiver,
+which stores the events of running jobs; and the services that keep the instance registered. If they
+keep failing, the health checks of the task container fail and Kubernetes restarts it.</p>
+<p>When a control instance stops sending heartbeats for long enough that another instance declares it
+lost, the other instances take over:</p>
+<ul class="simple">
+<li><p>the jobs it was running are marked as failed, with the explanation <em>Job reaped due to instance
+shutdown</em>;</p></li>
+<li><p>the jobs it had not started yet go back to the queue, for another instance;</p></li>
+<li><p>the instance is removed from the cluster, and the restarted pod registers again.</p></li>
+</ul>
+<p>An instance that restarts before it is declared lost keeps its identity and picks up its own work.</p>
+<p>Run at least two task pods so that losing one does not stop new work.</p>
+</section>
+<section id="job-runtime-behavior">
+<h2><span class="section-number">7.5. </span>Job runtime behavior<a class="headerlink" href="#job-runtime-behavior" title="Link to this heading"></a></h2>
+<p>When a job is launched, it is queued, and a control instance with capacity picks it up and starts it
+in the instance group the job runs in (by default, the <code class="docutils literal notranslate"><span class="pre">default</span></code> container group). The job’s pod runs
+the playbook in its execution environment and streams its events back.</p>
+<p>Projects are synchronized before they are used: if the revision a job needs is not there yet, it is
+fetched first, and the sync is recorded as a project update with <code class="docutils literal notranslate"><span class="pre">launch_type</span> <span class="pre">=</span> <span class="pre">sync</span></code>. Collections
+and roles from Galaxy or automation hub are downloaded in that update, which takes space in temporary
+storage; for large projects, allow for it in the resources of the task pods.</p>
+<p>The request and result paths are separate:</p>
+<ol class="arabic simple">
+<li><p>A user or API client reaches the platform gateway, which routes controller requests under <code class="docutils literal notranslate"><span class="pre">/api/controller/</span></code> to the controller web service.</p></li>
+<li><p>The controller schedules the job and a task pod dispatches it through Receptor to the selected execution location.</p></li>
+<li><p>The execution worker runs the playbook in its execution environment and returns job results to the controller.</p></li>
+<li><p>Controller callback processing stores job events in PostgreSQL; users read status and output through the gateway and controller API.</p></li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">/api/controller/v2/ping/</span></code> reports controller cluster information. It is an observation endpoint, not a load balancer distributing requests across complete HTTP/worker/Redis host stacks.</p>
+<section id="job-runs">
+<h3><span class="section-number">7.5.1. </span>Job runs<a class="headerlink" href="#job-runs" title="Link to this heading"></a></h3>
+<p>By default, a job can be picked up by any control instance, and it runs in the instance group set on
+its job template, inventory or organization (see <a class="reference internal" href="containers_instance_groups.html#ag-instance-groups-control-where-job-runs"><span class="std std-ref">Control Where a Job Runs</span></a>).</p>
+<p>To take an instance out of rotation, disable it (<code class="docutils literal notranslate"><span class="pre">enabled:</span> <span class="pre">false</span></code>) in the API or the user interface.
+No new jobs are assigned to it, and the jobs it is running finish normally.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="management_jobs.html" class="btn btn-neutral float-left" title="6. Management Jobs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="containers_instance_groups.html" class="btn btn-neutral float-right" title="8. Container and Instance Groups" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Koios Solutions. Portions 2026, Red Hat, Inc. and 2026, CtrlIQ, Inc..</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+<p class="koios-legal">Licensed under the <a href="../LICENSE.txt">Apache License 2.0</a>; see the <a href="../NOTICE.txt">NOTICE</a> for the origin of this documentation.</p>
+
+</body>
+</html>

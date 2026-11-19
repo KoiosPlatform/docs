@@ -1,0 +1,295 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>23. Instance Groups &ndash; Koios Automation Platform</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ansible.css?v=5657ca2d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/rtd-ethical-ads.css?v=289b023e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/dark.css?v=82723a23" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments-dark.css?v=027e451e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/koios.css?v=808fdb03" />
+
+  
+    <link rel="shortcut icon" href="../_static/images/koios-favicon.svg"/>
+    <link rel="canonical" href="https://docs.koioss.com/userguide/instance_groups.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2d018451"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=b8bcef97"></script>
+      <script src="../_static/js/theme-toggle.js?v=59cbb094"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="24. Jobs" href="jobs.html" />
+    <link rel="prev" title="22. Workflow Job Templates" href="workflow_templates.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+<script>
+  (function () {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('koios-docs-theme');
+    } catch (e) {}
+    // Without a stored choice, follow the system preference (dark when it cannot be read).
+    var light = false;
+    try { light = window.matchMedia('(prefers-color-scheme: light)').matches; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', stored || (light ? 'light' : 'dark'));
+  })();
+</script>
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="#" class="asc-theme-toggle" title="Switch theme" aria-label="Switch theme"><svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg></a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../_static/images/koios-mark-white.svg"
+    alt="Koios">
+  <div class="DocSiteNav-title">Koios Automation Platform</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Koios Automation Platform
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Koios Automation Platform Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Install and upgrade</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade_migration/index.html">Upgrades and Migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configure the platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/index.html">Configure the platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Access management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access/index.html">Authentication and access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation execution</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Automating with Koios Automation Platform</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html">Automating with Koios Automation Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html">1. Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging_in.html">2. Logging In</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main_menu.html">3. The User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main_menu.html#the-settings-menu">4. The Settings Menu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="search_sort.html">5. Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="organizations.html">6. Organizations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="users.html">7. Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="teams.html">8. Teams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credentials.html">9. Credentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credential_plugins.html">10. Secret Management System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credential_types.html">11. Custom Credential Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="execution_environments.html">12. Execution Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ee_reference.html">13. Execution Environment Setup Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="projects.html">14. Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project-sign.html">15. Project Signing and Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventories.html">16. Inventories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventory_plugins_templates.html">17. Supported Inventory Plugin Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="labels.html">18. Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_templates.html">19. Job Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_slices.html">20. Job Slicing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflows.html">21. Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_templates.html">22. Workflow Job Templates</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">23. Instance Groups</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-an-instance-group">23.1. Create an instance group</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#associate-instances-to-an-instance-group">23.1.1. Associate instances to an instance group</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#view-jobs-associated-with-an-instance-group">23.1.2. View jobs associated with an instance group</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jobs.html">24. Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhooks.html">25. Working with Webhooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notifications.html">26. Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notification_parameters_supported.html">27. Supported Attributes for Custom Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduling.html">28. Schedules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="best_practices.html">29. Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">30. Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html">31. Glossary</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation decisions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../eda/index.html">Event-Driven Ansible</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hub/index.html">Automation hub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operate</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../operate/index.html">Operate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../administration/index.html">Administering Koios Automation Platform Deployments</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration as code and API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/casc.html">Configuration as code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rest_api/index.html">automation controller API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/releases.html">Releases</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Koios Automation Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Automating with Koios Automation Platform</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">23. </span>Instance Groups</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <section id="instance-groups">
+<span id="ug-instance-groups"></span><h1><span class="section-number">23. </span>Instance Groups<a class="headerlink" href="#instance-groups" title="Link to this heading"></a></h1>
+<p id="index-0">An <a class="reference internal" href="glossary.html#term-Instance-Group"><span class="xref std std-term">Instance Group</span></a> groups the instances that run jobs; its policies decide which instances belong to it and how many jobs it runs at the same time. Open <strong>Automation Execution &gt; Infrastructure &gt; Instance Groups</strong> to see the instance groups and container groups, with their type, their instances and their used capacity:</p>
+<p><img alt="The Instance Groups list with the controlplane and default groups and the example groups" src="../_images/instance-groups_list_view.png" /></p>
+<p>In Koios Automation Platform on OpenShift or Kubernetes, the <code class="docutils literal notranslate"><span class="pre">controlplane</span></code> instance group holds the control nodes of automation controller, and the <code class="docutils literal notranslate"><span class="pre">default</span></code> group is a container group: jobs run in pods of the cluster, not on the control nodes. A regular instance group runs jobs only on the execution nodes (or hybrid nodes) associated with it; see <a class="reference internal" href="../administration/instances.html#ag-instances"><span class="std std-ref">Managing Capacity With Instances</span></a> to add execution nodes. For more information about the policies and capacity of instance groups, see <a class="reference internal" href="../administration/containers_instance_groups.html#ag-instance-groups"><span class="std std-ref">Instance Groups</span></a>; for container groups, see <a class="reference internal" href="../administration/containers_instance_groups.html#ag-container-groups"><span class="std std-ref">Container Groups</span></a>.</p>
+<section id="create-an-instance-group">
+<span id="ug-instance-groups-create"></span><h2><span class="section-number">23.1. </span>Create an instance group<a class="headerlink" href="#create-an-instance-group" title="Link to this heading"></a></h2>
+<p>To create a new instance group:</p>
+<ol class="arabic simple">
+<li><p>Open <strong>Automation Execution &gt; Infrastructure &gt; Instance Groups</strong>.</p></li>
+<li><p>Click <strong>Create group</strong> and select <strong>Create instance group</strong>.</p></li>
+</ol>
+<p><img alt="The Create instance group form" src="../_images/instance-group-create-new-ig.png" /></p>
+<ol class="arabic simple" start="3">
+<li><p>Enter the appropriate details into the following fields:</p></li>
+</ol>
+<ul class="simple">
+<li><p><strong>Name</strong> (required). Names must be unique. The <code class="docutils literal notranslate"><span class="pre">default</span></code> and <code class="docutils literal notranslate"><span class="pre">controlplane</span></code> groups cannot be renamed.</p></li>
+<li><p><strong>Policy instance minimum</strong>. The minimum number of instances to automatically assign to this group when new instances come online.</p></li>
+<li><p><strong>Policy instance percentage</strong>. The minimum percentage of instances to automatically assign to this group when new instances come online.</p></li>
+<li><p><strong>Max concurrent jobs</strong>. The maximum number of jobs that can run at the same time on this instance group.</p></li>
+<li><p><strong>Max forks</strong>. The maximum number of forks that the jobs running on this instance group can use in total.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All these fields except <strong>Name</strong> default to 0. For <strong>Max concurrent jobs</strong> and <strong>Max forks</strong>, 0 means no limit. See <a class="reference internal" href="../administration/containers_instance_groups.html#ag-instancegrp-cpacity"><span class="std std-ref">Instance group capacity limits</span></a> for more detail.</p>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Click <strong>Create instance group</strong>.</p></li>
+</ol>
+<p>The <strong>Details</strong> tab of the new instance group opens; click <strong>Edit instance group</strong> to change it. The <strong>Instances</strong> tab lists its instances, <strong>Team Access</strong> and <strong>User Access</strong> control who can use it, and <strong>Jobs</strong> lists the jobs that ran on it.</p>
+<p><img alt="Details of the Example Instance Group with its tabs" src="../_images/instance-group-example-ig-successfully-created.png" /></p>
+<section id="associate-instances-to-an-instance-group">
+<h3><span class="section-number">23.1.1. </span>Associate instances to an instance group<a class="headerlink" href="#associate-instances-to-an-instance-group" title="Link to this heading"></a></h3>
+<p>To associate instances to an instance group:</p>
+<ol class="arabic simple">
+<li><p>Open the <strong>Instances</strong> tab of the instance group and click <strong>Associate instance</strong>.</p></li>
+<li><p>Select one or more instances in the <strong>Select instances</strong> window and click <strong>Confirm</strong>. Only execution and hybrid nodes that are not in the group yet are offered; control and hop nodes cannot be associated, so in a platform without execution nodes the list is empty, as in this example.</p></li>
+</ol>
+<p><img alt="The Select instances window, empty because there are no execution nodes" src="../_images/instance-group-assoc-instances.png" /></p>
+<p>The <strong>Instances</strong> tab shows each instance with its status, node type, capacity and used capacity. From this view you can adjust the capacity of an instance with its slider, enable or disable it with its switch, run a health check of execution nodes, and disassociate execution nodes from the group. Control and hop nodes cannot change their instance group membership, and hybrid nodes cannot leave <code class="docutils literal notranslate"><span class="pre">controlplane</span></code>, so those actions are disabled for the control node of this example:</p>
+<p><img alt="The Instances tab of the controlplane group with the capacity slider, the enable switch and the health check action" src="../_images/instance-group-instances-example-callouts.png" /></p>
+</section>
+<section id="view-jobs-associated-with-an-instance-group">
+<h3><span class="section-number">23.1.2. </span>View jobs associated with an instance group<a class="headerlink" href="#view-jobs-associated-with-an-instance-group" title="Link to this heading"></a></h3>
+<p>To view the jobs that ran on the instance group, open its <strong>Jobs</strong> tab. Expand a job to see more details about it.</p>
+<p><img alt="The Jobs tab of the default container group with an expanded job" src="../_images/instance-group-jobs-list.png" /></p>
+<p>Each job displays its ID, name, status and type, and, expanded, who launched it and the resources it used, such as the template, inventory, project and execution environment.</p>
+<p>The instances are run in accordance with instance group policies. Refer to <a class="reference internal" href="../administration/containers_instance_groups.html#ag-instance-group-policies"><span class="std std-ref">Instance Group Policies</span></a>.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="workflow_templates.html" class="btn btn-neutral float-left" title="22. Workflow Job Templates" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="jobs.html" class="btn btn-neutral float-right" title="24. Jobs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Koios Solutions. Portions 2026, Red Hat, Inc. and 2026, CtrlIQ, Inc..</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+<p class="koios-legal">Licensed under the <a href="../LICENSE.txt">Apache License 2.0</a>; see the <a href="../NOTICE.txt">NOTICE</a> for the origin of this documentation.</p>
+
+</body>
+</html>

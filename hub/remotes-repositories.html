@@ -1,0 +1,377 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Remotes and repositories &ndash; Koios Automation Platform</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ansible.css?v=5657ca2d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/rtd-ethical-ads.css?v=289b023e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/dark.css?v=82723a23" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments-dark.css?v=027e451e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/koios.css?v=808fdb03" />
+
+  
+    <link rel="shortcut icon" href="../_static/images/koios-favicon.svg"/>
+    <link rel="canonical" href="https://docs.koioss.com/hub/remotes-repositories.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2d018451"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=b8bcef97"></script>
+      <script src="../_static/js/theme-toggle.js?v=59cbb094"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Troubleshooting Automation Content" href="troubleshooting.html" />
+    <link rel="prev" title="Publish your first collection" href="first-collection.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+<script>
+  (function () {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('koios-docs-theme');
+    } catch (e) {}
+    // Without a stored choice, follow the system preference (dark when it cannot be read).
+    var light = false;
+    try { light = window.matchMedia('(prefers-color-scheme: light)').matches; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', stored || (light ? 'light' : 'dark'));
+  })();
+</script>
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="#" class="asc-theme-toggle" title="Switch theme" aria-label="Switch theme"><svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg></a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../_static/images/koios-mark-white.svg"
+    alt="Koios">
+  <div class="DocSiteNav-title">Koios Automation Platform</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Koios Automation Platform
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Koios Automation Platform Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Install and upgrade</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade_migration/index.html">Upgrades and Migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configure the platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/index.html">Configure the platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Access management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access/index.html">Authentication and access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation execution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">Automating with Koios Automation Platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation decisions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../eda/index.html">Event-Driven Ansible</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation content</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Automation hub</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="first-collection.html">Publish your first collection</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Remotes and repositories</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#inspect-the-resources">Inspect the resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#restrict-the-community-remote">Restrict the community remote</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#certified-and-other-upstream-sources">Certified and other upstream sources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#connect-a-repository-and-synchronize">Connect a repository and synchronize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#keep-repository-scope-explicit">Keep repository scope explicit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#grant-only-the-permissions-required">Grant only the permissions required</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html">Troubleshooting Automation Content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#collections">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#repositories-and-distributions">Repositories and distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#remotes-and-approvals">Remotes and approvals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#tokens-and-clients">Tokens and clients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#using-collections-from-automation-controller">Using collections from automation controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#container-registry">Container registry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#backup-and-restore">Backup and restore</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operate</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../operate/index.html">Operate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../administration/index.html">Administering Koios Automation Platform Deployments</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration as code and API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/casc.html">Configuration as code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rest_api/index.html">automation controller API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/releases.html">Releases</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Koios Automation Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Automation hub</a></li>
+      <li class="breadcrumb-item active">Remotes and repositories</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <section id="remotes-and-repositories">
+<span id="hub-remotes-repositories"></span><h1>Remotes and repositories<a class="headerlink" href="#remotes-and-repositories" title="Link to this heading"></a></h1>
+<p>A local collection upload and a remote synchronization are different workflows. Uploads enter the
+local approval pipeline. A remote supplies connection settings for fetching content from another
+server; a repository holds the synchronized content and a distribution exposes it to clients.</p>
+<p>The documentation test platform has <strong>community</strong> and <strong>rh-certified</strong> remotes and repositories
+named <strong>published</strong>, <strong>staging</strong>, <strong>rejected</strong>, <strong>validated</strong>, <strong>community</strong> and <strong>rh-certified</strong>.
+These names describe the observed setup; inspect your own deployment before changing it.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Synchronization of collections from a remote has <strong>not been validated</strong> for this documentation.
+The earlier hub evidence validates local publish/install and synchronization of platform users and
+teams, not remote collection synchronization. The procedure below describes the UI/source contract
+and needs a controlled runtime test before it is used as a production runbook.</p>
+</div>
+<section id="inspect-the-resources">
+<h2>Inspect the resources<a class="headerlink" href="#inspect-the-resources" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Open <strong>Automation Content &gt; Remotes</strong> to inspect upstream connection settings, authentication,
+certificate options and the requirements file.</p></li>
+<li><p>Open <strong>Automation Content &gt; Repositories</strong> to inspect local content, the assigned <strong>Remote</strong>,
+<strong>Pipeline</strong>, permissions and <strong>Distributions</strong>.</p></li>
+<li><p>Open <strong>Automation Content &gt; Task Management</strong> for asynchronous task results. An accepted sync
+request is not proof that the content was downloaded successfully.</p></li>
+</ul>
+<p>A remote with a valid URL is not a repository, and a repository with a name is not automatically
+accessible at the similarly named public URL. Check its distribution rather than guessing the
+client endpoint.</p>
+<p><img alt="The Remotes list with the rh-certified and community remotes and their server URLs" src="../_images/hub-remotes-list.png" />
+<img alt="The Repositories list with community, published, rejected, rh-certified, staging and validated" src="../_images/hub-repositories-list.png" /></p>
+</section>
+<section id="restrict-the-community-remote">
+<h2>Restrict the community remote<a class="headerlink" href="#restrict-the-community-remote" title="Link to this heading"></a></h2>
+<p>A community remote can synchronize content from Ansible Galaxy. Avoid an unrestricted mirror of
+all available collections: that can consume substantial storage and download time.</p>
+<ol class="arabic simple">
+<li><p>In <strong>Automation Content &gt; Remotes</strong>, open <strong>community</strong> and use <strong>Edit remote</strong>.</p></li>
+<li><p>Review its upstream URL and authentication. Do not use the platform hub’s own URL as the
+external community source.</p></li>
+<li><p>In <strong>Requirements file</strong>, enter a small selection of collections and, where appropriate, pin
+their versions. The field contains the contents of a requirements YAML file, not a local path.</p></li>
+<li><p>Click <strong>Save remote</strong>. Saving the remote does not perform a synchronization.</p></li>
+</ol>
+<p>For example:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">collections</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ansible.posix</span>
+<span class="w">    </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">"2.0.0"</span>
+</pre></div>
+</div>
+<p>This is an illustrative selection, not a version downloaded or validated during the hub tutorial.
+Choose a release compatible with your Ansible environment and available from your upstream server.
+The remote includes the listed collections <strong>and their dependencies</strong>, so the selection does not
+necessarily produce just one artifact. The UI requires <strong>Requirements file</strong> for a community
+remote; for other remotes, leaving it empty can request all content offered by that server.</p>
+<p><img alt="The Edit community remote form with the server URL, options and the Requirements file field" src="../_images/hub-community-remote-requirements.png" /></p>
+</section>
+<section id="certified-and-other-upstream-sources">
+<h2>Certified and other upstream sources<a class="headerlink" href="#certified-and-other-upstream-sources" title="Link to this heading"></a></h2>
+<p>The <strong>rh-certified</strong> remote refers to content from a Red Hat service. The remote’s name does not
+grant access to that service or certify Koios Automation Platform. Configure only an upstream
+endpoint and credentials that your organization is entitled to use. Registry credentials for
+<code class="docutils literal notranslate"><span class="pre">ghcr.io/koiosplatform</span></code>, gateway API tokens and upstream service credentials are different grants.</p>
+<p>Other remotes can use an upstream server’s supported authentication and CA configuration. Keep
+certificate validation enabled and supply the required trust for a private CA. Do not copy secrets
+from a remote’s configuration into a public issue or screenshot.</p>
+</section>
+<section id="connect-a-repository-and-synchronize">
+<h2>Connect a repository and synchronize<a class="headerlink" href="#connect-a-repository-and-synchronize" title="Link to this heading"></a></h2>
+<p>This workflow is <strong>not validated</strong> on the Koios test platform:</p>
+<ol class="arabic simple">
+<li><p>In <strong>Automation Content &gt; Repositories</strong>, inspect the intended destination and choose
+<strong>Edit repository</strong> if a change is needed. Its <strong>Remote</strong> must be the one you intend to use.</p></li>
+<li><p>Check <strong>Distributions</strong> to establish which client URL exposes the destination. Also review
+<strong>Pipeline</strong>: not every repository follows the local staging-to-published approval workflow.</p></li>
+<li><p>Set the remote’s requirements and confirm the intended scope before starting. Prefer an
+isolated test repository for initial validation, rather than changing a production published
+repository’s content source.</p></li>
+<li><p>Choose <strong>Sync repository</strong>. Review the synchronization options and confirm with <strong>Sync</strong>.
+Inspect the task reached from the resulting notification or <strong>Task Management</strong>.</p></li>
+<li><p>After successful task completion, inspect the actual collection versions in the destination.
+Test a client installation from its distribution URL in a fresh collection path.</p></li>
+</ol>
+<p>Review synchronization settings before accepting them: mirroring can remove destination content
+that is absent upstream. A completed task is only one check; verify the selected versions,
+dependencies, distribution URL and client permissions before exposing synchronized content to jobs.</p>
+<p><img alt="Details of the community repository with its distribution and the community remote, never synced" src="../_images/hub-repository-remote-distribution.png" /></p>
+</section>
+<section id="keep-repository-scope-explicit">
+<h2>Keep repository scope explicit<a class="headerlink" href="#keep-repository-scope-explicit" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Repository or distribution</p></th>
+<th class="head"><p>What consumers should infer</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>staging</p></td>
+<td><p>An imported local upload awaits approval in the configured pipeline. It is not automatically in the published distribution.</p></td>
+</tr>
+<tr class="row-odd"><td><p>published</p></td>
+<td><p>The local approval pipeline’s consumer destination. Use its documented distribution URL for installations.</p></td>
+</tr>
+<tr class="row-even"><td><p>rejected</p></td>
+<td><p>Review rejected that version; it is not approved for published consumers.</p></td>
+</tr>
+<tr class="row-odd"><td><p>validated</p></td>
+<td><p>A separate content set. The name alone says nothing about a particular version’s test evidence, signatures or installation permissions.</p></td>
+</tr>
+<tr class="row-even"><td><p>community / rh-certified</p></td>
+<td><p>Content sources/sets associated with upstream synchronization. Do not assume local upload approvals or service entitlements apply identically.</p></td>
+</tr>
+</tbody>
+</table>
+<p>For the local upload walkthrough, use
+<code class="docutils literal notranslate"><span class="pre">https://&lt;platform&gt;/api/galaxy/content/published/</span></code>. For another repository, read its distribution
+configuration rather than substituting its name into that URL and assuming it exists.</p>
+</section>
+<section id="grant-only-the-permissions-required">
+<h2>Grant only the permissions required<a class="headerlink" href="#grant-only-the-permissions-required" title="Link to this heading"></a></h2>
+<p>Manage users and teams in the platform’s <strong>Access Management</strong>, and grant hub access on the
+relevant resources. Separate content authors, reviewers and consumers where possible.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Task</p></th>
+<th class="head"><p>Required capabilities</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Create a namespace</p></td>
+<td><p>Permission to create namespaces, not merely membership of a platform organization.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Upload a collection</p></td>
+<td><p>Upload permission on the collection’s namespace and permission to add content to the selected destination under its pipeline rules.</p></td>
+</tr>
+<tr class="row-even"><td><p>Approve or move versions</p></td>
+<td><p>Permission to modify the relevant repositories’ content. Namespace upload permission alone is not an approval role.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Configure remotes</p></td>
+<td><p>View/change permission on the relevant remote, including authority to manage its authentication settings.</p></td>
+</tr>
+<tr class="row-even"><td><p>Synchronize</p></td>
+<td><p>Permission to synchronize the remote/repository and modify the destination content.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Install</p></td>
+<td><p>Read/download access to the distribution/repository and its content. An API token cannot grant more access than its user has.</p></td>
+</tr>
+</tbody>
+</table>
+<p>The backend distinguishes namespace upload permission (<code class="docutils literal notranslate"><span class="pre">galaxy.upload_to_namespace</span></code>) from
+repository-content modification (<code class="docutils literal notranslate"><span class="pre">ansible.modify_ansible_repo_content</span></code>). Use the permissions and
+resource access controls provided by your release; do not grant platform superuser access just to
+make a missing action appear. If an operation returns 403, inspect the resource scope and token
+scope before changing roles.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="first-collection.html" class="btn btn-neutral float-left" title="Publish your first collection" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="troubleshooting.html" class="btn btn-neutral float-right" title="Troubleshooting Automation Content" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Koios Solutions. Portions 2026, Red Hat, Inc. and 2026, CtrlIQ, Inc..</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+<p class="koios-legal">Licensed under the <a href="../LICENSE.txt">Apache License 2.0</a>; see the <a href="../NOTICE.txt">NOTICE</a> for the origin of this documentation.</p>
+
+</body>
+</html>

@@ -1,0 +1,233 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Source tree copy behavior &ndash; Koios Automation Platform</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ansible.css?v=5657ca2d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/rtd-ethical-ads.css?v=289b023e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/dark.css?v=82723a23" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments-dark.css?v=027e451e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/koios.css?v=808fdb03" />
+
+  
+    <link rel="shortcut icon" href="../_static/images/koios-favicon.svg"/>
+    <link rel="canonical" href="https://docs.koioss.com/userguide/job_branching.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2d018451"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=b8bcef97"></script>
+      <script src="../_static/js/theme-toggle.js?v=59cbb094"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+<script>
+  (function () {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('koios-docs-theme');
+    } catch (e) {}
+    // Without a stored choice, follow the system preference (dark when it cannot be read).
+    var light = false;
+    try { light = window.matchMedia('(prefers-color-scheme: light)').matches; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', stored || (light ? 'light' : 'dark'));
+  })();
+</script>
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="#" class="asc-theme-toggle" title="Switch theme" aria-label="Switch theme"><svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg></a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../_static/images/koios-mark-white.svg"
+    alt="Koios">
+  <div class="DocSiteNav-title">Koios Automation Platform</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Koios Automation Platform
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Koios Automation Platform Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Install and upgrade</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade_migration/index.html">Upgrades and Migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configure the platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/index.html">Configure the platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Access management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access/index.html">Authentication and access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation execution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Automating with Koios Automation Platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation decisions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../eda/index.html">Event-Driven Ansible</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hub/index.html">Automation hub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operate</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../operate/index.html">Operate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../administration/index.html">Administering Koios Automation Platform Deployments</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration as code and API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/casc.html">Configuration as code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rest_api/index.html">automation controller API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/releases.html">Releases</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Koios Automation Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Source tree copy behavior</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <p id="ug-job-branching">Projects specify the branch, tag, or reference to use from source control in the <code class="docutils literal notranslate"><span class="pre">scm_branch</span></code> field. In the project form this is the <strong>Source control branch/tag/commit</strong> field, next to <strong>Source control refspec</strong>:</p>
+<img alt="The Type Details of a Git project with the branch and refspec fields" src="../_images/projects-create-scm-project-branching-emphasized.png" />
+<p>Projects have the <strong>Allow branch override</strong> option. When checked, project admins can delegate branch selection to the job templates that use that project (requiring only project <code class="docutils literal notranslate"><span class="pre">use_role</span></code>).</p>
+<img alt="Allow Branch Override checkbox option in Project selected" src="../_images/projects-create-scm-project-branch-override-checked.png" />
+<section id="source-tree-copy-behavior">
+<h1>Source tree copy behavior<a class="headerlink" href="#source-tree-copy-behavior" title="Link to this heading"></a></h1>
+<p>Every job run has its own private data directory. This directory contains a copy of the project source tree for the given
+<code class="docutils literal notranslate"><span class="pre">scm_branch</span></code> the job is running. Jobs are free to make changes to the project folder and make use of those changes while it is still running. This folder is temporary and is cleaned up at the end of the job run.</p>
+<p>If <strong>Clean</strong> is checked, automation controller discards modified files in its local copy of the repository through use of the <code class="docutils literal notranslate"><span class="pre">force</span></code> parameter in its respective Ansible modules pertaining to <a class="reference external" href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/git_module.html#parameters">git</a> or <a class="reference external" href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/subversion_module.html#parameters">Subversion</a>.</p>
+<img alt="The Options of a project with Clean and Allow branch override selected" src="../_images/projects-create-scm-project-clean-checked.png" />
+</section>
+<section id="project-revision-behavior">
+<h1>Project revision behavior<a class="headerlink" href="#project-revision-behavior" title="Link to this heading"></a></h1>
+<p>Typically, during a project update, the revision of the default branch (specified in the <strong>Source control branch/tag/commit</strong> field of the project)
+is stored when updated, and jobs using that project will employ this revision. Providing a non-default branch (not a commit hash or tag) in a job, the newest revision is pulled from the source control remote immediately before the job starts.
+This revision is shown in the <strong>Revision</strong> field of the details of the job and of its respective project update.</p>
+<img alt="The details of a job with its Revision field" src="../_images/jobs-output-branch-override-example.png" />
+<p>Consequently, offline job runs are impossible for non-default branches. To be sure that a job is running a static version from source control, use tags or commit hashes. Project updates do not save the revision of all branches, only the project default branch.</p>
+<p>The branch field is not validated, so the project must update to assure it is valid. If this field is provided or prompted for, the <strong>Playbook</strong> field of job templates will not be validated, and you will have to launch the job template in order to verify presence of the expected playbook.</p>
+</section>
+<section id="git-refspec">
+<h1>Git Refspec<a class="headerlink" href="#git-refspec" title="Link to this heading"></a></h1>
+<p id="index-0">The <strong>Source control refspec</strong> field specifies which extra references the update should download from the remote. Examples are:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">refs/*:refs/remotes/origin/*</span></code>: fetches all references, including remotes of the remote</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">refs/pull/*:refs/remotes/origin/pull/*</span></code> (GitHub-specific): fetches all refs for all pull requests</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">refs/pull/62/head:refs/remotes/origin/pull/62/head</span></code>: fetches the ref for that one GitHub pull request</p></li>
+</ol>
+</div></blockquote>
+<p>For large projects, you should consider performance impact when using the 1st or 2nd examples here.</p>
+<p>The <strong>Source control refspec</strong> parameter affects the availability of the project branch, and can allow access to references not otherwise available. The examples above allow the user to supply a pull request as the branch, which would
+not be possible without the <strong>Source control refspec</strong> field.</p>
+<p>The Ansible git module fetches <code class="docutils literal notranslate"><span class="pre">refs/heads/*</span></code> by default. This means that a project’s branches and tags (and commit hashes therein) can be used as the branch if <strong>Source control refspec</strong> is blank. The value specified in the <strong>Source control refspec</strong> field affects which branches can be used as overrides. Project updates (of any type) will perform an extra <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span></code> command to pull that refspec from the remote.</p>
+<p>For example: You could set up a project that allows branch override with the 1st or 2nd refspec example –&gt; Use this in a job template that prompts for the branch –&gt; A client could launch the job template when a new pull request is created, providing the branch <code class="docutils literal notranslate"><span class="pre">pull/N/head</span></code> –&gt; The job template would run against the provided GitHub pull request reference.</p>
+<p>For more information on the Ansible git module, see <a class="reference external" href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/git_module.html">https://docs.ansible.com/ansible/latest/collections/ansible/builtin/git_module.html</a>.</p>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Koios Solutions. Portions 2026, Red Hat, Inc. and 2026, CtrlIQ, Inc..</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+<p class="koios-legal">Licensed under the <a href="../LICENSE.txt">Apache License 2.0</a>; see the <a href="../NOTICE.txt">NOTICE</a> for the origin of this documentation.</p>
+
+</body>
+</html>

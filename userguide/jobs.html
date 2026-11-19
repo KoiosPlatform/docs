@@ -1,0 +1,543 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>24. Jobs &ndash; Koios Automation Platform</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ansible.css?v=5657ca2d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/rtd-ethical-ads.css?v=289b023e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/dark.css?v=82723a23" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments-dark.css?v=027e451e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/koios.css?v=808fdb03" />
+
+  
+    <link rel="shortcut icon" href="../_static/images/koios-favicon.svg"/>
+    <link rel="canonical" href="https://docs.koioss.com/userguide/jobs.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2d018451"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=b8bcef97"></script>
+      <script src="../_static/js/theme-toggle.js?v=59cbb094"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="25. Working with Webhooks" href="webhooks.html" />
+    <link rel="prev" title="23. Instance Groups" href="instance_groups.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+<script>
+  (function () {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('koios-docs-theme');
+    } catch (e) {}
+    // Without a stored choice, follow the system preference (dark when it cannot be read).
+    var light = false;
+    try { light = window.matchMedia('(prefers-color-scheme: light)').matches; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', stored || (light ? 'light' : 'dark'));
+  })();
+</script>
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="#" class="asc-theme-toggle" title="Switch theme" aria-label="Switch theme"><svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg></a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../_static/images/koios-mark-white.svg"
+    alt="Koios">
+  <div class="DocSiteNav-title">Koios Automation Platform</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Koios Automation Platform
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Koios Automation Platform Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Install and upgrade</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade_migration/index.html">Upgrades and Migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configure the platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/index.html">Configure the platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Access management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access/index.html">Authentication and access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation execution</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Automating with Koios Automation Platform</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html">Automating with Koios Automation Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html">1. Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging_in.html">2. Logging In</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main_menu.html">3. The User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main_menu.html#the-settings-menu">4. The Settings Menu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="search_sort.html">5. Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="organizations.html">6. Organizations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="users.html">7. Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="teams.html">8. Teams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credentials.html">9. Credentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credential_plugins.html">10. Secret Management System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credential_types.html">11. Custom Credential Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="execution_environments.html">12. Execution Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ee_reference.html">13. Execution Environment Setup Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="projects.html">14. Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project-sign.html">15. Project Signing and Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventories.html">16. Inventories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventory_plugins_templates.html">17. Supported Inventory Plugin Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="labels.html">18. Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_templates.html">19. Job Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_slices.html">20. Job Slicing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflows.html">21. Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_templates.html">22. Workflow Job Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instance_groups.html">23. Instance Groups</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">24. Jobs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#inventory-sync-jobs">24.1. Inventory Sync Jobs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#inventory-sync-details">24.1.1. Inventory sync details</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#project-sync-jobs">24.2. Project Sync Jobs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#project-sync-details">24.2.1. Project sync details</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#playbook-run-jobs">24.3. Playbook Run Jobs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#relaunch-a-playbook-run">24.3.1. Relaunch a playbook run</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#search">24.3.2. Search</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#host-details">24.3.3. Host Details</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#playbook-run-details">24.3.4. Playbook run details</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#automation-controller-capacity-determination-and-job-impact">24.4. Automation controller Capacity Determination and Job Impact</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#resource-determination-for-capacity-algorithm">24.4.1. Resource determination for capacity algorithm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#capacity-job-impacts">24.4.2. Capacity job impacts</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#job-branch-overriding">24.5. Job branch overriding</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#source-tree-copy-behavior">24.5.1. Source tree copy behavior</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project-revision-behavior">24.5.2. Project revision behavior</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#git-refspec">24.5.3. Git Refspec</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhooks.html">25. Working with Webhooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notifications.html">26. Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notification_parameters_supported.html">27. Supported Attributes for Custom Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduling.html">28. Schedules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="best_practices.html">29. Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">30. Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html">31. Glossary</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation decisions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../eda/index.html">Event-Driven Ansible</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hub/index.html">Automation hub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operate</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../operate/index.html">Operate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../administration/index.html">Administering Koios Automation Platform Deployments</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration as code and API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/casc.html">Configuration as code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rest_api/index.html">automation controller API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/releases.html">Releases</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Koios Automation Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Automating with Koios Automation Platform</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">24. </span>Jobs</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <section id="jobs">
+<span id="ug-jobs"></span><h1><span class="section-number">24. </span>Jobs<a class="headerlink" href="#jobs" title="Link to this heading"></a></h1>
+<p id="index-0">A <a class="reference internal" href="glossary.html#term-Job"><span class="xref std std-term">job</span></a> is an instance of automation controller launching an Ansible playbook against an inventory of hosts. Project syncs, inventory syncs, ad hoc commands, workflows and management jobs are listed as jobs too.</p>
+<p>Open <strong>Automation Execution &gt; Jobs</strong>. The list shows the jobs you can see, with their ID, name, status, type and when they started and finished, and can be searched and filtered. Its columns can be chosen with the column management button; more are available, such as the launcher, the inventory, the project, the execution environment and the labels.</p>
+<p>By default, the list is sorted by finish time, newest first. Jobs that have not finished yet (new, pending, waiting, or running) appear at the top. Click a column header to sort by that column instead, and click it again to reverse the order.</p>
+<p><img alt="The Jobs list" src="../_images/jobs-home-with-example-job.png" /></p>
+<p>Expand a row with the arrow next to it to see more details of the job.</p>
+<img alt="The Jobs list with an expanded workflow job" src="../_images/jobs-list-all-expanded.png" />
+<p>Each row has a relaunch action (rocket icon) and, in its menu, <strong>Cancel job</strong> for a running job and <strong>Delete job</strong>. Select several jobs to cancel or delete them with <strong>Cancel jobs</strong> and <strong>Delete jobs</strong> in the toolbar menu. Relaunch is available, when you have the permission to start the job again, for playbook runs, ad hoc commands, workflow jobs, project syncs and inventory syncs; management jobs are relaunched from their template.</p>
+<p id="index-1"><span id="ug-job-results"></span>When a job is launched or relaunched, its <strong>Output</strong> tab opens as the job runs. Clicking a job in the list opens it too. While the job runs, <strong>Follow</strong> keeps the newest output in view and <strong>Unfollow</strong> stops it.</p>
+<p>The output can be filtered with the search toolbar: choose <strong>Search</strong> to look for text in the events, <strong>Event</strong> to show only some types of events (such as failures, host retries, skipped items or changes), <strong>Stdout</strong> to match the text of the output, or other fields of the job events.</p>
+<img alt="The filter options of the Output tab of a job" src="../_images/job-details-view-filters.png" />
+<p>For details about filtering, refer to the <a class="reference internal" href="search_sort.html#ug-search"><span class="std std-ref">Search</span></a> chapter.</p>
+<section id="inventory-sync-jobs">
+<h2><span class="section-number">24.1. </span>Inventory Sync Jobs<a class="headerlink" href="#inventory-sync-jobs" title="Link to this heading"></a></h2>
+<p id="index-2">When an inventory sync is executed, the full results automatically display in the <strong>Output</strong> tab. This shows the same information you would see if you ran it through the Ansible command line, and can be useful for debugging. Increase the <strong>Verbosity</strong> of the inventory source to see more detail. The <code class="docutils literal notranslate"><span class="pre">ANSIBLE_DISPLAY_ARGS_TO_STDOUT</span></code> is set to <code class="docutils literal notranslate"><span class="pre">False</span></code> by default for all playbook runs. This matches Ansible’s default behavior. This does not display task arguments in task headers in the Job Detail interface to avoid leaking certain sensitive module parameters to stdout.  If you wish to restore the prior behavior (despite the security implications), you can set <code class="docutils literal notranslate"><span class="pre">ANSIBLE_DISPLAY_ARGS_TO_STDOUT</span></code> to <code class="docutils literal notranslate"><span class="pre">True</span></code> via the <code class="docutils literal notranslate"><span class="pre">AWX_TASK_ENV</span></code> configuration setting. For more details, refer to the <a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/config.html#envvar-ANSIBLE_DISPLAY_ARGS_TO_STDOUT">ANSIBLE_DISPLAY_ARGS_TO_STDOUT</a>.</p>
+<blockquote>
+<div></div></blockquote>
+<p>The actions at the top of the job relaunch it (<strong>Relaunch job</strong>) or cancel it while it runs (<strong>Cancel job</strong>); the menu next to them downloads the output (<strong>Download output</strong>) or deletes the job (<strong>Delete job</strong>).</p>
+<p><img alt="Output of an inventory sync with verbosity 1" src="../_images/jobs-show-job-results-for-inv-sync.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>An inventory update can be performed while a related job is running. In cases where you have a big project (around 10 GB), disk space on <code class="docutils literal notranslate"><span class="pre">/tmp</span></code> may be an issue.</p>
+</div>
+<section id="inventory-sync-details">
+<h3><span class="section-number">24.1.1. </span>Inventory sync details<a class="headerlink" href="#inventory-sync-details" title="Link to this heading"></a></h3>
+<p>Open the <strong>Details</strong> tab to see details about the job execution.</p>
+<img alt="Details of an inventory sync" src="../_images/jobs-show-job-details-for-inv-sync.png" />
+<p>Notable details of the job executed are:</p>
+<ul>
+<li><p><strong>Status</strong>: Can be any of the following:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Pending</strong> - The inventory sync has been created, but not queued or started yet. Any job, not just inventory source syncs, will stay in pending until it’s actually ready to be run by the system.  Reasons for inventory source syncs not being ready include dependencies that are currently running (all dependencies must be completed before the next step can execute), or there is not enough capacity to run in the locations it is configured to.</p></li>
+<li><p><strong>Waiting</strong> - The inventory sync is in the queue waiting to be executed.</p></li>
+<li><p><strong>Running</strong> - The inventory sync is currently in progress.</p></li>
+<li><p><strong>Success</strong> - The inventory sync job succeeded.</p></li>
+<li><p><strong>Failed</strong> - The inventory sync job failed.</p></li>
+<li><p><strong>Error</strong> - The inventory sync could not run.</p></li>
+<li><p><strong>Canceled</strong> - The inventory sync was canceled.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Source</strong>: The type of inventory source.</p></li>
+<li><p><strong>Inventory</strong>: The inventory that was updated.</p></li>
+<li><p><strong>Execution environment</strong>: The execution environment used.</p></li>
+<li><p><strong>Instance group</strong> and <strong>Container group</strong>: Where the job ran.</p></li>
+<li><p><strong>Limit</strong> and <strong>Verbosity</strong>: The values used by the sync.</p></li>
+</ul>
+<p>Click the links to open the corresponding inventory, execution environment, instance group and other objects.</p>
+</section>
+</section>
+<section id="project-sync-jobs">
+<h2><span class="section-number">24.2. </span>Project Sync Jobs<a class="headerlink" href="#project-sync-jobs" title="Link to this heading"></a></h2>
+<p id="index-3">When a project sync (source control update) is executed, the full results automatically display in the <strong>Output</strong> tab. This shows the same information you would see if you ran it through the Ansible command line, and can be useful for debugging.</p>
+<img alt="Output of a project sync" src="../_images/jobs-show-job-results-for-scm-job.png" />
+<section id="project-sync-details">
+<h3><span class="section-number">24.2.1. </span>Project sync details<a class="headerlink" href="#project-sync-details" title="Link to this heading"></a></h3>
+<p>Open the <strong>Details</strong> tab to see details about the job execution and its associated project.</p>
+<img alt="Details of a project sync" src="../_images/jobs-show-job-details-for-scm-job.png" />
+<p>Notable details of the job executed are:</p>
+<ul class="simple">
+<li><p><strong>Status</strong>: Pending, Waiting, Running, Success, Failed, Error or Canceled, as for the other jobs.</p></li>
+<li><p><strong>Type</strong>: Project syncs display <strong>Source control update</strong>.</p></li>
+<li><p><strong>Project</strong>: The name of the project.</p></li>
+<li><p><strong>Revision</strong>: The revision of the project that this job checked out.</p></li>
+<li><p><strong>Execution environment</strong>: The execution environment used to run this job.</p></li>
+<li><p><strong>Execution node</strong>: The node on which the job ran.</p></li>
+<li><p><strong>Source workflow job</strong>: The workflow job that launched it, if any.</p></li>
+<li><p><strong>Job tags</strong>: The parts of the project update that ran, such as <code class="docutils literal notranslate"><span class="pre">update_git</span></code>, <code class="docutils literal notranslate"><span class="pre">install_roles</span></code> and <code class="docutils literal notranslate"><span class="pre">install_collections</span></code>.</p></li>
+</ul>
+<p>Click the links to open the corresponding project, workflow job and other objects.</p>
+</section>
+</section>
+<section id="playbook-run-jobs">
+<h2><span class="section-number">24.3. </span>Playbook Run Jobs<a class="headerlink" href="#playbook-run-jobs" title="Link to this heading"></a></h2>
+<p id="index-4">When a playbook is executed, the full results automatically display in the <strong>Output</strong> tab. This shows the same information you would see if you ran it through the Ansible command line, and can be useful for debugging.</p>
+<img alt="Output of a playbook run with an unreachable host" src="../_images/jobs-show-job-results-for-example-job.png" />
+<p>The summary at the top of the output shows a tally of the job:</p>
+<ul class="simple">
+<li><p>the number of plays in the <strong>Plays</strong> field</p></li>
+<li><p>the number of tasks in the <strong>Tasks</strong> field</p></li>
+<li><p>the number of hosts in the <strong>Hosts</strong> field</p></li>
+<li><p>the time it took to run in the <strong>Elapsed</strong> field</p></li>
+</ul>
+<p>The host status bar under it shows the hosts by status (for example <strong>Success</strong> and <strong>Unreachable</strong>), and its legend gives the number of hosts with each status.</p>
+<p>The output for a playbook job is also accessible from the <strong>Jobs</strong> tab of its job template.</p>
+<section id="relaunch-a-playbook-run">
+<h3><span class="section-number">24.3.1. </span>Relaunch a playbook run<a class="headerlink" href="#relaunch-a-playbook-run" title="Link to this heading"></a></h3>
+<p>For a failed playbook run, <strong>Relaunch using host parameters</strong> offers <strong>Relaunch on all hosts</strong> or <strong>Relaunch on failed hosts</strong>; for other jobs, <strong>Relaunch job</strong> relaunches it. The job is relaunched with the values given at its launch re-applied to the current job template (see <a class="reference internal" href="job_templates.html#ug-jobtemplates"><span class="std std-ref">Job Templates</span></a>), so if the inventory or the limit of the template changed, the hosts can change too: <strong>Relaunch on all hosts</strong> does not keep a list of the original hosts. <strong>Relaunch on failed hosts</strong> sets the limit to the hosts that failed or were unreachable in the original job; it is refused if that job had none. If the credentials ask for passwords, they are requested again.</p>
+<img alt="The relaunch options of a playbook run with failed hosts" src="../_images/jobs-relaunch-options.png" />
+</section>
+<section id="search">
+<h3><span class="section-number">24.3.2. </span>Search<a class="headerlink" href="#search" title="Link to this heading"></a></h3>
+<p>Use the search toolbar to look up specific events, hostnames, and their statuses. The hosts of a task can have one of these statuses:</p>
+<ul class="simple">
+<li><p><strong>OK</strong>: the playbook task returned “Ok”.</p></li>
+<li><p><strong>Changed</strong>: the playbook task actually executed. Since Ansible tasks should be written to be idempotent, tasks may exit successfully without executing anything on the host. In these cases, the task would return Ok, but not Changed.</p></li>
+<li><p><strong>Failed</strong>: the task failed. Further playbook execution was stopped for this host.</p></li>
+<li><p><strong>Unreachable</strong>: the host was unreachable from the network or had another fatal error associated with it.</p></li>
+<li><p><strong>Skipped</strong>: the playbook task was skipped because no change was necessary for the host to reach the target state.</p></li>
+<li><p><strong>Rescued</strong>: this shows the tasks that failed and then executes a rescue section.</p></li>
+<li><p><strong>Ignored</strong>: this shows the tasks that failed and have <code class="docutils literal notranslate"><span class="pre">ignore_errors:</span> <span class="pre">yes</span></code> configured.</p></li>
+</ul>
+<p>These statuses also display at the end of the output of a playbook run, in the play recap.</p>
+<p>For more details about filtering, refer to the <a class="reference internal" href="search_sort.html#ug-search"><span class="std std-ref">Search</span></a> chapter.</p>
+<p>The output displays all the events that occur on a particular job, expanded. Use the arrow next to each play or task to collapse or expand its lines, or the arrow at the top left of the output to collapse or expand all of them. The buttons at the top right of the output scroll up and down and jump to the beginning or the end.</p>
+<p>Things to note when viewing the output:</p>
+<ul class="simple">
+<li><p>Each displayed line has a line number, and each play and task its start time.</p></li>
+<li><p>An expand/collapse icon is at the start of any play or task after the play or task has completed.</p></li>
+<li><p>Very large outputs are loaded as you scroll; use the search to go to specific events.</p></li>
+</ul>
+<p>Click a line of a host event in the output to open the <strong>Host Details</strong> window for the host affected by that event.</p>
+</section>
+<section id="host-details">
+<h3><span class="section-number">24.3.3. </span>Host Details<a class="headerlink" href="#host-details" title="Link to this heading"></a></h3>
+<p id="index-5">The <strong>Host Details</strong> window shows information about the host affected by the selected event and its associated play and task:</p>
+<ul class="simple">
+<li><p>the <strong>Host</strong></p></li>
+<li><p>the <strong>Status</strong></p></li>
+<li><p>the <strong>Play</strong></p></li>
+<li><p>the <strong>Task</strong></p></li>
+<li><p>if applicable, the Ansible <strong>Module</strong> for the task</p></li>
+</ul>
+<img alt="The Host Details window of an event" src="../_images/job-details-host-hostevent.png" />
+<p>The <strong>Data</strong> tab shows the result of the module (<code class="docutils literal notranslate"><span class="pre">res</span></code> in the event data) in JSON. When the event has them, the <strong>Output</strong> and <strong>Standard Error</strong> tabs show its standard output and standard error.</p>
+</section>
+<section id="playbook-run-details">
+<h3><span class="section-number">24.3.4. </span>Playbook run details<a class="headerlink" href="#playbook-run-details" title="Link to this heading"></a></h3>
+<p>Open the <strong>Details</strong> tab to see details about the job execution.</p>
+<img alt="Details of a failed playbook run" src="../_images/jobs-show-job-details-for-example-job.png" />
+<p>Notable details of the job executed are:</p>
+<ul>
+<li><p><strong>Status</strong>: Can be any of the following:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Pending</strong> - The playbook run has been created, but not queued or started yet. Any job, not just playbook runs, will stay in pending until it is actually ready to be run by the system. Reasons for playbook runs not being ready include dependencies that are currently running (all dependencies must be completed before the next step can execute), or there is not enough capacity to run in the locations it is configured to.</p></li>
+<li><p><strong>Waiting</strong> - The playbook run is in the queue waiting to be executed.</p></li>
+<li><p><strong>Running</strong> - The playbook run is currently in progress.</p></li>
+<li><p><strong>Success</strong> - The playbook run succeeded.</p></li>
+<li><p><strong>Failed</strong> - The playbook run failed.</p></li>
+<li><p><strong>Error</strong> - The playbook run could not run.</p></li>
+<li><p><strong>Canceled</strong> - The playbook run was canceled.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Job template</strong>: The name of the job template from which this job was launched.</p></li>
+<li><p><strong>Inventory</strong>: The inventory selected to run this job against.</p></li>
+<li><p><strong>Project</strong>: The name of the project associated with the launched job.</p></li>
+<li><p><strong>Playbook</strong> and <strong>Revision</strong>: The playbook used and the revision of the project.</p></li>
+<li><p><strong>Execution environment</strong>: The name of the execution environment used in this job.</p></li>
+<li><p><strong>Credentials</strong>: The credential(s) used in this job.</p></li>
+<li><p><strong>Instance group</strong> and <strong>Container group</strong>: Where the job ran.</p></li>
+<li><p><strong>Extra variables</strong>: The extra variables of the job, from the job template, the survey and the launch prompts.</p></li>
+</ul>
+<p>Click the links to open the corresponding job template, inventory, project and other objects.</p>
+</section>
+</section>
+<section id="automation-controller-capacity-determination-and-job-impact">
+<span id="ug-job-concurrency"></span><h2><span class="section-number">24.4. </span>Automation controller Capacity Determination and Job Impact<a class="headerlink" href="#automation-controller-capacity-determination-and-job-impact" title="Link to this heading"></a></h2>
+<p id="index-6">This section describes how to determine capacity for instance groups and its impact to your jobs. For container groups, see <a class="reference internal" href="../administration/containers_instance_groups.html#ag-container-capacity"><span class="std std-ref">Container capacity limits</span></a> in the <em>Administration Guide</em>.</p>
+<p>Automation controller capacity system determines how many jobs can run on an instance given the amount of resources available to the instance and the size of the jobs that are running (referred to as <em>Impact</em>). The algorithm used to determine this is based entirely on two things:</p>
+<ul class="simple">
+<li><p>How much memory is available to the system (<code class="docutils literal notranslate"><span class="pre">mem_capacity</span></code>)</p></li>
+<li><p>How much CPU is available to the system (<code class="docutils literal notranslate"><span class="pre">cpu_capacity</span></code>)</p></li>
+</ul>
+<p>Capacity also impacts Instance Groups. Since Groups are made up of instances, likewise, instances can be assigned to multiple groups. This means that impact to one instance can potentially affect the overall capacity of other Groups.</p>
+<p>Instance Groups (not instances themselves) can be assigned to be used by jobs at various levels (see <a class="reference internal" href="../administration/clustering.html#ag-clustering"><span class="std std-ref">Clustering</span></a>). When the Task Manager is preparing its graph to determine which group a job will run on, it will commit the capacity of an Instance Group to a job that hasn’t or isn’t ready to start yet.</p>
+<p>Finally, in smaller configurations, if only one instance is available for a job to run, the Task Manager will allow that job to run on the instance even if it pushes the instance over capacity. This guarantees that jobs themselves won’t get stuck as a result of an under-provisioned system.</p>
+<p>Therefore, Capacity and Impact is not a zero-sum system relative to jobs and instances/Instance Groups.</p>
+<p>For information on sliced jobs and their impact to capacity, see <a class="reference internal" href="job_slices.html#ug-job-slice-execution"><span class="std std-ref">Job slice execution behavior</span></a>.</p>
+<section id="resource-determination-for-capacity-algorithm">
+<h3><span class="section-number">24.4.1. </span>Resource determination for capacity algorithm<a class="headerlink" href="#resource-determination-for-capacity-algorithm" title="Link to this heading"></a></h3>
+<p>The capacity algorithms are defined in order to determine how many forks a system is capable of running simultaneously. This controls how many systems Ansible itself will communicate with simultaneously. Increasing the number of forks an automation controller system is running will, in general, allow jobs to run faster by performing more work in parallel. The trade-off is that this will increase the load on the system, which could cause work to slow down overall.</p>
+<p>Automation controller can operate in two modes when determining capacity. <code class="docutils literal notranslate"><span class="pre">mem_capacity</span></code> (the default) will allow you to over-commit CPU resources while protecting the system from running out of memory. If most of your work is not CPU-bound, then selecting this mode will maximize the number of forks.</p>
+<section id="memory-relative-capacity">
+<h4><span class="section-number">24.4.1.1. </span>Memory relative capacity<a class="headerlink" href="#memory-relative-capacity" title="Link to this heading"></a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">mem_capacity</span></code> is calculated relative to the amount of memory needed per fork, about 100MB. The
+formula is:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">mem / mem_per_fork</span>
+</pre></div>
+</div>
+<p>As an example:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">4096 / 100 == ~40</span>
+</pre></div>
+</div>
+<p>Therefore, an instance with 4GB of memory would be capable of running 40 forks. On a virtual machine
+installation, automation controller reserves 2GB for its other services first; Koios Automation
+Platform runs on Kubernetes, where those services have their own containers and memory, so nothing
+is reserved. For control nodes, <code class="docutils literal notranslate"><span class="pre">SYSTEM_TASK_ABS_MEM</span></code> overrides the memory that is detected. The value
+<code class="docutils literal notranslate"><span class="pre">mem_per_fork</span></code> can be controlled by setting the settings value (or environment variable)
+<code class="docutils literal notranslate"><span class="pre">SYSTEM_TASK_FORKS_MEM</span></code>, which defaults to 100.</p>
+</section>
+<section id="cpu-relative-capacity">
+<h4><span class="section-number">24.4.1.2. </span>CPU relative capacity<a class="headerlink" href="#cpu-relative-capacity" title="Link to this heading"></a></h4>
+<p>Often, Ansible workloads can be fairly CPU-bound. In these cases, sometimes reducing the simultaneous workload allows more tasks to run faster and reduces the average time-to-completion of those jobs.</p>
+<p>Just as the <code class="docutils literal notranslate"><span class="pre">mem_capacity</span></code> algorithm uses the amount of memory need per fork, the <code class="docutils literal notranslate"><span class="pre">cpu_capacity</span></code> algorithm looks at the amount of CPU resources is needed per fork. The baseline value for this is 4 forks per core. The algorithm formula for this is:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">cpus * fork_per_cpu</span>
+</pre></div>
+</div>
+<p>For example, a 4-core system:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">4 * 4 == 16</span>
+</pre></div>
+</div>
+<p>The value <code class="docutils literal notranslate"><span class="pre">fork_per_cpu</span></code> can be controlled by setting the settings value (or environment variable) <code class="docutils literal notranslate"><span class="pre">SYSTEM_TASK_FORKS_CPU</span></code> which defaults to 4.</p>
+</section>
+</section>
+<section id="capacity-job-impacts">
+<h3><span class="section-number">24.4.2. </span>Capacity job impacts<a class="headerlink" href="#capacity-job-impacts" title="Link to this heading"></a></h3>
+<p>When selecting the capacity, it’s important to understand how each job type affects capacity.</p>
+<p>It’s helpful to understand what forks mean to Ansible: <a class="reference external" href="https://www.ansible.com/blog/ansible-performance-tuning">https://www.ansible.com/blog/ansible-performance-tuning</a> (see the section on “Know Your Forks”).</p>
+<p>The default forks value for Ansible is 5. However, if automation controller knows that you’re running against fewer systems than that, then the actual concurrency value will be lower.</p>
+<p>When a job is run, automation controller will add 1 to the number of forks selected to compensate for the Ansible parent process. So if you are running a playbook against 5 systems with a forks value of 5, then the actual forks value from the perspective of Job Impact will be 6.</p>
+<section id="impact-of-job-types-in-automation-controller">
+<h4><span class="section-number">24.4.2.1. </span>Impact of job types in automation controller<a class="headerlink" href="#impact-of-job-types-in-automation-controller" title="Link to this heading"></a></h4>
+<p>Jobs and Ad-hoc jobs follow the above model, forks + 1. If you set a fork value on your job template, your job capacity value will be the minimum of the forks value supplied, and the number of hosts that you have, plus one. The plus one is to account for the parent Ansible process.</p>
+<p>Instance capacity determines which jobs get assigned to any specific instance. Jobs and ad hoc commands use more capacity if they have a higher forks value.</p>
+<p>Other job types have a fixed impact:</p>
+<ul class="simple">
+<li><p>Inventory Updates: 1</p></li>
+<li><p>Project Updates: 1</p></li>
+<li><p>System Jobs: 5</p></li>
+</ul>
+<p>If you don’t set a forks value on your job template, your job will use Ansible’s default forks value of five. Even though Ansible defaults to five forks, it will use fewer if your job has fewer than five hosts. In general, setting a forks value higher than what the system is capable of could cause trouble by running out of memory or over-committing CPU. So, the job template fork values that you use should fit on the system. If you have playbooks using 1000 forks but none of your systems individually has that much capacity, then your systems are undersized and at risk of performance or resource issues.</p>
+</section>
+<section id="selecting-the-right-capacity">
+<h4><span class="section-number">24.4.2.2. </span>Selecting the right capacity<a class="headerlink" href="#selecting-the-right-capacity" title="Link to this heading"></a></h4>
+<p>Selecting a capacity out of the CPU-bound or the memory-bound capacity limits is, in essence, selecting between the minimum or maximum number of forks. In the above examples, the CPU capacity would allow a maximum of 16 forks while the memory capacity would allow 20. For some systems, the disparity between these can be large and often times you may want to have a balance between these two.</p>
+<p>The instance field <code class="docutils literal notranslate"><span class="pre">capacity_adjustment</span></code> allows you to select how much of one or the other you want to consider. It is represented as a value between 0.0 and 1.0. If set to a value of 1.0, then the largest value will be used. The above example involves memory capacity, so a value of 20 forks would be selected. If set to a value of 0.0 then the smallest value will be used. A value of 0.5 would be a 50/50 balance between the two algorithms which would be 18:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">16 + (20 - 16) * 0.5 == 18</span>
+</pre></div>
+</div>
+<p>To view or edit the capacity in the user interface, open the <strong>Instances</strong> tab of the instance group and use the slider of each instance.</p>
+<img alt="Instances tab of Instance Group showing sliders for capacity adjustment." src="../_images/instance-group-instances-example-callouts.png" />
+</section>
+</section>
+</section>
+<section id="job-branch-overriding">
+<h2><span class="section-number">24.5. </span>Job branch overriding<a class="headerlink" href="#job-branch-overriding" title="Link to this heading"></a></h2>
+<p id="ug-job-branching"><span id="index-7"></span>Projects specify the branch, tag, or reference to use from source control in the <code class="docutils literal notranslate"><span class="pre">scm_branch</span></code> field. In the project form this is the <strong>Source control branch/tag/commit</strong> field, next to <strong>Source control refspec</strong>:</p>
+<img alt="The Type Details of a Git project with the branch and refspec fields" src="../_images/projects-create-scm-project-branching-emphasized.png" />
+<p>Projects have the <strong>Allow branch override</strong> option. When checked, project admins can delegate branch selection to the job templates that use that project (requiring only project <code class="docutils literal notranslate"><span class="pre">use_role</span></code>).</p>
+<img alt="Allow Branch Override checkbox option in Project selected" src="../_images/projects-create-scm-project-branch-override-checked.png" />
+<section id="source-tree-copy-behavior">
+<h3><span class="section-number">24.5.1. </span>Source tree copy behavior<a class="headerlink" href="#source-tree-copy-behavior" title="Link to this heading"></a></h3>
+<p>Every job run has its own private data directory. This directory contains a copy of the project source tree for the given
+<code class="docutils literal notranslate"><span class="pre">scm_branch</span></code> the job is running. Jobs are free to make changes to the project folder and make use of those changes while it is still running. This folder is temporary and is cleaned up at the end of the job run.</p>
+<p>If <strong>Clean</strong> is checked, automation controller discards modified files in its local copy of the repository through use of the <code class="docutils literal notranslate"><span class="pre">force</span></code> parameter in its respective Ansible modules pertaining to <a class="reference external" href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/git_module.html#parameters">git</a> or <a class="reference external" href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/subversion_module.html#parameters">Subversion</a>.</p>
+<img alt="The Options of a project with Clean and Allow branch override selected" src="../_images/projects-create-scm-project-clean-checked.png" />
+</section>
+<section id="project-revision-behavior">
+<h3><span class="section-number">24.5.2. </span>Project revision behavior<a class="headerlink" href="#project-revision-behavior" title="Link to this heading"></a></h3>
+<p>Typically, during a project update, the revision of the default branch (specified in the <strong>Source control branch/tag/commit</strong> field of the project)
+is stored when updated, and jobs using that project will employ this revision. Providing a non-default branch (not a commit hash or tag) in a job, the newest revision is pulled from the source control remote immediately before the job starts.
+This revision is shown in the <strong>Revision</strong> field of the details of the job and of its respective project update.</p>
+<img alt="The details of a job with its Revision field" src="../_images/jobs-output-branch-override-example.png" />
+<p>Consequently, offline job runs are impossible for non-default branches. To be sure that a job is running a static version from source control, use tags or commit hashes. Project updates do not save the revision of all branches, only the project default branch.</p>
+<p>The branch field is not validated, so the project must update to assure it is valid. If this field is provided or prompted for, the <strong>Playbook</strong> field of job templates will not be validated, and you will have to launch the job template in order to verify presence of the expected playbook.</p>
+</section>
+<section id="git-refspec">
+<h3><span class="section-number">24.5.3. </span>Git Refspec<a class="headerlink" href="#git-refspec" title="Link to this heading"></a></h3>
+<p id="index-8">The <strong>Source control refspec</strong> field specifies which extra references the update should download from the remote. Examples are:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">refs/*:refs/remotes/origin/*</span></code>: fetches all references, including remotes of the remote</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">refs/pull/*:refs/remotes/origin/pull/*</span></code> (GitHub-specific): fetches all refs for all pull requests</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">refs/pull/62/head:refs/remotes/origin/pull/62/head</span></code>: fetches the ref for that one GitHub pull request</p></li>
+</ol>
+</div></blockquote>
+<p>For large projects, you should consider performance impact when using the 1st or 2nd examples here.</p>
+<p>The <strong>Source control refspec</strong> parameter affects the availability of the project branch, and can allow access to references not otherwise available. The examples above allow the user to supply a pull request as the branch, which would
+not be possible without the <strong>Source control refspec</strong> field.</p>
+<p>The Ansible git module fetches <code class="docutils literal notranslate"><span class="pre">refs/heads/*</span></code> by default. This means that a project’s branches and tags (and commit hashes therein) can be used as the branch if <strong>Source control refspec</strong> is blank. The value specified in the <strong>Source control refspec</strong> field affects which branches can be used as overrides. Project updates (of any type) will perform an extra <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span></code> command to pull that refspec from the remote.</p>
+<p>For example: You could set up a project that allows branch override with the 1st or 2nd refspec example –&gt; Use this in a job template that prompts for the branch –&gt; A client could launch the job template when a new pull request is created, providing the branch <code class="docutils literal notranslate"><span class="pre">pull/N/head</span></code> –&gt; The job template would run against the provided GitHub pull request reference.</p>
+<p>For more information on the Ansible git module, see <a class="reference external" href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/git_module.html">https://docs.ansible.com/ansible/latest/collections/ansible/builtin/git_module.html</a>.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="instance_groups.html" class="btn btn-neutral float-left" title="23. Instance Groups" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="webhooks.html" class="btn btn-neutral float-right" title="25. Working with Webhooks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Koios Solutions. Portions 2026, Red Hat, Inc. and 2026, CtrlIQ, Inc..</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+<p class="koios-legal">Licensed under the <a href="../LICENSE.txt">Apache License 2.0</a>; see the <a href="../NOTICE.txt">NOTICE</a> for the origin of this documentation.</p>
+
+</body>
+</html>

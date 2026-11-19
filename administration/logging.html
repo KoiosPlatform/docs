@@ -1,0 +1,338 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>12. Logging and Aggregation &ndash; Koios Automation Platform</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ansible.css?v=5657ca2d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/rtd-ethical-ads.css?v=289b023e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/dark.css?v=82723a23" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments-dark.css?v=027e451e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/koios.css?v=808fdb03" />
+
+  
+    <link rel="shortcut icon" href="../_static/images/koios-favicon.svg"/>
+    <link rel="canonical" href="https://docs.koioss.com/administration/logging.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2d018451"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=b8bcef97"></script>
+      <script src="../_static/js/theme-toggle.js?v=59cbb094"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="13. Metrics" href="metrics.html" />
+    <link rel="prev" title="11. Automation controller Logfiles" href="logfiles.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+<script>
+  (function () {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('koios-docs-theme');
+    } catch (e) {}
+    // Without a stored choice, follow the system preference (dark when it cannot be read).
+    var light = false;
+    try { light = window.matchMedia('(prefers-color-scheme: light)').matches; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', stored || (light ? 'light' : 'dark'));
+  })();
+</script>
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="#" class="asc-theme-toggle" title="Switch theme" aria-label="Switch theme"><svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg></a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../_static/images/koios-mark-white.svg"
+    alt="Koios">
+  <div class="DocSiteNav-title">Koios Automation Platform</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Koios Automation Platform
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Koios Automation Platform Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Install and upgrade</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade_migration/index.html">Upgrades and Migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configure the platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/index.html">Configure the platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Access management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access/index.html">Authentication and access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation execution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">Automating with Koios Automation Platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation decisions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../eda/index.html">Event-Driven Ansible</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hub/index.html">Automation hub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operate</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../operate/index.html">Operate</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Administering Koios Automation Platform Deployments</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html">Administering Koios Automation Platform Deployments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="init_script.html">1. Starting, Stopping, and Restarting Koios Automation Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="supported_architectures.html">2. Supported Architectures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom_inventory_script.html">3. Custom Inventory Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scm-inv-source.html">4. Inventory File Importing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi-creds-assignment.html">5. Multi-Credential Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="management_jobs.html">6. Management Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clustering.html">7. Clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="containers_instance_groups.html">8. Container and Instance Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instances.html">9. Managing Capacity With Instances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topology_viewer.html">10. Topology Viewer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logfiles.html">11. Automation controller Logfiles</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">12. Logging and Aggregation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configure-external-logging">12.1. Configure external logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#log-sources">12.2. Log sources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#message-schema">12.3. Message schema</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#collector-examples">12.4. Collector examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#logstash-and-elastic-stack">12.4.1. Logstash and Elastic Stack</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#splunk">12.4.2. Splunk</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#loggly">12.4.3. Loggly</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sumo-logic">12.4.4. Sumo Logic</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#queueing-during-collector-outages">12.5. Queueing during collector outages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#controller-api-4xx-error-format">12.6. Controller API 4XX error format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#troubleshoot-delivery">12.7. Troubleshoot delivery</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">13. Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html">14. Improving Automation Controller Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secret_handling.html">15. Secret handling and connection security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proxy_support.html">16. Proxy Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backup_restore.html">17. Backup and Restore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security_best_practices.html">18. Security Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awx-manage.html">19. The <em>awx-manage</em> Utility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configure_koios.html">20. Automation Controller Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="isolation_variables.html">21. Isolation functionality and variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kerberos_auth.html">22. Kerberos Authentication for Windows Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html">23. Troubleshooting Automation Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tipsandtricks.html">24. Automation controller Tips and Tricks</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration as code and API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/casc.html">Configuration as code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rest_api/index.html">automation controller API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/releases.html">Releases</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Koios Automation Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Administering Koios Automation Platform Deployments</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">12. </span>Logging and Aggregation</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <section id="logging-and-aggregation">
+<span id="ag-logging"></span><h1><span class="section-number">12. </span>Logging and Aggregation<a class="headerlink" href="#logging-and-aggregation" title="Link to this heading"></a></h1>
+<p id="index-0">Automation controller can forward structured JSON records to an external log collector. This includes controller activity, job events, cached facts and service messages. It does not configure the platform gateway, hub, event-driven automation service or Kubernetes node logging.</p>
+<p>The controller runs an rsyslog sidecar in both its web and task pods. The container is named <code class="docutils literal notranslate"><span class="pre">&lt;platform&gt;-controller-rsyslog</span></code> in the <code class="docutils literal notranslate"><span class="pre">&lt;platform&gt;-controller-web</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;platform&gt;-controller-task</span></code> Deployments. Configure it through controller settings; do not change rsyslog on the cluster nodes or edit generated files in a pod.</p>
+<section id="configure-external-logging">
+<span id="ag-ctit-logging"></span><h2><span class="section-number">12.1. </span>Configure external logging<a class="headerlink" href="#configure-external-logging" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>As a platform administrator, open <strong>Settings &gt; Automation Execution &gt; Logging</strong> and click <strong>Edit</strong>.</p></li>
+<li><p>Select <strong>Enable External Logging</strong>.</p></li>
+<li><p>Set <strong>Logging Aggregator</strong>, <strong>Logging Aggregator Type</strong> and <strong>Logging Aggregator Protocol</strong> for your receiver.</p></li>
+</ol>
+<img alt="Logging settings edit form with the supported aggregator types expanded." src="../_images/configure-koios-system-logging-types.png" />
+<p>The supported types are <code class="docutils literal notranslate"><span class="pre">logstash</span></code>, <code class="docutils literal notranslate"><span class="pre">splunk</span></code>, <code class="docutils literal notranslate"><span class="pre">loggly</span></code>, <code class="docutils literal notranslate"><span class="pre">sumologic</span></code> and <code class="docutils literal notranslate"><span class="pre">other</span></code>. They control message formatting and authentication behavior, not deployment of a collector. Provision and configure the receiver separately.</p>
+<p>For <strong>HTTPS/HTTP</strong>, use the full receiver URL, including its path and port when needed. HTTPS is assumed unless you explicitly specify <code class="docutils literal notranslate"><span class="pre">http://</span></code>. The port in the URL takes precedence over <strong>Logging Aggregator Port</strong>. For <strong>TCP</strong> or <strong>UDP</strong>, use a hostname or IP address and a separate port. RELP is not a supported protocol in the current settings API.</p>
+<ol class="arabic simple" start="4">
+<li><p>Set <strong>Logging Aggregator Username</strong> and <strong>Logging Aggregator Password/Token</strong> if required by the receiver. Keep <strong>Enable/disable HTTPS certificate verification</strong> selected for HTTPS and configure a trusted CA when the receiver uses a private CA.</p></li>
+<li><p>Choose <strong>Loggers Sending Data to Log Aggregator Form</strong>, <strong>Logging Aggregator Level Threshold</strong> and <strong>TCP Connection Timeout</strong> as appropriate. Use field help to check the units and protocol-specific behavior.</p></li>
+<li><p>Click <strong>Save</strong>. The form returns to the settings details page. <strong>Cancel</strong> discards edits.</p></li>
+</ol>
+<img alt="The Logging settings details page after saving." src="../_images/configure-koios-system-logging-splunk-example.png" />
+<p>The current UI does not provide the old <strong>Test</strong> action. To request a test through the controller API, send an authenticated <code class="docutils literal notranslate"><span class="pre">POST</span></code> to <code class="docutils literal notranslate"><span class="pre">/api/controller/v2/settings/logging/test/</span></code> after saving and enabling logging. The test uses the saved settings and emits an <code class="docutils literal notranslate"><span class="pre">AWX</span> <span class="pre">Connection</span> <span class="pre">Test</span> <span class="pre">Message</span></code> record. An accepted response does not prove that the external service stored the record; verify receipt at the collector.</p>
+<p>The corresponding settings endpoint is <code class="docutils literal notranslate"><span class="pre">/api/controller/v2/settings/logging/</span></code>. Settings supplied through <code class="docutils literal notranslate"><span class="pre">spec.controller.extra_settings</span></code> in the <code class="docutils literal notranslate"><span class="pre">KoiosPlatform</span></code> are deployment-managed and cannot be overridden through the UI; see <a class="reference internal" href="troubleshooting.html#admin-troubleshooting-extra-settings"><span class="std std-ref">Deployment-managed settings</span></a>.</p>
+</section>
+<section id="log-sources">
+<h2><span class="section-number">12.2. </span>Log sources<a class="headerlink" href="#log-sources" title="Link to this heading"></a></h2>
+<p>The default logger selection includes:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">awx</span></code>: controller service messages.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">activity_stream</span></code>: changes to controller resources. Gateway access-management changes belong to the gateway’s own activity records.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">job_events</span></code>: Ansible callback events saved for jobs.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">system_tracking</span></code>: host facts recorded through the fact cache.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">broadcast_websocket</span></code>: WebSocket broadcast diagnostics.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">job_lifecycle</span></code>: job processing and state transitions.</p></li>
+</ul>
+<p><strong>Logging Aggregator Level Threshold</strong> controls the severity of ordinary service messages. The structured analytics loggers have their own event levels; they do not use that threshold in the same way.</p>
+</section>
+<section id="message-schema">
+<h2><span class="section-number">12.3. </span>Message schema<a class="headerlink" href="#message-schema" title="Link to this heading"></a></h2>
+<p>Common fields include <code class="docutils literal notranslate"><span class="pre">&#64;timestamp</span></code>, <code class="docutils literal notranslate"><span class="pre">message</span></code>, <code class="docutils literal notranslate"><span class="pre">host</span></code>, <code class="docutils literal notranslate"><span class="pre">level</span></code>, <code class="docutils literal notranslate"><span class="pre">logger_name</span></code>, <code class="docutils literal notranslate"><span class="pre">cluster_host_id</span></code> and <code class="docutils literal notranslate"><span class="pre">tower_uuid</span></code>. The API identifiers retain their upstream names. Exception records can also contain <code class="docutils literal notranslate"><span class="pre">stack_trace</span></code> and process or source-location details.</p>
+<p>Activity stream records include the actor, operation, changed fields and affected objects. Job event records include event fields and <code class="docutils literal notranslate"><span class="pre">event_data</span></code>, whose shape depends on the Ansible callback event. Do not assume every event contains the same result fields.</p>
+<p>System tracking records contain <code class="docutils literal notranslate"><span class="pre">ansible_facts</span></code>, <code class="docutils literal notranslate"><span class="pre">ansible_facts_modified</span></code>, <code class="docutils literal notranslate"><span class="pre">inventory_id</span></code>, <code class="docutils literal notranslate"><span class="pre">host_name</span></code> and <code class="docutils literal notranslate"><span class="pre">job_id</span></code>. The facts depend on what the playbook collected. This does not require the retired fact-scan playbooks or guarantee separate services, packages and files records.</p>
+<p>Job lifecycle records include <code class="docutils literal notranslate"><span class="pre">lifecycle_data</span></code> and <code class="docutils literal notranslate"><span class="pre">organization_id</span></code> when available. Splunk wraps the record in an <code class="docutils literal notranslate"><span class="pre">event</span></code> object and supplies a top-level <code class="docutils literal notranslate"><span class="pre">time</span></code> value for its HTTP Event Collector.</p>
+</section>
+<section id="collector-examples">
+<h2><span class="section-number">12.4. </span>Collector examples<a class="headerlink" href="#collector-examples" title="Link to this heading"></a></h2>
+<section id="logstash-and-elastic-stack">
+<h3><span class="section-number">12.4.1. </span>Logstash and Elastic Stack<a class="headerlink" href="#logstash-and-elastic-stack" title="Link to this heading"></a></h3>
+<p>Configure a receiver that accepts the chosen transport and JSON records. For an HTTP receiver, set <strong>Logging Aggregator</strong> to its complete URL and choose <code class="docutils literal notranslate"><span class="pre">logstash</span></code> as <strong>Logging Aggregator Type</strong>. Configure authentication to match the receiver. Koios Automation Platform does not include the old Docker Compose development environment for deploying Logstash.</p>
+<p>At the receiver, parse the incoming JSON according to the input plugin you use. A Logstash input with a JSON codec can decode the record directly; use a JSON filter only if an earlier input has placed the JSON text inside a <code class="docutils literal notranslate"><span class="pre">message</span></code> field.</p>
+</section>
+<section id="splunk">
+<h3><span class="section-number">12.4.2. </span>Splunk<a class="headerlink" href="#splunk" title="Link to this heading"></a></h3>
+<p>Choose <code class="docutils literal notranslate"><span class="pre">splunk</span></code> and <strong>HTTPS/HTTP</strong>. Set <strong>Logging Aggregator</strong> to the complete HTTP Event Collector event endpoint, for example <code class="docutils literal notranslate"><span class="pre">https://splunk.example.com:8088/services/collector/event</span></code>. Enter the collector token in <strong>Logging Aggregator Password/Token</strong>; the sender adds the Splunk authorization header. Do not enter <code class="docutils literal notranslate"><span class="pre">$encrypted$</span></code> as a new token: it is the API’s masked representation of a saved secret.</p>
+<img alt="Logging edit form with an example Splunk HTTP Event Collector endpoint." src="../_images/logging-splunk-koios-example.png" />
+</section>
+<section id="loggly">
+<h3><span class="section-number">12.4.3. </span>Loggly<a class="headerlink" href="#loggly" title="Link to this heading"></a></h3>
+<p>Choose <code class="docutils literal notranslate"><span class="pre">loggly</span></code> and <strong>HTTPS/HTTP</strong>, then use the HTTPS input URL issued by the service, including its token and path. Treat that URL as a credential and redact it in screenshots and diagnostic reports.</p>
+<img alt="Logging settings for Loggly with the credential-bearing input URL redacted." src="../_images/logging-loggly-koios-example.png" />
+</section>
+<section id="sumo-logic">
+<h3><span class="section-number">12.4.4. </span>Sumo Logic<a class="headerlink" href="#sumo-logic" title="Link to this heading"></a></h3>
+<p>Choose <code class="docutils literal notranslate"><span class="pre">sumologic</span></code> and <strong>HTTPS/HTTP</strong>. Use the HTTP source URL supplied by the collector service. That URL can contain credentials; do not copy it into documentation or logs. Verify the received JSON records in the collector after saving the configuration.</p>
+</section>
+</section>
+<section id="queueing-during-collector-outages">
+<h2><span class="section-number">12.5. </span>Queueing during collector outages<a class="headerlink" href="#queueing-during-collector-outages" title="Link to this heading"></a></h2>
+<p>The logging settings include:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">LOG_AGGREGATOR_ACTION_QUEUE_SIZE</span></code>: in-memory action queue limit.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LOG_AGGREGATOR_ACTION_MAX_DISK_USAGE_GB</span></code>: disk-backed action queue limit in gigabytes; the default is 1.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LOG_AGGREGATOR_MAX_DISK_USAGE_PATH</span></code>: queue spool directory; the default is <code class="docutils literal notranslate"><span class="pre">/var/lib/awx</span></code> inside the rsyslog container.</p></li>
+</ul>
+<p>The queue can buffer records while a receiver is unavailable, subject to its limits. The default spool path is not a persistent log archive and does not guarantee delivery across container replacement. Size and monitor storage separately if outage buffering is required; use an external collector for durable retention.</p>
+</section>
+<section id="controller-api-4xx-error-format">
+<span id="logging-api-400-error-config"></span><h2><span class="section-number">12.6. </span>Controller API 4XX error format<a class="headerlink" href="#controller-api-4xx-error-format" title="Link to this heading"></a></h2>
+<p><strong>Log Format For API 4XX Errors</strong> (<code class="docutils literal notranslate"><span class="pre">API_400_ERROR_LOG_FORMAT</span></code>) configures controller API error log messages. The default is:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>status {status_code} received by user {user_name} attempting to access {url_path} from {remote_addr}
+</pre></div>
+</div>
+<p>Available substitutions are <code class="docutils literal notranslate"><span class="pre">status_code</span></code>, <code class="docutils literal notranslate"><span class="pre">user_name</span></code>, <code class="docutils literal notranslate"><span class="pre">url_path</span></code>, <code class="docutils literal notranslate"><span class="pre">remote_addr</span></code> and <code class="docutils literal notranslate"><span class="pre">error</span></code>. Edit the field in <strong>Settings &gt; Automation Execution &gt; Logging</strong>, then click <strong>Save</strong>. It does not change error formatting for requests handled by the platform gateway.</p>
+</section>
+<section id="troubleshoot-delivery">
+<h2><span class="section-number">12.7. </span>Troubleshoot delivery<a class="headerlink" href="#troubleshoot-delivery" title="Link to this heading"></a></h2>
+<p>Check that external logging is enabled, the receiver address and protocol agree, the selected logger produces records, and the pod can reach the receiver. For HTTPS, check the certificate chain and hostname. Confirm records at the collector rather than treating an API test response as a delivery receipt.</p>
+<p>Inspect the relevant rsyslog container’s logs through Kubernetes, for example:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>kubectl --context &lt;context&gt; -n &lt;namespace&gt; logs deploy/&lt;platform&gt;-controller-task -c &lt;platform&gt;-controller-rsyslog --tail=100
+kubectl --context &lt;context&gt; -n &lt;namespace&gt; logs deploy/&lt;platform&gt;-controller-web -c &lt;platform&gt;-controller-rsyslog --tail=100
+</pre></div>
+</div>
+<p>Use the intended isolated kubeconfig and context; <code class="docutils literal notranslate"><span class="pre">oc</span></code> can be used instead of <code class="docutils literal notranslate"><span class="pre">kubectl</span></code> on OpenShift. Review and redact diagnostic output before sharing it, since messages and receiver URLs can contain sensitive data.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="logfiles.html" class="btn btn-neutral float-left" title="11. Automation controller Logfiles" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="metrics.html" class="btn btn-neutral float-right" title="13. Metrics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Koios Solutions. Portions 2026, Red Hat, Inc. and 2026, CtrlIQ, Inc..</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+<p class="koios-legal">Licensed under the <a href="../LICENSE.txt">Apache License 2.0</a>; see the <a href="../NOTICE.txt">NOTICE</a> for the origin of this documentation.</p>
+
+</body>
+</html>

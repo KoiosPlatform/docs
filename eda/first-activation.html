@@ -1,0 +1,457 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your first rulebook activation &ndash; Koios Automation Platform</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ansible.css?v=5657ca2d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/rtd-ethical-ads.css?v=289b023e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/dark.css?v=82723a23" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments-dark.css?v=027e451e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/koios.css?v=808fdb03" />
+
+  
+    <link rel="shortcut icon" href="../_static/images/koios-favicon.svg"/>
+    <link rel="canonical" href="https://docs.koioss.com/eda/first-activation.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2d018451"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=b8bcef97"></script>
+      <script src="../_static/js/theme-toggle.js?v=59cbb094"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Receive events with event streams" href="event-streams.html" />
+    <link rel="prev" title="Event-Driven Ansible" href="index.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+<script>
+  (function () {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('koios-docs-theme');
+    } catch (e) {}
+    // Without a stored choice, follow the system preference (dark when it cannot be read).
+    var light = false;
+    try { light = window.matchMedia('(prefers-color-scheme: light)').matches; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', stored || (light ? 'light' : 'dark'));
+  })();
+</script>
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="#" class="asc-theme-toggle" title="Switch theme" aria-label="Switch theme"><svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg></a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../_static/images/koios-mark-white.svg"
+    alt="Koios">
+  <div class="DocSiteNav-title">Koios Automation Platform</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Koios Automation Platform
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Koios Automation Platform Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Install and upgrade</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade_migration/index.html">Upgrades and Migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configure the platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/index.html">Configure the platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Access management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access/index.html">Authentication and access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation execution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">Automating with Koios Automation Platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation decisions</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Event-Driven Ansible</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Your first rulebook activation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#before-you-start">Before you start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-the-decision-environment">1. Create the decision environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#import-the-sample-project">2. Import the sample project</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#what-the-rulebook-does">What the rulebook does</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#create-the-platform-credential">3. Create the platform credential</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-and-run-the-activation">4. Create and run the activation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#verify-the-result">5. Verify the result</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="event-streams.html">Receive events with event streams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html">Troubleshooting Automation Decisions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#concepts">Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#decision-environments">Decision environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#projects">Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#credentials">Credentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#rulebook-activations">Rulebook activations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#event-streams">Event streams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#backup-and-restore">Backup and restore</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hub/index.html">Automation hub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operate</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../operate/index.html">Operate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../administration/index.html">Administering Koios Automation Platform Deployments</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration as code and API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/casc.html">Configuration as code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rest_api/index.html">automation controller API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/releases.html">Releases</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Koios Automation Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Event-Driven Ansible</a></li>
+      <li class="breadcrumb-item active">Your first rulebook activation</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <section id="your-first-rulebook-activation">
+<span id="eda-first-activation"></span><h1>Your first rulebook activation<a class="headerlink" href="#your-first-rulebook-activation" title="Link to this heading"></a></h1>
+<p>Run a short rulebook that generates events, launches <strong>Demo Job Template</strong> when event 8 arrives,
+and then completes. This tutorial connects <strong>Automation Decisions</strong> to <strong>Automation Execution</strong>
+through the platform gateway.</p>
+<p>The project import, completed activation and successful controller job in this workflow were
+validated on the Koios test platform on 2026-11-18. Network access, certificate trust and permissions
+must still be configured for your own deployment.</p>
+<section id="before-you-start">
+<h2>Before you start<a class="headerlink" href="#before-you-start" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Complete <a class="reference internal" href="../install/first-login.html"><span class="std std-doc">First login</span></a> and use an account with permission to create
+Event-Driven Ansible resources in <strong>Default</strong>.</p></li>
+<li><p>Confirm that <strong>Demo Job Template</strong> exists and can run successfully, as described in the
+<a class="reference internal" href="../quickstart/quick_start.html"><span class="std std-doc">controller Quick Start</span></a>. Its inventory and project must be ready.</p></li>
+<li><p>Have a platform user or token permitted to launch that template. A dedicated account is
+preferable to reusing an administrator’s credentials.</p></li>
+<li><p>Ensure the platform can import the sample Git repository, pull its decision environment and
+run activation pods. The decision environment must reach and trust the platform’s HTTPS address.</p></li>
+<li><p>Obtain <a class="reference internal" href="../install/registry-access.html"><span class="std std-doc">registry access</span></a> for the private release image. A decision
+environment is separate from the execution environment used by the controller job.</p></li>
+</ul>
+<p>The names below match the example data used for the documentation. If those resources already
+exist, inspect their configuration or choose distinct names instead of creating duplicates.</p>
+</section>
+<section id="create-the-decision-environment">
+<h2>1. Create the decision environment<a class="headerlink" href="#create-the-decision-environment" title="Link to this heading"></a></h2>
+<p>Open <strong>Automation Decisions &gt; Decision Environments</strong> and click <strong>Create decision environment</strong>.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Name</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Example</span> <span class="pre">Decision</span> <span class="pre">Environment</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Organization</p></td>
+<td><p><strong>Default</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Image</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ghcr.io/koiosplatform/koios-de&#64;sha256:&lt;digest&gt;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Pull</p></td>
+<td><p><strong>Only pull the image if not present before running.</strong> (<code class="docutils literal notranslate"><span class="pre">missing</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p>Credential</p></td>
+<td><p>Leave empty when the activation pods’ ServiceAccount already has the release registry pull secret; otherwise select the appropriate <strong>Container Registry</strong> credential.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Replace <code class="docutils literal notranslate"><span class="pre">&lt;digest&gt;</span></code> with the complete <code class="docutils literal notranslate"><span class="pre">de</span></code> digest from the release manifest supplied with your
+release. The <a class="reference internal" href="../reference/releases.html"><span class="std std-doc">Releases</span></a> page identifies the current release and image;
+an abbreviated digest containing <code class="docutils literal notranslate"><span class="pre">…</span></code> cannot be used as an image reference.</p>
+<p>Click <strong>Create decision environment</strong>. A saved resource does not prove the image can be pulled;
+that is checked when an activation starts.</p>
+<p><img alt="The Create decision environment form with the Name, Organization, Image, Pull and Credential fields" src="../_images/eda-de-create.png" /></p>
+</section>
+<section id="import-the-sample-project">
+<h2>2. Import the sample project<a class="headerlink" href="#import-the-sample-project" title="Link to this heading"></a></h2>
+<p>Open <strong>Automation Decisions &gt; Projects</strong> and click <strong>Create project</strong>.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Name</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Example</span> <span class="pre">EDA</span> <span class="pre">Project</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Organization</p></td>
+<td><p><strong>Default</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Source control type</p></td>
+<td><p><strong>Git</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>Source control URL</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://github.com/ansible/eda-sample-project</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Source control credential</p></td>
+<td><p>Leave empty for this public repository.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Keep <strong>Verify SSL</strong> enabled and click <strong>Create project</strong>. Wait for <strong>Status</strong> to become
+<strong>Completed</strong>. If an existing project needs refreshing, use <strong>Sync project</strong> and wait for the import
+to complete. A failed import must be fixed before selecting a rulebook.</p>
+<p>The tutorial uses <code class="docutils literal notranslate"><span class="pre">extensions/eda/rulebooks/basic_short.yml</span></code>, listed as <strong>basic_short.yml</strong> when
+selecting a rulebook. The sample repository can change: record the project’s <strong>Git hash</strong> if you
+need to reproduce a particular import.</p>
+<p><img alt="Example EDA Project details with the sample repository URL, Completed status and Git hash" src="../_images/eda-project-import-completed.png" /></p>
+<section id="what-the-rulebook-does">
+<h3>What the rulebook does<a class="headerlink" href="#what-the-rulebook-does" title="Link to this heading"></a></h3>
+<p>The sample used for this walkthrough generates ten events with a delay of 0.5 seconds between
+them. <strong>Run JT at 8</strong> matches <code class="docutils literal notranslate"><span class="pre">event.i</span> <span class="pre">==</span> <span class="pre">8</span></code>; the action uses <code class="docutils literal notranslate"><span class="pre">override_run_basic</span></code> when supplied,
+or falls back to <code class="docutils literal notranslate"><span class="pre">run_basic</span></code>.</p>
+<!-- DOCS-PUBLISH-01: this example follows the sample content supplied with the 2026-11-18 runtime validation. The pinned ansible-ui/rulebooks/basic_short.yml fixture is older and uses literal run_basic instead of the override. -->
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Basic short</span>
+<span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">all</span>
+<span class="w">  </span><span class="nt">sources</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">ansible.eda.range</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">limit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="w">        </span><span class="nt">delay</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.5</span>
+<span class="w">  </span><span class="nt">rules</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run JT at 8</span>
+<span class="w">      </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">event.i == 8</span>
+<span class="w">      </span><span class="nt">actions</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run_job_template</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">organization</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Default</span>
+<span class="w">            </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">override_run_basic</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">default('run_basic')</span><span class="nv"> </span><span class="s">}}"</span>
+<span class="w">            </span><span class="nt">job_args</span><span class="p">:</span>
+<span class="w">              </span><span class="nt">extra_vars</span><span class="p">:</span>
+<span class="w">                </span><span class="nt">fake_execution_time</span><span class="p">:</span><span class="w"> </span><span class="s">"5"</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">debug</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">"Basic</span><span class="nv"> </span><span class="s">short</span><span class="nv"> </span><span class="s">rulebook,</span><span class="nv"> </span><span class="s">event</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">event.i</span><span class="nv"> </span><span class="s">}}"</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">fake_execution_time</span></code> variable is passed to the controller job. It does not set the lifetime of
+the activation or require the demo playbook to use it. Do not change the imported project for this
+tutorial; set the template override on the activation.</p>
+</section>
+</section>
+<section id="create-the-platform-credential">
+<h2>3. Create the platform credential<a class="headerlink" href="#create-the-platform-credential" title="Link to this heading"></a></h2>
+<p>Open <strong>Automation Decisions &gt; Infrastructure &gt; Credentials</strong> and click <strong>Create credential</strong>.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Name</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Example</span> <span class="pre">Platform</span> <span class="pre">Credential</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Organization</p></td>
+<td><p><strong>Default</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Credential type</p></td>
+<td><p><strong>Red Hat Ansible Automation Platform</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>Red Hat Ansible Automation Platform</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://&lt;platform&gt;/api/controller/</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Username and Password</p></td>
+<td><p>Your platform account with permission to launch <strong>Demo Job Template</strong>; alternatively use <strong>OAuth Token</strong> and leave username/password empty.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Verify SSL</p></td>
+<td><p>Enabled. The decision environment must trust the issuer of the HTTPS certificate.</p></td>
+</tr>
+</tbody>
+</table>
+<p>The credential type’s label is the one shown by the UI; the host here is the controller of <strong>this
+Koios Automation Platform</strong> deployment. Include <code class="docutils literal notranslate"><span class="pre">/api/controller/</span></code>, not <code class="docutils literal notranslate"><span class="pre">/api/controller/v2/</span></code>.
+The <code class="docutils literal notranslate"><span class="pre">run_job_template</span></code> action adds the API version and endpoint.</p>
+<p>Click <strong>Create credential</strong>. If your platform uses a private CA, see
+<a class="reference internal" href="troubleshooting.html#platform-credential-or-certificate-failure"><span class="std std-ref">certificate trust</span></a> before starting.</p>
+<p><img alt="Example Platform Credential details with the Red Hat Ansible Automation Platform credential type, the controller host and the encrypted password" src="../_images/eda-platform-credential.png" /></p>
+<p>The example data of the test platform uses the in-cluster address of the gateway; use the HTTPS address of your
+platform as described above.</p>
+</section>
+<section id="create-and-run-the-activation">
+<h2>4. Create and run the activation<a class="headerlink" href="#create-and-run-the-activation" title="Link to this heading"></a></h2>
+<p>Open <strong>Automation Decisions &gt; Rulebook Activations</strong> and click <strong>Create rulebook activation</strong>.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Name</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Example</span> <span class="pre">Activation</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Organization</p></td>
+<td><p><strong>Default</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Project</p></td>
+<td><p><strong>Example EDA Project</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>Rulebook</p></td>
+<td><p><strong>basic_short.yml</strong> (<code class="docutils literal notranslate"><span class="pre">extensions/eda/rulebooks/basic_short.yml</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p>Event streams</p></td>
+<td><p>Leave empty: this example uses the rulebook’s range source.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Credential</p></td>
+<td><p><strong>Example Platform Credential</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Decision environment</p></td>
+<td><p><strong>Example Decision Environment</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>Restart policy</p></td>
+<td><p><strong>Never</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Rulebook activation enabled?</p></td>
+<td><p>On</p></td>
+</tr>
+</tbody>
+</table>
+<p>In <strong>Variables</strong>, enter:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">override_run_basic</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Demo Job Template</span>
+</pre></div>
+</div>
+<p>Leave <strong>Skip audit events</strong> unchecked so that you can inspect Rule Audit. Click
+<strong>Create rulebook activation</strong>. The finite source produces its events and exits; with <strong>Never</strong>,
+the activation should reach <strong>Completed</strong> rather than restart and launch the job repeatedly.</p>
+<p><img alt="The Create rulebook activation form with the Project, Rulebook, Event streams, Credential, Decision environment and Restart policy fields" src="../_images/eda-first-activation-create.png" /></p>
+</section>
+<section id="verify-the-result">
+<h2>5. Verify the result<a class="headerlink" href="#verify-the-result" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Open <strong>Example Activation</strong>. Confirm <strong>Completed</strong>. On <strong>History</strong>, open its instance to inspect
+the status and output. A short activation may finish before you observe <strong>Running</strong>.</p></li>
+<li><p>Open <strong>Automation Decisions &gt; Rule Audit</strong> and locate <strong>Run JT at 8</strong> for this activation. Open
+the entry and inspect <strong>Details</strong>, <strong>Events</strong> and <strong>Actions</strong>. The triggering event has <code class="docutils literal notranslate"><span class="pre">i:</span> <span class="pre">8</span></code>.</p></li>
+<li><p>Open <strong>Automation Execution &gt; Jobs</strong>, find the new <strong>Demo Job Template</strong> job and confirm
+<strong>Successful</strong>. Check its start time and output so that you do not mistake an older demo run
+for the job created by this activation.</p></li>
+</ol>
+<p>Check both the rule action and the controller job. <strong>Completed</strong> describes the activation process;
+it is not by itself proof that every action or downstream job succeeded.</p>
+<p><img alt="The History tab of Example Activation with one instance in Completed status" src="../_images/eda-first-activation-completed.png" />
+<img alt="Rule Audit details of Run JT at 8 with Success status, the Basic short rule set and Example Activation" src="../_images/eda-first-rule-audit.png" />
+<img alt="Output of the Demo Job Template job launched by the activation, with Success status" src="../_images/eda-controller-job-successful.png" /></p>
+<p>For failures, see <a class="reference internal" href="troubleshooting.html"><span class="std std-doc">Troubleshooting</span></a>. To receive HTTP events without exposing
+an activation’s listener port, continue with <a class="reference internal" href="event-streams.html"><span class="std std-doc">Receive events with event streams</span></a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Event-Driven Ansible" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="event-streams.html" class="btn btn-neutral float-right" title="Receive events with event streams" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Koios Solutions. Portions 2026, Red Hat, Inc. and 2026, CtrlIQ, Inc..</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+<p class="koios-legal">Licensed under the <a href="../LICENSE.txt">Apache License 2.0</a>; see the <a href="../NOTICE.txt">NOTICE</a> for the origin of this documentation.</p>
+
+</body>
+</html>

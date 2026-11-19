@@ -1,0 +1,284 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>8. Access Resources &ndash; Koios Automation Platform</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ansible.css?v=5657ca2d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/rtd-ethical-ads.css?v=289b023e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/dark.css?v=82723a23" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments-dark.css?v=027e451e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/koios.css?v=808fdb03" />
+
+  
+    <link rel="shortcut icon" href="../_static/images/koios-favicon.svg"/>
+    <link rel="canonical" href="https://docs.koioss.com/rest_api/access_resources.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2d018451"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=b8bcef97"></script>
+      <script src="../_static/js/theme-toggle.js?v=59cbb094"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="9. Read-only Fields" href="read_only_fields.html" />
+    <link rel="prev" title="7. Pagination" href="pagination.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+<script>
+  (function () {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('koios-docs-theme');
+    } catch (e) {}
+    // Without a stored choice, follow the system preference (dark when it cannot be read).
+    var light = false;
+    try { light = window.matchMedia('(prefers-color-scheme: light)').matches; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', stored || (light ? 'light' : 'dark'));
+  })();
+</script>
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="#" class="asc-theme-toggle" title="Switch theme" aria-label="Switch theme"><svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg></a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../_static/images/koios-mark-white.svg"
+    alt="Koios">
+  <div class="DocSiteNav-title">Koios Automation Platform</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Koios Automation Platform
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Koios Automation Platform Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Install and upgrade</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade_migration/index.html">Upgrades and Migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configure the platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/index.html">Configure the platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Access management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access/index.html">Authentication and access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation execution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">Automating with Koios Automation Platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation decisions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../eda/index.html">Event-Driven Ansible</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hub/index.html">Automation hub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operate</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../operate/index.html">Operate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../administration/index.html">Administering Koios Automation Platform Deployments</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration as code and API</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../configure/casc.html">Configuration as code</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">automation controller API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html">automation controller API Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html">1. Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="browseable.html">2. Browsable API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conventions.html">3. Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sorting.html">4. Sorting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searching.html">5. Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filtering.html">6. Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pagination.html">7. Pagination</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">8. Access Resources</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configuration-settings">8.1. Configuration Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#identifier-format-protocol">8.2. Identifier Format Protocol</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="read_only_fields.html">9. Read-only Fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication.html">10. Authentication Methods Using the API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_ref.html">11. API Reference</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/releases.html">Releases</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Koios Automation Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">automation controller API Reference</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">8. </span>Access Resources</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <section id="access-resources">
+<h1><span class="section-number">8. </span>Access Resources<a class="headerlink" href="#access-resources" title="Link to this heading"></a></h1>
+<p id="index-0">Traditionally, automation controller uses a primary key to access individual resource objects. The named URL feature allows you to access automation controller resources via resource-specific human-readable identifiers. The named URL via URL path <code class="docutils literal notranslate"><span class="pre">/api/controller/v2/hosts/host_name++inv_name++org_name/</span></code>, for example, allows you to access a resource object without an auxiliary query string.</p>
+<section id="configuration-settings">
+<h2><span class="section-number">8.1. </span>Configuration Settings<a class="headerlink" href="#configuration-settings" title="Link to this heading"></a></h2>
+<p>There are two named-URL-related configuration settings available under <code class="docutils literal notranslate"><span class="pre">/api/controller/v2/settings/named-url/</span></code>: <code class="docutils literal notranslate"><span class="pre">NAMED_URL_FORMATS</span></code> and <code class="docutils literal notranslate"><span class="pre">NAMED_URL_GRAPH_NODES</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">NAMED_URL_FORMATS</span></code> is a read only key-value pair list of all available named URL identifier formats. A typical <code class="docutils literal notranslate"><span class="pre">NAMED_URL_FORMATS</span></code> looks like this:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="s">"NAMED_URL_FORMATS"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">{</span>
+<span class="s">"organizations"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"&lt;name&gt;"</span><span class="p p-Indicator">,</span>
+<span class="s">"teams"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"&lt;name&gt;++&lt;organization.name&gt;"</span><span class="p p-Indicator">,</span>
+<span class="s">"credential_types"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"&lt;name&gt;+&lt;kind&gt;"</span><span class="p p-Indicator">,</span>
+<span class="s">"credentials"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"&lt;name&gt;++&lt;credential_type.name&gt;+&lt;credential_type.kind&gt;++&lt;organization.name&gt;"</span><span class="p p-Indicator">,</span>
+<span class="s">"notification_templates"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"&lt;name&gt;++&lt;organization.name&gt;"</span><span class="p p-Indicator">,</span>
+<span class="s">"job_templates"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"&lt;name&gt;++&lt;organization.name&gt;"</span><span class="p p-Indicator">,</span>
+<span class="s">"projects"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"&lt;name&gt;++&lt;organization.name&gt;"</span><span class="p p-Indicator">,</span>
+<span class="s">"inventories"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"&lt;name&gt;++&lt;organization.name&gt;"</span><span class="p p-Indicator">,</span>
+<span class="s">"hosts"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"&lt;name&gt;++&lt;inventory.name&gt;++&lt;organization.name&gt;"</span><span class="p p-Indicator">,</span>
+<span class="s">"groups"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"&lt;name&gt;++&lt;inventory.name&gt;++&lt;organization.name&gt;"</span><span class="p p-Indicator">,</span>
+<span class="s">"inventory_sources"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"&lt;name&gt;++&lt;inventory.name&gt;++&lt;organization.name&gt;"</span><span class="p p-Indicator">,</span>
+<span class="s">"inventory_scripts"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"&lt;name&gt;++&lt;organization.name&gt;"</span><span class="p p-Indicator">,</span>
+<span class="s">"instance_groups"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"&lt;name&gt;"</span><span class="p p-Indicator">,</span>
+<span class="s">"labels"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"&lt;name&gt;++&lt;organization.name&gt;"</span><span class="p p-Indicator">,</span>
+<span class="s">"workflow_job_templates"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"&lt;name&gt;++&lt;organization.name&gt;"</span><span class="p p-Indicator">,</span>
+<span class="s">"workflow_job_template_nodes"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"&lt;identifier&gt;++&lt;workflow_job_template.name&gt;++&lt;organization.name&gt;"</span><span class="p p-Indicator">,</span>
+<span class="s">"applications"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"&lt;name&gt;++&lt;organization.name&gt;"</span><span class="p p-Indicator">,</span>
+<span class="s">"users"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"&lt;username&gt;"</span><span class="p p-Indicator">,</span>
+<span class="s">"instances"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"&lt;hostname&gt;"</span>
+<span class="p p-Indicator">}</span>
+</pre></div>
+</div>
+<p>For each item in <code class="docutils literal notranslate"><span class="pre">NAMED_URL_FORMATS</span></code>, the key is the API name of the resource to have named URL, the value is a string indicating how to form a human-readable unique identifier for that resource. <code class="docutils literal notranslate"><span class="pre">NAMED_URL_FORMATS</span></code> exclusively lists every resource that can have named URL, any resource not listed there has no named URL. If a resource can have named URL, its objects should have a named_url field which represents the object-specific named URL. That field should only be visible under detail view, not list view. You can access specified resource objects using accurately generated named URL. This includes not only the object itself but also its related URLs. For example, if <code class="docutils literal notranslate"><span class="pre">/api/controller/v2/res_name/obj_slug/</span></code> is valid, <code class="docutils literal notranslate"><span class="pre">/api/controller/v2/res_name/obj_slug/related_res_name/</span></code> should also be valid.</p>
+<p><code class="docutils literal notranslate"><span class="pre">NAMED_URL_FORMATS</span></code> are instructive enough to compose human-readable unique identifier and named URL themselves. For ease-of-use, every object of a resource that can have named URL will have a related field <code class="docutils literal notranslate"><span class="pre">named_url</span></code> that displays that object’s named URL. You can copy and paste that field for your own custom use. Also refer to the help text of API browser if a resource object has named URL for further guidance.</p>
+<p>Suppose you want to manually determine the named URL for a label with ID 5. A typical procedure of composing a named URL for this specific resource object using <code class="docutils literal notranslate"><span class="pre">NAMED_URL_FORMATS</span></code> is to first look up the labels field of <code class="docutils literal notranslate"><span class="pre">NAMED_URL_FORMATS</span></code> to get the identifier format <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;++&lt;organization.name&gt;</span></code>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The first part of the URL format is <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;</span></code>, which indicates that the label resource detail can be found in <code class="docutils literal notranslate"><span class="pre">/api/controller/v2/labels/5/</span></code>, and look for <code class="docutils literal notranslate"><span class="pre">name</span></code> field in returned JSON. Suppose you have the <code class="docutils literal notranslate"><span class="pre">name</span></code> field with value ‘Foo’, then the first part of the unique identifier is <strong>Foo</strong>.</p></li>
+<li><p>The second part of the format are double pluses ++. That is the delimiter that separates different parts of a unique identifier. Append them to the unique identifier to get <strong>Foo++</strong></p></li>
+<li><p>The third part of the format is <code class="docutils literal notranslate"><span class="pre">&lt;organization.name&gt;</span></code>, which indicates that field is not in the current label object under investigation, but in an organization which the label object points to. Thus, as the format indicates, look up the organization in the related field of current returned JSON. That field may or may not exist. If it exists, follow the URL given in that field, for example, <code class="docutils literal notranslate"><span class="pre">/api/controller/v2/organizations/3/</span></code>, to get the detail of the specific organization, extract its <code class="docutils literal notranslate"><span class="pre">name</span></code> field, for example, ‘Default’, and append it to our current unique identifier. Since <code class="docutils literal notranslate"><span class="pre">&lt;organizations.name&gt;</span></code> is the last part of format, thus, generating the resulting named URL: <code class="docutils literal notranslate"><span class="pre">/api/controller/v2/labels/Foo++Default/</span></code>.  In the case where organization does not exist in related field of the label object detail, append an empty string instead, which essentially does not alter the current identifier. So <code class="docutils literal notranslate"><span class="pre">Foo++</span></code> becomes the final unique identifier and the resulting generated named URL becomes <code class="docutils literal notranslate"><span class="pre">/api/controller/v2/labels/Foo++/</span></code>.</p></li>
+</ul>
+</div></blockquote>
+<p>An important aspect of generating a unique identifier for named URL has to do with reserved characters. Because the identifier is part of a URL, the following reserved characters by URL standard is encoded by percentage symbols: <code class="docutils literal notranslate"><span class="pre">;/?:&#64;=&amp;[]</span></code>. For example, if an organization is named <code class="docutils literal notranslate"><span class="pre">;/?:&#64;=&amp;[]</span></code>, its unique identifier should be <code class="docutils literal notranslate"><span class="pre">%3B%2F%3F%3A%40%3D%26%5B%5D</span></code>. Another special reserved character is <code class="docutils literal notranslate"><span class="pre">+</span></code>, which is not reserved by URL standard but used by named URL to link different parts of an identifier. It is encoded by <code class="docutils literal notranslate"><span class="pre">[+]</span></code>. For example, if an organization is named <code class="docutils literal notranslate"><span class="pre">[+]</span></code>, its unique identifier is <code class="docutils literal notranslate"><span class="pre">%5B[+]%5D</span></code>, where original <code class="docutils literal notranslate"><span class="pre">[</span></code> and <code class="docutils literal notranslate"><span class="pre">]</span></code> are percent encoded and <code class="docutils literal notranslate"><span class="pre">+</span></code> is converted to <code class="docutils literal notranslate"><span class="pre">[+]</span></code>.</p>
+<p>Although <code class="docutils literal notranslate"><span class="pre">NAMED_URL_FORMATS</span></code> cannot be manually modified, modifications do occur automatically and expanded over time, reflecting underlying resource modification and expansion. Consult the <code class="docutils literal notranslate"><span class="pre">NAMED_URL_FORMATS</span></code> on the same cluster where you want to use the named URL feature.</p>
+<p><code class="docutils literal notranslate"><span class="pre">NAMED_URL_GRAPH_NODES</span></code> is another read-only list of key-value pairs that exposes the internal graph data structure used to manage named URLs. This is not intended to be human-readable but should be used for programmatically generating named URLs. An example script for generating named URL given the primary key of arbitrary resource objects that can have a named URL, using info provided by <code class="docutils literal notranslate"><span class="pre">NAMED_URL_GRAPH_NODES</span></code>, can be found in GitHub at <a class="reference external" href="https://github.com/ansible/awx/blob/devel/tools/scripts/pk_to_named_url.py">https://github.com/ansible/awx/blob/devel/tools/scripts/pk_to_named_url.py</a>.</p>
+</section>
+<section id="identifier-format-protocol">
+<h2><span class="section-number">8.2. </span>Identifier Format Protocol<a class="headerlink" href="#identifier-format-protocol" title="Link to this heading"></a></h2>
+<p>Resources are identifiable by their unique keys, which are basically tuples of resource fields. Every resource is guaranteed to have its primary key number alone as a unique key, but there might be multiple other unique keys. A resource can generate an identifier format thus, have a named URL if it contains at least one unique key that satisfies the rules below:</p>
+<ol class="arabic simple">
+<li><p>The key must contain only fields that are either the <code class="docutils literal notranslate"><span class="pre">name</span></code> field, or text fields with a finite number of possible choices (like credential type resource’s <code class="docutils literal notranslate"><span class="pre">kind</span></code> field).</p></li>
+<li><p>The only allowed exceptional fields that breaks rule #1 is a many-to-one related field relating to a resource other than itself, which is also allowed to have a slug.</p></li>
+</ol>
+<p>Suppose there are resources <code class="docutils literal notranslate"><span class="pre">Foo</span></code> and <code class="docutils literal notranslate"><span class="pre">Bar</span></code>, both <code class="docutils literal notranslate"><span class="pre">Foo</span></code> and <code class="docutils literal notranslate"><span class="pre">Bar</span></code> contain a <code class="docutils literal notranslate"><span class="pre">name</span></code> field and a <code class="docutils literal notranslate"><span class="pre">choice</span></code> field that can only have value ‘yes’ or ‘no’. Additionally, resource <code class="docutils literal notranslate"><span class="pre">Foo</span></code> contains a many-to-one field (a foreign key) relating to <code class="docutils literal notranslate"><span class="pre">Bar</span></code>, e.g. <code class="docutils literal notranslate"><span class="pre">fk</span></code>. <code class="docutils literal notranslate"><span class="pre">Foo</span></code> has a unique key tuple (<code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">choice</span></code>, <code class="docutils literal notranslate"><span class="pre">fk</span></code>) and <code class="docutils literal notranslate"><span class="pre">Bar</span></code> has a unique key tuple (<code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">choice</span></code>). <code class="docutils literal notranslate"><span class="pre">Bar</span></code> can have named URL because it satisfies rule #1 above. <code class="docutils literal notranslate"><span class="pre">Foo</span></code> can also have named URL, even though it breaks rule #1, the extra field breaking rule #1 is the <code class="docutils literal notranslate"><span class="pre">fk</span></code> field, which is many-to-one-related to <code class="docutils literal notranslate"><span class="pre">Bar</span></code> and <code class="docutils literal notranslate"><span class="pre">Bar</span></code> can have named URL.</p>
+<p>For resources satisfying rule #1 above, their human-readable unique identifiers are combinations of foreign key fields, delimited by <code class="docutils literal notranslate"><span class="pre">+</span></code>. In specific, resource <code class="docutils literal notranslate"><span class="pre">Bar</span></code> in the above example will have slug format <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;+&lt;choice&gt;</span></code>. Note the field order matters in slug format: <code class="docutils literal notranslate"><span class="pre">name</span></code> field always comes first if present, following by all the rest fields arranged in lexicographic order of field name. For example, if Bar also has an <code class="docutils literal notranslate"><span class="pre">a_choice</span></code> field satisfying rule #1 and the unique key becomes (<code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">choice</span></code>, <code class="docutils literal notranslate"><span class="pre">a_choice</span></code>), its slug format becomes <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;+&lt;a_choice&gt;+&lt;choice&gt;</span></code>.</p>
+<p>For resources satisfying rule #2 above, if traced back via the extra foreign key fields, the result is a tree of resources that all together identify objects of that resource. In order to generate identifier format, each resource in the traceback tree generates its own part of standalone format in the way previously described, using all fields but the foreign keys. Finally all parts are combined by <code class="docutils literal notranslate"><span class="pre">++</span></code> in the following order:</p>
+<ul class="simple">
+<li><p>Put stand-alone format as the first identifier component.</p></li>
+<li><p>Recursively generate unique identifiers for each resource. The underlying resource is pointing to using a foreign key (a child of a traceback tree node).</p></li>
+<li><p>Treat generated unique identifiers as the rest of the identifier components. Sort them in lexicographic order of corresponding foreign keys.</p></li>
+<li><p>Combine all components together using <code class="docutils literal notranslate"><span class="pre">++</span></code> to generate the final identifier format.</p></li>
+</ul>
+<p>In reference to the example above, when generating an identifier format for resource <code class="docutils literal notranslate"><span class="pre">Foo</span></code>, automation controller generates the stand-alone formats, <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;+&lt;choice&gt;</span></code> for <code class="docutils literal notranslate"><span class="pre">Foo</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;fk.name&gt;+&lt;fk.choice&gt;</span></code> for <code class="docutils literal notranslate"><span class="pre">Bar</span></code>, then combine them together to be <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;+&lt;choice&gt;++&lt;fk.name&gt;+&lt;fk.choice&gt;</span></code>.</p>
+<p>When generating identifiers according to the given identifier format, there are cases where a foreign key may point to nowhere. In this case, automation controller substitutes the part of the format corresponding to the resource the foreign key should point to with an empty string ‘’. For example, if a <code class="docutils literal notranslate"><span class="pre">Foo</span></code> object has the name =’alice’, choice =’yes’, but <code class="docutils literal notranslate"><span class="pre">fk</span></code> field = None, its resulting identifier will be <code class="docutils literal notranslate"><span class="pre">alice+yes++</span></code>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="pagination.html" class="btn btn-neutral float-left" title="7. Pagination" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="read_only_fields.html" class="btn btn-neutral float-right" title="9. Read-only Fields" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Koios Solutions. Portions 2026, Red Hat, Inc. and 2026, CtrlIQ, Inc..</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+<p class="koios-legal">Licensed under the <a href="../LICENSE.txt">Apache License 2.0</a>; see the <a href="../NOTICE.txt">NOTICE</a> for the origin of this documentation.</p>
+
+</body>
+</html>

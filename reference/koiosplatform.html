@@ -1,0 +1,1234 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KoiosPlatform &ndash; Koios Automation Platform</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ansible.css?v=5657ca2d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/rtd-ethical-ads.css?v=289b023e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/dark.css?v=82723a23" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments-dark.css?v=027e451e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/koios.css?v=808fdb03" />
+
+  
+    <link rel="shortcut icon" href="../_static/images/koios-favicon.svg"/>
+    <link rel="canonical" href="https://docs.koioss.com/reference/koiosplatform.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2d018451"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=b8bcef97"></script>
+      <script src="../_static/js/theme-toggle.js?v=59cbb094"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="KoiosPlatformBackup" href="koiosplatformbackup.html" />
+    <link rel="prev" title="Reference" href="index.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+<script>
+  (function () {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('koios-docs-theme');
+    } catch (e) {}
+    // Without a stored choice, follow the system preference (dark when it cannot be read).
+    var light = false;
+    try { light = window.matchMedia('(prefers-color-scheme: light)').matches; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', stored || (light ? 'light' : 'dark'));
+  })();
+</script>
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="#" class="asc-theme-toggle" title="Switch theme" aria-label="Switch theme"><svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg></a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../_static/images/koios-mark-white.svg"
+    alt="Koios">
+  <div class="DocSiteNav-title">Koios Automation Platform</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Koios Automation Platform
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Koios Automation Platform Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Install and upgrade</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade_migration/index.html">Upgrades and Migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configure the platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/index.html">Configure the platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Access management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access/index.html">Authentication and access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation execution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">Automating with Koios Automation Platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation decisions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../eda/index.html">Event-Driven Ansible</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hub/index.html">Automation hub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operate</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../operate/index.html">Operate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../administration/index.html">Administering Koios Automation Platform Deployments</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration as code and API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/casc.html">Configuration as code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rest_api/index.html">automation controller API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">KoiosPlatform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="koiosplatformbackup.html">KoiosPlatformBackup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="koiosplatformrestore.html">KoiosPlatformRestore</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases.html">Releases</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Koios Automation Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Reference</a></li>
+      <li class="breadcrumb-item active">KoiosPlatform</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <!-- Generated by koios-build build/docs/generate.py from koios-operator config/crd/bases/platform.koioss.com_koiosplatforms.yaml and koios/olm/platform-descriptors.yaml. Do not edit. -->
+<section id="koiosplatform">
+<h1>KoiosPlatform<a class="headerlink" href="#koiosplatform" title="Link to this heading"></a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">apiVersion:</span> <span class="pre">platform.koioss.com/v1alpha1</span></code> · <code class="docutils literal notranslate"><span class="pre">kind:</span> <span class="pre">KoiosPlatform</span></code></p>
+<p>Fields of <code class="docutils literal notranslate"><span class="pre">spec</span></code>. <strong>Console</strong> says how the OpenShift creation form shows the field (<code class="docutils literal notranslate"><span class="pre">form</span></code>, <code class="docutils literal notranslate"><span class="pre">advanced</span></code> or <code class="docutils literal notranslate"><span class="pre">hidden</span></code>); fields without it are set in YAML. Objects marked <em>open</em> also accept the fields of the upstream resource they configure.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Values</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Console</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">admin_email</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>advanced: Admin E-mail Address</p></td>
+<td><p>Administrator email used when creating it.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">admin_password_secret</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>advanced: Admin Password Secret</p></td>
+<td><p>User Secret with the admin password in key password; otherwise <platform>-admin-password is generated. It must exist.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">admin_user</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>advanced: Admin Account Username</p></td>
+<td><p>Platform administrator username (admin by default). Created once; changing it creates another admin.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">api</span></code></p></td>
+<td><p>object</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>advanced: API deployment configuration</p></td>
+<td><p>Gateway deployment (Jewel api container). Replaces spec.gateway.replicas/resource_requirements.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">api.log_level</span></code></p></td>
+<td><p>string</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DEBUG</span></code>, <code class="docutils literal notranslate"><span class="pre">INFO</span></code>, <code class="docutils literal notranslate"><span class="pre">WARNING</span></code>, <code class="docutils literal notranslate"><span class="pre">ERROR</span></code>, <code class="docutils literal notranslate"><span class="pre">CRITICAL</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INFO</span></code></p></td>
+<td><p></p></td>
+<td><p>The log level for the deployment.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">api.node_selector</span></code></p></td>
+<td><p>object</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>advanced: Node Selector</p></td>
+<td><p>NodeSelector for the gateway pods.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">api.replicas</span></code></p></td>
+<td><p>integer</p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1</span></code></p></td>
+<td><p>form: Replicas</p></td>
+<td><p>The number of replicas for the deployment.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">api.resource_requirements</span></code></p></td>
+<td><p>object</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>form: API server resource requirements</p></td>
+<td><p>Resource requirements for the galaxy api container</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">api.resource_requirements.limits</span></code></p></td>
+<td><p>object</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">api.resource_requirements.limits.cpu</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">api.resource_requirements.limits.memory</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">api.resource_requirements.limits.storage</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">api.resource_requirements.requests</span></code></p></td>
+<td><p>object</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">api.resource_requirements.requests.cpu</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">api.resource_requirements.requests.memory</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">api.resource_requirements.requests.storage</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">api.security_context</span></code></p></td>
+<td><p>object (open)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>advanced: Security Context</p></td>
+<td><p>Settings to apply to the securityContext field of the api container.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">api.strategy</span></code></p></td>
+<td><p>object</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>advanced: Strategy</p></td>
+<td><p>The deployment strategy to use to replace existing pods with new ones.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">api.strategy.rollingUpdate</span></code></p></td>
+<td><p>object</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>Rolling update config params. Present only if DeploymentStrategyType = RollingUpdate. — TODO: Update this to follow our convention for oneOf, whatever we decide it to be.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">api.strategy.rollingUpdate.maxSurge</span></code></p></td>
+<td><p>integer or string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>The maximum number of pods that can be scheduled above the desired number of pods. Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%). This can not be 0 if MaxUnavailable is 0. Absolute number is calculated from percentage by rounding up. Defaults to 25%. Example: when this is set to 30%, the new ReplicaSet can be scaled up immediately when the rolling update starts, such that the total number of old and new pods do not exceed 130% of desired pods. Once old pods have been killed, new ReplicaSet can be scaled up further, ensuring that total number of pods running at any time during the update is at most 130% of desired pods.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">api.strategy.rollingUpdate.maxUnavailable</span></code></p></td>
+<td><p>integer or string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>The maximum number of pods that can be unavailable during the update. Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%). Absolute number is calculated from percentage by rounding down. This can not be 0 if MaxSurge is 0. Defaults to 25%. Example: when this is set to 30%, the old ReplicaSet can be scaled down to 70% of desired pods immediately when the rolling update starts. Once new pods are ready, old ReplicaSet can be scaled down further, followed by scaling up the new ReplicaSet, ensuring that the total number of pods available at all times during the update is at least 70% of desired pods.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">api.strategy.type</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>Type of deployment. Can be “Recreate” or “RollingUpdate”. Default is RollingUpdate.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">api.tolerations</span></code></p></td>
+<td><p>array of object</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>advanced: Tolerations</p></td>
+<td><p>Node tolerations for the gateway pods.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">api.topology_spread_constraints</span></code></p></td>
+<td><p>array of object</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>advanced: Topology Spread Constraints</p></td>
+<td><p>Topology rule(s) for the pods.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">bundle_cacert_secret</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>advanced: Bundle Certificate Authority Secret</p></td>
+<td><p>Secret with bundle-ca.crt: CA trusted by the gateway and, by default, by controller, EDA and Hub.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">controller</span></code></p></td>
+<td><p>object (open)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>advanced: Controller</p></td>
+<td><p>AWX spec fields (awx.ansible.com/v1beta1) for the child AWX. The operator merges them with the fields the platform requires (resource server and JWT extra_settings, api_urlpattern_prefix, ingress_type none, shared database); the platform wins on conflict. With an external database, database_secret.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">controller.database_secret</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>External database Secret of the controller (host, port, database, username, password, type=unmanaged; optional sslmode).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">database</span></code></p></td>
+<td><p>object</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>advanced: PostgreSQL Database configuration</p></td>
+<td><p>Shared platform PostgreSQL, one user per component.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">database.database_secret</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>form: External database configuration secret</p></td>
+<td><p>Secret where the database configuration can be found. Set this to use your own external PostgreSQL database. If not specified, this secret will be generated and Gateway will create a managed postgres pod.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">database.external_secret</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>hidden: Deprecated External Database Secret</p></td>
+<td><p><strong>Deprecated.</strong> alias of database_secret: external database Secret of the gateway (host, port, database, username, password, type=unmanaged; optional sslmode). The controller one goes in spec.controller.database_secret.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">database.idle_disabled</span></code></p></td>
+<td><p>boolean</p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td><p>advanced: Database Idle Disabled</p></td>
+<td><p>When true, idle_aap keeps the managed PostgreSQL running.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">database.image</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>hidden: Deprecated PostgreSQL Image</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">database.image_version</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>hidden: Deprecated PostgreSQL Image Version</p></td>
+<td><p>Tag or sha256:<digest>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">database.managed</span></code></p></td>
+<td><p>boolean</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>hidden: Managed Database</p></td>
+<td><p>true = deployed by the operator; false = external PostgreSQL (databases created by the administrator; cannot change later). When unset, false if database_secret is set and true otherwise.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">database.node_selector</span></code></p></td>
+<td><p>object</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>NodeSelector for the database pod.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">database.postgres_extra_settings</span></code></p></td>
+<td><p>array of object</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>hidden: Postgres Extra Settings</p></td>
+<td><p>PostgreSQL configuration settings to be added to postgresql.conf</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">database.postgres_ssl_mode</span></code></p></td>
+<td><p>string</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">disable</span></code>, <code class="docutils literal notranslate"><span class="pre">allow</span></code>, <code class="docutils literal notranslate"><span class="pre">prefer</span></code>, <code class="docutils literal notranslate"><span class="pre">require</span></code>, <code class="docutils literal notranslate"><span class="pre">verify-ca</span></code>, <code class="docutils literal notranslate"><span class="pre">verify-full</span></code></p></td>
+<td><p></p></td>
+<td><p>advanced: Database SSLMode</p></td>
+<td><p>PostgreSQL connection sslmode (default prefer). The managed PostgreSQL has no TLS: only disable, allow or prefer. With an external database each database Secret sets its own sslmode key.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">database.postgres_storage_class</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>advanced: Database Storage Class</p></td>
+<td><p>Storage class to use for the PostgreSQL PVC</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">database.priority_class</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>Assign a pre-existing priority class to the postgres pod</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">database.resource_requirements</span></code></p></td>
+<td><p>object</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>form: Database resource requirements</p></td>
+<td><p>Resource requirements for the database container.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">database.resource_requirements.claims</span></code></p></td>
+<td><p>array of object</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container.   This is an alpha field and requires enabling the DynamicResourceAllocation feature gate.   This field is immutable.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">database.resource_requirements.limits</span></code></p></td>
+<td><p>object</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">database.resource_requirements.requests</span></code></p></td>
+<td><p>object</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">database.storage_class</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>hidden: Deprecated Database Storage Class</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">database.storage_requirements</span></code></p></td>
+<td><p>object</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>form: Database Storage Requirements</p></td>
+<td><p>Storage requirements for the PostgreSQL container</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">database.storage_requirements.limits</span></code></p></td>
+<td><p>object</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">database.storage_requirements.limits.storage</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">database.storage_requirements.requests</span></code></p></td>
+<td><p>object</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">database.storage_requirements.requests.storage</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">database.storage_size</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>hidden: Deprecated Database Storage Size</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">database.tolerations</span></code></p></td>
+<td><p>array of object</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>Node tolerations for the database pod.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">db_fields_encryption_secret</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>advanced: DB Fields Encryption Key</p></td>
+<td><p>User Secret with the field encryption key in key secret_key; otherwise <platform>-db-fields-encryption is generated. Cannot change on an existing platform.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">eda</span></code></p></td>
+<td><p>object (open)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>advanced: EDA</p></td>
+<td><p>EDA spec fields (eda.ansible.com/v1alpha1) for the child EDA. Enabled unless disabled=true (the CR is kept and its gateway registration removed); name selects the EDA (an existing one is adopted). With an external database: database_secret and event_stream.database_secret. The fields the platform requires win (shared databases, ui_disabled, ingress_type none, gateway settings).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">eda.database_secret</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>External database Secret of the EDA (host, port, database, username, password, type=unmanaged; optional sslmode).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">eda.disabled</span></code></p></td>
+<td><p>boolean</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">eda.event_stream</span></code></p></td>
+<td><p>object (open)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">eda.event_stream.database_secret</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>Database Secret of the EDA event stream user (CONNECT only on the EDA database).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">eda.name</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">extra_settings</span></code></p></td>
+<td><p>array of object</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>advanced: Extra Settings</p></td>
+<td><p>Additional gateway settings (setting/value); stored as YAML in a Secret, never as code.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">feature_flags</span></code></p></td>
+<td><p>object</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>advanced: Feature Flags</p></td>
+<td><p>Gateway feature flags (FEATURE_* keys); Koios validates every key.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">gateway</span></code></p></td>
+<td><p>object</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>hidden: Deprecated gateway settings</p></td>
+<td><p><strong>Deprecated.</strong> use api.replicas, api.resource_requirements, image, image_version, image_proxy and image_proxy_version, as in AnsibleAutomationPlatform. Accepted as an alias; values that contradict the new fields fail the reconciliation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">gateway.envoy_image</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">gateway.envoy_image_version</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">gateway.image</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">gateway.image_version</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">gateway.replicas</span></code></p></td>
+<td><p>integer</p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1</span></code></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">gateway.resource_requirements</span></code></p></td>
+<td><p>object (open)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hostname</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>advanced: Hostname</p></td>
+<td><p>Public hostname of the platform (Ingress, LoadBalancer or external proxy).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hub</span></code></p></td>
+<td><p>object (open)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>advanced: Hub</p></td>
+<td><p>Galaxy spec fields (galaxy.ansible.com/v1beta1, galaxy-operator) for the child Hub. Enabled unless disabled=true (the CR is kept and its gateway registration removed); name selects the Galaxy (an existing one is adopted). With an external database: database_secret. The fields the platform requires win (shared database, ingress_type none, gateway pulp_settings).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hub.database_secret</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>External database Secret of the automation hub (host, port, database, username, password, type=unmanaged; optional sslmode).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hub.disabled</span></code></p></td>
+<td><p>boolean</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hub.name</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">idle_aap</span></code></p></td>
+<td><p>boolean</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>hidden: Idle Koios Automation Platform</p></td>
+<td><p>Scale down the platform to put it into idle mode: gateway, Redis and, unless database.idle_disabled, the managed PostgreSQL to 0 and controller, EDA and Hub with idle_deployment. Data is kept; set false to resume.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">image</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>hidden: Gateway Image</p></td>
+<td><p>Gateway container image</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">image_proxy</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>hidden: Gateway Proxy Image</p></td>
+<td><p>Gateway Proxy container image</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">image_proxy_version</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>hidden: Gateway Proxy Image Version</p></td>
+<td><p>Gateway Proxy container image version (tag)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">image_pull_policy</span></code></p></td>
+<td><p>string</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Always</span></code>, <code class="docutils literal notranslate"><span class="pre">always</span></code>, <code class="docutils literal notranslate"><span class="pre">Never</span></code>, <code class="docutils literal notranslate"><span class="pre">never</span></code>, <code class="docutils literal notranslate"><span class="pre">IfNotPresent</span></code>, <code class="docutils literal notranslate"><span class="pre">ifnotpresent</span></code></p></td>
+<td><p></p></td>
+<td><p>advanced: Image Pull Policy</p></td>
+<td><p>The image pull policy</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">image_pull_secrets</span></code></p></td>
+<td><p>array of string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>advanced: Image Pull Secrets</p></td>
+<td><p>Existing image pull Secrets; propagated to every component, including job pods.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">image_version</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>hidden: Gateway Image Version</p></td>
+<td><p>Gateway container image version (tag)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ingress</span></code></p></td>
+<td><p>object</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>hidden: Deprecated ingress settings</p></td>
+<td><p><strong>Deprecated.</strong> use ingress_type, service_type, hostname, ingress_class_name and ingress_tls_secret, as in AnsibleAutomationPlatform. Accepted as an alias; values that contradict the new fields fail the reconciliation.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ingress.hostname</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ingress.ingress_class</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ingress.tls_secret</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ingress.type</span></code></p></td>
+<td><p>string</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">none</span></code>, <code class="docutils literal notranslate"><span class="pre">ingress</span></code>, <code class="docutils literal notranslate"><span class="pre">loadbalancer</span></code></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ingress_annotations</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>advanced: Ingress annotations</p></td>
+<td><p>Ingress annotations (YAML block of key: value).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ingress_api_version</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>advanced: Ingress API Version</p></td>
+<td><p>Ingress API version (networking.k8s.io/v1).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ingress_class_name</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>advanced: Ingress Class Name</p></td>
+<td><p>IngressClass; empty uses the cluster default.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ingress_path</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>advanced: Ingress Path</p></td>
+<td><p>Ingress path (/).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ingress_path_type</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>advanced: Ingress Path Type</p></td>
+<td><p>Ingress pathType (Prefix).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ingress_tls_secret</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>advanced: Ingress TLS secret</p></td>
+<td><p>Ingress TLS Secret (provided by the user; never managed by the operator).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ingress_type</span></code></p></td>
+<td><p>string</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">none</span></code>, <code class="docutils literal notranslate"><span class="pre">Ingress</span></code>, <code class="docutils literal notranslate"><span class="pre">ingress</span></code>, <code class="docutils literal notranslate"><span class="pre">Route</span></code>, <code class="docutils literal notranslate"><span class="pre">route</span></code></p></td>
+<td><p></p></td>
+<td><p>form: Ingress type</p></td>
+<td><p>Ingress type: none, Ingress or Route. Defaults to Route on OpenShift and none on Kubernetes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">loadbalancer_port</span></code></p></td>
+<td><p>integer</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>advanced: LoadBalancer Port</p></td>
+<td><p>Additional LoadBalancer port (80 by default; port 80 is always published).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">loadbalancer_protocol</span></code></p></td>
+<td><p>string</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">http</span></code>, <code class="docutils literal notranslate"><span class="pre">https</span></code></p></td>
+<td><p></p></td>
+<td><p>advanced: LoadBalancer Protocol</p></td>
+<td><p>LoadBalancer protocol (http by default).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">no_log</span></code></p></td>
+<td><p>boolean</p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+<td><p>advanced: No Log Configuration</p></td>
+<td><p>Hide sensitive values in the operator log; only disable for debugging.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">nodeport_port</span></code></p></td>
+<td><p>integer</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>advanced: NodePort Port</p></td>
+<td><p>Fixed nodePort with service_type NodePort.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">postgres_image</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>hidden: PostgreSQL Image</p></td>
+<td><p>Registry path to the PostgreSQL container to use</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">postgres_image_version</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>hidden: PostgreSQL Image Version</p></td>
+<td><p>PostgreSQL container image version to use</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">proxy</span></code></p></td>
+<td><p>object</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>Gateway proxy (Envoy) container.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">proxy.concurrency</span></code></p></td>
+<td><p>integer</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>Number of Envoy worker threads. 0 means one per CPU core (Envoy default). Set this to limit worker threads on high-core-count nodes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">proxy.resource_requirements</span></code></p></td>
+<td><p>object</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>Resource requirements for the gateway proxy container.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">proxy.resource_requirements.limits</span></code></p></td>
+<td><p>object</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">proxy.resource_requirements.limits.cpu</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">proxy.resource_requirements.limits.memory</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">proxy.resource_requirements.limits.storage</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">proxy.resource_requirements.requests</span></code></p></td>
+<td><p>object</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">proxy.resource_requirements.requests.cpu</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">proxy.resource_requirements.requests.memory</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">proxy.resource_requirements.requests.storage</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">proxy.security_context</span></code></p></td>
+<td><p>object (open)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>Settings to apply to the securityContext field of the proxy container.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">public_base_url</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>hidden: Public Base URL for Koios Automation Platform</p></td>
+<td><p>Public base URL of the platform (the edge: Route, Ingress or LoadBalancer).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">redis</span></code></p></td>
+<td><p>object</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>advanced: Redis deployment configuration</p></td>
+<td><p>Shared Redis with one ACL user per component.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">redis.eda_redis_secret</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>hidden: External EDA redis configuration secret (Deprecated)</p></td>
+<td><p><strong>Deprecated.</strong> This field is ignored. Redis is no longer used by EDA. EDA now uses dispatcherd (backed by PostgreSQL). It will be removed in a future apiVersion.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">redis.image</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>hidden: Deprecated Redis Image</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">redis.image_version</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>hidden: Deprecated Redis Image Version</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">redis.mode</span></code></p></td>
+<td><p>string</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">cluster</span></code>, <code class="docutils literal notranslate"><span class="pre">standalone</span></code></p></td>
+<td><p></p></td>
+<td><p>hidden: Deprecated Redis Mode</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">redis.node_selector</span></code></p></td>
+<td><p>object</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>advanced: Node Selector</p></td>
+<td><p>NodeSelector for the Redis pods.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">redis.redis_secret</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>advanced: External redis configuration secret</p></td>
+<td><p>Secret of your own external Redis for the gateway: host, port, password and optional username, redis_tls (true/false), redis_ssl_cert_reqs (none, optional, required) and redis_mode (standalone or cluster). The operator then does not deploy Redis. With TLS, trust a private CA with bundle_cacert_secret.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">redis.replicas</span></code></p></td>
+<td><p>integer</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>form: Replicas</p></td>
+<td><p>Defines Redis Deployment replicas</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">redis.resource_requirements</span></code></p></td>
+<td><p>object</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>advanced: Redis deployment resource requirements</p></td>
+<td><p>Resource requirements for the Redis container</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">redis.resource_requirements.claims</span></code></p></td>
+<td><p>array of object</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container.   This is an alpha field and requires enabling the DynamicResourceAllocation feature gate.   This field is immutable.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">redis.resource_requirements.limits</span></code></p></td>
+<td><p>object</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">redis.resource_requirements.requests</span></code></p></td>
+<td><p>object</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">redis.security_context</span></code></p></td>
+<td><p>object (open)</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>advanced: Redis Security Context</p></td>
+<td><p>Settings to apply to the securityContext field of the redis container.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">redis.strategy</span></code></p></td>
+<td><p>object</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>hidden: Strategy</p></td>
+<td><p>Accepted for compatibility and not used. The managed Redis is a single-replica StatefulSet.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">redis.strategy.rollingUpdate</span></code></p></td>
+<td><p>object</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>Rolling update config params. Present only if DeploymentStrategyType = RollingUpdate. — TODO: Update this to follow our convention for oneOf, whatever we decide it to be.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">redis.strategy.rollingUpdate.maxSurge</span></code></p></td>
+<td><p>integer or string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>The maximum number of pods that can be scheduled above the desired number of pods. Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%). This can not be 0 if MaxUnavailable is 0. Absolute number is calculated from percentage by rounding up. Defaults to 25%. Example: when this is set to 30%, the new ReplicaSet can be scaled up immediately when the rolling update starts, such that the total number of old and new pods do not exceed 130% of desired pods. Once old pods have been killed, new ReplicaSet can be scaled up further, ensuring that total number of pods running at any time during the update is at most 130% of desired pods.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">redis.strategy.rollingUpdate.maxUnavailable</span></code></p></td>
+<td><p>integer or string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>The maximum number of pods that can be unavailable during the update. Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%). Absolute number is calculated from percentage by rounding down. This can not be 0 if MaxSurge is 0. Defaults to 25%. Example: when this is set to 30%, the old ReplicaSet can be scaled down to 70% of desired pods immediately when the rolling update starts. Once new pods are ready, old ReplicaSet can be scaled down further, followed by scaling up the new ReplicaSet, ensuring that the total number of pods available at all times during the update is at least 70% of desired pods.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">redis.strategy.type</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>Type of deployment. Can be “Recreate” or “RollingUpdate”. Default is RollingUpdate.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">redis.tolerations</span></code></p></td>
+<td><p>array of object</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>advanced: Tolerations</p></td>
+<td><p>Node tolerations for the Redis pods.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">redis_image</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>hidden: Redis Image</p></td>
+<td><p>Registry path to the redis container to use</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">redis_image_version</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>hidden: Redis Image Version</p></td>
+<td><p>Redis container image version to use</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">redis_mode</span></code></p></td>
+<td><p>string</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">cluster</span></code>, <code class="docutils literal notranslate"><span class="pre">standalone</span></code></p></td>
+<td><p></p></td>
+<td><p>advanced: Redis Mode</p></td>
+<td><p>Redis mode: standalone (one pod, default) or cluster (six Valkey nodes: three masters and three replicas).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">route_annotations</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>form: Route Annotations</p></td>
+<td><p>Route annotations (YAML block of key: value).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">route_api_version</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>advanced: Route API Version</p></td>
+<td><p>Route API version (route.openshift.io/v1).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">route_host</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>form: Route Host</p></td>
+<td><p>Route host; empty lets OpenShift assign it.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">route_tls_secret</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>advanced: Route TLS credential secret</p></td>
+<td><p>Secret with tls.crt, tls.key and optionally ca.crt for the Route.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">route_tls_termination_mechanism</span></code></p></td>
+<td><p>string</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Edge</span></code>, <code class="docutils literal notranslate"><span class="pre">edge</span></code>, <code class="docutils literal notranslate"><span class="pre">Passthrough</span></code>, <code class="docutils literal notranslate"><span class="pre">passthrough</span></code></p></td>
+<td><p></p></td>
+<td><p>advanced: Route TLS termination mechanism</p></td>
+<td><p>Route TLS termination: Edge. Passthrough is not supported (Envoy does not serve TLS).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">service_account_annotations</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>advanced: Service Account Annotations</p></td>
+<td><p>ServiceAccount annotations</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">service_annotations</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>advanced: LoadBalancer Service Annotations</p></td>
+<td><p>Gateway Service annotations (YAML block of key: value).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">service_type</span></code></p></td>
+<td><p>string</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ClusterIP</span></code>, <code class="docutils literal notranslate"><span class="pre">clusterip</span></code>, <code class="docutils literal notranslate"><span class="pre">LoadBalancer</span></code>, <code class="docutils literal notranslate"><span class="pre">loadbalancer</span></code>, <code class="docutils literal notranslate"><span class="pre">NodePort</span></code>, <code class="docutils literal notranslate"><span class="pre">nodeport</span></code></p></td>
+<td><p></p></td>
+<td><p>form: Service Type</p></td>
+<td><p>Gateway Service type: ClusterIP (default), LoadBalancer or NodePort.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ui</span></code></p></td>
+<td><p>object</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>hidden: Platform UI</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ui.enabled</span></code></p></td>
+<td><p>boolean</p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ui.image</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ui.image_version</span></code></p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="koiosplatformbackup.html" class="btn btn-neutral float-right" title="KoiosPlatformBackup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Koios Solutions. Portions 2026, Red Hat, Inc. and 2026, CtrlIQ, Inc..</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+<p class="koios-legal">Licensed under the <a href="../LICENSE.txt">Apache License 2.0</a>; see the <a href="../NOTICE.txt">NOTICE</a> for the origin of this documentation.</p>
+
+</body>
+</html>

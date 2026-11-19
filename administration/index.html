@@ -1,0 +1,390 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Administering Koios Automation Platform Deployments &ndash; Koios Automation Platform</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ansible.css?v=5657ca2d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/rtd-ethical-ads.css?v=289b023e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/dark.css?v=82723a23" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments-dark.css?v=027e451e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/koios.css?v=808fdb03" />
+
+  
+    <link rel="shortcut icon" href="../_static/images/koios-favicon.svg"/>
+    <link rel="canonical" href="https://docs.koioss.com/administration/index.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2d018451"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=b8bcef97"></script>
+      <script src="../_static/js/theme-toggle.js?v=59cbb094"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. Starting, Stopping, and Restarting Koios Automation Platform" href="init_script.html" />
+    <link rel="prev" title="Operational runbooks" href="../operate/runbooks.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+<script>
+  (function () {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('koios-docs-theme');
+    } catch (e) {}
+    // Without a stored choice, follow the system preference (dark when it cannot be read).
+    var light = false;
+    try { light = window.matchMedia('(prefers-color-scheme: light)').matches; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', stored || (light ? 'light' : 'dark'));
+  })();
+</script>
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="#" class="asc-theme-toggle" title="Switch theme" aria-label="Switch theme"><svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg></a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../_static/images/koios-mark-white.svg"
+    alt="Koios">
+  <div class="DocSiteNav-title">Koios Automation Platform</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Koios Automation Platform
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Koios Automation Platform Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Install and upgrade</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade_migration/index.html">Upgrades and Migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configure the platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/index.html">Configure the platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Access management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access/index.html">Authentication and access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation execution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">Automating with Koios Automation Platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation decisions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../eda/index.html">Event-Driven Ansible</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hub/index.html">Automation hub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operate</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../operate/index.html">Operate</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Administering Koios Automation Platform Deployments</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Administering Koios Automation Platform Deployments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="init_script.html">1. Starting, Stopping, and Restarting Koios Automation Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="supported_architectures.html">2. Supported Architectures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom_inventory_script.html">3. Custom Inventory Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scm-inv-source.html">4. Inventory File Importing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi-creds-assignment.html">5. Multi-Credential Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="management_jobs.html">6. Management Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clustering.html">7. Clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="containers_instance_groups.html">8. Container and Instance Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instances.html">9. Managing Capacity With Instances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topology_viewer.html">10. Topology Viewer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logfiles.html">11. Automation controller Logfiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">12. Logging and Aggregation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">13. Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html">14. Improving Automation Controller Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secret_handling.html">15. Secret handling and connection security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proxy_support.html">16. Proxy Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backup_restore.html">17. Backup and Restore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security_best_practices.html">18. Security Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awx-manage.html">19. The <em>awx-manage</em> Utility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configure_koios.html">20. Automation Controller Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="isolation_variables.html">21. Isolation functionality and variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kerberos_auth.html">22. Kerberos Authentication for Windows Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html">23. Troubleshooting Automation Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tipsandtricks.html">24. Automation controller Tips and Tricks</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration as code and API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/casc.html">Configuration as code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rest_api/index.html">automation controller API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/releases.html">Releases</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Koios Automation Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Administering Koios Automation Platform Deployments</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <section id="administering-koios-automation-platform-deployments">
+<span id="ag-start"></span><h1>Administering Koios Automation Platform Deployments<a class="headerlink" href="#administering-koios-automation-platform-deployments" title="Link to this heading"></a></h1>
+<p>Learn how to administer Koios Automation Platform deployments through custom scripts, management jobs, and DevOps workflows.
+This guide assumes at least basic understanding of the systems that you manage and maintain with Koios Automation Platform.</p>
+<p>This guide applies to the latest version of Koios Automation Platform only.
+The content in this guide is updated frequently and might contain functionality that is not available in previous versions.
+Likewise content in this guide can be removed or replaced if it applies to functionality that is no longer available in the latest version.</p>
+<div class="toctree-wrapper compound">
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Administering Koios Automation Platform Deployments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="init_script.html">1. Starting, Stopping, and Restarting Koios Automation Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supported_architectures.html">2. Supported Architectures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_inventory_script.html">3. Custom Inventory Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scm-inv-source.html">4. Inventory File Importing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scm-inv-source.html#custom-dynamic-inventory-scripts">4.1. Custom Dynamic Inventory Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scm-inv-source.html#scm-inventory-source-fields">4.2. SCM Inventory Source Fields</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="multi-creds-assignment.html">5. Multi-Credential Assignment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="multi-creds-assignment.html#important-changes">5.1. Important Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi-creds-assignment.html#launch-time-considerations">5.2. Launch Time Considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi-creds-assignment.html#multi-vault-credentials">5.3. Multi-Vault Credentials</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="management_jobs.html">6. Management Jobs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="management_jobs.html#removing-old-activity-stream-data">6.1. Removing Old Activity Stream Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="management_jobs.html#cleanup-expired-sessions">6.2. Cleanup Expired Sessions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="management_jobs.html#removing-old-job-history">6.3. Removing Old Job History</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html">7. Clustering</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="clustering.html#scaling-the-web-and-task-pods">7.1. Scaling the web and task pods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clustering.html#assigning-automation-controller-pods-to-specific-nodes">7.2. Assigning automation controller pods to specific nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clustering.html#status-and-monitoring">7.3. Status and monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clustering.html#failure-behavior">7.4. Failure behavior</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clustering.html#job-runtime-behavior">7.5. Job runtime behavior</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="containers_instance_groups.html">8. Container and Instance Groups</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="containers_instance_groups.html#instance-groups">8.1. Instance Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="containers_instance_groups.html#container-groups">8.2. Container Groups</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="instances.html">9. Managing Capacity With Instances</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="instances.html#prerequisites">9.1. Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instances.html#common-topologies">9.2. Common topologies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instances.html#add-an-instance">9.3. Add an instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instances.html#manage-instances">9.4. Manage instances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instances.html#using-a-custom-receptor-ca">9.5. Using a custom Receptor CA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instances.html#using-a-private-image-for-the-default-ee">9.6. Using a private image for the default EE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instances.html#troubleshooting">9.7. Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="topology_viewer.html">10. Topology Viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logfiles.html">11. Automation controller Logfiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logging.html">12. Logging and Aggregation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="logging.html#configure-external-logging">12.1. Configure external logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html#log-sources">12.2. Log sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html#message-schema">12.3. Message schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html#collector-examples">12.4. Collector examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html#queueing-during-collector-outages">12.5. Queueing during collector outages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html#controller-api-4xx-error-format">12.6. Controller API 4XX error format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html#troubleshoot-delivery">12.7. Troubleshoot delivery</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="metrics.html">13. Metrics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html#set-up-prometheus">13.1. Set up Prometheus</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">14. Improving Automation Controller Performance</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="performance.html#understand-the-workload">14.1. Understand the workload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html#execution-capacity">14.2. Execution capacity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html#scale-through-the-operator">14.3. Scale through the operator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html#monitor-the-platform">14.4. Monitor the platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html#event-volume-and-live-output">14.5. Event volume and live output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html#database-and-storage">14.6. Database and storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html#api-clients">14.7. API clients</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="secret_handling.html">15. Secret handling and connection security</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="secret_handling.html#secret-handling">15.1. Secret Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secret_handling.html#connection-security">15.2. Connection Security</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="proxy_support.html">16. Proxy Support</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="proxy_support.html#remote-host-headers">16.1. Remote Host Headers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proxy_support.html#proxy-ip-allowed-list">16.2. Proxy IP Allowed List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proxy_support.html#preserving-the-client-address">16.3. Preserving the Client Address</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proxy_support.html#security-considerations">16.4. Security Considerations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="backup_restore.html">17. Backup and Restore</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="backup_restore.html#backing-up">17.1. Backing up</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backup_restore.html#restoring">17.2. Restoring</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="security_best_practices.html">18. Security Best Practices</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="security_best_practices.html#understand-the-architecture-of-ansible-and-automation-controller">18.1. Understand the architecture of Ansible and automation controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security_best_practices.html#granting-access">18.2. Granting access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security_best_practices.html#available-resources">18.3. Available resources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="awx-manage.html">19. The <em>awx-manage</em> Utility</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="awx-manage.html#inventory-import">19.1. Inventory Import</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awx-manage.html#cleanup-of-old-data">19.2. Cleanup of old data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awx-manage.html#cluster-management">19.3. Cluster management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awx-manage.html#token-and-session-management">19.4. Token and session management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awx-manage.html#host-metrics">19.5. Host metrics</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configure_koios.html">20. Automation Controller Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configure_koios.html#authentication">20.1. Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configure_koios.html#job-settings">20.2. Job Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configure_koios.html#system-settings">20.3. System Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configure_koios.html#user-interface">20.4. User Interface</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="isolation_variables.html">21. Isolation functionality and variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kerberos_auth.html">22. Kerberos Authentication for Windows Jobs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="kerberos_auth.html#prepare-the-execution-environment">22.1. Prepare the execution environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kerberos_auth.html#configure-the-domain-inside-the-job-container">22.2. Configure the domain inside the job container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kerberos_auth.html#configure-the-credential-and-inventory">22.3. Configure the credential and inventory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kerberos_auth.html#ticket-handling">22.4. Ticket handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kerberos_auth.html#validate-with-a-windows-job">22.5. Validate with a Windows job</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">23. Troubleshooting Automation Controller</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#troubleshooting-settings">23.1. Troubleshooting settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#deployment-managed-settings">23.2. Deployment-managed settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#collect-diagnostic-information">23.3. Collect diagnostic information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#connection-failures">23.4. Connection failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#login-and-tls-failures">23.5. Login and TLS failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#playbook-failures-and-missing-playbooks">23.6. Playbook failures and missing playbooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#jobs-that-remain-pending-or-waiting">23.7. Jobs that remain pending or waiting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#cancel-a-job">23.8. Cancel a job</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#external-databases">23.9. External databases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#cloud-inventories-and-private-addresses">23.10. Cloud inventories and private addresses</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tipsandtricks.html">24. Automation controller Tips and Tricks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tipsandtricks.html#using-the-automation-controller-cli-tool">24.1. Using the automation controller CLI Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tipsandtricks.html#changing-the-admin-password">24.2. Changing the Admin Password</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tipsandtricks.html#creating-an-admin-from-the-command-line">24.3. Creating an Admin from the Command Line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tipsandtricks.html#setting-up-a-jump-host-to-use-with-automation-controller">24.4. Setting up a jump host to use with automation controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tipsandtricks.html#view-ansible-outputs-for-json-commands-when-using-automation-controller">24.5. View Ansible outputs for JSON commands when using automation controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tipsandtricks.html#locate-and-configure-the-ansible-configuration-file">24.6. Locate and configure the Ansible configuration file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tipsandtricks.html#view-a-listing-of-all-ansible-variables">24.7. View a listing of all ansible_ variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tipsandtricks.html#the-allow-jinja-in-extra-vars-variable">24.8. The ALLOW_JINJA_IN_EXTRA_VARS variable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tipsandtricks.html#using-execution-environments">24.9. Using execution environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tipsandtricks.html#configuring-the-public-url-for-notifications">24.10. Configuring the public URL for notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tipsandtricks.html#launching-jobs-with-curl">24.11. Launching Jobs with curl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tipsandtricks.html#dynamic-inventory-and-private-ip-addresses">24.12. Dynamic Inventory and private IP addresses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tipsandtricks.html#filtering-instances-returned-by-the-dynamic-inventory-sources-in-automation-controller">24.13. Filtering instances returned by the dynamic inventory sources in automation controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tipsandtricks.html#using-an-unreleased-module-from-ansible-source-with-automation-controller">24.14. Using an unreleased module from Ansible source with automation controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tipsandtricks.html#using-callback-plugins-with-automation-controller">24.15. Using callback plugins with automation controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tipsandtricks.html#connecting-to-windows-with-winrm">24.16. Connecting to Windows with winrm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tipsandtricks.html#importing-existing-inventory-files-and-host-group-vars-into-automation-controller">24.17. Importing existing inventory files and host/group vars into automation controller</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../operate/runbooks.html" class="btn btn-neutral float-left" title="Operational runbooks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="init_script.html" class="btn btn-neutral float-right" title="1. Starting, Stopping, and Restarting Koios Automation Platform" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Koios Solutions. Portions 2026, Red Hat, Inc. and 2026, CtrlIQ, Inc..</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+<p class="koios-legal">Licensed under the <a href="../LICENSE.txt">Apache License 2.0</a>; see the <a href="../NOTICE.txt">NOTICE</a> for the origin of this documentation.</p>
+
+</body>
+</html>

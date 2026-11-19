@@ -1,0 +1,359 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3. The User Interface &ndash; Koios Automation Platform</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ansible.css?v=5657ca2d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/rtd-ethical-ads.css?v=289b023e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/dark.css?v=82723a23" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments-dark.css?v=027e451e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/koios.css?v=808fdb03" />
+
+  
+    <link rel="shortcut icon" href="../_static/images/koios-favicon.svg"/>
+    <link rel="canonical" href="https://docs.koioss.com/userguide/main_menu.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2d018451"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=b8bcef97"></script>
+      <script src="../_static/js/theme-toggle.js?v=59cbb094"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5. Search" href="search_sort.html" />
+    <link rel="prev" title="2. Logging In" href="logging_in.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+<script>
+  (function () {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('koios-docs-theme');
+    } catch (e) {}
+    // Without a stored choice, follow the system preference (dark when it cannot be read).
+    var light = false;
+    try { light = window.matchMedia('(prefers-color-scheme: light)').matches; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', stored || (light ? 'light' : 'dark'));
+  })();
+</script>
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="#" class="asc-theme-toggle" title="Switch theme" aria-label="Switch theme"><svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg></a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../_static/images/koios-mark-white.svg"
+    alt="Koios">
+  <div class="DocSiteNav-title">Koios Automation Platform</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Koios Automation Platform
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Koios Automation Platform Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Install and upgrade</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade_migration/index.html">Upgrades and Migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configure the platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/index.html">Configure the platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Access management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access/index.html">Authentication and access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation execution</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Automating with Koios Automation Platform</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html">Automating with Koios Automation Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html">1. Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging_in.html">2. Logging In</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3. The User Interface</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#themes">3.1. Themes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#views">3.2. Views</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#dashboard-view">3.2.1. Dashboard view</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#jobs-view">3.2.2. Jobs view</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#schedules-view">3.2.3. Schedules view</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#activity-stream">3.2.4. Activity Stream</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workflow-approvals">3.2.5. Workflow Approvals</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#resources-and-access">3.3. Resources and Access</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#administration">3.4. Administration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#the-settings-menu">4. The Settings Menu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="search_sort.html">5. Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="organizations.html">6. Organizations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="users.html">7. Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="teams.html">8. Teams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credentials.html">9. Credentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credential_plugins.html">10. Secret Management System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credential_types.html">11. Custom Credential Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="execution_environments.html">12. Execution Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ee_reference.html">13. Execution Environment Setup Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="projects.html">14. Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project-sign.html">15. Project Signing and Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventories.html">16. Inventories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventory_plugins_templates.html">17. Supported Inventory Plugin Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="labels.html">18. Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_templates.html">19. Job Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_slices.html">20. Job Slicing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflows.html">21. Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_templates.html">22. Workflow Job Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instance_groups.html">23. Instance Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jobs.html">24. Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhooks.html">25. Working with Webhooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notifications.html">26. Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notification_parameters_supported.html">27. Supported Attributes for Custom Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduling.html">28. Schedules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="best_practices.html">29. Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">30. Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html">31. Glossary</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation decisions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../eda/index.html">Event-Driven Ansible</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hub/index.html">Automation hub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operate</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../operate/index.html">Operate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../administration/index.html">Administering Koios Automation Platform Deployments</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration as code and API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/casc.html">Configuration as code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rest_api/index.html">automation controller API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/releases.html">Releases</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Koios Automation Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Automating with Koios Automation Platform</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">3. </span>The User Interface</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <section id="the-user-interface">
+<span id="ug-ui-main"></span><h1><span class="section-number">3. </span>The User Interface<a class="headerlink" href="#the-user-interface" title="Link to this heading"></a></h1>
+<p id="index-0">The User Interface offers a friendly graphical framework for your IT orchestration needs. The left navigation bar gives access to every part of the platform:</p>
+<ul class="simple">
+<li><p><strong>Overview</strong>: the dashboard of the platform.</p></li>
+<li><p><strong>Automation Execution</strong> (automation controller): <strong>Jobs</strong>, <strong>Templates</strong>, <strong>Schedules</strong>, <strong>Projects</strong>, <strong>Infrastructure</strong> (Topology View, Inventories, Hosts, Instance Groups, Instances, Execution Environments, Credentials and Credential Types) and <strong>Administration</strong> (Activity Stream, Deprecations, Workflow Approvals, Notifiers and Management Jobs).</p></li>
+<li><p><strong>Automation Decisions</strong> (Event-Driven Ansible) and <strong>Automation Content</strong> (automation hub).</p></li>
+<li><p><strong>Analytics</strong>, <strong>Access Management</strong> (organizations, teams, users, roles and authentication), <strong>Settings</strong> and <strong>QuickStarts</strong>.</p></li>
+</ul>
+<p>The button at the top left collapses or expands the navigation bar. Across the top-right side of the interface you can refresh the page, switch the color theme, open the notifications, open the help menu (documentation, quick starts and the About page), and open your user menu (user details and logout).</p>
+<img alt="The Overview page with the Automation Execution menu expanded" src="../_images/ug-dashboard-top-nav.png" />
+<p>The <strong>About</strong> entry of the help menu shows the version of the platform and of each installed component (automation
+controller, Event-Driven Ansible and automation hub), which is the platform release since 2026.11.9:</p>
+<img alt="The About dialog with the platform version and the versions of automation controller, Event-Driven Ansible and automation hub" src="../_images/ug-about-dialog.png" />
+<section id="themes">
+<h2><span class="section-number">3.1. </span>Themes<a class="headerlink" href="#themes" title="Link to this heading"></a></h2>
+<p id="index-1">Choose the color theme in <strong>Settings &gt; User Preferences</strong>, field <strong>Color theme</strong>: <strong>System</strong>
+(the default) follows the theme of your operating system or browser; <strong>Light</strong> and <strong>Dark</strong> fix it.</p>
+<p>The choice is stored in your browser, not in your account, so set it again on another browser or
+machine. The login page has a dark background in every theme.</p>
+</section>
+<section id="views">
+<h2><span class="section-number">3.2. </span>Views<a class="headerlink" href="#views" title="Link to this heading"></a></h2>
+<p id="index-2">The User Interface provides several options for viewing information.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#dashboard-view" id="id1">Dashboard view</a></p></li>
+<li><p><a class="reference internal" href="#jobs-view" id="id2">Jobs view</a></p></li>
+<li><p><a class="reference internal" href="#schedules-view" id="id3">Schedules view</a></p></li>
+<li><p><a class="reference internal" href="#activity-stream" id="id4">Activity Stream</a></p></li>
+<li><p><a class="reference internal" href="#workflow-approvals" id="id5">Workflow Approvals</a></p></li>
+</ul>
+</nav>
+<section id="dashboard-view">
+<h3><a class="toc-backref" href="#id1" role="doc-backlink"><span class="section-number">3.2.1. </span>Dashboard view</a><a class="headerlink" href="#dashboard-view" title="Link to this heading"></a></h3>
+<p id="index-3">The <strong>Overview</strong> page begins with the <strong>Resource Counts</strong> of your hosts, projects and inventories, with their status. Each of these is linked to the corresponding objects for easy access. The <strong>Job Activity</strong> graph displays the number of successful, failed and errored jobs over a specified time period; you can choose the time period, the job types and the kind of chart. The <strong>Jobs</strong> card lists jobs ordered by finish time, newest first; running jobs can appear in it too. Click <strong>Manage view</strong> to choose and arrange the cards.</p>
+<img alt="The Overview page with the resource counts, the job activity and the recent jobs" src="../_images/ug-dashboard-topsummary.png" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Clicking <strong>Overview</strong> in the navigation menu, or the Koios Automation Platform logo, returns you to the Overview.</p>
+</div>
+</section>
+<section id="jobs-view">
+<h3><a class="toc-backref" href="#id2" role="doc-backlink"><span class="section-number">3.2.2. </span>Jobs view</a><a class="headerlink" href="#jobs-view" title="Link to this heading"></a></h3>
+<p>Access the <strong>Jobs</strong> view by opening <strong>Automation Execution &gt; Jobs</strong>. This view shows all the jobs that have run, including playbook runs, workflow jobs, project and inventory syncs, ad hoc commands and management jobs. See <a class="reference internal" href="jobs.html#ug-jobs"><span class="std std-ref">Jobs</span></a>.</p>
+<img alt="The Jobs list" src="../_images/ug-dashboard-jobs-view.png" />
+</section>
+<section id="schedules-view">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">3.2.3. </span>Schedules view</a><a class="headerlink" href="#schedules-view" title="Link to this heading"></a></h3>
+<p>Access the Schedules view by opening <strong>Automation Execution &gt; Schedules</strong>. This view shows all the schedules that are configured, of every kind of resource, with their next run; the switch of each row enables or disables it, and <strong>Create schedule</strong> adds one. See <a class="reference internal" href="scheduling.html#ug-scheduling"><span class="std std-ref">Schedules</span></a>.</p>
+<img alt="The Schedules list with the schedules of management jobs, templates, a project and a workflow" src="../_images/ug-dashboard-schedule-view.png" />
+</section>
+<section id="activity-stream">
+<span id="ug-activitystreams"></span><h3><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">3.2.4. </span>Activity Stream</a><a class="headerlink" href="#activity-stream" title="Link to this heading"></a></h3>
+<p id="index-4">The lists of automation controller resources have an Activity Stream button (clock icon) at the top right. Clicking it opens the <strong>Activity Stream</strong> filtered for that type of resource. The complete Activity Stream is in <strong>Automation Execution &gt; Administration &gt; Activity Stream</strong>.</p>
+<p><img alt="The Activity Stream of job templates" src="../_images/users-activity-stream.png" /></p>
+<p>An Activity Stream shows the changes of the resources. For each change, it shows the time of the event, the user that initiated the event (or <code class="docutils literal notranslate"><span class="pre">system</span></code>), and the action. Clicking <strong>View event details</strong> (magnifier icon) shows the details of the change, including the changed fields.</p>
+<p><img alt="The Event details window of an activity stream entry" src="../_images/activity-stream-event-log.png" /></p>
+<p>The Activity Stream can be searched, and filtered by <strong>Type</strong> of resource, such as jobs, schedules, workflow approvals, templates or credentials.</p>
+</section>
+<section id="workflow-approvals">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">3.2.5. </span>Workflow Approvals</a><a class="headerlink" href="#workflow-approvals" title="Link to this heading"></a></h3>
+<p>Open <strong>Automation Execution &gt; Administration &gt; Workflow Approvals</strong> to see your workflow approval queue. The list contains actions that require you to approve or deny before a workflow can proceed. The <strong>Notifications</strong> panel, opened with the bell at the top of the page, lists the workflow approvals (and the collection approvals of automation hub) as notifications; the counter of the bell shows the unread ones, and marking them as read does not approve or deny them, so use the approval lists to see what is pending. See <a class="reference internal" href="workflow_templates.html#ug-wf-approval-nodes"><span class="std std-ref">Approval nodes</span></a> for further detail.</p>
+<img alt="The Notifications panel with a pending workflow approval" src="../_images/ug-notifications-drawer.png" />
+</section>
+</section>
+<section id="resources-and-access">
+<h2><span class="section-number">3.3. </span>Resources and Access<a class="headerlink" href="#resources-and-access" title="Link to this heading"></a></h2>
+<p>The <strong>Automation Execution</strong> and <strong>Access Management</strong> menus provide you access to the various components of automation controller and allow you to configure who has permissions for those resources:</p>
+<ul class="simple">
+<li><p>Templates (<a class="reference internal" href="job_templates.html#ug-jobtemplates"><span class="std std-ref">Job Templates</span></a> and <a class="reference internal" href="workflow_templates.html#ug-wf-templates"><span class="std std-ref">Workflow Job Templates</span></a>)</p></li>
+<li><p><a class="reference internal" href="credentials.html#ug-credentials"><span class="std std-ref">Credentials</span></a></p></li>
+<li><p><a class="reference internal" href="projects.html#ug-projects"><span class="std std-ref">Projects</span></a></p></li>
+<li><p><a class="reference internal" href="inventories.html#ug-inventories"><span class="std std-ref">Inventories</span></a></p></li>
+<li><p><a class="reference internal" href="inventories.html#ug-inventories-add-host"><span class="std std-ref">Hosts</span></a></p></li>
+<li><p><a class="reference internal" href="organizations.html#ug-organizations"><span class="std std-ref">Organizations</span></a></p></li>
+<li><p><a class="reference internal" href="users.html#ug-users"><span class="std std-ref">Users</span></a></p></li>
+<li><p><a class="reference internal" href="teams.html#ug-teams"><span class="std std-ref">Teams</span></a></p></li>
+</ul>
+</section>
+<section id="administration">
+<h2><span class="section-number">3.4. </span>Administration<a class="headerlink" href="#administration" title="Link to this heading"></a></h2>
+<p id="index-5">The <strong>Automation Execution &gt; Administration</strong> and <strong>Automation Execution &gt; Infrastructure</strong> menus provide access to the various administrative options. From here, you can create, view, and edit:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="credential_types.html#ug-credential-types"><span class="std std-ref">Custom Credential Types</span></a></p></li>
+<li><p><a class="reference internal" href="notifications.html#ug-notifications"><span class="std std-ref">Notifications</span></a></p></li>
+<li><p><a class="reference internal" href="../administration/management_jobs.html#ag-management-jobs"><span class="std std-ref">Management Jobs</span></a></p></li>
+<li><p><a class="reference internal" href="instance_groups.html#ug-instance-groups"><span class="std std-ref">Instance Groups</span></a></p></li>
+<li><p><a class="reference internal" href="../administration/instances.html#ag-instances"><span class="std std-ref">Instances</span></a></p></li>
+<li><p><a class="reference internal" href="execution_environments.html#ug-execution-environments"><span class="std std-ref">Execution Environments</span></a></p></li>
+<li><p><a class="reference internal" href="../administration/topology_viewer.html#ag-topology-viewer"><span class="std std-ref">Topology Viewer</span></a></p></li>
+</ul>
+</section>
+</section>
+<section id="the-settings-menu">
+<h1><span class="section-number">4. </span>The Settings Menu<a class="headerlink" href="#the-settings-menu" title="Link to this heading"></a></h1>
+<p>Configuring global and system-level settings is accomplished through the <strong>Settings</strong> menu, which is described in further detail in the proceeding section. The <strong>Settings</strong> menu offers access to administrative configuration options.</p>
+<p id="index-6"><strong>Settings</strong>, in the navigation menu, holds the configuration of the platform:</p>
+<ul class="simple">
+<li><p><strong>Platform gateway</strong>: settings of the gateway, which apply to the whole platform (logins,
+sessions, passwords, tokens and the login page);</p></li>
+<li><p><strong>Automation Execution</strong>: settings of automation controller, in <strong>System</strong>, <strong>Job</strong>, <strong>Logging</strong>,
+<strong>Policy</strong> and <strong>Troubleshooting</strong>;</p></li>
+<li><p><strong>User Preferences</strong>: your own preferences in this browser, such as the color theme.</p></li>
+</ul>
+<img alt="The System settings of automation controller." src="../_images/ug-settings-menu-screen.png" />
+<p>Controller settings declared in <code class="docutils literal notranslate"><span class="pre">spec.controller.extra_settings</span></code> are read-only in the UI. For more
+information on these
+settings, see <a class="reference internal" href="../administration/configure_koios.html#ag-configure-koios"><span class="std std-ref">Automation Controller Configuration</span></a> and <a class="reference internal" href="../access/sessions.html"><span class="doc">Sessions and passwords</span></a>.</p>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="logging_in.html" class="btn btn-neutral float-left" title="2. Logging In" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="search_sort.html" class="btn btn-neutral float-right" title="5. Search" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Koios Solutions. Portions 2026, Red Hat, Inc. and 2026, CtrlIQ, Inc..</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+<p class="koios-legal">Licensed under the <a href="../LICENSE.txt">Apache License 2.0</a>; see the <a href="../NOTICE.txt">NOTICE</a> for the origin of this documentation.</p>
+
+</body>
+</html>

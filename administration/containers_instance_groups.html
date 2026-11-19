@@ -1,0 +1,568 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>8. Container and Instance Groups &ndash; Koios Automation Platform</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ansible.css?v=5657ca2d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/rtd-ethical-ads.css?v=289b023e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/dark.css?v=82723a23" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments-dark.css?v=027e451e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/koios.css?v=808fdb03" />
+
+  
+    <link rel="shortcut icon" href="../_static/images/koios-favicon.svg"/>
+    <link rel="canonical" href="https://docs.koioss.com/administration/containers_instance_groups.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2d018451"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=b8bcef97"></script>
+      <script src="../_static/js/theme-toggle.js?v=59cbb094"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="9. Managing Capacity With Instances" href="instances.html" />
+    <link rel="prev" title="7. Clustering" href="clustering.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+<script>
+  (function () {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('koios-docs-theme');
+    } catch (e) {}
+    // Without a stored choice, follow the system preference (dark when it cannot be read).
+    var light = false;
+    try { light = window.matchMedia('(prefers-color-scheme: light)').matches; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', stored || (light ? 'light' : 'dark'));
+  })();
+</script>
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="#" class="asc-theme-toggle" title="Switch theme" aria-label="Switch theme"><svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg></a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../_static/images/koios-mark-white.svg"
+    alt="Koios">
+  <div class="DocSiteNav-title">Koios Automation Platform</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Koios Automation Platform
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Koios Automation Platform Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Install and upgrade</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade_migration/index.html">Upgrades and Migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configure the platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/index.html">Configure the platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Access management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access/index.html">Authentication and access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation execution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">Automating with Koios Automation Platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation decisions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../eda/index.html">Event-Driven Ansible</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hub/index.html">Automation hub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operate</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../operate/index.html">Operate</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Administering Koios Automation Platform Deployments</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html">Administering Koios Automation Platform Deployments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="init_script.html">1. Starting, Stopping, and Restarting Koios Automation Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="supported_architectures.html">2. Supported Architectures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom_inventory_script.html">3. Custom Inventory Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scm-inv-source.html">4. Inventory File Importing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi-creds-assignment.html">5. Multi-Credential Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="management_jobs.html">6. Management Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clustering.html">7. Clustering</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">8. Container and Instance Groups</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#instance-groups">8.1. Instance Groups</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#configuring-instance-groups-from-the-api">8.1.1. Configuring Instance Groups from the API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#instance-group-policies">8.1.2. Instance group policies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#notable-policy-considerations">8.1.3. Notable policy considerations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manually-pinning-instances-to-specific-groups">8.1.4. Manually pinning instances to specific groups</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#job-runtime-behavior">8.1.5. Job Runtime Behavior</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#control-where-a-job-runs">8.1.6. Control Where a Job Runs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#instance-group-capacity-limits">8.1.7. Instance group capacity limits</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#removing-instances-and-instance-groups">8.1.8. Removing instances and instance groups</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#container-groups">8.2. Container Groups</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#create-a-container-group">8.2.1. Create a container group</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#customize-the-pod-spec">8.2.2. Customize the pod spec</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#verify-container-group-functions">8.2.3. Verify container group functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#view-container-group-jobs">8.2.4. View container group jobs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#kubernetes-api-failure-conditions">8.2.5. Kubernetes API failure conditions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#container-capacity-limits">8.2.6. Container capacity limits</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="instances.html">9. Managing Capacity With Instances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topology_viewer.html">10. Topology Viewer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logfiles.html">11. Automation controller Logfiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">12. Logging and Aggregation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">13. Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html">14. Improving Automation Controller Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secret_handling.html">15. Secret handling and connection security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proxy_support.html">16. Proxy Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backup_restore.html">17. Backup and Restore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security_best_practices.html">18. Security Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awx-manage.html">19. The <em>awx-manage</em> Utility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configure_koios.html">20. Automation Controller Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="isolation_variables.html">21. Isolation functionality and variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kerberos_auth.html">22. Kerberos Authentication for Windows Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html">23. Troubleshooting Automation Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tipsandtricks.html">24. Automation controller Tips and Tricks</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration as code and API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/casc.html">Configuration as code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rest_api/index.html">automation controller API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/releases.html">Releases</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Koios Automation Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Administering Koios Automation Platform Deployments</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">8. </span>Container and Instance Groups</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <section id="container-and-instance-groups">
+<span id="ag-ext-exe-env"></span><h1><span class="section-number">8. </span>Container and Instance Groups<a class="headerlink" href="#container-and-instance-groups" title="Link to this heading"></a></h1>
+<p id="index-0">Automation controller runs each job in an <strong>instance group</strong>. In Koios Automation Platform there are
+two kinds:</p>
+<ul class="simple">
+<li><p><strong>Container groups</strong> run each job as a pod of its own in a Kubernetes namespace. The <code class="docutils literal notranslate"><span class="pre">default</span></code>
+instance group of a new platform is a container group that runs jobs in the namespace of the
+platform.</p></li>
+<li><p><strong>Instance groups</strong> of instances run jobs on the instances that belong to them: the control
+instances (the task pods, in the <code class="docutils literal notranslate"><span class="pre">controlplane</span></code> group) or execution nodes added to the mesh (see
+<a class="reference internal" href="instances.html#ag-instances"><span class="std std-ref">Managing Capacity With Instances</span></a>).</p></li>
+</ul>
+<p>For execution environments, see <a class="reference internal" href="../userguide/execution_environments.html#ug-execution-environments"><span class="std std-ref">Execution Environments</span></a> in the <em>User Guide</em>.</p>
+<section id="instance-groups">
+<span id="ag-instance-groups"></span><h2><span class="section-number">8.1. </span>Instance Groups<a class="headerlink" href="#instance-groups" title="Link to this heading"></a></h2>
+<p>Instance groups can be assigned to:</p>
+<ul class="simple">
+<li><p>Organizations</p></li>
+<li><p>Inventories</p></li>
+<li><p>Job Templates</p></li>
+</ul>
+<p>When a job runs, it goes to the first instance group with capacity, looking at the groups of the job
+template first, then those of its inventory, then those of its organization (see
+<a class="reference internal" href="#ag-instance-groups-control-where-job-runs"><span class="std std-ref">Control Where a Job Runs</span></a>). <strong>Prevent instance group fallback</strong> on a job
+template or inventory stops the search there. If none of the groups has capacity, the job waits; it
+does not fall back to <code class="docutils literal notranslate"><span class="pre">default</span></code>. Only a job whose resources have no instance group at all runs in
+<code class="docutils literal notranslate"><span class="pre">default</span></code>.</p>
+<p>A new platform has two groups:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">controlplane</span></code>: the control instances. It runs project updates and other internal work; you do
+not assign it to resources.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">default</span></code>: the container group where jobs run unless something says otherwise.</p></li>
+</ul>
+<img alt="The Instance Groups page of a new platform: controlplane, an instance group, and default, a container group." src="../_images/infra-instance-groups.png" />
+<p>Create more groups to send work to particular places: a container group with its own namespace,
+node selector or resources, or an instance group of execution nodes in another network.</p>
+<p>Do not name an instance group like an instance.</p>
+<section id="configuring-instance-groups-from-the-api">
+<h3><span class="section-number">8.1.1. </span>Configuring Instance Groups from the API<a class="headerlink" href="#configuring-instance-groups-from-the-api" title="Link to this heading"></a></h3>
+<p id="index-1">Instance groups can be created by POSTing to <code class="docutils literal notranslate"><span class="pre">/api/controller/v2/instance_groups</span></code> as a system administrator.</p>
+<p>Once created, instances can be associated with an instance group with:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>HTTP<span class="w"> </span>POST<span class="w"> </span>/api/controller/v2/instance_groups/x/instances/<span class="w"> </span><span class="o">{</span><span class="s1">'id'</span>:<span class="w"> </span>y<span class="o">}</span><span class="sb">`</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>An instance that is added to an instance group will automatically reconfigure itself to listen on the group’s work queue. See the following section, <a class="reference internal" href="#ag-instance-group-policies"><span class="std std-ref">Instance group policies</span></a>, for more details.</p>
+</section>
+<section id="instance-group-policies">
+<span id="ag-instance-group-policies"></span><h3><span class="section-number">8.1.2. </span>Instance group policies<a class="headerlink" href="#instance-group-policies" title="Link to this heading"></a></h3>
+<p id="index-2">You can configure automation controller instances to automatically join Instance Groups when they come online by defining a <a class="reference internal" href="../userguide/glossary.html#term-Policy"><span class="xref std std-term">policy</span></a>. These policies are evaluated for every new instance that comes online.</p>
+<p>Instance Group Policies are controlled by three optional fields on an <code class="docutils literal notranslate"><span class="pre">Instance</span> <span class="pre">Group</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">policy_instance_percentage</span></code>: This is a number between 0 - 100. It guarantees that this percentage of active automation controller instances will be added to this Instance Group. As new instances come online, if the number of Instances in this group relative to the total number of instances is less than the given percentage, then new ones will be added until the percentage condition is satisfied.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">policy_instance_minimum</span></code>: This policy attempts to keep at least this many instances in the Instance Group. If the number of available instances is lower than this minimum, then all instances will be placed in this Instance Group.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">policy_instance_list</span></code>: This is a fixed list of instance names to always include in this Instance Group.</p></li>
+</ul>
+<p>The Instance Groups list view from the automation controller User Interface provides a summary of the capacity levels for each instance group according to instance group policies:</p>
+<p><img alt="Instance Group list view with example instance group and container groups." src="../_images/instance-groups_list_view.png" /></p>
+<p>See <a class="reference internal" href="../userguide/instance_groups.html#ug-instance-groups-create"><span class="std std-ref">Create an instance group</span></a> for further detail.</p>
+</section>
+<section id="notable-policy-considerations">
+<h3><span class="section-number">8.1.3. </span>Notable policy considerations<a class="headerlink" href="#notable-policy-considerations" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">policy_instance_percentage</span></code> and <code class="docutils literal notranslate"><span class="pre">policy_instance_minimum</span></code> both set minimum allocations. The rule that results in more instances assigned to the group will take effect. For example, if you have a <code class="docutils literal notranslate"><span class="pre">policy_instance_percentage</span></code> of 50% and a <code class="docutils literal notranslate"><span class="pre">policy_instance_minimum</span></code> of 2 and you start 6 instances, 3 of them would be assigned to the Instance Group. If you reduce the number of total instances in the cluster to 2, then both of them would be assigned to the Instance Group to satisfy <code class="docutils literal notranslate"><span class="pre">policy_instance_minimum</span></code>. This way, you can set a lower bound on the amount of available resources.</p></li>
+<li><p>Policies do not actively prevent instances from being associated with multiple Instance Groups, but this can effectively be achieved by making the percentages add up to 100. If you have 4 instance groups, assign each a percentage value of 25 and the instances will be distributed among them with no overlap.</p></li>
+</ul>
+</section>
+<section id="manually-pinning-instances-to-specific-groups">
+<h3><span class="section-number">8.1.4. </span>Manually pinning instances to specific groups<a class="headerlink" href="#manually-pinning-instances-to-specific-groups" title="Link to this heading"></a></h3>
+<p id="index-3">If you have a special instance which needs to be exclusively assigned to a specific Instance Group but don’t want it to automatically join other groups via “percentage” or “minimum” policies:</p>
+<ol class="arabic simple">
+<li><p>Add the instance to one or more Instance Groups’ <code class="docutils literal notranslate"><span class="pre">policy_instance_list</span></code></p></li>
+<li><p>Update the instance’s <code class="docutils literal notranslate"><span class="pre">managed_by_policy</span></code> property to be <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+</ol>
+<p>This will prevent the Instance from being automatically added to other groups based on percentage and minimum policy; it will only belong to the groups you’ve manually assigned it to:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>HTTP<span class="w"> </span>PATCH<span class="w"> </span>/api/controller/v2/instance_groups/N/
+<span class="o">{</span>
+<span class="s2">"policy_instance_list"</span>:<span class="w"> </span><span class="o">[</span><span class="s2">"special-instance"</span><span class="o">]</span>
+<span class="o">}</span>
+
+HTTP<span class="w"> </span>PATCH<span class="w"> </span>/api/controller/v2/instances/X/
+<span class="o">{</span>
+<span class="s2">"managed_by_policy"</span>:<span class="w"> </span>False
+<span class="o">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="job-runtime-behavior">
+<span id="ag-instance-groups-job-runtime-behavior"></span><h3><span class="section-number">8.1.5. </span>Job Runtime Behavior<a class="headerlink" href="#job-runtime-behavior" title="Link to this heading"></a></h3>
+<p>When you run a job associated with a instance group, some behaviors worth noting are:</p>
+<ul class="simple">
+<li><p>If a cluster is divided into separate instance groups, then the behavior is similar to the cluster as a whole. If two instances are assigned to a group then either one is just as likely to receive a job as any other in the same group.</p></li>
+<li><p>As automation controller instances are brought online, it effectively expands the work capacity of the system. If those instances are also placed into instance groups, then they also expand that group’s capacity. If an instance is performing work and it is a member of multiple groups, then capacity will be reduced from all groups for which it is a member. De-provisioning an instance will remove capacity from the cluster wherever that instance was assigned.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Not all instances are required to be provisioned with an equal capacity.</p>
+</div>
+</section>
+<section id="control-where-a-job-runs">
+<span id="ag-instance-groups-control-where-job-runs"></span><h3><span class="section-number">8.1.6. </span>Control Where a Job Runs<a class="headerlink" href="#control-where-a-job-runs" title="Link to this heading"></a></h3>
+<p>If any of the job template, inventory, or organization has instance groups associated with them, a job ran from that job template will not be eligible for the default behavior. That means that if all of the instances inside of the instance groups associated with these 3 resources are out of capacity, the job will remain in the pending state until capacity becomes available.</p>
+<p>The order of preference in determining which instance group to submit the job to is as follows:</p>
+<ol class="arabic simple">
+<li><p>job template</p></li>
+<li><p>inventory</p></li>
+<li><p>organization (by way of project)</p></li>
+</ol>
+<p>If instance groups are associated with the job template, and all of these are at capacity, then the job will be submitted to instance groups specified on inventory, and then organization. Jobs should execute in those groups in preferential order as resources are available.</p>
+<p>The global <code class="docutils literal notranslate"><span class="pre">default</span></code> group can still be associated with a resource, just like any of the custom instance groups defined in the playbook. This can be used to specify a preferred instance group on the job template or inventory, but still allow the job to be submitted to any instance if those are out of capacity.</p>
+<p>As an example, by associating <code class="docutils literal notranslate"><span class="pre">group_a</span></code> with a Job Template and also associating the <code class="docutils literal notranslate"><span class="pre">default</span></code> group with its inventory, you allow the <code class="docutils literal notranslate"><span class="pre">default</span></code> group to be used as a fallback in case <code class="docutils literal notranslate"><span class="pre">group_a</span></code> gets out of capacity.</p>
+<p>In addition, it is possible to not associate an instance group with one resource but designate another resource as the fallback. For example, not associating an instance group with a job template and have it fall back to the inventory and/or the organization’s instance group.</p>
+<p>This presents two other great use cases:</p>
+<ol class="arabic simple">
+<li><p>Associating instance groups with an inventory (omitting assigning the job template to an instance group) will allow the user to ensure that any playbook run against a specific inventory will run only on the group associated with it. This can be super useful in the situation where only those instances have a direct link to the managed nodes.</p></li>
+<li><p>An administrator can assign instance groups to organizations. This effectively allows the administrator to segment out the entire infrastructure and guarantee that each organization has capacity to run jobs without interfering with any other organization’s ability to run jobs.</p></li>
+</ol>
+<p>Likewise, an administrator could assign multiple groups to each organization as desired, as in the following scenario:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>There are three instance groups: A, B, and C. There are two organizations: Org1 and Org2.</p></li>
+<li><p>The administrator assigns group A to Org1, group B to Org2 and then assign group C to both Org1 and Org2 as an overflow for any extra capacity that may be needed.</p></li>
+<li><p>The organization administrators are then free to assign inventory or job templates to whichever group they want (or just let them inherit the default order from the organization).</p></li>
+</ul>
+<p><img alt="Illustration showing grouping scenarios." src="../_images/instance-groups-scenarios.png" /></p>
+</div></blockquote>
+<p>Arranging resources in this way offers a lot of flexibility. Also, you can create instance groups with only one instance, thus allowing you to direct work towards a very specific Host in the automation controller cluster.</p>
+</section>
+<section id="instance-group-capacity-limits">
+<span id="ag-instancegrp-cpacity"></span><h3><span class="section-number">8.1.7. </span>Instance group capacity limits<a class="headerlink" href="#instance-group-capacity-limits" title="Link to this heading"></a></h3>
+<p id="index-4">Sometimes there is external business logic which may drive the desire to limit the concurrency of jobs sent to an instance group, or the maximum number of forks to be consumed.</p>
+<p>For traditional instances and instance groups, there could be a desire to allow two organizations to run jobs on the same underlying instances, but limit each organization’s total number of concurrent jobs. This can be achieved by creating an instance group for each organization and assigning the value for <code class="docutils literal notranslate"><span class="pre">max_concurrent_jobs</span></code>.</p>
+<p>For container groups, automation controller is generally not aware of the resource limits of the OpenShift cluster. There may be limits set on the number of pods on a namespace, or only resources available to schedule a certain number of pods at a time if no auto-scaling is in place. Again, in this case, we can adjust the value for <code class="docutils literal notranslate"><span class="pre">max_concurrent_jobs</span></code>.</p>
+<p>Another parameter available is <code class="docutils literal notranslate"><span class="pre">max_forks</span></code>. This provides additional flexibility for capping the capacity consumed on an instance group or container group. This may be used if jobs with a wide variety of inventory sizes and “forks” values are being run. This way, you can limit an organization to run up to 10 jobs concurrently, but consume no more than 50 forks at a time.</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="nt">max_concurrent_jobs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="nt">max_forks</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">50</span>
+</pre></div>
+</div>
+<p>If 10 jobs that use 5 forks each are run, an 11th job will wait until one of these finishes to run on that group (or be scheduled on a different group with capacity).</p>
+<p>If 2 jobs are running with 20 forks each, then a 3rd job with a <code class="docutils literal notranslate"><span class="pre">task_impact</span></code> of 11 or more will wait until one of these finishes to run on that group (or be scheduled on a different group with capacity).</p>
+<p>For container groups, using the <code class="docutils literal notranslate"><span class="pre">max_forks</span></code> value is useful given that all jobs are submitted using the same <code class="docutils literal notranslate"><span class="pre">pod_spec</span></code> with the same resource requests, irrespective of the “forks” value of the job. The default <code class="docutils literal notranslate"><span class="pre">pod_spec</span></code> sets requests and not limits, so the pods can “burst” above their requested value without being throttled or reaped. By setting the <code class="docutils literal notranslate"><span class="pre">max_forks</span></code> value, you can help prevent a scenario where too many jobs with large forks values get scheduled concurrently and cause the OpenShift nodes to be oversubscribed with multiple pods using more resources than their requested value.</p>
+<p>To set the maximum values for the concurrent jobs and forks in an instance group, see <a class="reference internal" href="../userguide/instance_groups.html#ug-instance-groups-create"><span class="std std-ref">Create an instance group</span></a> in the <em>User Guide</em>.</p>
+</section>
+<section id="removing-instances-and-instance-groups">
+<span id="ag-instancegrp-deprovision"></span><h3><span class="section-number">8.1.8. </span>Removing instances and instance groups<a class="headerlink" href="#removing-instances-and-instance-groups" title="Link to this heading"></a></h3>
+<p id="index-5">Control instances come and go with the task pods: scale <code class="docutils literal notranslate"><span class="pre">task_replicas</span></code> (see <a class="reference internal" href="clustering.html#ag-clustering"><span class="std std-ref">Clustering</span></a>)
+and the cluster removes the instances of pods that stop. Execution and hop nodes are removed from
+<strong>Instances</strong> in the user interface, or by setting their <code class="docutils literal notranslate"><span class="pre">node_state</span></code> to <code class="docutils literal notranslate"><span class="pre">deprovisioning</span></code> in the
+API (see <a class="reference internal" href="instances.html#ag-instances"><span class="std std-ref">Managing Capacity With Instances</span></a>).</p>
+<p>Instance groups you created are deleted from <strong>Instance Groups</strong> in the user interface or with a
+<code class="docutils literal notranslate"><span class="pre">DELETE</span></code> to <code class="docutils literal notranslate"><span class="pre">/api/controller/v2/instance_groups/&lt;id&gt;/</span></code>. Do not delete <code class="docutils literal notranslate"><span class="pre">controlplane</span></code> or
+<code class="docutils literal notranslate"><span class="pre">default</span></code>. For more about managing instance groups in the user interface, see
+<a class="reference internal" href="../userguide/instance_groups.html#ug-instance-groups"><span class="std std-ref">Instance Groups</span></a> in the <em>User Guide</em>.</p>
+</section>
+</section>
+<section id="container-groups">
+<span id="ag-container-groups"></span><h2><span class="section-number">8.2. </span>Container Groups<a class="headerlink" href="#container-groups" title="Link to this heading"></a></h2>
+<p id="index-6">Automation controller supports <a class="reference internal" href="../userguide/glossary.html#term-Container-Groups"><span class="xref std std-term">Container Groups</span></a>, which allow you to execute jobs in pods on Kubernetes or OpenShift clusters. These pods are created on demand and only exist for the duration of the job. This is known as the ephemeral execution model and ensures a clean environment for every job run.</p>
+<p>Container groups are different from execution environments in that execution environments are container images: the container group decides where the pod runs, and the execution environment which image it runs. See <a class="reference internal" href="../userguide/execution_environments.html#ug-execution-environments"><span class="std std-ref">Execution Environments</span></a> in the <em>User Guide</em> for further detail.</p>
+<section id="create-a-container-group">
+<h3><span class="section-number">8.2.1. </span>Create a container group<a class="headerlink" href="#create-a-container-group" title="Link to this heading"></a></h3>
+<p>Without a credential, automation controller manages the job pods with the service account of its own pods, and creates them in the namespace of the pod spec, by default the namespace of the platform (the <code class="docutils literal notranslate"><span class="pre">default</span></code> container group works this way). The job pod itself runs with the service account of its pod spec, <code class="docutils literal notranslate"><span class="pre">default</span></code> with <code class="docutils literal notranslate"><span class="pre">automountServiceAccountToken:</span> <span class="pre">false</span></code>. To run pods in another namespace of the same cluster, set <code class="docutils literal notranslate"><span class="pre">metadata.namespace</span></code> in the pod spec and give the service account of the controller permission to manage pods there, or use a credential. To use another identity or another cluster, give the container group an <strong>OpenShift or Kubernetes API Bearer Token</strong> credential with permission to manage pods in the namespace of the pod spec:</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">ContainerGroup</span></code> is a type of <code class="docutils literal notranslate"><span class="pre">InstanceGroup</span></code> that has an associated Credential that allows for connecting to an OpenShift cluster. To set up a container group, you must first have the following:</p>
+<ul class="simple">
+<li><p>A namespace you can launch into (every cluster has a “default” namespace, but you may want to use a specific namespace)</p></li>
+<li><p>A service account that has the roles that allow it to launch and manage Pods in this namespace</p></li>
+<li><p>If you will be using execution environments in a private registry, and have a Container Registry credential associated to them in automation controller, the service account also needs the roles to get, create, and delete secrets in the namespace. If you do not want to give these roles to the service account, you can pre-create the <code class="docutils literal notranslate"><span class="pre">ImagePullSecrets</span></code> and specify them on the pod spec for the ContainerGroup. In this case, the execution environment should NOT have a Container Registry credential associated, or automation controller will attempt to create the secret for you in the namespace.</p></li>
+<li><p>A token associated with that service account (OpenShift or Kubernetes Bearer Token)</p></li>
+<li><p>A CA certificate associated with the cluster</p></li>
+</ul>
+<p>This section describes creating a Service Account in an Openshift cluster (or K8s) in order to be used to run jobs in a container group via automation controller. After the Service Account is created, its credentials are provided to automation controller in the form of an Openshift or Kubernetes API bearer token credential. Below describes how to create a service account and collect the needed information for configuring automation controller.</p>
+<p>To configure automation controller:</p>
+<ol class="arabic">
+<li><p>To create a service account, you may download and use this sample service account, <a class="reference download internal" download="" href="../_downloads/c0241c5d30477cf767908e8b663d5fec/containergroup-sa.yml"><code class="xref download docutils literal notranslate"><span class="pre">containergroup</span> <span class="pre">sa</span></code></a> and modify it as needed to obtain the above credentials.</p></li>
+<li><p>Apply the configuration from <code class="docutils literal notranslate"><span class="pre">containergroup-sa.yml</span></code>:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">kubectl apply -f containergroup-sa.yml</span>
+</pre></div>
+</div>
+</li>
+<li><p>Create a token Secret for the service account; Kubernetes fills in its token and the CA of the cluster:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">kubectl apply -n containergroup-namespace -f - &lt;&lt;'EOF'</span>
+<span class="l l-Scalar l-Scalar-Plain">apiVersion</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Secret</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">containergroup-service-account-token</span>
+<span class="w">  </span><span class="nt">annotations</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">kubernetes.io/service-account.name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">containergroup-service-account</span>
+<span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kubernetes.io/service-account-token</span>
+<span class="l l-Scalar l-Scalar-Plain">EOF</span>
+</pre></div>
+</div>
+</li>
+<li><p>Wait until Kubernetes has filled in the Secret, then write the token and the CA certificate to
+files only you can read:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">(</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">set -euo pipefail; umask 077</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">S="secret/containergroup-service-account-token -n containergroup-namespace"</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">for _ in $(seq 30); do [ -n "$(kubectl get $S -o jsonpath='{.data.token}')" ] &amp;&amp; break; sleep 2; done</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">kubectl get $S -o jsonpath='{.data.token}' | base64 -d &gt; containergroup-sa.token</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">kubectl get $S -o jsonpath='{.data.ca\.crt}' | base64 -d &gt; containergroup-ca.crt</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">chmod 600 containergroup-sa.token containergroup-ca.crt</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">test -s containergroup-sa.token &amp;&amp; test -s containergroup-ca.crt</span>
+<span class="l l-Scalar l-Scalar-Plain">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>This token does not expire: delete the Secret to revoke it.</p>
+<p>To use a token that expires instead, skip steps 3 and 4 and request one; the API server may grant
+a shorter duration than requested, so renew the credential before it expires. The CA certificate
+is the one of your kubeconfig:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">(</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">set -euo pipefail; umask 077</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">kubectl create token containergroup-service-account -n containergroup-namespace \</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">--duration=&lt;time&gt; &gt; containergroup-sa.token</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">kubectl config view --raw --minify \</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">-o jsonpath='{.clusters[0].cluster.certificate-authority-data}' | base64 -d &gt; containergroup-ca.crt</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">chmod 600 containergroup-sa.token containergroup-ca.crt</span>
+<span class="l l-Scalar l-Scalar-Plain">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Use the contents of <code class="docutils literal notranslate"><span class="pre">containergroup-sa.token</span></code> and <code class="docutils literal notranslate"><span class="pre">containergroup-ca.crt</span></code> to provide the information for the <a class="reference internal" href="../userguide/credentials.html#ug-credentials-ocp-k8s"><span class="std std-ref">OpenShift or Kubernetes API Bearer Token</span></a> required for the container group.</p></li>
+</ol>
+<p>To create a container group:</p>
+<ol class="arabic simple">
+<li><p>If needed, create an <a class="reference internal" href="../userguide/credentials.html#ug-credentials-ocp-k8s"><span class="std std-ref">OpenShift or Kubernetes API Bearer Token</span></a> credential for the container group; see <a class="reference internal" href="../userguide/credentials.html#ug-credentials-add"><span class="std std-ref">Add a New Credential</span></a> in the <em>User Guide</em> for detail.</p></li>
+<li><p>Open <strong>Automation Execution &gt; Infrastructure &gt; Instance Groups</strong>. The list shows the instance groups and container groups, with their type, running and total jobs, instances and used capacity.</p></li>
+</ol>
+<p><img alt="Instance Group list view with example instance group and container groups." src="../_images/instance-groups_list_view.png" /></p>
+<ol class="arabic simple" start="3">
+<li><p>Click <strong>Create group</strong> and select <strong>Create container group</strong>.</p></li>
+</ol>
+<p><img alt="The Create container group form" src="../_images/instance-group-create-new-cg.png" /></p>
+<ol class="arabic simple" start="4">
+<li><p>Enter a <strong>Name</strong>, and optionally select the <strong>Credential</strong> and set <strong>Max concurrent jobs</strong> and <strong>Max forks</strong> (see <a class="reference internal" href="#ag-instancegrp-cpacity"><span class="std std-ref">Instance group capacity limits</span></a>; <code class="docutils literal notranslate"><span class="pre">0</span></code> means no limit).</p></li>
+<li><p>Click <strong>Create container group</strong>.</p></li>
+</ol>
+</section>
+<section id="customize-the-pod-spec">
+<span id="ag-customize-pod-spec"></span><h3><span class="section-number">8.2.2. </span>Customize the pod spec<a class="headerlink" href="#customize-the-pod-spec" title="Link to this heading"></a></h3>
+<p>Automation controller provides a default pod specification, however, you can provide a custom YAML (or JSON) document that overrides it. To do so, check <strong>Customize pod spec</strong>: the <strong>Pod spec override</strong> field shows the default pod specification, with the namespace of the platform, the <code class="docutils literal notranslate"><span class="pre">default</span></code> service account and an anti-affinity that prefers to spread the job pods across nodes; change what you need, such as the namespace, node selectors, tolerations, <code class="docutils literal notranslate"><span class="pre">imagePullSecrets</span></code> or the resources of the container. For the available fields, see <a class="reference external" href="https://kubernetes.io/docs/concepts/workloads/pods/">Pods</a> in the Kubernetes documentation.</p>
+<p><img alt="The Create container group form with Customize pod spec checked and the default pod spec" src="../_images/instance-group-customize-cg-pod.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The image used at job launch time is determined by which execution environment is associated with the job. If a Container Registry credential is associated with the execution environment, then automation controller will attempt to make a <code class="docutils literal notranslate"><span class="pre">ImagePullSecret</span></code> to pull the image. If you prefer not to give the service account permission to manage secrets, you must pre-create the <code class="docutils literal notranslate"><span class="pre">ImagePullSecret</span></code> and specify it on the pod spec, and omit any credential from the execution environment used.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>In order to override DNS/host entries, use the <code class="docutils literal notranslate"><span class="pre">hostAliases</span></code> attribute on the pod spec. When the pod is created, these entries will be added to <code class="docutils literal notranslate"><span class="pre">/etc/hosts</span></code> in the container running the job.</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">hostAliases</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">ip</span><span class="p">:</span><span class="w"> </span><span class="s">"127.0.0.1"</span>
+<span class="w">    </span><span class="nt">hostnames</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"foo.local"</span>
+</pre></div>
+</div>
+<p>For more information, refer to Kubernetes’ documentation on <a class="reference external" href="https://kubernetes.io/docs/tasks/network/customize-hosts-file-for-pods/#adding-additional-entries-with-hostaliases">Adding additional entries with hostAliases</a>.</p>
+</div>
+<p>Once the container group is created, its <strong>Details</strong> tab opens, with <strong>Edit container group</strong> at the top and the <strong>Team Access</strong>, <strong>User Access</strong> and <strong>Jobs</strong> tabs. In the Instance Groups list, the <strong>Type</strong> column tells container groups and instance groups apart.</p>
+<p><img alt="Details of a container group" src="../_images/instance-group-example-cg-successfully-created.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Using a custom pod spec may cause issues on upgrades if the default <code class="docutils literal notranslate"><span class="pre">pod_spec</span></code> changes. Since any manifest can be applied to any namespace, with the namespace specified separately, most likely you will only need to override the namespace. The override is merged with the default pod spec, and the image and arguments of the job container are always set by automation controller from the execution environment of the job; other fields you copy into the override do not pick up later changes of the default pod spec.</p>
+</div>
+</section>
+<section id="verify-container-group-functions">
+<h3><span class="section-number">8.2.3. </span>Verify container group functions<a class="headerlink" href="#verify-container-group-functions" title="Link to this heading"></a></h3>
+<p>To verify the deployment and termination of your container:</p>
+<ol class="arabic simple">
+<li><p>Create a test inventory and add the container group to its <strong>Instance groups</strong>. See <a class="reference internal" href="../userguide/inventories.html#ug-inventories-add"><span class="std std-ref">Add a new inventory</span></a> in the <em>User Guide</em> for detail.</p></li>
+</ol>
+<p><img alt="Details of a test inventory that uses the container group" src="../_images/inventories-create-new-cg-test-inventory.png" /></p>
+<ol class="arabic simple" start="2">
+<li><p>Create a <code class="docutils literal notranslate"><span class="pre">localhost</span></code> host in the inventory with these variables:</p></li>
+</ol>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="nt">ansible_host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">127.0.0.1</span>
+<span class="nt">ansible_connection</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">local</span>
+</pre></div>
+</div>
+<p><img alt="The Hosts tab of the test inventory with localhost" src="../_images/inventories-create-new-cg-test-localhost.png" /></p>
+<ol class="arabic simple" start="3">
+<li><p>Click <strong>Run command</strong> and run the <em>ping</em> or <em>setup</em> module against <code class="docutils literal notranslate"><span class="pre">localhost</span></code> (see <a class="reference internal" href="../userguide/inventories.html#ug-inventories-run-ad-hoc"><span class="std std-ref">Running Ad Hoc Commands</span></a>). Any machine credential works for this test.</p></li>
+</ol>
+<p><img alt="The Run command wizard with the ping module and localhost" src="../_images/inventories-launch-adhoc-cg-test-localhost.png" /></p>
+<p>The output of the job shows that the pod ran the command successfully.</p>
+<p><img alt="Output of the successful ad hoc ping" src="../_images/inventories-launch-adhoc-cg-test-localhost-success.png" /></p>
+<p>While the job runs, <code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">get</span> <span class="pre">pods</span> <span class="pre">-n</span> <span class="pre">&lt;namespace&gt;</span> <span class="pre">-w</span></code> (or <code class="docutils literal notranslate"><span class="pre">oc</span> <span class="pre">get</span> <span class="pre">pods</span></code>) shows the job pod, named <code class="docutils literal notranslate"><span class="pre">automation-job-&lt;id&gt;-&lt;suffix&gt;</span></code>, appear and disappear.</p>
+</section>
+<section id="view-container-group-jobs">
+<h3><span class="section-number">8.2.4. </span>View container group jobs<a class="headerlink" href="#view-container-group-jobs" title="Link to this heading"></a></h3>
+<p>When you run a job associated with a container group, the <strong>Details</strong> tab of the job shows its <strong>Instance group</strong>, its <strong>Container group</strong> and the execution environment it used. The <strong>Jobs</strong> tab of the container group lists its jobs.</p>
+<p><img alt="Details of a job that ran in a container group" src="../_images/instance-group-job-details-with-cgs.png" /></p>
+</section>
+<section id="kubernetes-api-failure-conditions">
+<h3><span class="section-number">8.2.5. </span>Kubernetes API failure conditions<a class="headerlink" href="#kubernetes-api-failure-conditions" title="Link to this heading"></a></h3>
+<p>When running a container group and the Kubernetes API responds that the resource quota has been exceeded, automation controller keeps the job in pending state. Other failures end the job in error, and its <strong>Output</strong> tab shows the failure reason, similar to the example here:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="nt">Error creating pod: pods is forbidden</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">User "system:serviceaccount:koios:example" cannot create resource "pods" in API group "" in the namespace "koios"</span>
+</pre></div>
+</div>
+</section>
+<section id="container-capacity-limits">
+<span id="ag-container-capacity"></span><h3><span class="section-number">8.2.6. </span>Container capacity limits<a class="headerlink" href="#container-capacity-limits" title="Link to this heading"></a></h3>
+<p id="index-7">Capacity limits and quotas for containers are defined via objects in the Kubernetes API:</p>
+<ul class="simple">
+<li><p>To set limits on all pods within a given namespace, use <code class="docutils literal notranslate"><span class="pre">ResourceQuota</span></code> and <code class="docutils literal notranslate"><span class="pre">LimitRange</span></code> objects. Refer to <a class="reference external" href="https://kubernetes.io/docs/concepts/policy/resource-quotas/">Resource Quotas</a> and <a class="reference external" href="https://kubernetes.io/docs/concepts/policy/limit-range/">Limit Ranges</a> in the Kubernetes documentation.</p></li>
+<li><p>To set limits directly on the pod definition launched by automation controller, see <a class="reference internal" href="#ag-customize-pod-spec"><span class="std std-ref">Customize the pod spec</span></a> and set the <a class="reference external" href="https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/">resources of the container</a>.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Container groups do not use the capacity algorithm that normal nodes use. Use <strong>Max concurrent jobs</strong> and <strong>Max forks</strong> of the container group to limit how much work it accepts. If forks are configured in automation controller, that setting will be passed along to the container.</p>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="clustering.html" class="btn btn-neutral float-left" title="7. Clustering" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="instances.html" class="btn btn-neutral float-right" title="9. Managing Capacity With Instances" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Koios Solutions. Portions 2026, Red Hat, Inc. and 2026, CtrlIQ, Inc..</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+<p class="koios-legal">Licensed under the <a href="../LICENSE.txt">Apache License 2.0</a>; see the <a href="../NOTICE.txt">NOTICE</a> for the origin of this documentation.</p>
+
+</body>
+</html>

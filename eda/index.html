@@ -1,0 +1,357 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Event-Driven Ansible &ndash; Koios Automation Platform</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ansible.css?v=5657ca2d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/rtd-ethical-ads.css?v=289b023e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/dark.css?v=82723a23" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments-dark.css?v=027e451e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/koios.css?v=808fdb03" />
+
+  
+    <link rel="shortcut icon" href="../_static/images/koios-favicon.svg"/>
+    <link rel="canonical" href="https://docs.koioss.com/eda/index.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2d018451"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=b8bcef97"></script>
+      <script src="../_static/js/theme-toggle.js?v=59cbb094"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Your first rulebook activation" href="first-activation.html" />
+    <link rel="prev" title="31. Glossary" href="../userguide/glossary.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+<script>
+  (function () {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('koios-docs-theme');
+    } catch (e) {}
+    // Without a stored choice, follow the system preference (dark when it cannot be read).
+    var light = false;
+    try { light = window.matchMedia('(prefers-color-scheme: light)').matches; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', stored || (light ? 'light' : 'dark'));
+  })();
+</script>
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="#" class="asc-theme-toggle" title="Switch theme" aria-label="Switch theme"><svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg></a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../_static/images/koios-mark-white.svg"
+    alt="Koios">
+  <div class="DocSiteNav-title">Koios Automation Platform</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Koios Automation Platform
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Koios Automation Platform Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Install and upgrade</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade_migration/index.html">Upgrades and Migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configure the platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/index.html">Configure the platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Access management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access/index.html">Authentication and access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation execution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">Automating with Koios Automation Platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation decisions</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Event-Driven Ansible</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="first-activation.html">Your first rulebook activation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event-streams.html">Receive events with event streams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html">Troubleshooting Automation Decisions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#concepts">Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#decision-environments">Decision environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#projects">Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#credentials">Credentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rulebook-activations">Rulebook activations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#event-streams">Event streams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#backup-and-restore">Backup and restore</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hub/index.html">Automation hub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operate</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../operate/index.html">Operate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../administration/index.html">Administering Koios Automation Platform Deployments</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration as code and API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/casc.html">Configuration as code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rest_api/index.html">automation controller API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/releases.html">Releases</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Koios Automation Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Event-Driven Ansible</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <section id="event-driven-ansible">
+<h1>Event-Driven Ansible<a class="headerlink" href="#event-driven-ansible" title="Link to this heading"></a></h1>
+<p>Event-Driven Ansible runs <strong>rulebooks</strong>: they listen to events from sources such as webhooks,
+message queues and monitoring tools, evaluate rules, and perform actions when conditions match.
+An action can launch an automation controller job template or handle an event in the decision
+environment. In Koios Automation Platform, open <strong>Automation Decisions</strong> in the navigation menu.
+Its API is under <code class="docutils literal notranslate"><span class="pre">/api/eda/v1/</span></code> through the platform gateway (<a class="reference internal" href="../rest_api/api_ref.html"><span class="std std-doc">API reference</span></a>).</p>
+<p>Event-Driven Ansible is deployed unless <code class="docutils literal notranslate"><span class="pre">eda.disabled:</span> <span class="pre">true</span></code>
+(<a class="reference internal" href="../configure/index.html#components"><span class="std std-ref">Configure</span></a>). Organizations, teams and users are managed in
+<strong>Access Management</strong> and synchronized with Event-Driven Ansible. Permission to manage an activation
+does not by itself grant permission to launch its target controller job template.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="first-activation.html">Your first rulebook activation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event-streams.html">Receive events with event streams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting Automation Decisions</a></li>
+</ul>
+</div>
+<section id="concepts">
+<h2>Concepts<a class="headerlink" href="#concepts" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Concept</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Rulebook</p></td>
+<td><p>YAML that defines one or more rulesets: event sources, conditions and actions. It is imported from a project.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Source</p></td>
+<td><p>A plugin that supplies events to a ruleset, such as <code class="docutils literal notranslate"><span class="pre">ansible.eda.range</span></code> or <code class="docutils literal notranslate"><span class="pre">ansible.eda.webhook</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p>Rule</p></td>
+<td><p>A named condition and its action or actions. For example, <code class="docutils literal notranslate"><span class="pre">event.i</span> <span class="pre">==</span> <span class="pre">8</span></code> matches a particular event from the range source.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Action</p></td>
+<td><p>Work performed when a condition matches: for example, <code class="docutils literal notranslate"><span class="pre">debug</span></code> or <code class="docutils literal notranslate"><span class="pre">run_job_template</span></code>. Launching a job requires a credential with access to automation controller.</p></td>
+</tr>
+<tr class="row-even"><td><p>Decision environment</p></td>
+<td><p>A container image with ansible-rulebook, source plugins, action dependencies and their runtime.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Project</p></td>
+<td><p>A Git repository whose rulebooks are imported for selection in activations.</p></td>
+</tr>
+<tr class="row-even"><td><p>Rulebook activation</p></td>
+<td><p>A configuration that runs an imported rulebook with a decision environment, credentials, variables, source mappings and a restart policy. Its History records individual instances of that execution.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Event stream</p></td>
+<td><p>An authenticated HTTP entry point through the platform gateway. A mapping delivers its events to an activation in place of a rulebook source.</p></td>
+</tr>
+<tr class="row-even"><td><p>Rule audit</p></td>
+<td><p>Records of rules that fired, their triggering events and actions. It helps connect an event to the work performed; it is not a substitute for checking the result of a controller job.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="decision-environments">
+<h2>Decision environments<a class="headerlink" href="#decision-environments" title="Link to this heading"></a></h2>
+<p>A decision environment runs the rulebook, while an execution environment runs an automation
+controller job. They are separate images and resources. The platform does not create a decision
+environment automatically: create one in <strong>Automation Decisions &gt; Decision Environments</strong>.</p>
+<p>Use the release image <code class="docutils literal notranslate"><span class="pre">ghcr.io/koiosplatform/koios-de&#64;sha256:&lt;digest&gt;</span></code> (the <code class="docutils literal notranslate"><span class="pre">de</span></code> image in
+<a class="reference internal" href="../reference/releases.html"><span class="std std-doc">Releases</span></a>) or a suitable custom image. The release images are currently
+private; obtain project-granted read access as described in
+<a class="reference internal" href="../install/registry-access.html"><span class="std std-doc">Registry access</span></a>.</p>
+<p>Activation pods run in the platform namespace with its <code class="docutils literal notranslate"><span class="pre">default</span></code> ServiceAccount. With the
+installer’s registry setup, that account has the release image pull secret, so the decision
+environment can leave <strong>Credential</strong> empty. For another private registry, select an Event-Driven
+Ansible <strong>Container Registry</strong> credential on the decision environment. See
+<a class="reference internal" href="troubleshooting.html#decision-environment-image-cannot-be-pulled"><span class="std std-ref">image pull failures</span></a>.</p>
+</section>
+<section id="projects">
+<h2>Projects<a class="headerlink" href="#projects" title="Link to this heading"></a></h2>
+<p>Create a Git project in <strong>Automation Decisions &gt; Projects</strong>, providing a <strong>Source control
+credential</strong> if the repository is private. A successful import makes its rulebooks available to
+activations. A project here is separate from an automation controller project, even when both
+point at the same repository.</p>
+<p><a class="reference internal" href="first-activation.html"><span class="std std-doc">Your first rulebook activation</span></a> uses the public
+<code class="docutils literal notranslate"><span class="pre">https://github.com/ansible/eda-sample-project</span></code> repository. Importing a public repository still
+requires network access from the platform.</p>
+</section>
+<section id="credentials">
+<h2>Credentials<a class="headerlink" href="#credentials" title="Link to this heading"></a></h2>
+<p>Event-Driven Ansible credentials are separate from automation controller credentials. Open
+<strong>Automation Decisions &gt; Infrastructure &gt; Credentials</strong> to create them.</p>
+<p>To launch a controller job, use a credential of type <strong>Red Hat Ansible Automation Platform</strong>. This
+is the actual type label in the UI; it can connect to the controller of this Koios Automation
+Platform deployment. Select the credential in the activation’s <strong>Credential</strong> field.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Value for this platform</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Red Hat Ansible Automation Platform</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://&lt;platform&gt;/api/controller/</span></code>, including the controller path. An administrator can use <code class="docutils literal notranslate"><span class="pre">http://&lt;platform&gt;-gateway/api/controller/</span></code> for in-cluster access when appropriate for the deployment.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Username and Password, or OAuth Token</p></td>
+<td><p>A platform user or its token with permission to launch the target job template. Use one authentication method; see <a class="reference internal" href="../access/tokens.html"><span class="std std-doc">Tokens</span></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p>Verify SSL</p></td>
+<td><p>Enabled for the public HTTPS address. The decision environment must trust the certificate issuer; <code class="docutils literal notranslate"><span class="pre">bundle_cacert_secret</span></code> is not automatically mounted into the decision environment. Use a custom image with the required CA when needed.</p></td>
+</tr>
+</tbody>
+</table>
+<p>The platform credential authenticates the action that launches a job. A <strong>Basic Event Stream</strong>
+credential instead authenticates an event sender, and a <strong>Container Registry</strong> credential pulls an
+image. These credentials serve different purposes.</p>
+</section>
+<section id="rulebook-activations">
+<h2>Rulebook activations<a class="headerlink" href="#rulebook-activations" title="Link to this heading"></a></h2>
+<p>Create an activation in <strong>Automation Decisions &gt; Rulebook Activations</strong> after the project import
+has completed. Select its <strong>Project</strong>, <strong>Rulebook</strong>, <strong>Decision environment</strong>, <strong>Credential</strong> when
+needed, <strong>Restart policy</strong> and <strong>Variables</strong>. Keep <strong>Rulebook activation enabled?</strong> on to start it.</p>
+<p>The <a class="reference internal" href="first-activation.html"><span class="std std-doc">first activation tutorial</span></a> runs a finite source, fires <strong>Run JT at 8</strong>,
+and checks a successful <strong>Demo Job Template</strong> job in <strong>Automation Execution &gt; Jobs</strong>. Use
+<strong>Automation Decisions &gt; Rule Audit</strong> to inspect the event and action that fired the rule.
+For a listener, <strong>Running</strong> means it is waiting for events, not that a rule has already fired.</p>
+</section>
+<section id="event-streams">
+<h2>Event streams<a class="headerlink" href="#event-streams" title="Link to this heading"></a></h2>
+<p>An event stream receives HTTP events through the platform address under <code class="docutils literal notranslate"><span class="pre">/eda-event-streams/</span></code>.
+The sender authenticates with the stream’s credential. It does not use a platform user’s login
+session to send events to that endpoint.</p>
+<p>In the activation’s <strong>Event streams</strong> field, map the rulebook source to the stream. The mapping
+changes that activation, not the rulebook in Git; the activation receives stream events instead
+of opening the original source’s listener port. See <a class="reference internal" href="event-streams.html"><span class="std std-doc">Receive events with event streams</span></a>
+for a Basic-authenticated example and the available credential types.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <strong>mTLS Event Stream</strong> credential type exists, but client-certificate event stream ingress is
+not available through the current Koios Automation Platform gateway route. See the
+<a class="reference internal" href="event-streams.html#mutual-tls-limit"><span class="std std-ref">mTLS limitation</span></a> before choosing that type.</p>
+</div>
+</section>
+<section id="backup-and-restore">
+<h2>Backup and restore<a class="headerlink" href="#backup-and-restore" title="Link to this heading"></a></h2>
+<p><a class="reference internal" href="../administration/backup_restore.html"><span class="std std-doc">Backups</span></a> include Event-Driven Ansible’s database,
+encryption key and administrator. A restored copy can still contain credentials that point to the
+original platform. Update those connections before enabling activations and schedules in the copy.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../userguide/glossary.html" class="btn btn-neutral float-left" title="31. Glossary" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="first-activation.html" class="btn btn-neutral float-right" title="Your first rulebook activation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Koios Solutions. Portions 2026, Red Hat, Inc. and 2026, CtrlIQ, Inc..</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+<p class="koios-legal">Licensed under the <a href="../LICENSE.txt">Apache License 2.0</a>; see the <a href="../NOTICE.txt">NOTICE</a> for the origin of this documentation.</p>
+
+</body>
+</html>

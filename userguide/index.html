@@ -1,0 +1,484 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Automating with Koios Automation Platform &ndash; Koios Automation Platform</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ansible.css?v=5657ca2d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/rtd-ethical-ads.css?v=289b023e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/dark.css?v=82723a23" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments-dark.css?v=027e451e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/koios.css?v=808fdb03" />
+
+  
+    <link rel="shortcut icon" href="../_static/images/koios-favicon.svg"/>
+    <link rel="canonical" href="https://docs.koioss.com/userguide/index.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2d018451"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=b8bcef97"></script>
+      <script src="../_static/js/theme-toggle.js?v=59cbb094"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. Overview" href="overview.html" />
+    <link rel="prev" title="API tokens and OAuth applications" href="../access/tokens.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+<script>
+  (function () {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('koios-docs-theme');
+    } catch (e) {}
+    // Without a stored choice, follow the system preference (dark when it cannot be read).
+    var light = false;
+    try { light = window.matchMedia('(prefers-color-scheme: light)').matches; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', stored || (light ? 'light' : 'dark'));
+  })();
+</script>
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="#" class="asc-theme-toggle" title="Switch theme" aria-label="Switch theme"><svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg></a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../_static/images/koios-mark-white.svg"
+    alt="Koios">
+  <div class="DocSiteNav-title">Koios Automation Platform</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Koios Automation Platform
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Koios Automation Platform Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Install and upgrade</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade_migration/index.html">Upgrades and Migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configure the platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/index.html">Configure the platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Access management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access/index.html">Authentication and access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation execution</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Automating with Koios Automation Platform</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Automating with Koios Automation Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html">1. Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging_in.html">2. Logging In</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main_menu.html">3. The User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main_menu.html#the-settings-menu">4. The Settings Menu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="search_sort.html">5. Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="organizations.html">6. Organizations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="users.html">7. Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="teams.html">8. Teams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credentials.html">9. Credentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credential_plugins.html">10. Secret Management System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credential_types.html">11. Custom Credential Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="execution_environments.html">12. Execution Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ee_reference.html">13. Execution Environment Setup Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="projects.html">14. Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project-sign.html">15. Project Signing and Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventories.html">16. Inventories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventory_plugins_templates.html">17. Supported Inventory Plugin Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="labels.html">18. Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_templates.html">19. Job Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_slices.html">20. Job Slicing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflows.html">21. Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_templates.html">22. Workflow Job Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instance_groups.html">23. Instance Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jobs.html">24. Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhooks.html">25. Working with Webhooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notifications.html">26. Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notification_parameters_supported.html">27. Supported Attributes for Custom Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduling.html">28. Schedules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="best_practices.html">29. Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">30. Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html">31. Glossary</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation decisions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../eda/index.html">Event-Driven Ansible</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hub/index.html">Automation hub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operate</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../operate/index.html">Operate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../administration/index.html">Administering Koios Automation Platform Deployments</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration as code and API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/casc.html">Configuration as code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rest_api/index.html">automation controller API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/releases.html">Releases</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Koios Automation Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Automating with Koios Automation Platform</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <section id="automating-with-koios-automation-platform">
+<span id="ug-start"></span><h1>Automating with Koios Automation Platform<a class="headerlink" href="#automating-with-koios-automation-platform" title="Link to this heading"></a></h1>
+<p>Learn how to use Koios Automation Platform functionality to scale and manage your automation.
+This guide assumes moderate familiarity with Ansible, including concepts such as <strong>Playbooks</strong>, <strong>Variables</strong>, and <strong>Tags</strong>.</p>
+<p>This guide applies to the latest version of Koios Automation Platform only.
+The content in this guide is updated frequently and might contain functionality that is not available in previous versions.
+Likewise content in this guide can be removed or replaced if it applies to functionality that is no longer available in the latest version.</p>
+<div class="toctree-wrapper compound">
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Automating with Koios Automation Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">1. Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#real-time-playbook-output-and-exploration">1.1. Real-time Playbook Output and Exploration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#push-button-automation">1.2. “Push Button” Automation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#role-based-access-control-and-auditing">1.3. Role-Based Access Control and Auditing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#cloud-autoscaling-flexibility">1.4. Cloud &amp; Autoscaling Flexibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#the-ideal-restful-api">1.5. The Ideal RESTful API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#backup-and-restore">1.6. Backup and Restore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#ansible-galaxy-integration">1.7. Ansible Galaxy Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#inventory-support-for-openstack">1.8. Inventory Support for OpenStack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#remote-command-execution">1.9. Remote Command Execution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#system-tracking">1.10. System Tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#integrated-notifications">1.11. Integrated Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#satellite-integration">1.12. Satellite Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#run-time-job-customization">1.13. Run-time Job Customization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#user-interface">1.14. User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#execution-environments">1.15. Execution Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#authentication">1.16. Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#cluster-management">1.17. Cluster Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#container-platform-support">1.18. Container Platform Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#workflow-capabilities">1.19. Workflow Capabilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#job-distribution">1.20. Job Distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#fips-validation-status">1.21. FIPS validation status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#limit-the-number-of-hosts-per-organization">1.22. Limit the number of hosts per organization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#inventory-plugins">1.23. Inventory Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#secret-management-system">1.24. Secret Management System</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="logging_in.html">2. Logging In</a></li>
+<li class="toctree-l1"><a class="reference internal" href="main_menu.html">3. The User Interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="main_menu.html#themes">3.1. Themes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main_menu.html#views">3.2. Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main_menu.html#resources-and-access">3.3. Resources and Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main_menu.html#administration">3.4. Administration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="main_menu.html#the-settings-menu">4. The Settings Menu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="search_sort.html">5. Search</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="search_sort.html#filtering-by-field">5.1. Filtering by field</a></li>
+<li class="toctree-l2"><a class="reference internal" href="search_sort.html#api-queries">5.2. API queries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="search_sort.html#date-filtering">5.3. Date filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="search_sort.html#sort">5.4. Sort</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="organizations.html">6. Organizations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="organizations.html#creating-a-new-organization">6.1. Creating a New Organization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="organizations.html#users-administrators-and-teams">6.2. Users, administrators and teams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="organizations.html#work-with-notifications">6.3. Work with Notifications</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="users.html">7. Users</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="users.html#create-a-user">7.1. Create a User</a></li>
+<li class="toctree-l2"><a class="reference internal" href="users.html#delete-a-user">7.2. Delete a User</a></li>
+<li class="toctree-l2"><a class="reference internal" href="users.html#users-teams">7.3. Users - Teams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="users.html#users-roles">7.4. Users - Roles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="users.html#users-tokens">7.5. Users - Tokens</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="teams.html">8. Teams</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="teams.html#create-a-team">8.1. Create a Team</a></li>
+<li class="toctree-l2"><a class="reference internal" href="teams.html#team-users">8.2. Team Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="teams.html#team-roles">8.3. Team Roles</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="credentials.html">9. Credentials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="credentials.html#understanding-how-credentials-work">9.1. Understanding How Credentials Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credentials.html#getting-started-with-credentials">9.2. Getting Started with Credentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credentials.html#add-a-new-credential">9.3. Add a New Credential</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credentials.html#credential-types">9.4. Credential Types</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="credential_plugins.html">10. Secret Management System</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="credential_plugins.html#configure-and-link-a-secret-lookup">10.1. Configure and link a secret lookup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credential_plugins.html#cyberark-central-credential-provider-lookup">10.2. CyberArk Central Credential Provider Lookup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credential_plugins.html#aws-secrets-manager-lookup">10.3. AWS Secrets Manager lookup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credential_plugins.html#microsoft-azure-key-vault">10.4. Microsoft Azure Key Vault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credential_plugins.html#centrify-vault-credential-provider-lookup">10.5. Centrify Vault Credential Provider Lookup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credential_plugins.html#cyberark-conjur-secrets-manager-lookup">10.6. CyberArk Conjur Secrets Manager Lookup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credential_plugins.html#github-app-installation-access-token-lookup">10.7. GitHub App Installation Access Token Lookup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credential_plugins.html#hashicorp-vault-secret-lookup">10.8. HashiCorp Vault Secret Lookup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credential_plugins.html#hashicorp-vault-signed-ssh">10.9. HashiCorp Vault Signed SSH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credential_plugins.html#thycotic-devops-secrets-vault">10.10. Thycotic DevOps Secrets Vault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credential_plugins.html#thycotic-secret-server">10.11. Thycotic Secret Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credential_plugins.html#oidc-workload-identity">10.12. OIDC workload identity</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="credential_types.html">11. Custom Credential Types</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="credential_types.html#getting-started-with-credential-types">11.1. Getting Started with Credential Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credential_types.html#create-a-new-credential-type">11.2. Create a New Credential Type</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="execution_environments.html">12. Execution Environments</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="execution_environments.html#building-an-execution-environment">12.1. Building an Execution Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="execution_environments.html#use-an-execution-environment-in-jobs">12.2. Use an execution environment in jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="execution_environments.html#execution-environment-mount-options">12.3. Execution environment mount options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ee_reference.html">13. Execution Environment Setup Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ee_reference.html#default-execution-environment-for-automation-controller">13.1. Default execution environment for automation controller</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="projects.html">14. Projects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="projects.html#add-a-new-project">14.1. Add a new project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="projects.html#updating-projects-from-source-control">14.2. Updating projects from source control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="projects.html#work-with-permissions">14.3. Work with Permissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="projects.html#work-with-notifications">14.4. Work with Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="projects.html#work-with-job-templates">14.5. Work with Job Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="projects.html#work-with-schedules">14.6. Work with Schedules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="projects.html#ansible-galaxy-support">14.7. Ansible Galaxy Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="projects.html#collections-support">14.8. Collections Support</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="project-sign.html">15. Project Signing and Verification</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="project-sign.html#prerequisites">15.1. Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project-sign.html#add-a-gpg-key-to-automation-controller">15.2. Add a GPG key to automation controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project-sign.html#access-the-ansible-sign-cli-utility">15.3. Access the <code class="docutils literal notranslate"><span class="pre">ansible-sign</span></code> CLI utility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project-sign.html#signing-your-project">15.4. Signing your project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project-sign.html#verifying-your-project">15.5. Verifying your project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project-sign.html#automate-signing">15.6. Automate signing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="inventories.html">16. Inventories</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="inventories.html#smart-inventories">16.1. Smart Inventories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventories.html#constructed-inventories">16.2. Constructed Inventories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventories.html#inventory-plugins">16.3. Inventory Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventories.html#add-a-new-inventory">16.4. Add a new inventory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventories.html#running-ad-hoc-commands">16.5. Running Ad Hoc Commands</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="inventory_plugins_templates.html">17. Supported Inventory Plugin Templates</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="inventory_plugins_templates.html#amazon-web-services-ec2">17.1. Amazon Web Services EC2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventory_plugins_templates.html#google-compute-engine">17.2. Google Compute Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventory_plugins_templates.html#microsoft-azure-resource-manager">17.3. Microsoft Azure Resource Manager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventory_plugins_templates.html#vmware-vcenter">17.4. VMware vCenter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventory_plugins_templates.html#red-hat-satellite-6">17.5. Red Hat Satellite 6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventory_plugins_templates.html#openstack">17.6. OpenStack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventory_plugins_templates.html#red-hat-virtualization">17.7. Red Hat Virtualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventory_plugins_templates.html#red-hat-ansible-automation-platform">17.8. Red Hat Ansible Automation Platform</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="labels.html">18. Labels</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="labels.html#managing-labels">18.1. Managing labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="labels.html#grouping-and-filtering-with-labels">18.2. Grouping and filtering with labels</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="job_templates.html">19. Job Templates</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="job_templates.html#create-a-job-template">19.1. Create a Job Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_templates.html#add-permissions">19.2. Add Permissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_templates.html#work-with-notifications">19.3. Work with Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_templates.html#view-completed-jobs">19.4. View Completed Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_templates.html#scheduling">19.5. Scheduling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_templates.html#surveys">19.6. Surveys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_templates.html#launch-a-job-template">19.7. Launch a Job Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_templates.html#copy-a-job-template">19.8. Copy a Job Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_templates.html#fact-caching">19.9. Fact Caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_templates.html#utilizing-cloud-credentials">19.10. Utilizing Cloud Credentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_templates.html#provisioning-callbacks">19.11. Provisioning Callbacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_templates.html#extra-variables">19.12. Extra Variables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="job_slices.html">20. Job Slicing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="job_slices.html#job-slice-considerations">20.1. Job slice considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_slices.html#job-slice-execution-behavior">20.2. Job slice execution behavior</a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_slices.html#search-job-slices">20.3. Search job slices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="workflows.html">21. Workflows</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="workflows.html#workflow-scenarios-and-considerations">21.1. Workflow scenarios and considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflows.html#extra-variables">21.2. Extra Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflows.html#workflow-states">21.3. Workflow States</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflows.html#role-based-access-controls">21.4. Role-Based Access Controls</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="workflow_templates.html">22. Workflow Job Templates</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="workflow_templates.html#create-a-workflow-template">22.1. Create a Workflow Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_templates.html#work-with-permissions">22.2. Work with Permissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_templates.html#work-with-notifications">22.3. Work with Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_templates.html#view-completed-jobs">22.4. View Completed Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_templates.html#work-with-schedules">22.5. Work with Schedules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_templates.html#surveys">22.6. Surveys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_templates.html#workflow-visualizer">22.7. Workflow Visualizer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_templates.html#launch-a-workflow-template">22.8. Launch a Workflow Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_templates.html#copy-a-workflow-template">22.9. Copy a Workflow Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_templates.html#extra-variables">22.10. Extra Variables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="instance_groups.html">23. Instance Groups</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="instance_groups.html#create-an-instance-group">23.1. Create an instance group</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jobs.html">24. Jobs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jobs.html#inventory-sync-jobs">24.1. Inventory Sync Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jobs.html#project-sync-jobs">24.2. Project Sync Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jobs.html#playbook-run-jobs">24.3. Playbook Run Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jobs.html#automation-controller-capacity-determination-and-job-impact">24.4. Automation controller Capacity Determination and Job Impact</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jobs.html#job-branch-overriding">24.5. Job branch overriding</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="webhooks.html">25. Working with Webhooks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="webhooks.html#github-webhook-setup">25.1. GitHub webhook setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhooks.html#gitlab-webhook-setup">25.2. GitLab webhook setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhooks.html#payload-output">25.3. Payload output</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notifications.html">26. Notifications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notifications.html#notification-hierarchy">26.1. Notification Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notifications.html#workflow">26.2. Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notifications.html#create-a-notification-template">26.3. Create a Notification Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notifications.html#notification-types">26.4. Notification Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notifications.html#create-custom-notifications">26.5. Create custom notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notifications.html#enable-and-disable-notifications">26.6. Enable and Disable Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notifications.html#configure-the-host-hostname-for-notifications">26.7. Configure the <code class="docutils literal notranslate"><span class="pre">host</span></code> hostname for notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notifications.html#notifications-api">26.8. Notifications API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notification_parameters_supported.html">27. Supported Attributes for Custom Notifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scheduling.html">28. Schedules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scheduling.html#create-a-schedule">28.1. Create a schedule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduling.html#time-zones-and-daylight-saving-time">28.2. Time zones and daylight saving time</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="best_practices.html">29. Best Practices</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="best_practices.html#use-source-control">29.1. Use Source Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="best_practices.html#ansible-file-and-directory-structure">29.2. Ansible file and directory structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="best_practices.html#use-dynamic-inventory-sources">29.3. Use Dynamic Inventory Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="best_practices.html#variable-management-for-inventory">29.4. Variable Management for Inventory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="best_practices.html#autoscaling">29.5. Autoscaling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="best_practices.html#larger-host-counts">29.6. Larger Host Counts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="best_practices.html#continuous-integration-continuous-deployment">29.7. Continuous integration / Continuous Deployment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="security.html">30. Security</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="security.html#playbook-access-and-information-sharing">30.1. Playbook Access and Information Sharing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html#role-based-access-control">30.2. Role-Based Access Control</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">31. Glossary</a></li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../access/tokens.html" class="btn btn-neutral float-left" title="API tokens and OAuth applications" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="overview.html" class="btn btn-neutral float-right" title="1. Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Koios Solutions. Portions 2026, Red Hat, Inc. and 2026, CtrlIQ, Inc..</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+<p class="koios-legal">Licensed under the <a href="../LICENSE.txt">Apache License 2.0</a>; see the <a href="../NOTICE.txt">NOTICE</a> for the origin of this documentation.</p>
+
+</body>
+</html>

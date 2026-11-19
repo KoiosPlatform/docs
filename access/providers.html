@@ -1,0 +1,438 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Authentication providers &ndash; Koios Automation Platform</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ansible.css?v=5657ca2d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/rtd-ethical-ads.css?v=289b023e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/dark.css?v=82723a23" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments-dark.css?v=027e451e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/koios.css?v=808fdb03" />
+
+  
+    <link rel="shortcut icon" href="../_static/images/koios-favicon.svg"/>
+    <link rel="canonical" href="https://docs.koioss.com/access/providers.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2d018451"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=b8bcef97"></script>
+      <script src="../_static/js/theme-toggle.js?v=59cbb094"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Mapping" href="mapping.html" />
+    <link rel="prev" title="Authentication methods" href="authentication.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+<script>
+  (function () {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('koios-docs-theme');
+    } catch (e) {}
+    // Without a stored choice, follow the system preference (dark when it cannot be read).
+    var light = false;
+    try { light = window.matchMedia('(prefers-color-scheme: light)').matches; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', stored || (light ? 'light' : 'dark'));
+  })();
+</script>
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="#" class="asc-theme-toggle" title="Switch theme" aria-label="Switch theme"><svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg></a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../_static/images/koios-mark-white.svg"
+    alt="Koios">
+  <div class="DocSiteNav-title">Koios Automation Platform</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Koios Automation Platform
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Koios Automation Platform Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Install and upgrade</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade_migration/index.html">Upgrades and Migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configure the platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/index.html">Configure the platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Access management</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Authentication and access</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="authentication.html">Authentication methods</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Authentication providers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#before-you-start">Before you start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ldap">LDAP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#saml">SAML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generic-oidc">Generic OIDC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#keycloak">Keycloak</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#azure-ad">Azure AD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#google-oauth">Google OAuth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#github">GitHub</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#radius-and-tacacs">RADIUS and TACACS+</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#local">Local</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mapping.html">Mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sessions.html">Sessions and passwords</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tokens.html">API tokens and OAuth applications</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation execution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">Automating with Koios Automation Platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation decisions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../eda/index.html">Event-Driven Ansible</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hub/index.html">Automation hub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operate</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../operate/index.html">Operate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../administration/index.html">Administering Koios Automation Platform Deployments</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration as code and API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/casc.html">Configuration as code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rest_api/index.html">automation controller API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/releases.html">Releases</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Koios Automation Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Authentication and access</a></li>
+      <li class="breadcrumb-item active">Authentication providers</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <section id="authentication-providers">
+<h1>Authentication providers<a class="headerlink" href="#authentication-providers" title="Link to this heading"></a></h1>
+<p>This page describes the settings of each type of <a class="reference internal" href="authentication.html"><span class="std std-doc">authentication method</span></a>, and
+what to set up on the provider side. The form shows a help text for every field, and the full list
+of settings of each type is available at <code class="docutils literal notranslate"><span class="pre">/api/gateway/v1/authenticator_plugins/</span></code>.</p>
+<p>Every type also has <strong>Additional Authenticator Fields</strong>, for settings of the underlying library
+that the form does not show. They are passed as they are, without validation.</p>
+<section id="before-you-start">
+<h2>Before you start<a class="headerlink" href="#before-you-start" title="Link to this heading"></a></h2>
+<p><strong>The platform address.</strong> Providers redirect users back to the platform, so the address users reach
+it at must be final: the Route or Ingress host of the <code class="docutils literal notranslate"><span class="pre">KoiosPlatform</span></code> (see <code class="docutils literal notranslate"><span class="pre">status.URL</span></code>). If you
+change it, update the callback URL at every provider.</p>
+<p><strong>Certificates.</strong> The gateway connects to LDAP servers and to OIDC, Keycloak and Azure AD endpoints
+itself. If they use certificates from a private certificate authority, give the platform that CA
+with <code class="docutils literal notranslate"><span class="pre">bundle_cacert_secret</span></code> (see the <a class="reference internal" href="../reference/koiosplatform.html"><span class="std std-doc">KoiosPlatform reference</span></a>).</p>
+<p><strong>Callback URLs.</strong> For SSO types, the gateway fills in the callback URL when you save the method:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>https://&lt;koios host&gt;/api/gateway/social/complete/&lt;slug&gt;/
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;slug&gt;</span></code> is generated when the method is created and does not change afterwards. Save the method
+first, then copy the callback URL from its details into the provider.</p>
+</section>
+<section id="ldap">
+<h2>LDAP<a class="headerlink" href="#ldap" title="Link to this heading"></a></h2>
+<p>Users log in with their directory username and password. The gateway binds with a service account,
+searches for the user, and then binds as the user to check the password.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>What to set</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>LDAP Server URI</strong></p></td>
+<td><p>One or more URIs, such as <code class="docutils literal notranslate"><span class="pre">ldaps://ldap.example.com:636</span></code> or <code class="docutils literal notranslate"><span class="pre">ldap://ldap.example.com:389</span></code>. They are tried in order.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>LDAP Bind DN</strong>, <strong>LDAP Bind Password</strong></p></td>
+<td><p>The service account used for searches, such as <code class="docutils literal notranslate"><span class="pre">CN=koios,OU=Service</span> <span class="pre">Accounts,DC=example,DC=com</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>LDAP Start TLS</strong></p></td>
+<td><p>Upgrade an <code class="docutils literal notranslate"><span class="pre">ldap://</span></code> connection to TLS. Not needed with <code class="docutils literal notranslate"><span class="pre">ldaps://</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>LDAP User Search</strong></p></td>
+<td><p>Where and how to find users: base DN, scope and filter, where <code class="docutils literal notranslate"><span class="pre">%(user)s</span></code> is the username typed at login. To search several bases, give a list of searches.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>LDAP User DN Template</strong></p></td>
+<td><p>Instead of a search, the DN of every user, such as <code class="docutils literal notranslate"><span class="pre">uid=%(user)s,ou=people,dc=example,dc=com</span></code>. Faster when all users share one format. When set, it is used instead of <strong>LDAP User Search</strong>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>LDAP User Attribute Map</strong></p></td>
+<td><p>Directory attributes for the user’s first name, last name and email.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>LDAP Group Search</strong></p></td>
+<td><p>Where to find groups, used by group <a class="reference internal" href="mapping.html"><span class="std std-doc">mapping</span></a> rules.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>LDAP Group Type</strong>, <strong>LDAP Group Type Parameters</strong></p></td>
+<td><p>How group membership is stored. For Active Directory and most servers, <code class="docutils literal notranslate"><span class="pre">MemberDNGroupType</span></code> with <code class="docutils literal notranslate"><span class="pre">{&quot;name_attr&quot;:</span> <span class="pre">&quot;cn&quot;,</span> <span class="pre">&quot;member_attr&quot;:</span> <span class="pre">&quot;member&quot;}</span></code>; for nested Active Directory groups, <code class="docutils literal notranslate"><span class="pre">NestedMemberDNGroupType</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>LDAP Connection Options</strong></p></td>
+<td><p>Options of the LDAP library, such as <code class="docutils literal notranslate"><span class="pre">{&quot;OPT_REFERRALS&quot;:</span> <span class="pre">0,</span> <span class="pre">&quot;OPT_NETWORK_TIMEOUT&quot;:</span> <span class="pre">30}</span></code>. Referrals are off by default, which avoids searches that hang against Active Directory.</p></td>
+</tr>
+</tbody>
+</table>
+<p>A user search for Active Directory:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s2">"OU=Users,DC=example,DC=com"</span><span class="p">,</span><span class="w"> </span><span class="s2">"SCOPE_SUBTREE"</span><span class="p">,</span><span class="w"> </span><span class="s2">"(sAMAccountName=%(user)s)"</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>The same for OpenLDAP, where the username is in <code class="docutils literal notranslate"><span class="pre">uid</span></code>, and a group search:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s2">"ou=people,dc=example,dc=com"</span><span class="p">,</span><span class="w"> </span><span class="s2">"SCOPE_SUBTREE"</span><span class="p">,</span><span class="w"> </span><span class="s2">"(uid=%(user)s)"</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s2">"ou=groups,dc=example,dc=com"</span><span class="p">,</span><span class="w"> </span><span class="s2">"SCOPE_SUBTREE"</span><span class="p">,</span><span class="w"> </span><span class="s2">"(objectClass=groupOfNames)"</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>The attribute map for Active Directory:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"givenName"</span><span class="p">,</span><span class="w"> </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sn"</span><span class="p">,</span><span class="w"> </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mail"</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Test the bind DN and the searches with <code class="docutils literal notranslate"><span class="pre">ldapsearch</span></code> from a machine on the same network before you
+create the method:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ldapsearch<span class="w"> </span>-x<span class="w"> </span>-H<span class="w"> </span>ldaps://ldap.example.com<span class="w"> </span>-D<span class="w"> </span><span class="s2">"CN=koios,OU=Service Accounts,DC=example,DC=com"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-W<span class="w"> </span>-b<span class="w"> </span><span class="s2">"OU=Users,DC=example,DC=com"</span><span class="w"> </span><span class="s2">"(sAMAccountName=josie)"</span>
+</pre></div>
+</div>
+<p>Group names in rules are full DNs. Directories may return them with a different case than the one
+you write, so copy them from what the directory returns.</p>
+</section>
+<section id="saml">
+<h2>SAML<a class="headerlink" href="#saml" title="Link to this heading"></a></h2>
+<p>The platform is the service provider (SP), and your identity provider (IdP) authenticates users.</p>
+<ol class="arabic simple">
+<li><p>Create a key pair for the platform, for example
+<code class="docutils literal notranslate"><span class="pre">openssl</span> <span class="pre">req</span> <span class="pre">-new</span> <span class="pre">-x509</span> <span class="pre">-days</span> <span class="pre">3650</span> <span class="pre">-nodes</span> <span class="pre">-keyout</span> <span class="pre">sp.key</span> <span class="pre">-out</span> <span class="pre">sp.crt</span> <span class="pre">-subj</span> <span class="pre">&quot;/CN=koios.example.com&quot;</span></code>.</p></li>
+<li><p>Create the method with:</p>
+<ul class="simple">
+<li><p><strong>SAML Service Provider Entity ID</strong>: an identifier for the platform at the IdP, usually its URL;</p></li>
+<li><p><strong>SAML Service Provider Public Certificate</strong> and <strong>Private Key</strong>: the key pair;</p></li>
+<li><p><strong>SAML Service Provider Organization Info</strong>, <strong>Technical Contact</strong> and <strong>Support Contact</strong>: the
+details published in the platform metadata, for example
+<code class="docutils literal notranslate"><span class="pre">{&quot;en-US&quot;:</span> <span class="pre">{&quot;name&quot;:</span> <span class="pre">&quot;koios&quot;,</span> <span class="pre">&quot;displayname&quot;:</span> <span class="pre">&quot;Koios</span> <span class="pre">Automation</span> <span class="pre">Platform&quot;,</span> <span class="pre">&quot;url&quot;:</span> <span class="pre">&quot;https://koios.example.com&quot;}}</span></code>;</p></li>
+<li><p><strong>IdP Login URL</strong>, <strong>Entity ID</strong> and <strong>IdP Public Cert</strong>: from the metadata of your IdP;</p></li>
+<li><p>the assertion attributes that hold the user’s <strong>Username</strong>, <strong>User Email</strong>, <strong>User First
+Name</strong>, <strong>User Last Name</strong>, <strong>User Permanent ID</strong> and <strong>Groups</strong>.</p></li>
+</ul>
+</li>
+<li><p>Save it, and register the platform at the IdP with its entity ID and its <strong>SAML Assertion
+Consumer Service (ACS) URL</strong>. The IdP can also read the SP metadata from
+<code class="docutils literal notranslate"><span class="pre">https://&lt;koios</span> <span class="pre">host&gt;/api/gateway/v1/authenticators/&lt;id&gt;/metadata/</span></code>.</p></li>
+</ol>
+<p><strong>SAML Security Config</strong> and <strong>SAML Service Provider extra configuration data</strong> are passed to the
+<code class="docutils literal notranslate"><span class="pre">python3-saml</span></code> library, for example to require signed assertions:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">"wantAssertionsSigned"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"requestedAuthnContext"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>SAML IDP to extra_data attribute mapping</strong> keeps other assertion attributes with the user, so
+<a class="reference internal" href="mapping.html"><span class="std std-doc">mapping</span></a> rules can use them.</p>
+</section>
+<section id="generic-oidc">
+<h2>Generic OIDC<a class="headerlink" href="#generic-oidc" title="Link to this heading"></a></h2>
+<p>For any OpenID Connect provider.</p>
+<ol class="arabic simple">
+<li><p>Register a confidential client at the provider, with the callback URL of the method as its
+redirect URI.</p></li>
+<li><p>Create the method with <strong>OIDC Provider URL</strong> (the issuer, the part before
+<code class="docutils literal notranslate"><span class="pre">/.well-known/openid-configuration</span></code>), <strong>OIDC Key</strong> (the client ID) and <strong>OIDC Secret</strong>. The other
+endpoints are discovered from the provider.</p></li>
+<li><p>Set <strong>Username Key</strong> and <strong>Groups Claim</strong> to the claims that hold the username and the groups
+(<code class="docutils literal notranslate"><span class="pre">preferred_username</span></code> and <code class="docutils literal notranslate"><span class="pre">Group</span></code> by default), and ask the provider to include them in the
+token or in the userinfo response.</p></li>
+</ol>
+<p>Leave <strong>Verify OIDC Provider Certificate</strong> on. <strong>List of OAuth2 Scope(s)</strong> is <code class="docutils literal notranslate"><span class="pre">openid</span></code>, <code class="docutils literal notranslate"><span class="pre">profile</span></code>
+and <code class="docutils literal notranslate"><span class="pre">email</span></code> by default; add the scope your provider needs for groups, if any.</p>
+</section>
+<section id="keycloak">
+<h2>Keycloak<a class="headerlink" href="#keycloak" title="Link to this heading"></a></h2>
+<p>A dedicated type for Keycloak realms. Create a confidential OpenID Connect client in the realm with
+the callback URL as a valid redirect URI, and set:</p>
+<ul class="simple">
+<li><p><strong>Keycloak Provider URL</strong>: <code class="docutils literal notranslate"><span class="pre">https://&lt;keycloak&gt;/realms/&lt;realm&gt;/protocol/openid-connect/auth</span></code>;</p></li>
+<li><p><strong>Keycloak Access Token URL</strong>: <code class="docutils literal notranslate"><span class="pre">https://&lt;keycloak&gt;/realms/&lt;realm&gt;/protocol/openid-connect/token</span></code>;</p></li>
+<li><p><strong>Keycloak OIDC Key</strong> and <strong>Keycloak OIDC Secret</strong>: the client ID and secret;</p></li>
+<li><p><strong>Keycloak Public Key</strong>: the RS256 public key of the realm (<strong>Realm settings &gt; Keys</strong>);</p></li>
+<li><p><strong>Groups Claim</strong>: the claim a group mapper of the client adds to the token.</p></li>
+</ul>
+<p>Older Keycloak versions have <code class="docutils literal notranslate"><span class="pre">/auth</span></code> before <code class="docutils literal notranslate"><span class="pre">/realms</span></code> in these URLs. Generic OIDC also works with
+Keycloak.</p>
+</section>
+<section id="azure-ad">
+<h2>Azure AD<a class="headerlink" href="#azure-ad" title="Link to this heading"></a></h2>
+<p>For Microsoft Entra ID (formerly Azure Active Directory).</p>
+<ol class="arabic simple">
+<li><p>In Entra ID, register an application, add a web redirect URI with the callback URL of the
+method, and create a client secret.</p></li>
+<li><p>Create the method with <strong>Client ID</strong> (the application ID) and <strong>Secret</strong>.</p></li>
+<li><p>To use groups in rules, add a groups claim to the tokens of the application. <strong>Groups Claim</strong>
+is <code class="docutils literal notranslate"><span class="pre">groups</span></code> by default. Entra ID sends group object IDs unless you configure it to send names.</p></li>
+<li><p><strong>Field to use as username</strong> chooses the claim used as the username, such as
+<code class="docutils literal notranslate"><span class="pre">preferred_username</span></code> or <code class="docutils literal notranslate"><span class="pre">email</span></code>.</p></li>
+</ol>
+</section>
+<section id="google-oauth">
+<h2>Google OAuth<a class="headerlink" href="#google-oauth" title="Link to this heading"></a></h2>
+<p>Create an OAuth client ID of type <em>Web application</em> in the Google Cloud console, with the callback
+URL of the method as an authorized redirect URI, and set <strong>Google OAuth2 Key</strong> and <strong>Google OAuth2
+Secret</strong> to its client ID and secret. Users log in with their Google account; use an allow
+<a class="reference internal" href="mapping.html"><span class="std std-doc">rule</span></a> to limit who can log in.</p>
+</section>
+<section id="github">
+<h2>GitHub<a class="headerlink" href="#github" title="Link to this heading"></a></h2>
+<p>All GitHub types take the <strong>GitHub OAuth2 Key</strong> and <strong>Secret</strong> of an OAuth app, created in GitHub
+under <strong>Settings &gt; Developer settings &gt; OAuth Apps</strong> with the callback URL of the method as its
+<strong>Authorization callback URL</strong>.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Who can log in</p></th>
+<th class="head"><p>Extra settings</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>GitHub</p></td>
+<td><p>Any GitHub user</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>GitHub organization</p></td>
+<td><p>Members of one organization</p></td>
+<td><p><strong>GitHub OAuth2 Organization Name</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>GitHub team</p></td>
+<td><p>Members of one team</p></td>
+<td><p><strong>GitHub OAuth2 Team ID</strong> (numeric, from the GitHub API)</p></td>
+</tr>
+<tr class="row-odd"><td><p>GitHub enterprise, organization, team</p></td>
+<td><p>The same, on GitHub Enterprise Server</p></td>
+<td><p><strong>Base URL</strong> and <strong>Github OAuth2 Enterprise API URL</strong> of the server, plus the organization or team</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="radius-and-tacacs">
+<h2>RADIUS and TACACS+<a class="headerlink" href="#radius-and-tacacs" title="Link to this heading"></a></h2>
+<p>Users log in with a username and password that the gateway checks against the server.</p>
+<ul class="simple">
+<li><p><strong>Radius</strong>: <strong>Hostname of RADIUS Server</strong>, <strong>Port number</strong> (1812 by default) and the <strong>Shared
+secret</strong>.</p></li>
+<li><p><strong>TACACS+</strong>: <strong>Hostname of TACACS+ Server</strong>, <strong>Port number</strong> (49 by default), the <strong>Shared
+secret</strong>, the <strong>Authentication Protocol</strong> (<code class="docutils literal notranslate"><span class="pre">ascii</span></code> by default, <code class="docutils literal notranslate"><span class="pre">pap</span></code> or <code class="docutils literal notranslate"><span class="pre">chap</span></code>), whether to send the
+client address, and the session timeout in seconds (5 by default; 0 disables it).</p></li>
+</ul>
+<p>Neither returns groups, so their rules cannot be based on groups.</p>
+</section>
+<section id="local">
+<h2>Local<a class="headerlink" href="#local" title="Link to this heading"></a></h2>
+<p>The local database type has no settings, and one is created at installation. More local methods
+do not separate users: they all check the same users and passwords, and the first in the login
+order that accepts them applies its rules.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="authentication.html" class="btn btn-neutral float-left" title="Authentication methods" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="mapping.html" class="btn btn-neutral float-right" title="Mapping" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Koios Solutions. Portions 2026, Red Hat, Inc. and 2026, CtrlIQ, Inc..</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+<p class="koios-legal">Licensed under the <a href="../LICENSE.txt">Apache License 2.0</a>; see the <a href="../NOTICE.txt">NOTICE</a> for the origin of this documentation.</p>
+
+</body>
+</html>

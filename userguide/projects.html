@@ -1,0 +1,522 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>14. Projects &ndash; Koios Automation Platform</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ansible.css?v=5657ca2d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/rtd-ethical-ads.css?v=289b023e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/dark.css?v=82723a23" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments-dark.css?v=027e451e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/koios.css?v=808fdb03" />
+
+  
+    <link rel="shortcut icon" href="../_static/images/koios-favicon.svg"/>
+    <link rel="canonical" href="https://docs.koioss.com/userguide/projects.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2d018451"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=b8bcef97"></script>
+      <script src="../_static/js/theme-toggle.js?v=59cbb094"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="15. Project Signing and Verification" href="project-sign.html" />
+    <link rel="prev" title="13. Execution Environment Setup Reference" href="ee_reference.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+<script>
+  (function () {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('koios-docs-theme');
+    } catch (e) {}
+    // Without a stored choice, follow the system preference (dark when it cannot be read).
+    var light = false;
+    try { light = window.matchMedia('(prefers-color-scheme: light)').matches; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', stored || (light ? 'light' : 'dark'));
+  })();
+</script>
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="#" class="asc-theme-toggle" title="Switch theme" aria-label="Switch theme"><svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg></a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../_static/images/koios-mark-white.svg"
+    alt="Koios">
+  <div class="DocSiteNav-title">Koios Automation Platform</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Koios Automation Platform
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Koios Automation Platform Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Install and upgrade</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade_migration/index.html">Upgrades and Migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configure the platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/index.html">Configure the platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Access management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access/index.html">Authentication and access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation execution</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Automating with Koios Automation Platform</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html">Automating with Koios Automation Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html">1. Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging_in.html">2. Logging In</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main_menu.html">3. The User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main_menu.html#the-settings-menu">4. The Settings Menu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="search_sort.html">5. Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="organizations.html">6. Organizations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="users.html">7. Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="teams.html">8. Teams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credentials.html">9. Credentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credential_plugins.html">10. Secret Management System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credential_types.html">11. Custom Credential Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="execution_environments.html">12. Execution Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ee_reference.html">13. Execution Environment Setup Reference</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">14. Projects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#add-a-new-project">14.1. Add a new project</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#manage-playbooks-manually">14.1.1. Manage playbooks manually</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manage-playbooks-using-source-control">14.1.2. Manage playbooks using source control</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#updating-projects-from-source-control">14.2. Updating projects from source control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#work-with-permissions">14.3. Work with Permissions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#work-with-notifications">14.4. Work with Notifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#work-with-job-templates">14.5. Work with Job Templates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#work-with-schedules">14.6. Work with Schedules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ansible-galaxy-support">14.7. Ansible Galaxy Support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#collections-support">14.8. Collections Support</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#using-collections-via-hub">14.8.1. Using Collections via Hub</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="project-sign.html">15. Project Signing and Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventories.html">16. Inventories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventory_plugins_templates.html">17. Supported Inventory Plugin Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="labels.html">18. Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_templates.html">19. Job Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_slices.html">20. Job Slicing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflows.html">21. Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_templates.html">22. Workflow Job Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instance_groups.html">23. Instance Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jobs.html">24. Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhooks.html">25. Working with Webhooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notifications.html">26. Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notification_parameters_supported.html">27. Supported Attributes for Custom Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduling.html">28. Schedules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="best_practices.html">29. Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">30. Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html">31. Glossary</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation decisions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../eda/index.html">Event-Driven Ansible</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hub/index.html">Automation hub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operate</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../operate/index.html">Operate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../administration/index.html">Administering Koios Automation Platform Deployments</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration as code and API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/casc.html">Configuration as code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rest_api/index.html">automation controller API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/releases.html">Releases</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Koios Automation Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Automating with Koios Automation Platform</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">14. </span>Projects</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <section id="projects">
+<span id="ug-projects"></span><h1><span class="section-number">14. </span>Projects<a class="headerlink" href="#projects" title="Link to this heading"></a></h1>
+<p id="index-0">A <a class="reference internal" href="glossary.html#term-Project"><span class="xref std std-term">Project</span></a> is a logical collection of Ansible playbooks.</p>
+<p>You can manage playbooks and playbook directories by either placing them manually under the Project Base Path, or by placing your playbooks into a source code management (SCM) system supported by automation controller, including Git and Subversion, or a remote archive.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Project Base Path is <code class="docutils literal notranslate"><span class="pre">/var/lib/awx/projects</span></code> in the controller pods. Manual projects are directories under that path, inside the controller’s projects volume.</p>
+</div>
+<p>Open <strong>Automation Execution &gt; Projects</strong>. The list shows the projects you can see; it can be searched and sorted, and its columns can be chosen with the column management button.</p>
+<p><img alt="The Projects list with two Git projects" src="../_images/projects-list-all.png" /></p>
+<p>Expand a row with the arrow next to it to see its description and when it was last used.</p>
+<img alt="The Projects list with one project expanded" src="../_images/projects-list-all-expanded.png" />
+<p>Each row has <strong>Sync project</strong> (to get the latest revision from source control), <strong>Edit project</strong> and, in its menu, <strong>Duplicate project</strong>, <strong>Cancel project sync</strong> and <strong>Delete project</strong>. Projects are allowed to be updated while a related job is running. In cases where you have a big project (around 10 GB), disk space on <code class="docutils literal notranslate"><span class="pre">/tmp</span></code> may be an issue.</p>
+<p><strong>Status</strong> indicates the state of the project and may be one of the following (you can also filter the list by status):</p>
+<ul class="simple">
+<li><p><strong>Pending</strong> - The source control update has been created, but not queued or started yet. Any job (not just source control updates) will stay in pending until it’s actually ready to be run by the system. Reasons for it not being ready because it has dependencies that are currently running so it has to wait until they are done, or there is not enough capacity to run in the locations it is configured to.</p></li>
+<li><p><strong>Waiting</strong> - The source control update is in the queue waiting to be executed.</p></li>
+<li><p><strong>Running</strong> - The source control update is currently in progress.</p></li>
+<li><p><strong>Success</strong> - The last source control update for this project succeeded.</p></li>
+<li><p><strong>Failed</strong> - The last source control update for this project failed.</p></li>
+<li><p><strong>Error</strong> - The last source control update job failed to run at all.</p></li>
+<li><p><strong>Canceled</strong> - The last source control update for the project was canceled.</p></li>
+<li><p><strong>Never updated</strong> - The project is configured for source control, but has never been updated.</p></li>
+<li><p><strong>OK</strong> - The project is not configured for source control, and is correctly in place.</p></li>
+<li><p><strong>Missing</strong> - The directory of a manual project is absent from the project base path <code class="docutils literal notranslate"><span class="pre">/var/lib/awx/projects</span></code>. The status of a source control project always comes from its last update.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Manual projects cannot be updated or scheduled from source control; change their <strong>Source control type</strong> first.</p>
+</div>
+<blockquote id="deletion-warning">
+<div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When you delete items, a confirmation window lists them and asks you to confirm the deletion; it does not list the other items that use them. Templates that used a deleted item keep existing without it: a job template without project cannot be launched until you select another one; without inventory, it needs another one, selected in the template or, if the template prompts for it, at launch; a deleted credential is simply removed from the templates, which run without it. Below is an example of the confirmation window:</p>
+<img alt="The confirmation window to permanently delete an inventory" src="../_images/warning-deletion-dependencies.png" />
+</div>
+</div></blockquote>
+<section id="add-a-new-project">
+<span id="ug-projects-add"></span><h2><span class="section-number">14.1. </span>Add a new project<a class="headerlink" href="#add-a-new-project" title="Link to this heading"></a></h2>
+<p id="index-1">To create a new project:</p>
+<ol class="arabic simple">
+<li><p>In the Projects list, click <strong>Create project</strong>.</p></li>
+</ol>
+<p><img alt="The Create project form" src="../_images/projects-create-new-project.png" /></p>
+<ol class="arabic simple" start="2">
+<li><p>Enter the appropriate details into the following fields:</p></li>
+</ol>
+<ul class="simple">
+<li><p><strong>Name</strong> (required)</p></li>
+<li><p><strong>Description</strong> (optional)</p></li>
+<li><p><strong>Organization</strong> (required) - The organization that owns the project.</p></li>
+<li><p><strong>Execution environment</strong> (optional) - The execution environment of the jobs that use this project. It becomes available once an organization is selected. See <a class="reference internal" href="execution_environments.html#ug-execution-environments"><span class="std std-ref">Execution Environments</span></a> for more information.</p></li>
+<li><p><strong>Source control type</strong> (required) - <strong>Manual</strong>, <strong>Git</strong>, <strong>Subversion</strong>, <strong>Red Hat Insights</strong> or <strong>Remote Archive</strong>. The <strong>Type Details</strong> section that follows depends on the type you choose. Refer to <a class="reference internal" href="#ug-manual"><span class="std std-ref">Manage playbooks manually</span></a> or <a class="reference internal" href="#ug-projects-scm-types"><span class="std std-ref">Manage playbooks using source control</span></a> in the subsequent sections for more detail. <strong>Red Hat Insights</strong> uses an <a class="reference internal" href="credentials.html#ug-credentials-insights"><span class="std std-ref">Insights credential</span></a>.</p></li>
+<li><p><strong>Content signature validation credential</strong> (optional) - Select a <a class="reference internal" href="credentials.html#ug-credentials-gpg-public-key"><span class="std std-ref">GPG Public Key credential</span></a> to validate the content signature during project sync. A validation failure fails the project update. See <a class="reference internal" href="project-sign.html#ug-content-signing"><span class="std std-ref">Project Signing and Verification</span></a> for the signing and verification procedure.</p></li>
+</ul>
+<p>For an Insights project, select <strong>Red Hat Insights</strong> in <strong>Source control type</strong> and choose the
+<strong>Insights credential</strong>. The example below uses <strong>Example Insights credential</strong> for <strong>Insights project</strong>.</p>
+<img alt="Create project form for Insights project with Red Hat Insights and Example Insights credential selected" src="../_images/projects-create-insights-credential.png" />
+<ol class="arabic simple" start="3">
+<li><p>Click <strong>Create project</strong> when done.</p></li>
+</ol>
+<p>The project opens with its <strong>Details</strong>, <strong>Schedules</strong>, <strong>Job Templates</strong>, <strong>User Access</strong> and <strong>Team Access</strong> tabs, and <strong>Notifications</strong> when your permissions allow it. A source control project starts its first sync right away.</p>
+<p>The following describes ways projects are sourced in automation controller:</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#manage-playbooks-manually" id="id2">Manage playbooks manually</a></p></li>
+<li><p><a class="reference internal" href="#manage-playbooks-using-source-control" id="id3">Manage playbooks using source control</a></p>
+<ul>
+<li><p><a class="reference internal" href="#scm-types-git-and-subversion" id="id4">SCM Types - Git and Subversion</a></p></li>
+<li><p><a class="reference internal" href="#scm-type-remote-archive" id="id5">SCM Type - Remote Archive</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="manage-playbooks-manually">
+<span id="ug-manual"></span><h3><a class="toc-backref" href="#id2" role="doc-backlink"><span class="section-number">14.1.1. </span>Manage playbooks manually</a><a class="headerlink" href="#manage-playbooks-manually" title="Link to this heading"></a></h3>
+<div class="admonition warning" id="index-2">
+<p class="admonition-title">Warning</p>
+<p>The projects volume of the controller is not persistent by default: files copied into it are lost
+when the pods restart. Prefer a source control project. Manual projects need
+<code class="docutils literal notranslate"><span class="pre">projects_persistence:</span> <span class="pre">true</span></code> in <code class="docutils literal notranslate"><span class="pre">spec.controller</span></code> (a <code class="docutils literal notranslate"><span class="pre">ReadWriteMany</span></code> volume, shared by every
+controller replica).</p>
+</div>
+<ul class="simple">
+<li><p>Create one or more directories to store playbooks under the Project Base Path (<code class="docutils literal notranslate"><span class="pre">/var/lib/awx/projects</span></code>).</p></li>
+<li><p>Create or copy playbook files into the playbook directory.</p></li>
+<li><p>Ensure that the playbook directory and files can be read by the <code class="docutils literal notranslate"><span class="pre">awx</span></code> user of the controller containers.</p></li>
+</ul>
+<p>When you select <strong>Manual</strong>, the <strong>Type Details</strong> section shows the <strong>Project base path</strong> and a <strong>Playbook directory</strong> list with the directories not yet assigned to another project; each directory can only be assigned to one project. If there are no free directories, a warning explains that the base path is empty or all its contents are assigned to other projects; create a new directory there, or use a source control type instead.</p>
+</section>
+<section id="manage-playbooks-using-source-control">
+<span id="ug-projects-scm-types"></span><h3><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">14.1.2. </span>Manage playbooks using source control</a><a class="headerlink" href="#manage-playbooks-using-source-control" title="Link to this heading"></a></h3>
+<nav class="contents local" id="id1">
+<span id="index-3"></span><ul class="simple">
+<li><p><a class="reference internal" href="#scm-types-git-and-subversion" id="id6">SCM Types - Git and Subversion</a></p></li>
+<li><p><a class="reference internal" href="#scm-type-remote-archive" id="id7">SCM Type - Remote Archive</a></p></li>
+</ul>
+</nav>
+<section id="scm-types-git-and-subversion">
+<h4><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">14.1.2.1. </span>SCM Types - Git and Subversion</a><a class="headerlink" href="#scm-types-git-and-subversion" title="Link to this heading"></a></h4>
+<p>To configure playbooks to use source control:</p>
+<ol class="arabic simple">
+<li><p>Select <strong>Git</strong> or <strong>Subversion</strong> in <strong>Source control type</strong>.</p></li>
+</ol>
+<blockquote>
+<div><p><img alt="The Create project form for a Git project" src="../_images/projects-create-scm-project.png" /></p>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>Enter the appropriate details into the following fields of <strong>Type Details</strong>:</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Source control URL</strong> (required) - Click the help icon next to the field for examples.</p></li>
+<li><p><strong>Source control branch/tag/commit</strong> (<strong>Revision number</strong> for Subversion) - Optionally enter the branch, tag, commit hash, arbitrary ref, or revision number to check out. Some commit hashes and refs may not be available unless you also provide a custom refspec in the next field. If left blank, the default is HEAD, the default branch of the repository.</p></li>
+<li><p><strong>Source control refspec</strong> - (Git only) Only advanced users familiar and comfortable with git should specify which references to download from the remote repository. For more detail, see <a class="reference internal" href="jobs.html#ug-job-branching"><span class="std std-ref">job branch overriding</span></a>.</p></li>
+<li><p><strong>Source control credential</strong> - If authentication is required, select the appropriate source control credential.</p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>In <strong>Options</strong>, optionally select the update behavior:</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Clean</strong> - Removes any local modifications prior to performing an update.</p></li>
+<li><p><strong>Delete</strong> - Deletes the local repository in its entirety prior to performing an update. Depending on the size of the repository this may significantly increase the amount of time required to complete an update.</p></li>
+<li><p><strong>Track submodules</strong> - (Git only) Tracks the latest commit of the submodules. See more details in the help of the option.</p></li>
+<li><p><strong>Update revision on launch</strong> - Updates the revision of the project to the current revision in the remote source control before each job, as well as the roles and collections from <a class="reference internal" href="#ug-galaxy"><span class="std std-ref">Galaxy</span></a> or <a class="reference internal" href="#ug-collections"><span class="std std-ref">Collections</span></a>. To avoid job overflows if jobs are spawned faster than the project can sync, it shows <strong>Cache Timeout</strong>: the number of seconds a previous project sync is reused.</p></li>
+<li><p><strong>Allow branch override</strong> - Allows a job template or an inventory source that uses this project to launch with a specified source control branch or revision other than that of the project’s. For more detail, see <a class="reference internal" href="jobs.html#ug-job-branching"><span class="std std-ref">job branch overriding</span></a>.</p></li>
+</ul>
+<blockquote>
+<div><img alt="The options of a Git project with Clean, Update revision on launch and Allow branch override checked, and its cache timeout" src="../_images/projects-create-scm-project-branch-override-checked.png" />
+</div></blockquote>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li><p>Click <strong>Create project</strong> to save your project.</p></li>
+</ol>
+<blockquote>
+<div><div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Using a GitHub link offers an easy way to use a playbook. To help get you started, use the <code class="docutils literal notranslate"><span class="pre">helloworld.yml</span></code> file available at: <a class="reference external" href="https://github.com/ansible/tower-example.git">https://github.com/ansible/tower-example.git</a></p>
+<p>This link offers a very similar playbook to the one created manually in the instructions found in the <a class="reference internal" href="../quickstart/index.html#qs-start"><span class="std std-ref">Koios Automation Platform Quick Start</span></a>. Using it will not alter or harm your system in anyway.</p>
+</div>
+</div></blockquote>
+</section>
+<section id="scm-type-remote-archive">
+<h4><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">14.1.2.2. </span>SCM Type - Remote Archive</a><a class="headerlink" href="#scm-type-remote-archive" title="Link to this heading"></a></h4>
+<p id="index-4">Playbooks using a remote archive allow projects to be provided based on a build process that produces a versioned artifact, or release, containing all the requirements for that project in a single archive.</p>
+<p>To configure playbooks to use a remote archive:</p>
+<ol class="arabic simple">
+<li><p>Select <strong>Remote Archive</strong> in <strong>Source control type</strong>.</p></li>
+<li><p>Enter the appropriate details into the following fields:</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Source control URL</strong> - requires a URL to a remote archive, such as a <em>GitHub Release</em> or a build artifact stored in <em>Artifactory</em> and unpacks it into the project path for use</p></li>
+<li><p><strong>Source control credential</strong> - If authentication is required, select the appropriate source control credential</p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>In <strong>Options</strong>, optionally select the update behavior:</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Clean</strong> - Removes any local modifications prior to performing an update.</p></li>
+<li><p><strong>Delete</strong> - Deletes the local repository in its entirety prior to performing an update. Depending on the size of the repository this may significantly increase the amount of time required to complete an update.</p></li>
+<li><p><strong>Update revision on launch</strong> - Not recommended, as this option updates the revision of the project to the current revision in the remote source control, as well as the roles and collections from <a class="reference internal" href="#ug-galaxy"><span class="std std-ref">Galaxy</span></a> or <a class="reference internal" href="#ug-collections"><span class="std std-ref">Collections</span></a>.</p></li>
+<li><p><strong>Allow branch override</strong> - Not recommended, as this option allows a job template that uses this project to launch with a specified source control branch or revision other than that of the project’s.</p></li>
+</ul>
+<img alt="The Create project form for a Remote Archive project" src="../_images/projects-create-scm-rm-archive.png" />
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since this SCM type is intended to support the concept of unchanging artifacts, it is advisable to disable Galaxy integration (for roles, at minimum).</p>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Click <strong>Create project</strong> to save your project.</p></li>
+</ol>
+</section>
+</section>
+</section>
+<section id="updating-projects-from-source-control">
+<h2><span class="section-number">14.2. </span>Updating projects from source control<a class="headerlink" href="#updating-projects-from-source-control" title="Link to this heading"></a></h2>
+<ol class="arabic simple" id="index-5">
+<li><p>Update an existing source control project with <strong>Sync project</strong>, in its row of the Projects list or at the top of the project.</p></li>
+</ol>
+<blockquote>
+<div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Immediately after adding a project set up to use source control, a sync starts that fetches the project content from the configured source control.</p>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>Click the status of the project in the <strong>Status</strong> column to open the output of its last update, with its plays, tasks and the revision it checked out.</p></li>
+</ol>
+<p><img alt="Output of a project update" src="../_images/projects-update-status.png" /></p>
+</section>
+<section id="work-with-permissions">
+<h2><span class="section-number">14.3. </span>Work with Permissions<a class="headerlink" href="#work-with-permissions" title="Link to this heading"></a></h2>
+<p id="index-6">The set of permissions assigned to this project (role-based access controls) that provide the ability to read, modify, and administer projects, inventories, job templates, and other automation controller elements are Privileges.</p>
+<p>The <strong>User Access</strong> and <strong>Team Access</strong> tabs list the users and teams with roles on the project; <strong>Assign users</strong> and <strong>Assign teams</strong> give roles to more of them. Users must exist first; see <a class="reference internal" href="users.html#ug-users"><span class="std std-ref">Users</span></a>.</p>
+<p><img alt="The User Access tab of a project, with a user that has the Project Use role" src="../_images/projects-permissions-example.png" /></p>
+</section>
+<section id="work-with-notifications">
+<h2><span class="section-number">14.4. </span>Work with Notifications<a class="headerlink" href="#work-with-notifications" title="Link to this heading"></a></h2>
+<p>The <strong>Notifications</strong> tab lists the notifiers you can use with the project.</p>
+<img alt="The Notifications tab of a project with a webhook notifier enabled on success and failure" src="../_images/projects-notifications-example-list.png" />
+<p>Use the <strong>Start</strong>, <strong>Success</strong> and <strong>Failure</strong> toggles to enable or disable each notifier for the updates of this project. For more detail, see <a class="reference internal" href="notifications.html#ug-notifications-on-off"><span class="std std-ref">Enable and Disable Notifications</span></a>.</p>
+<p>If no notifiers have been set up, create them in <strong>Automation Execution &gt; Administration &gt; Notifiers</strong>. Refer to <a class="reference internal" href="notifications.html#ug-notifications-types"><span class="std std-ref">Notification Types</span></a> for additional details on configuring various notification types.</p>
+</section>
+<section id="work-with-job-templates">
+<h2><span class="section-number">14.5. </span>Work with Job Templates<a class="headerlink" href="#work-with-job-templates" title="Link to this heading"></a></h2>
+<p>The <strong>Job Templates</strong> tab lists the job templates that use this project. Click a template to open it; the row actions launch or edit it.</p>
+<img alt="The Job Templates tab of a project" src="../_images/projects-templates-example-list.png" />
+</section>
+<section id="work-with-schedules">
+<h2><span class="section-number">14.6. </span>Work with Schedules<a class="headerlink" href="#work-with-schedules" title="Link to this heading"></a></h2>
+<p id="index-7">The <strong>Schedules</strong> tab lists the schedules that update this project from source control. Click <strong>Create schedule</strong> to add one, use the toggle of a schedule to enable or disable it, and the row actions to edit or delete it. Refer to <a class="reference internal" href="scheduling.html#ug-scheduling"><span class="std std-ref">Schedules</span></a> for more information.</p>
+<img alt="The Schedules tab of a project with a nightly sync" src="../_images/generic-schedules-list-configured.png" />
+</section>
+<section id="ansible-galaxy-support">
+<span id="ug-galaxy"></span><h2><span class="section-number">14.7. </span>Ansible Galaxy Support<a class="headerlink" href="#ansible-galaxy-support" title="Link to this heading"></a></h2>
+<p id="index-8">At the end of a Project update, automation controller searches for a file called <code class="docutils literal notranslate"><span class="pre">requirements.yml</span></code> in the <code class="docutils literal notranslate"><span class="pre">roles</span></code> directory, located at <code class="docutils literal notranslate"><span class="pre">&lt;project-top-level-directory&gt;/roles/requirements.yml</span></code>. If this file is found, role download is enabled and the organization of the project has at least one Galaxy credential (see <a class="reference internal" href="#ug-collections-usage"><span class="std std-ref">Using Collections via Hub</span></a>; also for the public Ansible Galaxy, which needs no token), the following command automatically runs:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">ansible-galaxy role install -r roles/requirements.yml -p &lt;project-specific cache location&gt;/requirements_roles -vvv</span>
+</pre></div>
+</div>
+<p>This file allows you to reference Galaxy roles or roles within other repositories which can be checked out in conjunction with your own project. The addition of this Ansible Galaxy support eliminates the need to create git submodules for achieving this result. Given that SCM projects (along with roles/collections) are pulled into and executed from a private job environment, a &lt;private job directory&gt; specific to the project within <code class="docutils literal notranslate"><span class="pre">/tmp</span></code> is created by default. You can specify another <strong>Job execution path</strong> in <strong>Settings &gt; Automation Execution &gt; Job</strong>:</p>
+<img alt="The Job Settings page with the Job execution path and Paths to expose to isolated jobs" src="../_images/configure-koios-jobs-execution-path.png" />
+<p>The cache directory is a subdirectory inside the global projects folder. The content may be copied from the cache location to <code class="docutils literal notranslate"><span class="pre">&lt;job</span> <span class="pre">private</span> <span class="pre">directory&gt;/requirements_roles</span></code> location.</p>
+<p>By default, automation controller has a system-wide setting that allows roles to be dynamically downloaded from the <code class="docutils literal notranslate"><span class="pre">roles/requirements.yml</span></code> file for SCM projects. You may turn off this setting in <strong>Settings &gt; Automation Execution &gt; Job</strong>: click <strong>Edit</strong> and turn off <strong>Enable Role Download</strong>.</p>
+<img alt="The Job Settings page with Enable Role Download, Enable Collection(s) Download and Ignore Ansible Galaxy SSL Certificate Verification" src="../_images/configure-koios-jobs-download-roles.png" />
+<p>Roles and collections are cached by the content of the requirements files: a project update computes a hash of <code class="docutils literal notranslate"><span class="pre">roles/requirements.yml</span></code> and <code class="docutils literal notranslate"><span class="pre">collections/requirements.yml</span></code> and, when a cache for that hash exists, reuses it instead of downloading again. A change in an upstream role or collection is therefore not picked up while the requirements files stay the same, even with <strong>Update revision on launch</strong>.</p>
+<p>For instance, say you have two git repositories in source control. The first one is <em>playbooks</em> and the project in automation controller points to this URL. The second one is <em>provision-role</em> and it is referenced by the <code class="docutils literal notranslate"><span class="pre">roles/requirements.yml</span></code> file inside of the <em>playbooks</em> git repo. Pin the version (a tag or commit) of <em>provision-role</em> in <code class="docutils literal notranslate"><span class="pre">roles/requirements.yml</span></code>; to use a new version, change it there and update the project.</p>
+<p>To update the project, and with it any change in its requirements files, before every job run, select <strong>Update revision on launch</strong> in the project options:</p>
+<p><img alt="The options of a Git project with Update revision on launch checked" src="../_images/projects-scm-update-options-update-on-launch-checked.png" /></p>
+<p>For more information and examples on the syntax of the <code class="docutils literal notranslate"><span class="pre">requirements.yml</span></code> file, refer to the <a class="reference external" href="https://docs.ansible.com/ansible/latest/galaxy/user_guide.html#installing-multiple-roles-from-a-file">role requirements section</a> in the Ansible documentation.</p>
+<p>If there are any directories of the host that jobs need, you can list them in <strong>Paths to expose to isolated jobs</strong> in the same settings page, or declare the setting in <code class="docutils literal notranslate"><span class="pre">spec.controller.extra_settings</span></code> of the <code class="docutils literal notranslate"><span class="pre">KoiosPlatform</span></code>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">AWX_ISOLATION_SHOW_PATHS</span> <span class="pre">=</span> <span class="pre">['/list/of/',</span> <span class="pre">'/paths']</span></code></p>
+<p>These paths are mounted in the jobs that run on execution nodes outside the cluster (see <a class="reference internal" href="../administration/instances.html#ag-instances"><span class="std std-ref">Managing Capacity With Instances</span></a>). Jobs that run in container groups, the default in Koios Automation Platform, only mount them when <strong>Expose host paths for Container Groups</strong> is enabled, as <code class="docutils literal notranslate"><span class="pre">hostPath</span></code> volumes of the Kubernetes node that runs the job; the security policies of the cluster must allow them.</p>
+<p>Settings declared in the <code class="docutils literal notranslate"><span class="pre">KoiosPlatform</span></code> are applied by the operator, which rolls out the controller pods; do not edit files inside the pods, as the operator replaces them.</p>
+</section>
+<section id="collections-support">
+<span id="ug-collections"></span><h2><span class="section-number">14.8. </span>Collections Support<a class="headerlink" href="#collections-support" title="Link to this heading"></a></h2>
+<p id="index-9">Automation controller supports project-specific <a class="reference external" href="https://docs.ansible.com/ansible/latest/collections_guide/index.html">Ansible collections</a> in job runs. If you specify a collections requirements file in the SCM at <code class="docutils literal notranslate"><span class="pre">collections/requirements.yml</span></code>, automation controller will install collections in that file during the project update, provided that collection download is enabled and the organization of the project has at least one Galaxy credential.</p>
+<p>By default, automation controller has a system-wide setting that allows collections to be dynamically downloaded from the <code class="docutils literal notranslate"><span class="pre">collections/requirements.yml</span></code> file for SCM projects. You may turn off this setting in <strong>Settings &gt; Automation Execution &gt; Job</strong>: click <strong>Edit</strong> and turn off <strong>Enable Collection(s) Download</strong>.</p>
+<p>Collections share the cache described in <a class="reference internal" href="#ug-galaxy"><span class="std std-ref">Ansible Galaxy Support</span></a>: pin their versions in <code class="docutils literal notranslate"><span class="pre">collections/requirements.yml</span></code> and change them there to get new ones. To update the project before every job run, select <strong>Update revision on launch</strong>:</p>
+<p><img alt="The options of a Git project with Update revision on launch checked" src="../_images/projects-scm-update-options-update-on-launch-checked.png" /></p>
+<section id="using-collections-via-hub">
+<span id="ug-collections-usage"></span><h3><span class="section-number">14.8.1. </span>Using Collections via Hub<a class="headerlink" href="#using-collections-via-hub" title="Link to this heading"></a></h3>
+<p>Projects install the collections listed in their <code class="docutils literal notranslate"><span class="pre">collections/requirements.yml</span></code> from the <strong>Galaxy credentials</strong> of their organization, in the order they are listed there (see <a class="reference internal" href="organizations.html#ug-organizations"><span class="std std-ref">Organizations</span></a>). Each Galaxy credential is an <strong>Ansible Galaxy/Automation Hub API Token</strong> credential pointing to one server or repository: Ansible Galaxy, the automation hub of Koios Automation Platform, or another one.</p>
+<p>To use the automation hub of the platform, create a token, a credential with the URL of the published repository, and add the credential to the organization, as described in <a class="reference internal" href="../hub/index.html"><span class="doc">Automation hub</span></a>. Each repository of automation hub needs its own credential, so you can give each organization access to different repositories.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Suppose you have two repositories:</p>
+<ul class="simple">
+<li><p><em>Prod</em>: <code class="docutils literal notranslate"><span class="pre">Namespace</span> <span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">Namespace</span> <span class="pre">2</span></code>, each with collection <code class="docutils literal notranslate"><span class="pre">A</span></code> and <code class="docutils literal notranslate"><span class="pre">B</span></code> so: <code class="docutils literal notranslate"><span class="pre">namespace1.collectionA:v2.0.0</span></code> and <code class="docutils literal notranslate"><span class="pre">namespace2.collectionB:v2.0.0</span></code></p></li>
+<li><p><em>Stage</em>: <code class="docutils literal notranslate"><span class="pre">Namespace</span> <span class="pre">1</span></code> with only collection <code class="docutils literal notranslate"><span class="pre">A</span></code> so: <code class="docutils literal notranslate"><span class="pre">namespace1.collectionA:v1.5.0</span></code></p></li>
+</ul>
+<p>You can create a credential for each one. Then you can assign different levels of access to different organizations. For example, a Developers organization can have access to both repositories, while an Operations organization only has access to the <strong>Prod</strong> repository.</p>
+</div>
+<p>If the server uses certificates that the controller does not trust, you can enable <strong>Ignore Ansible Galaxy SSL Certificate Verification</strong> in <strong>Settings &gt; Automation Execution &gt; Job</strong>. This is a global setting; prefer adding the certificate authority to the trust of the platform.</p>
+<p>Then create a project whose source repository lists the collections in <code class="docutils literal notranslate"><span class="pre">collections/requirements.yml</span></code>, following the syntax described in the corresponding <a class="reference external" href="https://docs.ansible.com/ansible/latest/collections_guide/collections_installing.html#install-multiple-collections-with-a-requirements-file">Ansible documentation</a>, and sync it: automation controller installs the collections, and they are available to every job template that uses the project.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If updates are needed from Galaxy or Collections, a sync is performed that downloads the required roles, consuming that much more space in your /tmp file. In cases where you have a big project (around 10 GB), disk space on <code class="docutils literal notranslate"><span class="pre">/tmp</span></code> may be an issue.</p>
+</div>
+<p>For more information on collections, refer to <a class="reference external" href="https://docs.ansible.com/ansible/latest/collections_guide/index.html">Using Collections</a>.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ee_reference.html" class="btn btn-neutral float-left" title="13. Execution Environment Setup Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="project-sign.html" class="btn btn-neutral float-right" title="15. Project Signing and Verification" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Koios Solutions. Portions 2026, Red Hat, Inc. and 2026, CtrlIQ, Inc..</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+<p class="koios-legal">Licensed under the <a href="../LICENSE.txt">Apache License 2.0</a>; see the <a href="../NOTICE.txt">NOTICE</a> for the origin of this documentation.</p>
+
+</body>
+</html>

@@ -1,0 +1,363 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Logs and diagnostics &ndash; Koios Automation Platform</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ansible.css?v=5657ca2d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/rtd-ethical-ads.css?v=289b023e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/dark.css?v=82723a23" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments-dark.css?v=027e451e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/koios.css?v=808fdb03" />
+
+  
+    <link rel="shortcut icon" href="../_static/images/koios-favicon.svg"/>
+    <link rel="canonical" href="https://docs.koioss.com/operate/logs.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2d018451"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=b8bcef97"></script>
+      <script src="../_static/js/theme-toggle.js?v=59cbb094"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Operational runbooks" href="runbooks.html" />
+    <link rel="prev" title="Check platform health" href="health.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+<script>
+  (function () {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('koios-docs-theme');
+    } catch (e) {}
+    // Without a stored choice, follow the system preference (dark when it cannot be read).
+    var light = false;
+    try { light = window.matchMedia('(prefers-color-scheme: light)').matches; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', stored || (light ? 'light' : 'dark'));
+  })();
+</script>
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="#" class="asc-theme-toggle" title="Switch theme" aria-label="Switch theme"><svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg></a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../_static/images/koios-mark-white.svg"
+    alt="Koios">
+  <div class="DocSiteNav-title">Koios Automation Platform</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Koios Automation Platform
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Koios Automation Platform Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Install and upgrade</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade_migration/index.html">Upgrades and Migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configure the platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/index.html">Configure the platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Access management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access/index.html">Authentication and access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation execution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">Automating with Koios Automation Platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation decisions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../eda/index.html">Event-Driven Ansible</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hub/index.html">Automation hub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operate</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Operate</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="health.html">Check platform health</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Logs and diagnostics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#select-the-scope-and-container">Select the scope and container</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gateway-and-controller">Gateway and controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#eda-and-hub-workloads">EDA and hub workloads</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database-and-redis-valkey">Database and Redis/Valkey</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#operator-reconciliation">Operator reconciliation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prepare-a-diagnostic-record">Prepare a diagnostic record</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="runbooks.html">Operational runbooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#components-and-workloads">Components and workloads</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#status">Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#upgrades">Upgrades</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#backup-and-restore">Backup and restore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#daily-operation">Daily operation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#idle-mode">Idle mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#deleting-a-platform">Deleting a platform</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../administration/index.html">Administering Koios Automation Platform Deployments</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration as code and API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/casc.html">Configuration as code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rest_api/index.html">automation controller API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/releases.html">Releases</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Koios Automation Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Operate</a></li>
+      <li class="breadcrumb-item active">Logs and diagnostics</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <section id="logs-and-diagnostics">
+<span id="operate-logs"></span><h1>Logs and diagnostics<a class="headerlink" href="#logs-and-diagnostics" title="Link to this heading"></a></h1>
+<p>Identify the affected component and time window before collecting output. Workload logs explain
+application behavior; operator logs explain reconciliation. A controller job, EDA activation and
+hub import also have their own application history. Use those views before collecting an entire
+platform’s logs.</p>
+<section id="select-the-scope-and-container">
+<h2>Select the scope and container<a class="headerlink" href="#select-the-scope-and-container" title="Link to this heading"></a></h2>
+<p>The examples use Bash. Select the authorized context, platform namespace and actual component
+names from <a class="reference internal" href="health.html"><span class="std std-doc">platform status</span></a>. Select the operator namespace separately:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">KAP_CONTEXT</span><span class="o">=</span><span class="s1">'&lt;context&gt;'</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">KAP_NAMESPACE</span><span class="o">=</span><span class="s1">'&lt;platform-namespace&gt;'</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">KAP_NAME</span><span class="o">=</span><span class="s1">'&lt;platform-name&gt;'</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">KAP_CONTROLLER</span><span class="o">=</span><span class="s1">'&lt;controller-resource-name&gt;'</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">KAP_EDA</span><span class="o">=</span><span class="s1">'&lt;eda-resource-name&gt;'</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">KAP_HUB</span><span class="o">=</span><span class="s1">'&lt;hub-resource-name&gt;'</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">KAP_OPERATOR_NAMESPACE</span><span class="o">=</span><span class="s1">'&lt;operator-namespace&gt;'</span>
+</pre></div>
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">oc</span></code> instead of <code class="docutils literal notranslate"><span class="pre">kubectl</span></code> on OpenShift with the same explicit context and namespace. The
+controller, EDA and hub names default to <code class="docutils literal notranslate"><span class="pre">&lt;platform-name&gt;-controller</span></code>, <code class="docutils literal notranslate"><span class="pre">-eda</span></code> and <code class="docutils literal notranslate"><span class="pre">-hub</span></code>, but can
+be overridden. Operator names are <a class="reference internal" href="index.html#operator-deployments"><span class="std std-ref">fixed package names</span></a>, not
+names derived from <code class="docutils literal notranslate"><span class="pre">KAP_NAME</span></code>.</p>
+<p>Find pods and their actual containers before choosing a log stream:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>--context<span class="w"> </span><span class="s2">"</span><span class="nv">$KAP_CONTEXT</span><span class="s2">"</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">"</span><span class="nv">$KAP_NAMESPACE</span><span class="s2">"</span><span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-o<span class="w"> </span>wide
+kubectl<span class="w"> </span>--context<span class="w"> </span><span class="s2">"</span><span class="nv">$KAP_CONTEXT</span><span class="s2">"</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">"</span><span class="nv">$KAP_NAMESPACE</span><span class="s2">"</span><span class="w"> </span>get<span class="w"> </span>pod<span class="w"> </span><span class="s1">'&lt;pod-name&gt;'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">'{range .spec.containers[*]}{.name}{"\n"}{end}'</span>
+kubectl<span class="w"> </span>--context<span class="w"> </span><span class="s2">"</span><span class="nv">$KAP_CONTEXT</span><span class="s2">"</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">"</span><span class="nv">$KAP_NAMESPACE</span><span class="s2">"</span><span class="w"> </span>logs<span class="w"> </span><span class="s1">'&lt;pod-name&gt;'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-c<span class="w"> </span><span class="s1">'&lt;container-name&gt;'</span><span class="w"> </span>--since<span class="o">=</span>15m<span class="w"> </span>--tail<span class="o">=</span><span class="m">200</span><span class="w"> </span>--timestamps<span class="o">=</span><span class="nb">true</span>
+</pre></div>
+</div>
+<p>For a restarted container in the same pod, add <code class="docutils literal notranslate"><span class="pre">--previous</span></code> to read its preceding instance.
+That output may be unavailable after pod replacement. A <code class="docutils literal notranslate"><span class="pre">logs</span> <span class="pre">deployment/...</span></code> command selects a
+pod; with several replicas, inspect each relevant pod explicitly rather than assuming one stream
+covers every request.</p>
+</section>
+<section id="gateway-and-controller">
+<h2>Gateway and controller<a class="headerlink" href="#gateway-and-controller" title="Link to this heading"></a></h2>
+<p>The gateway Deployment has <strong><code class="docutils literal notranslate"><span class="pre">api</span></code></strong> and <strong><code class="docutils literal notranslate"><span class="pre">proxy</span></code></strong> containers. Inspect both when a gateway
+request fails: the API handles gateway application work and the proxy routes service traffic.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>--context<span class="w"> </span><span class="s2">"</span><span class="nv">$KAP_CONTEXT</span><span class="s2">"</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">"</span><span class="nv">$KAP_NAMESPACE</span><span class="s2">"</span><span class="w"> </span>logs<span class="w"> </span><span class="s2">"deployment/</span><span class="nv">$KAP_NAME</span><span class="s2">-gateway"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-c<span class="w"> </span>api<span class="w"> </span>--since<span class="o">=</span>15m<span class="w"> </span>--tail<span class="o">=</span><span class="m">200</span><span class="w"> </span>--timestamps<span class="o">=</span><span class="nb">true</span>
+kubectl<span class="w"> </span>--context<span class="w"> </span><span class="s2">"</span><span class="nv">$KAP_CONTEXT</span><span class="s2">"</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">"</span><span class="nv">$KAP_NAMESPACE</span><span class="s2">"</span><span class="w"> </span>logs<span class="w"> </span><span class="s2">"deployment/</span><span class="nv">$KAP_NAME</span><span class="s2">-gateway"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-c<span class="w"> </span>proxy<span class="w"> </span>--since<span class="o">=</span>15m<span class="w"> </span>--tail<span class="o">=</span><span class="m">200</span><span class="w"> </span>--timestamps<span class="o">=</span><span class="nb">true</span>
+kubectl<span class="w"> </span>--context<span class="w"> </span><span class="s2">"</span><span class="nv">$KAP_CONTEXT</span><span class="s2">"</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">"</span><span class="nv">$KAP_NAMESPACE</span><span class="s2">"</span><span class="w"> </span>logs<span class="w"> </span><span class="s2">"deployment/</span><span class="nv">$KAP_CONTROLLER</span><span class="s2">-web"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-c<span class="w"> </span><span class="s2">"</span><span class="nv">$KAP_CONTROLLER</span><span class="s2">-web"</span><span class="w"> </span>--since<span class="o">=</span>15m<span class="w"> </span>--tail<span class="o">=</span><span class="m">200</span><span class="w"> </span>--timestamps<span class="o">=</span><span class="nb">true</span>
+</pre></div>
+</div>
+<p>The controller task pod includes four relevant containers. Select the stream matching the
+failure; Redis, control tasks, local execution/receptor and log forwarding are separate processes:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>--context<span class="w"> </span><span class="s2">"</span><span class="nv">$KAP_CONTEXT</span><span class="s2">"</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">"</span><span class="nv">$KAP_NAMESPACE</span><span class="s2">"</span><span class="w"> </span>logs<span class="w"> </span><span class="s2">"deployment/</span><span class="nv">$KAP_CONTROLLER</span><span class="s2">-task"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-c<span class="w"> </span>redis<span class="w"> </span>--since<span class="o">=</span>15m<span class="w"> </span>--tail<span class="o">=</span><span class="m">200</span><span class="w"> </span>--timestamps<span class="o">=</span><span class="nb">true</span>
+kubectl<span class="w"> </span>--context<span class="w"> </span><span class="s2">"</span><span class="nv">$KAP_CONTEXT</span><span class="s2">"</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">"</span><span class="nv">$KAP_NAMESPACE</span><span class="s2">"</span><span class="w"> </span>logs<span class="w"> </span><span class="s2">"deployment/</span><span class="nv">$KAP_CONTROLLER</span><span class="s2">-task"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-c<span class="w"> </span><span class="s2">"</span><span class="nv">$KAP_CONTROLLER</span><span class="s2">-task"</span><span class="w"> </span>--since<span class="o">=</span>15m<span class="w"> </span>--tail<span class="o">=</span><span class="m">200</span><span class="w"> </span>--timestamps<span class="o">=</span><span class="nb">true</span>
+kubectl<span class="w"> </span>--context<span class="w"> </span><span class="s2">"</span><span class="nv">$KAP_CONTEXT</span><span class="s2">"</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">"</span><span class="nv">$KAP_NAMESPACE</span><span class="s2">"</span><span class="w"> </span>logs<span class="w"> </span><span class="s2">"deployment/</span><span class="nv">$KAP_CONTROLLER</span><span class="s2">-task"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-c<span class="w"> </span><span class="s2">"</span><span class="nv">$KAP_CONTROLLER</span><span class="s2">-ee"</span><span class="w"> </span>--since<span class="o">=</span>15m<span class="w"> </span>--tail<span class="o">=</span><span class="m">200</span><span class="w"> </span>--timestamps<span class="o">=</span><span class="nb">true</span>
+kubectl<span class="w"> </span>--context<span class="w"> </span><span class="s2">"</span><span class="nv">$KAP_CONTEXT</span><span class="s2">"</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">"</span><span class="nv">$KAP_NAMESPACE</span><span class="s2">"</span><span class="w"> </span>logs<span class="w"> </span><span class="s2">"deployment/</span><span class="nv">$KAP_CONTROLLER</span><span class="s2">-task"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-c<span class="w"> </span><span class="s2">"</span><span class="nv">$KAP_CONTROLLER</span><span class="s2">-rsyslog"</span><span class="w"> </span>--since<span class="o">=</span>15m<span class="w"> </span>--tail<span class="o">=</span><span class="m">200</span><span class="w"> </span>--timestamps<span class="o">=</span><span class="nb">true</span>
+</pre></div>
+</div>
+<p>The web pod also has a <code class="docutils literal notranslate"><span class="pre">redis</span></code> sidecar. Container group jobs and external execution nodes have
+their own execution logs; the controller task pod is not a complete record of every job’s output.
+Open the job in <strong>Automation Execution &gt; Jobs</strong> for its status, output and execution details.
+See <a class="reference internal" href="../administration/logfiles.html"><span class="std std-doc">Controller logfiles</span></a> for process responsibilities and
+<a class="reference internal" href="../administration/logging.html"><span class="std std-doc">Logging and Aggregation</span></a> for external controller log forwarding.
+That controller configuration does not automatically aggregate gateway, EDA, hub or operator logs.</p>
+</section>
+<section id="eda-and-hub-workloads">
+<h2>EDA and hub workloads<a class="headerlink" href="#eda-and-hub-workloads" title="Link to this heading"></a></h2>
+<p>Use bounded logs for the relevant service. These loops cover the default workload suffixes;
+skip disabled components and select individual containers/pods when necessary:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span>workload<span class="w"> </span><span class="k">in</span><span class="w"> </span>api<span class="w"> </span>default-worker<span class="w"> </span>activation-worker<span class="w"> </span>event-stream<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span>kubectl<span class="w"> </span>--context<span class="w"> </span><span class="s2">"</span><span class="nv">$KAP_CONTEXT</span><span class="s2">"</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">"</span><span class="nv">$KAP_NAMESPACE</span><span class="s2">"</span><span class="w"> </span>logs<span class="w"> </span><span class="s2">"deployment/</span><span class="nv">$KAP_EDA</span><span class="s2">-</span><span class="nv">$workload</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--all-containers<span class="o">=</span><span class="nb">true</span><span class="w"> </span>--prefix<span class="o">=</span><span class="nb">true</span><span class="w"> </span>--since<span class="o">=</span>15m<span class="w"> </span>--tail<span class="o">=</span><span class="m">200</span><span class="w"> </span>--timestamps<span class="o">=</span><span class="nb">true</span>
+<span class="k">done</span>
+
+<span class="k">for</span><span class="w"> </span>workload<span class="w"> </span><span class="k">in</span><span class="w"> </span>api<span class="w"> </span>content<span class="w"> </span>worker<span class="w"> </span>web<span class="w"> </span>redis<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span>kubectl<span class="w"> </span>--context<span class="w"> </span><span class="s2">"</span><span class="nv">$KAP_CONTEXT</span><span class="s2">"</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">"</span><span class="nv">$KAP_NAMESPACE</span><span class="s2">"</span><span class="w"> </span>logs<span class="w"> </span><span class="s2">"deployment/</span><span class="nv">$KAP_HUB</span><span class="s2">-</span><span class="nv">$workload</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--all-containers<span class="o">=</span><span class="nb">true</span><span class="w"> </span>--prefix<span class="o">=</span><span class="nb">true</span><span class="w"> </span>--since<span class="o">=</span>15m<span class="w"> </span>--tail<span class="o">=</span><span class="m">200</span><span class="w"> </span>--timestamps<span class="o">=</span><span class="nb">true</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+<p>For an activation, open <strong>Automation Decisions &gt; Rulebook Activations</strong>, select the activation,
+open <strong>History</strong>, and select the instance from the failure time. Its <strong>Details</strong> shows the instance
+output. Inspect <strong>Automation Decisions &gt; Rule Audit</strong> separately for rule events/actions, then
+the controller job if the action launched one. See <a class="reference internal" href="../eda/troubleshooting.html"><span class="std std-doc">EDA troubleshooting</span></a>.
+An image pull failure may appear in pod events before any activation output exists.</p>
+<p>For a collection import, open <strong>Automation Content &gt; Collection Approvals &gt; View import logs</strong>
+on the affected version, or open its namespace under <strong>Namespaces</strong> and choose <strong>Imports</strong> to
+reach <strong>My imports</strong>. Select the matching import/version. This is not a separate sidebar item.
+If client output is incomplete, inspect hub worker logs for the same task/time window. See
+<a class="reference internal" href="../hub/troubleshooting.html"><span class="std std-doc">Hub troubleshooting</span></a> for import stages and error examples.</p>
+</section>
+<section id="database-and-redis-valkey">
+<h2>Database and Redis/Valkey<a class="headerlink" href="#database-and-redis-valkey" title="Link to this heading"></a></h2>
+<p>For managed services, read the PostgreSQL StatefulSet name and Redis mode from status, then
+inspect the actual pods and container names. Do not assume the PostgreSQL major-version suffix
+or that cluster-mode Redis has the standalone topology:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>--context<span class="w"> </span><span class="s2">"</span><span class="nv">$KAP_CONTEXT</span><span class="s2">"</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">"</span><span class="nv">$KAP_NAMESPACE</span><span class="s2">"</span><span class="w"> </span>get<span class="w"> </span>statefulsets,pods,pvc
+kubectl<span class="w"> </span>--context<span class="w"> </span><span class="s2">"</span><span class="nv">$KAP_CONTEXT</span><span class="s2">"</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">"</span><span class="nv">$KAP_NAMESPACE</span><span class="s2">"</span><span class="w"> </span>logs<span class="w"> </span><span class="s1">'&lt;database-or-redis-pod&gt;'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-c<span class="w"> </span><span class="s1">'&lt;container-name&gt;'</span><span class="w"> </span>--since<span class="o">=</span>15m<span class="w"> </span>--tail<span class="o">=</span><span class="m">200</span><span class="w"> </span>--timestamps<span class="o">=</span><span class="nb">true</span>
+</pre></div>
+</div>
+<p>External database/Redis diagnostics belong to their administrators. Do not copy connection
+Secrets, passwords or database contents into a diagnostic bundle. See the
+<a class="reference internal" href="runbooks.html#managed-postgresql-storage-is-full"><span class="std std-ref">storage runbook</span></a> before changing storage.</p>
+</section>
+<section id="operator-reconciliation">
+<h2>Operator reconciliation<a class="headerlink" href="#operator-reconciliation" title="Link to this heading"></a></h2>
+<p>Inspect the gateway operator for <code class="docutils literal notranslate"><span class="pre">KoiosPlatform</span></code> and shared-resource reconciliation, then the
+operator of the affected child component. The package names below stay the same even when the
+platform has a different name:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span>component<span class="w"> </span><span class="k">in</span><span class="w"> </span>gateway<span class="w"> </span>controller<span class="w"> </span>eda<span class="w"> </span>hub<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span>kubectl<span class="w"> </span>--context<span class="w"> </span><span class="s2">"</span><span class="nv">$KAP_CONTEXT</span><span class="s2">"</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">"</span><span class="nv">$KAP_OPERATOR_NAMESPACE</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>logs<span class="w"> </span><span class="s2">"deployment/koios-</span><span class="nv">$component</span><span class="s2">-operator-controller-manager"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--all-containers<span class="o">=</span><span class="nb">true</span><span class="w"> </span>--prefix<span class="o">=</span><span class="nb">true</span><span class="w"> </span>--since<span class="o">=</span>15m<span class="w"> </span>--tail<span class="o">=</span><span class="m">200</span><span class="w"> </span>--timestamps<span class="o">=</span><span class="nb">true</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+<p>An operator can manage several platforms. Correlate records with the affected namespace/resource
+name and the failure time; do not attribute another platform’s error to this one. If an operator
+pod is not running, inspect its events in the <strong>operator namespace</strong>, not just application logs:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>--context<span class="w"> </span><span class="s2">"</span><span class="nv">$KAP_CONTEXT</span><span class="s2">"</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">"</span><span class="nv">$KAP_OPERATOR_NAMESPACE</span><span class="s2">"</span><span class="w"> </span>get<span class="w"> </span>pods
+kubectl<span class="w"> </span>--context<span class="w"> </span><span class="s2">"</span><span class="nv">$KAP_CONTEXT</span><span class="s2">"</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">"</span><span class="nv">$KAP_OPERATOR_NAMESPACE</span><span class="s2">"</span><span class="w"> </span>get<span class="w"> </span>events<span class="w"> </span>--sort-by<span class="o">=</span>.metadata.creationTimestamp
+kubectl<span class="w"> </span>--context<span class="w"> </span><span class="s2">"</span><span class="nv">$KAP_CONTEXT</span><span class="s2">"</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">"</span><span class="nv">$KAP_OPERATOR_NAMESPACE</span><span class="s2">"</span><span class="w"> </span>describe<span class="w"> </span>pod<span class="w"> </span><span class="s1">'&lt;operator-pod&gt;'</span>
+</pre></div>
+</div>
+</section>
+<section id="prepare-a-diagnostic-record">
+<h2>Prepare a diagnostic record<a class="headerlink" href="#prepare-a-diagnostic-record" title="Link to this heading"></a></h2>
+<p>Record the release, timestamp/time zone, namespace, resource names, selected condition messages,
+HTTP status codes and a short log excerpt around the failure. Include the job/activation/import
+identifier where relevant. Preserve earlier errors before retrying an operation.</p>
+<p>Logs, pod descriptions, job output and event payloads can contain credentials or business data.
+Inspect and redact locally before sharing. Refer to Secrets by <strong>name only</strong>; never include
+Secret data, administrator passwords, authorization headers or complete environment dumps.
+For longer-term collection, use your cluster’s logging facilities and retention policy rather
+than relying on logs surviving pod replacement. Follow the <a class="reference internal" href="runbooks.html"><span class="std std-doc">runbooks</span></a> to correct the
+owning CR or application object and verify the result.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="health.html" class="btn btn-neutral float-left" title="Check platform health" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="runbooks.html" class="btn btn-neutral float-right" title="Operational runbooks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Koios Solutions. Portions 2026, Red Hat, Inc. and 2026, CtrlIQ, Inc..</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+<p class="koios-legal">Licensed under the <a href="../LICENSE.txt">Apache License 2.0</a>; see the <a href="../NOTICE.txt">NOTICE</a> for the origin of this documentation.</p>
+
+</body>
+</html>

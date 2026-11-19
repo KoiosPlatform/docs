@@ -1,0 +1,341 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mapping &ndash; Koios Automation Platform</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ansible.css?v=5657ca2d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/rtd-ethical-ads.css?v=289b023e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/dark.css?v=82723a23" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments-dark.css?v=027e451e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/koios.css?v=808fdb03" />
+
+  
+    <link rel="shortcut icon" href="../_static/images/koios-favicon.svg"/>
+    <link rel="canonical" href="https://docs.koioss.com/access/mapping.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2d018451"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=b8bcef97"></script>
+      <script src="../_static/js/theme-toggle.js?v=59cbb094"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Sessions and passwords" href="sessions.html" />
+    <link rel="prev" title="Authentication providers" href="providers.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+<script>
+  (function () {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('koios-docs-theme');
+    } catch (e) {}
+    // Without a stored choice, follow the system preference (dark when it cannot be read).
+    var light = false;
+    try { light = window.matchMedia('(prefers-color-scheme: light)').matches; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', stored || (light ? 'light' : 'dark'));
+  })();
+</script>
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="#" class="asc-theme-toggle" title="Switch theme" aria-label="Switch theme"><svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg></a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../_static/images/koios-mark-white.svg"
+    alt="Koios">
+  <div class="DocSiteNav-title">Koios Automation Platform</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Koios Automation Platform
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Koios Automation Platform Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Install and upgrade</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade_migration/index.html">Upgrades and Migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configure the platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/index.html">Configure the platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Access management</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Authentication and access</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="authentication.html">Authentication methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="providers.html">Authentication providers</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Mapping</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-a-rule-grants">What a rule grants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#when-a-rule-applies">When a rule applies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-rules-combine">How rules combine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#checking-the-result">Checking the result</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sessions.html">Sessions and passwords</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tokens.html">API tokens and OAuth applications</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation execution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">Automating with Koios Automation Platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation decisions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../eda/index.html">Event-Driven Ansible</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hub/index.html">Automation hub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operate</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../operate/index.html">Operate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../administration/index.html">Administering Koios Automation Platform Deployments</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration as code and API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/casc.html">Configuration as code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rest_api/index.html">automation controller API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/releases.html">Releases</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Koios Automation Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Authentication and access</a></li>
+      <li class="breadcrumb-item active">Mapping</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <section id="mapping">
+<h1>Mapping<a class="headerlink" href="#mapping" title="Link to this heading"></a></h1>
+<p>Mapping rules decide, at every login through an <a class="reference internal" href="authentication.html"><span class="std std-doc">authentication method</span></a>, what
+the user is given: whether they may log in at all, which organizations and teams they belong to,
+which platform roles they hold, and whether they are a superuser. The rules use what the provider
+says about the user: their groups and their attributes.</p>
+<p>Rules belong to an authentication method. Open the method, go to <strong>Mappings</strong> and click <strong>Create
+mapping</strong>.</p>
+<p><img alt="The form to create a mapping rule" src="../_images/access-mapping-create.png" /></p>
+<section id="what-a-rule-grants">
+<h2>What a rule grants<a class="headerlink" href="#what-a-rule-grants" title="Link to this heading"></a></h2>
+<p><strong>Authentication mapping</strong> sets the kind of rule:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Kind</p></th>
+<th class="head"><p>Grants</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Allow</strong></p></td>
+<td><p>Permission to log in.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Organization</strong></p></td>
+<td><p>A role in an organization, such as <strong>Organization Member</strong> or <strong>Organization Admin</strong>.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Team</strong></p></td>
+<td><p>A role in a team of an organization, such as <strong>Team Member</strong> or <strong>Team Admin</strong>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Role</strong></p></td>
+<td><p>A platform role: a system role such as <strong>Platform Auditor</strong>, or an organization or team role, with the organization and team it applies to.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Superuser</strong></p></td>
+<td><p>The superuser flag: full control of the platform.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Organizations and teams are named, not selected, so a rule can name one that does not exist yet:
+the method creates it at login when its <strong>Create objects</strong> option is on. Names can also come from
+the user’s attributes, with <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">for_attr_value(&lt;attribute&gt;)</span> <span class="pre">%}</span></code>. For example, an organization named
+<code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">for_attr_value(department)</span> <span class="pre">%}</span></code> gives each user membership of the organization named after each
+value of their <code class="docutils literal notranslate"><span class="pre">department</span></code> attribute.</p>
+</section>
+<section id="when-a-rule-applies">
+<h2>When a rule applies<a class="headerlink" href="#when-a-rule-applies" title="Link to this heading"></a></h2>
+<p><strong>When to apply the rule</strong> sets the condition:</p>
+<ul class="simple">
+<li><p><strong>Always</strong> and <strong>Never</strong>.</p></li>
+<li><p><strong>Based on groups</strong>: the user is in <strong>at least one</strong> of the selected groups, or in <strong>all</strong> of
+them. Groups come from the provider: LDAP groups found by the group search, SAML groups from the
+attribute set as <strong>Groups</strong>, and OIDC, Keycloak and Azure AD groups from the <strong>Groups Claim</strong>.</p></li>
+<li><p><strong>Based on attributes</strong>: one or more conditions on the user’s attributes, joined so that <strong>at
+least one</strong> or <strong>all</strong> must hold. Each compares an <strong>Attribute</strong> with a <strong>Value</strong> using
+<strong>contains</strong>, <strong>matches</strong> (a regular expression), <strong>ends with</strong>, <strong>equals</strong> or <strong>in</strong> (one of a list
+of values).</p></li>
+</ul>
+</section>
+<section id="how-rules-combine">
+<h2>How rules combine<a class="headerlink" href="#how-rules-combine" title="Link to this heading"></a></h2>
+<p>At every login the gateway goes through the enabled rules of the method in their order, lowest
+first.</p>
+<ul class="simple">
+<li><p>A rule whose condition holds grants what it says. <strong>Never</strong> takes it away.</p></li>
+<li><p>A rule whose condition does not hold does nothing, unless <strong>Block non-matching users</strong> is on:
+then it takes away what it would grant. Use it so that leaving a group in the provider also
+removes the matching access in the platform.</p></li>
+<li><p>When several rules decide the same thing, the last one wins.</p></li>
+<li><p>Without any <strong>Allow</strong> rule, every user the provider accepts can log in. An <strong>Allow</strong> rule with
+<strong>Block non-matching users</strong> limits login to the users it matches.</p></li>
+</ul>
+<p>Rules are evaluated when the user logs in, not on every request. Sessions and tokens created
+before a change at the provider (for example, removing the user from a group) keep the access they
+had until they expire or are revoked; delete them to cut access at once.</p>
+<p>Rules that do not decide a role leave it as it is, unless the method has <strong>Remove users</strong> on (see
+<a class="reference internal" href="authentication.html#creating-an-authentication-method"><span class="std std-ref">Authentication methods</span></a>).</p>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
+<p>Only members of <code class="docutils literal notranslate"><span class="pre">koios-users</span></code> may log in, and members of <code class="docutils literal notranslate"><span class="pre">koios-admins</span></code> are superusers:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Kind</p></th>
+<th class="head"><p>Condition</p></th>
+<th class="head"><p>Options</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Allow</p></td>
+<td><p>Based on groups: at least one of <code class="docutils literal notranslate"><span class="pre">koios-users</span></code>, <code class="docutils literal notranslate"><span class="pre">koios-admins</span></code></p></td>
+<td><p>Block non-matching users</p></td>
+</tr>
+<tr class="row-odd"><td><p>Superuser</p></td>
+<td><p>Based on groups: at least one of <code class="docutils literal notranslate"><span class="pre">koios-admins</span></code></p></td>
+<td><p>Block non-matching users</p></td>
+</tr>
+</tbody>
+</table>
+<p>Everyone whose email ends with <code class="docutils literal notranslate"><span class="pre">&#64;example.com</span></code> is a member of the organization <code class="docutils literal notranslate"><span class="pre">Example</span></code>, and the
+members of an LDAP group administer its team <code class="docutils literal notranslate"><span class="pre">Network</span></code>:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Kind</p></th>
+<th class="head"><p>Condition</p></th>
+<th class="head"><p>Grants</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Organization</p></td>
+<td><p>Based on attributes: <code class="docutils literal notranslate"><span class="pre">email</span></code> ends with <code class="docutils literal notranslate"><span class="pre">&#64;example.com</span></code></p></td>
+<td><p>Organization Member of <code class="docutils literal notranslate"><span class="pre">Example</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Team</p></td>
+<td><p>Based on groups: <code class="docutils literal notranslate"><span class="pre">cn=netadmins,ou=groups,dc=example,dc=com</span></code></p></td>
+<td><p>Team Admin of <code class="docutils literal notranslate"><span class="pre">Network</span></code> in <code class="docutils literal notranslate"><span class="pre">Example</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="checking-the-result">
+<h2>Checking the result<a class="headerlink" href="#checking-the-result" title="Link to this heading"></a></h2>
+<p>The gateway keeps the result of the last login of each user, per method, in the user’s API
+record, <code class="docutils literal notranslate"><span class="pre">/api/gateway/v1/users/&lt;id&gt;/</span></code>, under <code class="docutils literal notranslate"><span class="pre">last_login_results</span></code>: whether access was allowed, and
+the result of each rule, keyed by rule ID (<code class="docutils literal notranslate"><span class="pre">true</span></code> granted, <code class="docutils literal notranslate"><span class="pre">false</span></code> taken away, <code class="docutils literal notranslate"><span class="pre">skipped</span></code> or
+<code class="docutils literal notranslate"><span class="pre">invalid</span></code>). Changes to the rules apply at the next login of each user.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="providers.html" class="btn btn-neutral float-left" title="Authentication providers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sessions.html" class="btn btn-neutral float-right" title="Sessions and passwords" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Koios Solutions. Portions 2026, Red Hat, Inc. and 2026, CtrlIQ, Inc..</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+<p class="koios-legal">Licensed under the <a href="../LICENSE.txt">Apache License 2.0</a>; see the <a href="../NOTICE.txt">NOTICE</a> for the origin of this documentation.</p>
+
+</body>
+</html>

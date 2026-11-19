@@ -1,0 +1,428 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Troubleshooting Automation Decisions &ndash; Koios Automation Platform</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ansible.css?v=5657ca2d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/rtd-ethical-ads.css?v=289b023e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/dark.css?v=82723a23" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments-dark.css?v=027e451e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/koios.css?v=808fdb03" />
+
+  
+    <link rel="shortcut icon" href="../_static/images/koios-favicon.svg"/>
+    <link rel="canonical" href="https://docs.koioss.com/eda/troubleshooting.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2d018451"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=b8bcef97"></script>
+      <script src="../_static/js/theme-toggle.js?v=59cbb094"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Automation hub" href="../hub/index.html" />
+    <link rel="prev" title="Receive events with event streams" href="event-streams.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+<script>
+  (function () {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('koios-docs-theme');
+    } catch (e) {}
+    // Without a stored choice, follow the system preference (dark when it cannot be read).
+    var light = false;
+    try { light = window.matchMedia('(prefers-color-scheme: light)').matches; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', stored || (light ? 'light' : 'dark'));
+  })();
+</script>
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="#" class="asc-theme-toggle" title="Switch theme" aria-label="Switch theme"><svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg></a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../_static/images/koios-mark-white.svg"
+    alt="Koios">
+  <div class="DocSiteNav-title">Koios Automation Platform</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Koios Automation Platform
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Koios Automation Platform Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Install and upgrade</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade_migration/index.html">Upgrades and Migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configure the platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/index.html">Configure the platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Access management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access/index.html">Authentication and access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation execution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">Automating with Koios Automation Platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation decisions</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Event-Driven Ansible</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="first-activation.html">Your first rulebook activation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event-streams.html">Receive events with event streams</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Troubleshooting Automation Decisions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#activation-states">Activation states</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#restart-policies">Restart policies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#find-the-output">Find the output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#decision-environment-image-cannot-be-pulled">Decision environment image cannot be pulled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#project-import-failed-or-the-rulebook-is-missing">Project import failed or the rulebook is missing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#platform-credential-or-certificate-failure">Platform credential or certificate failure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#event-stream-returns-403-credential-mismatch">Event stream returns 403 Credential mismatch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#event-accepted-but-no-rule-fires">Event accepted but no rule fires</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#disabling-and-deleting">Disabling and deleting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#concepts">Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#decision-environments">Decision environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#projects">Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#credentials">Credentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#rulebook-activations">Rulebook activations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#event-streams">Event streams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#backup-and-restore">Backup and restore</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hub/index.html">Automation hub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operate</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../operate/index.html">Operate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../administration/index.html">Administering Koios Automation Platform Deployments</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration as code and API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/casc.html">Configuration as code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rest_api/index.html">automation controller API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/releases.html">Releases</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Koios Automation Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Event-Driven Ansible</a></li>
+      <li class="breadcrumb-item active">Troubleshooting Automation Decisions</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <section id="troubleshooting-automation-decisions">
+<span id="eda-troubleshooting"></span><h1>Troubleshooting Automation Decisions<a class="headerlink" href="#troubleshooting-automation-decisions" title="Link to this heading"></a></h1>
+<p>Start with <strong>Automation Decisions &gt; Rulebook Activations</strong> and open the affected activation.
+Check its <strong>Details</strong>, its enabled switch and its <strong>History</strong>. An activation can have several
+history instances because it was restarted; inspect the instance from the time of the failure.</p>
+<p>The states and policies below come from the backend’s activation enums and UI. The successful
+examples in <a class="reference internal" href="first-activation.html"><span class="std std-doc">Your first rulebook activation</span></a> and
+<a class="reference internal" href="event-streams.html"><span class="std std-doc">Receive events with event streams</span></a> were validated on 2026-11-18. The diagnostic
+cases below are guidance from the sources, not a claim that every failure was reproduced on Koios.</p>
+<section id="activation-states">
+<h2>Activation states<a class="headerlink" href="#activation-states" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>State</p></th>
+<th class="head"><p>Meaning and next check</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Pending (<code class="docutils literal notranslate"><span class="pre">pending</span></code>)</p></td>
+<td><p>Waiting for an available worker to start the activation. Check worker availability and scheduling if it persists.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Starting (<code class="docutils literal notranslate"><span class="pre">starting</span></code>)</p></td>
+<td><p>A worker is starting the activation. Check image pulls and instance output if it does not progress.</p></td>
+</tr>
+<tr class="row-even"><td><p>Running (<code class="docutils literal notranslate"><span class="pre">running</span></code>)</p></td>
+<td><p>The activation container is running. A listener can remain here while no rule has fired.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Completed (<code class="docutils literal notranslate"><span class="pre">completed</span></code>)</p></td>
+<td><p>The activation process completed. This is expected for the finite range source with <strong>Never</strong>; check action and controller job results separately.</p></td>
+</tr>
+<tr class="row-even"><td><p>Failed (<code class="docutils literal notranslate"><span class="pre">failed</span></code>)</p></td>
+<td><p>The activation failed. Inspect the latest history instance and its error/output.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Error (<code class="docutils literal notranslate"><span class="pre">error</span></code>)</p></td>
+<td><p>The activation is in an error state. Inspect instance output and, if necessary, ask the platform administrator to check the service and worker logs.</p></td>
+</tr>
+<tr class="row-even"><td><p>Stopping (<code class="docutils literal notranslate"><span class="pre">stopping</span></code>)</p></td>
+<td><p>The activation is being disabled. Wait for the stop operation to finish before changing it again.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Stopped (<code class="docutils literal notranslate"><span class="pre">stopped</span></code>)</p></td>
+<td><p>The activation has stopped. Check its enabled switch and the reason in History before starting it again.</p></td>
+</tr>
+<tr class="row-even"><td><p>Deleting (<code class="docutils literal notranslate"><span class="pre">deleting</span></code>)</p></td>
+<td><p>Deletion is in progress. Do not create replacement resources until you know which configuration is still active.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Workers offline (<code class="docutils literal notranslate"><span class="pre">workers</span> <span class="pre">offline</span></code>)</p></td>
+<td><p>The workers assigned to the activation’s node are offline. This needs worker/platform diagnosis.</p></td>
+</tr>
+<tr class="row-even"><td><p>Unresponsive (<code class="docutils literal notranslate"><span class="pre">unresponsive</span></code>)</p></td>
+<td><p>A legacy status still defined in the backend. Investigate worker health and instance output if encountered; it is not an expected steady state.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Do not treat <strong>Running</strong> as proof that a source is receiving events, or <strong>Completed</strong> as proof
+that a controller job succeeded. Follow the event into <strong>Rule Audit</strong> and then, for
+<code class="docutils literal notranslate"><span class="pre">run_job_template</span></code>, into <strong>Automation Execution &gt; Jobs</strong>.</p>
+</section>
+<section id="restart-policies">
+<h2>Restart policies<a class="headerlink" href="#restart-policies" title="Link to this heading"></a></h2>
+<p><strong>Restart policy</strong> controls what happens after the activation’s container process ends:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>UI choice</p></th>
+<th class="head"><p>API value</p></th>
+<th class="head"><p>Behavior</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Never</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">never</span></code></p></td>
+<td><p>Does not automatically restart the activation when the process ends. Use it for the finite range tutorial to avoid repeating the job launch.</p></td>
+</tr>
+<tr class="row-odd"><td><p>On failure</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">on-failure</span></code></p></td>
+<td><p>Restarts after a process failure rather than after a successful completion.</p></td>
+</tr>
+<tr class="row-even"><td><p>Always</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">always</span></code></p></td>
+<td><p>Restarts after either success or failure. A finite source can run again and repeat its actions.</p></td>
+</tr>
+</tbody>
+</table>
+<p>These policies do not replace explicit disable/delete operations or guarantee recovery from an
+incorrect image, credential or rulebook. If a policy causes repeated failed instances, disable
+the activation, diagnose the cause and correct its configuration before enabling it again.</p>
+</section>
+<section id="find-the-output">
+<h2>Find the output<a class="headerlink" href="#find-the-output" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Open the activation’s <strong>History</strong> tab and select the relevant instance.</p></li>
+<li><p>Its <strong>Details</strong> page shows status, start/end dates and the instance output, with log filtering
+and follow controls while it is running.</p></li>
+<li><p>Open <strong>Automation Decisions &gt; Rule Audit</strong> for the fired rule and inspect <strong>Details</strong>,
+<strong>Events</strong> and <strong>Actions</strong>. Leave <strong>Skip audit events</strong> unchecked when creating the activation
+if you need those records.</p></li>
+<li><p>If the action launches a controller job, inspect that job’s status and output independently.</p></li>
+</ol>
+<p>A platform administrator can also inspect the EDA service, worker and activation pod logs using
+an explicit cluster context and namespace. Follow <a class="reference internal" href="../administration/troubleshooting.html"><span class="std std-doc">platform troubleshooting</span></a>
+and <a class="reference internal" href="../operate/index.html"><span class="std std-doc">operation</span></a>; do not edit generated pod configuration to work around a
+failure. Redact credentials and sensitive event payloads before sharing diagnostics.</p>
+<p><img alt="Details of an activation instance with Completed status and its output, including the debug message of event 8" src="../_images/eda-activation-history-output.png" /></p>
+</section>
+<section id="decision-environment-image-cannot-be-pulled">
+<h2>Decision environment image cannot be pulled<a class="headerlink" href="#decision-environment-image-cannot-be-pulled" title="Link to this heading"></a></h2>
+<p>A decision environment resource can be saved even when its image cannot be fetched. If the
+activation remains <strong>Starting</strong> or fails during startup:</p>
+<ul class="simple">
+<li><p>Check <strong>Image</strong> for the complete registry, repository and tag or digest. An abbreviated digest
+copied from a table is not a usable image reference.</p></li>
+<li><p>Check that cluster nodes can reach the registry. The release registry is private and requires
+<a class="reference internal" href="../install/registry-access.html"><span class="std std-doc">project-granted read access</span></a>.</p></li>
+<li><p>For the release image, confirm that the platform’s <code class="docutils literal notranslate"><span class="pre">default</span></code> ServiceAccount has the configured
+pull secret. With the standard installer this is supplied by the registry-access setup.</p></li>
+<li><p>For a private image needing separate credentials, create <strong>Container Registry</strong> under
+<strong>Automation Decisions &gt; Infrastructure &gt; Credentials</strong>, then select it in the decision
+environment’s <strong>Credential</strong> field. A registry credential attached to the controller’s execution
+environment does not configure an EDA decision environment.</p></li>
+<li><p>Check the <strong>Pull</strong> choice. <strong>Never pull container before running.</strong> requires an image already
+present on the node; <code class="docutils literal notranslate"><span class="pre">missing</span></code> pulls it when absent. Neither policy grants registry access.</p></li>
+</ul>
+<p>After correcting the cause, restart or enable the activation as appropriate and inspect the new
+History instance. The administrator may need Kubernetes pod events for failures that happen
+before the rulebook process can write output.</p>
+</section>
+<section id="project-import-failed-or-the-rulebook-is-missing">
+<h2>Project import failed or the rulebook is missing<a class="headerlink" href="#project-import-failed-or-the-rulebook-is-missing" title="Link to this heading"></a></h2>
+<p>Open <strong>Automation Decisions &gt; Projects</strong> and inspect the project status and import details.
+Check its <strong>Source control URL</strong>, selected branch/tag/commit and <strong>Source control credential</strong>.
+Public repositories still require network access; private repositories also require a credential
+with permission to read them. A certificate failure must be resolved with appropriate trust.</p>
+<p>Use <strong>Sync project</strong> after correcting the configuration. Wait for <strong>Completed</strong> before selecting
+the rulebook. If a sample changed, inspect <strong>Git hash</strong> and the rulebook path for the imported
+revision rather than assuming the latest repository has the same content as this tutorial.</p>
+</section>
+<section id="platform-credential-or-certificate-failure">
+<h2>Platform credential or certificate failure<a class="headerlink" href="#platform-credential-or-certificate-failure" title="Link to this heading"></a></h2>
+<p>For a <code class="docutils literal notranslate"><span class="pre">run_job_template</span></code> action:</p>
+<ul class="simple">
+<li><p>Use an EDA credential of type <strong>Red Hat Ansible Automation Platform</strong>, selected on the
+activation. It is distinct from a controller-side credential and from an event stream’s sender
+credential.</p></li>
+<li><p>Set its host field to <code class="docutils literal notranslate"><span class="pre">https://&lt;platform&gt;/api/controller/</span></code>. Include the controller prefix but
+do not add <code class="docutils literal notranslate"><span class="pre">v2/</span></code> or a job-template endpoint.</p></li>
+<li><p>Use a valid platform user/password or an <strong>OAuth Token</strong>, not both. Check that the account can
+launch the template in the named organization and that its token has the required scope.</p></li>
+<li><p>Keep <strong>Verify SSL</strong> enabled for HTTPS. The decision environment must resolve the hostname,
+reach it and trust its certificate chain. The operator’s <code class="docutils literal notranslate"><span class="pre">bundle_cacert_secret</span></code> is not
+automatically installed in decision environment images: use a suitable custom image with the
+private CA when needed. Also check hostname mismatch and certificate expiry.</p></li>
+</ul>
+<p>A login that works in the browser does not establish that the activation container can reach or
+trust the same address. Do not make disabling certificate verification the normal fix.</p>
+</section>
+<section id="event-stream-returns-403-credential-mismatch">
+<h2>Event stream returns 403 Credential mismatch<a class="headerlink" href="#event-stream-returns-403-credential-mismatch" title="Link to this heading"></a></h2>
+<p>For the Basic tutorial, verify all of the following:</p>
+<ul class="simple">
+<li><p>You posted to the <strong>URL</strong> of the intended event stream, including its UUID and <code class="docutils literal notranslate"><span class="pre">/post/</span></code>.</p></li>
+<li><p>The stream’s <strong>Credential</strong> is the expected <strong>Basic Event Stream</strong> credential.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-u</span></code> uses that credential’s username and current password. They are not the platform
+user’s password or <strong>Example Platform Credential</strong> used by a controller action.</p></li>
+<li><p>A proxy has not removed or replaced the <code class="docutils literal notranslate"><span class="pre">Authorization</span></code> header.</p></li>
+</ul>
+<p>The validated incorrect-password response was HTTP <code class="docutils literal notranslate"><span class="pre">403</span></code> with
+<code class="docutils literal notranslate"><span class="pre">{&quot;detail&quot;:&quot;Credential</span> <span class="pre">mismatch&quot;}</span></code>. A missing authentication header or another malformed request
+can produce a different error; not every 403 has the same cause. Correct the sender configuration
+and retry with the intended credential rather than weakening authentication.</p>
+</section>
+<section id="event-accepted-but-no-rule-fires">
+<h2>Event accepted but no rule fires<a class="headerlink" href="#event-accepted-but-no-rule-fires" title="Link to this heading"></a></h2>
+<p>An HTTP <code class="docutils literal notranslate"><span class="pre">200</span></code> confirms acceptance by the stream endpoint, not a matching rule or completed action.
+Check these layers in order:</p>
+<ol class="arabic simple">
+<li><p><strong>Forward events to rulebook activation</strong> is enabled on the stream (<code class="docutils literal notranslate"><span class="pre">test_mode:</span> <span class="pre">false</span></code>).
+<a class="reference internal" href="event-streams.html#test-mode"><span class="std std-ref">Test mode</span></a> stores diagnostic data without forwarding it.</p></li>
+<li><p>The activation is enabled and <strong>Running</strong>, and its <strong>Event streams</strong> mapping associates the
+correct rulebook source with the intended stream.</p></li>
+<li><p>The body matches the condition. For <code class="docutils literal notranslate"><span class="pre">webhook_port.yml</span></code>, send <code class="docutils literal notranslate"><span class="pre">{&quot;ping&quot;:&quot;pong&quot;}</span></code>: the stream
+wraps the request body in <code class="docutils literal notranslate"><span class="pre">payload</span></code>, so the condition is <code class="docutils literal notranslate"><span class="pre">event.payload.ping</span> <span class="pre">==</span> <span class="pre">&quot;pong&quot;</span></code>.</p></li>
+<li><p><strong>Skip audit events</strong> was not enabled. If it was, missing audit records do not prove that the
+rule never ran; inspect instance output and action results too.</p></li>
+<li><p>If the rule fired but its action failed, inspect <strong>Actions</strong> and the downstream service.
+A controller permission or job failure is separate from an event-stream authentication failure.</p></li>
+</ol>
+<p>The range tutorial checks <code class="docutils literal notranslate"><span class="pre">event.i</span> <span class="pre">==</span> <span class="pre">8</span></code>; the webhook tutorial checks <code class="docutils literal notranslate"><span class="pre">event.payload.ping</span></code>.
+Using the wrong event shape can leave a healthy activation waiting without matching any rule.</p>
+</section>
+<section id="disabling-and-deleting">
+<h2>Disabling and deleting<a class="headerlink" href="#disabling-and-deleting" title="Link to this heading"></a></h2>
+<p>Use the activation’s enabled switch to stop it while preserving its configuration. Wait for
+<strong>Stopping</strong> to finish; <strong>Edit rulebook activation</strong> requires the activation to be disabled. To
+run it again, correct the configuration and enable it, or use <strong>Restart rulebook activation</strong>
+when it is enabled and a new run is intended.</p>
+<p><strong>Delete rulebook activation</strong> removes the activation rather than temporarily suspending it.
+Deleting or disabling an activation does not roll back actions already performed or cancel a
+controller job that was launched earlier. Review that job separately.</p>
+<p>For maintenance, disable first and inspect History/output before deciding to delete the resource.
+Do not use delete/recreate loops as a substitute for diagnosing registry, worker or authentication
+failures. An event stream’s forwarding switch and an activation’s enabled switch control different
+parts of the flow.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="event-streams.html" class="btn btn-neutral float-left" title="Receive events with event streams" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../hub/index.html" class="btn btn-neutral float-right" title="Automation hub" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Koios Solutions. Portions 2026, Red Hat, Inc. and 2026, CtrlIQ, Inc..</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+<p class="koios-legal">Licensed under the <a href="../LICENSE.txt">Apache License 2.0</a>; see the <a href="../NOTICE.txt">NOTICE</a> for the origin of this documentation.</p>
+
+</body>
+</html>

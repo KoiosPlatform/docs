@@ -1,0 +1,300 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>16. Proxy Support &ndash; Koios Automation Platform</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ansible.css?v=5657ca2d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/rtd-ethical-ads.css?v=289b023e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/dark.css?v=82723a23" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments-dark.css?v=027e451e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/koios.css?v=808fdb03" />
+
+  
+    <link rel="shortcut icon" href="../_static/images/koios-favicon.svg"/>
+    <link rel="canonical" href="https://docs.koioss.com/administration/proxy_support.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2d018451"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=b8bcef97"></script>
+      <script src="../_static/js/theme-toggle.js?v=59cbb094"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="17. Backup and Restore" href="backup_restore.html" />
+    <link rel="prev" title="15. Secret handling and connection security" href="secret_handling.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+<script>
+  (function () {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('koios-docs-theme');
+    } catch (e) {}
+    // Without a stored choice, follow the system preference (dark when it cannot be read).
+    var light = false;
+    try { light = window.matchMedia('(prefers-color-scheme: light)').matches; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', stored || (light ? 'light' : 'dark'));
+  })();
+</script>
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="#" class="asc-theme-toggle" title="Switch theme" aria-label="Switch theme"><svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg></a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../_static/images/koios-mark-white.svg"
+    alt="Koios">
+  <div class="DocSiteNav-title">Koios Automation Platform</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Koios Automation Platform
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Koios Automation Platform Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Install and upgrade</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade_migration/index.html">Upgrades and Migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configure the platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/index.html">Configure the platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Access management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access/index.html">Authentication and access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation execution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">Automating with Koios Automation Platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation decisions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../eda/index.html">Event-Driven Ansible</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hub/index.html">Automation hub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operate</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../operate/index.html">Operate</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Administering Koios Automation Platform Deployments</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html">Administering Koios Automation Platform Deployments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="init_script.html">1. Starting, Stopping, and Restarting Koios Automation Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="supported_architectures.html">2. Supported Architectures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom_inventory_script.html">3. Custom Inventory Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scm-inv-source.html">4. Inventory File Importing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi-creds-assignment.html">5. Multi-Credential Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="management_jobs.html">6. Management Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clustering.html">7. Clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="containers_instance_groups.html">8. Container and Instance Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instances.html">9. Managing Capacity With Instances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topology_viewer.html">10. Topology Viewer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logfiles.html">11. Automation controller Logfiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">12. Logging and Aggregation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">13. Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html">14. Improving Automation Controller Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secret_handling.html">15. Secret handling and connection security</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">16. Proxy Support</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#remote-host-headers">16.1. Remote Host Headers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#proxy-ip-allowed-list">16.2. Proxy IP Allowed List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#preserving-the-client-address">16.3. Preserving the Client Address</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#k3s">16.3.1. K3s</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#security-considerations">16.4. Security Considerations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="backup_restore.html">17. Backup and Restore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security_best_practices.html">18. Security Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awx-manage.html">19. The <em>awx-manage</em> Utility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configure_koios.html">20. Automation Controller Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="isolation_variables.html">21. Isolation functionality and variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kerberos_auth.html">22. Kerberos Authentication for Windows Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html">23. Troubleshooting Automation Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tipsandtricks.html">24. Automation controller Tips and Tricks</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration as code and API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/casc.html">Configuration as code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rest_api/index.html">automation controller API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/releases.html">Releases</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Koios Automation Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Administering Koios Automation Platform Deployments</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">16. </span>Proxy Support</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <section id="proxy-support">
+<span id="ag-proxy-support"></span><h1><span class="section-number">16. </span>Proxy Support<a class="headerlink" href="#proxy-support" title="Link to this heading"></a></h1>
+<p id="index-0">Automation controller primarily runs on Kubernetes. When automation controller runs on Kubernetes, requests reach it through an ingress controller and, often, an external load balancer. The connection automation controller receives comes from that proxy, not from the original client. This matters for features that use the client’s address, most importantly <a class="reference internal" href="../userguide/job_templates.html#ug-provisioning-callbacks"><span class="std std-ref">Provisioning Callbacks</span></a>, where automation controller uses the address of the request to decide which inventory host to run the job against.</p>
+<p>Two settings control how automation controller determines the client address. Both are under <strong>Miscellaneous System settings</strong> in the Settings menu, and both are also available through the <code class="docutils literal notranslate"><span class="pre">/api/controller/v2/settings/system/</span></code> endpoint.</p>
+<section id="remote-host-headers">
+<h2><span class="section-number">16.1. </span>Remote Host Headers<a class="headerlink" href="#remote-host-headers" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">REMOTE_HOST_HEADERS</span></code> lists the request headers and server variables that automation controller reads to find the client’s address. The default is:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">[</span><span class="s">"REMOTE_ADDR"</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"REMOTE_HOST"</span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">REMOTE_ADDR</span></code> is the address of the connection automation controller receives. Behind an ingress, that is always the ingress controller. To use the client address that the ingress passes in the <code class="docutils literal notranslate"><span class="pre">X-Forwarded-For</span></code> header, set:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">[</span><span class="s">"HTTP_X_FORWARDED_FOR"</span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
+<p>For provisioning callbacks, automation controller collects every address from every header in this list, including each entry of a comma-separated <code class="docutils literal notranslate"><span class="pre">X-Forwarded-For</span></code> header, and treats all of them as candidates for the calling host. If <code class="docutils literal notranslate"><span class="pre">REMOTE_ADDR</span></code> stays in the list, the ingress address remains a candidate alongside the real client address.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The web container’s own nginx proxy can add the address it received the request from to <code class="docutils literal notranslate"><span class="pre">X-Forwarded-For</span></code>, depending on the automation controller version. In that case the ingress address appears in <code class="docutils literal notranslate"><span class="pre">X-Forwarded-For</span></code> even when <code class="docutils literal notranslate"><span class="pre">REMOTE_ADDR</span></code> is not in the list. Do not put ingress controller or cluster node addresses in an inventory used for provisioning callbacks.</p>
+</div>
+<p>Automation controller also uses this setting to record the client address on login events.</p>
+</section>
+<section id="proxy-ip-allowed-list">
+<h2><span class="section-number">16.2. </span>Proxy IP Allowed List<a class="headerlink" href="#proxy-ip-allowed-list" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">PROXY_IP_ALLOWED_LIST</span></code> limits which proxies automation controller accepts custom headers such as <code class="docutils literal notranslate"><span class="pre">X-Forwarded-For</span></code> from. When the list is set, automation controller discards those headers on any request whose connection address is not in the list. When the list is empty (the default), automation controller accepts them from any source.</p>
+<p>Entries must be exact IP addresses. CIDR ranges are not supported. Inside Kubernetes, the connection address is usually the ingress controller’s pod IP, which changes whenever the pod is rescheduled. If the list contains a pod IP, automation controller stops trusting <code class="docutils literal notranslate"><span class="pre">X-Forwarded-For</span></code> as soon as the ingress pod restarts, and provisioning callbacks stop matching. Only use this setting when the address that connects to automation controller is stable.</p>
+</section>
+<section id="preserving-the-client-address">
+<h2><span class="section-number">16.3. </span>Preserving the Client Address<a class="headerlink" href="#preserving-the-client-address" title="Link to this heading"></a></h2>
+<p>Reading <code class="docutils literal notranslate"><span class="pre">X-Forwarded-For</span></code> only helps if the ingress puts the real client address in it. If a load balancer in front of the ingress replaces the source address, the ingress records the load balancer’s address instead. For a Kubernetes <code class="docutils literal notranslate"><span class="pre">LoadBalancer</span></code> or <code class="docutils literal notranslate"><span class="pre">NodePort</span></code> Service, setting <code class="docutils literal notranslate"><span class="pre">externalTrafficPolicy:</span> <span class="pre">Local</span></code> on the ingress controller’s Service keeps the original source address.</p>
+<section id="k3s">
+<h3><span class="section-number">16.3.1. </span>K3s<a class="headerlink" href="#k3s" title="Link to this heading"></a></h3>
+<p>K3s exposes its packaged Traefik ingress controller through the built-in ServiceLB load balancer. With the default <code class="docutils literal notranslate"><span class="pre">externalTrafficPolicy:</span> <span class="pre">Cluster</span></code>, ServiceLB replaces the client’s source address, and automation controller never receives the real client address.</p>
+<p>To keep the client address, create <code class="docutils literal notranslate"><span class="pre">/var/lib/rancher/k3s/server/manifests/traefik-config.yaml</span></code> on a K3s server node:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">helm.cattle.io/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HelmChartConfig</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">traefik</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kube-system</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">valuesContent</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|-</span>
+<span class="w">    </span><span class="no">service:</span>
+<span class="w">      </span><span class="no">spec:</span>
+<span class="w">        </span><span class="no">externalTrafficPolicy: Local</span>
+</pre></div>
+</div>
+<p>K3s applies the file automatically. If <code class="docutils literal notranslate"><span class="pre">traefik-config.yaml</span></code> already exists, merge the <code class="docutils literal notranslate"><span class="pre">service</span></code> section into it instead of replacing the file. Do not edit the packaged <code class="docutils literal notranslate"><span class="pre">traefik.yaml</span></code> manifest, because K3s rewrites it at startup.</p>
+<p>Confirm the change:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kubectl<span class="w"> </span>-n<span class="w"> </span>kube-system<span class="w"> </span>get<span class="w"> </span>svc<span class="w"> </span>traefik<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">'{.spec.externalTrafficPolicy}{"\n"}'</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Applying this change redeploys the Traefik Service and its ServiceLB pods, which briefly interrupts access to automation controller and anything else served through Traefik. On a multi-node cluster, <code class="docutils literal notranslate"><span class="pre">externalTrafficPolicy:</span> <span class="pre">Local</span></code> means a node only accepts traffic for Traefik if a Traefik pod runs on that node. K3s also documents that this policy does not work correctly if <code class="docutils literal notranslate"><span class="pre">node-external-ip</span></code> is set on any node.</p>
+</div>
+</section>
+</section>
+<section id="security-considerations">
+<h2><span class="section-number">16.4. </span>Security Considerations<a class="headerlink" href="#security-considerations" title="Link to this heading"></a></h2>
+<p>When automation controller trusts <code class="docutils literal notranslate"><span class="pre">X-Forwarded-For</span></code>, anyone who can send a request directly to automation controller, without going through the ingress, could supply a forged address. The automation controller web Service is a <code class="docutils literal notranslate"><span class="pre">ClusterIP</span></code> Service, so clients outside the cluster can only reach it through the ingress. Make sure the ingress controller overwrites any <code class="docutils literal notranslate"><span class="pre">X-Forwarded-For</span></code> header sent by the client instead of appending to it. The packaged Traefik ingress on K3s discards client-supplied <code class="docutils literal notranslate"><span class="pre">X-Forwarded-For</span></code> headers by default.</p>
+<p>For provisioning callbacks specifically, see <a class="reference internal" href="../userguide/job_templates.html#ug-provisioning-callbacks"><span class="std std-ref">Provisioning Callbacks</span></a> for how to check which inventory host automation controller matches for a given server.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="secret_handling.html" class="btn btn-neutral float-left" title="15. Secret handling and connection security" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="backup_restore.html" class="btn btn-neutral float-right" title="17. Backup and Restore" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Koios Solutions. Portions 2026, Red Hat, Inc. and 2026, CtrlIQ, Inc..</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+<p class="koios-legal">Licensed under the <a href="../LICENSE.txt">Apache License 2.0</a>; see the <a href="../NOTICE.txt">NOTICE</a> for the origin of this documentation.</p>
+
+</body>
+</html>

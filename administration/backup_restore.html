@@ -1,0 +1,348 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>17. Backup and Restore &ndash; Koios Automation Platform</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ansible.css?v=5657ca2d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/rtd-ethical-ads.css?v=289b023e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/dark.css?v=82723a23" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments-dark.css?v=027e451e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/koios.css?v=808fdb03" />
+
+  
+    <link rel="shortcut icon" href="../_static/images/koios-favicon.svg"/>
+    <link rel="canonical" href="https://docs.koioss.com/administration/backup_restore.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2d018451"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=b8bcef97"></script>
+      <script src="../_static/js/theme-toggle.js?v=59cbb094"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="18. Security Best Practices" href="security_best_practices.html" />
+    <link rel="prev" title="16. Proxy Support" href="proxy_support.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+<script>
+  (function () {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('koios-docs-theme');
+    } catch (e) {}
+    // Without a stored choice, follow the system preference (dark when it cannot be read).
+    var light = false;
+    try { light = window.matchMedia('(prefers-color-scheme: light)').matches; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', stored || (light ? 'light' : 'dark'));
+  })();
+</script>
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="#" class="asc-theme-toggle" title="Switch theme" aria-label="Switch theme"><svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg></a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../_static/images/koios-mark-white.svg"
+    alt="Koios">
+  <div class="DocSiteNav-title">Koios Automation Platform</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Koios Automation Platform
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Koios Automation Platform Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Install and upgrade</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade_migration/index.html">Upgrades and Migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configure the platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/index.html">Configure the platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Access management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access/index.html">Authentication and access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation execution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">Automating with Koios Automation Platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation decisions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../eda/index.html">Event-Driven Ansible</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hub/index.html">Automation hub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operate</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../operate/index.html">Operate</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Administering Koios Automation Platform Deployments</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html">Administering Koios Automation Platform Deployments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="init_script.html">1. Starting, Stopping, and Restarting Koios Automation Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="supported_architectures.html">2. Supported Architectures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom_inventory_script.html">3. Custom Inventory Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scm-inv-source.html">4. Inventory File Importing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi-creds-assignment.html">5. Multi-Credential Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="management_jobs.html">6. Management Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clustering.html">7. Clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="containers_instance_groups.html">8. Container and Instance Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instances.html">9. Managing Capacity With Instances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topology_viewer.html">10. Topology Viewer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logfiles.html">11. Automation controller Logfiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">12. Logging and Aggregation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">13. Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html">14. Improving Automation Controller Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secret_handling.html">15. Secret handling and connection security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proxy_support.html">16. Proxy Support</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">17. Backup and Restore</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#backing-up">17.1. Backing up</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#restoring">17.2. Restoring</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="security_best_practices.html">18. Security Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awx-manage.html">19. The <em>awx-manage</em> Utility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configure_koios.html">20. Automation Controller Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="isolation_variables.html">21. Isolation functionality and variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kerberos_auth.html">22. Kerberos Authentication for Windows Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html">23. Troubleshooting Automation Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tipsandtricks.html">24. Automation controller Tips and Tricks</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration as code and API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/casc.html">Configuration as code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rest_api/index.html">automation controller API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/releases.html">Releases</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Koios Automation Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Administering Koios Automation Platform Deployments</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">17. </span>Backup and Restore</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <section id="backup-and-restore">
+<span id="ag-backup-restore"></span><h1><span class="section-number">17. </span>Backup and Restore<a class="headerlink" href="#backup-and-restore" title="Link to this heading"></a></h1>
+<p id="index-0">Koios Automation Platform is backed up and restored through the Koios operator, with two resources
+in the namespace of the platform:</p>
+<ul class="simple">
+<li><p>a <code class="docutils literal notranslate"><span class="pre">KoiosPlatformBackup</span></code> captures the databases of every component (platform gateway, automation
+controller and, when they are enabled, Event-Driven Ansible and automation hub), the content files
+of automation hub, the secrets that encrypt them, and the <code class="docutils literal notranslate"><span class="pre">KoiosPlatform</span></code> specification;</p></li>
+<li><p>a <code class="docutils literal notranslate"><span class="pre">KoiosPlatformRestore</span></code> creates a <strong>new</strong> <code class="docutils literal notranslate"><span class="pre">KoiosPlatform</span></code> from a backup. It never changes the
+platform the backup was taken from, so you can restore next to it and compare.</p></li>
+</ul>
+<p>The fields of both resources are listed in <a class="reference internal" href="../reference/koiosplatformbackup.html"><span class="doc">KoiosPlatformBackup</span></a> and
+<a class="reference internal" href="../reference/koiosplatformrestore.html"><span class="doc">KoiosPlatformRestore</span></a>. On OpenShift, you can also create them from the installed
+operator in the web console.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Backup and restore also cover external PostgreSQL databases: the operator dumps and restores
+them the same way. A restore keeps the database mode of the backed-up platform. To restore a
+platform with external databases, give the destination its own Secrets in <code class="docutils literal notranslate"><span class="pre">spec_overrides</span></code>
+(<code class="docutils literal notranslate"><span class="pre">database.database_secret</span></code>, <code class="docutils literal notranslate"><span class="pre">controller.database_secret</span></code> and, when they are enabled,
+<code class="docutils literal notranslate"><span class="pre">eda.database_secret</span></code>, <code class="docutils literal notranslate"><span class="pre">eda.event_stream.database_secret</span></code> and <code class="docutils literal notranslate"><span class="pre">hub.database_secret</span></code>),
+different from each other and from the original ones, pointing to databases you have created
+and left empty. To restore into a PostgreSQL managed by the operator instead, set
+<code class="docutils literal notranslate"><span class="pre">spec_overrides.database.managed:</span> <span class="pre">true</span></code>.</p>
+</div>
+<section id="backing-up">
+<h2><span class="section-number">17.1. </span>Backing up<a class="headerlink" href="#backing-up" title="Link to this heading"></a></h2>
+<p>Create the backup in the namespace of the platform, naming the <code class="docutils literal notranslate"><span class="pre">KoiosPlatform</span></code> to back up:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">kubectl apply -n koios -f - &lt;&lt;'EOF'</span>
+<span class="l l-Scalar l-Scalar-Plain">apiVersion</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">platform.koioss.com/v1alpha1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KoiosPlatformBackup</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">koios-backup-2026-11-05</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">deployment_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">koios</span>
+<span class="l l-Scalar l-Scalar-Plain">EOF</span>
+</pre></div>
+</div>
+<p>The operator creates one persistent volume claim per component, unless you name existing ones in
+<code class="docutils literal notranslate"><span class="pre">spec.&lt;component&gt;.backup_pvc</span></code>, and checks every file it writes (its SHA-256 is kept in the status).
+A small platform takes a minute or two. When the backup is complete, its status says so and records
+where the files are:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">kubectl get koiosplatformbackup koios-backup-2026-11-05 -n koios \</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">-o jsonpath='{.status.backupComplete} {.status.backupDirectory}{"\n"}'</span>
+</pre></div>
+</div>
+<p>By default, deleting the <code class="docutils literal notranslate"><span class="pre">KoiosPlatformBackup</span></code> keeps the files. Set <code class="docutils literal notranslate"><span class="pre">clean_backup_on_delete:</span> <span class="pre">true</span></code>
+to remove them, and the claims the backup created, along with it.</p>
+<p>Copy the backup somewhere off the cluster as well: a volume in the same cluster does not protect you
+against the loss of the cluster.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>A backup contains the databases and the Secrets of each component: the keys that encrypt the
+credentials stored in the databases, the secret keys, the administrator passwords and the
+certificate authority and signing key of receptor. Anyone who can read the backup can read every
+credential stored in the platform and act as its administrator. Restrict access to the backup volumes and to their copies, and encrypt the
+copies you keep off the cluster.</p>
+</div>
+</section>
+<section id="restoring">
+<h2><span class="section-number">17.2. </span>Restoring<a class="headerlink" href="#restoring" title="Link to this heading"></a></h2>
+<p>Create a <code class="docutils literal notranslate"><span class="pre">KoiosPlatformRestore</span></code> that names the backup and the new platform. The destination
+<code class="docutils literal notranslate"><span class="pre">KoiosPlatform</span></code> must not exist yet. The new platform takes the backed-up specification; use
+<code class="docutils literal notranslate"><span class="pre">spec_overrides</span></code> to change part of it. When you restore next to the original, give the copy its
+own address, so that both do not claim the same host:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">kubectl apply -n koios -f - &lt;&lt;'EOF'</span>
+<span class="l l-Scalar l-Scalar-Plain">apiVersion</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">platform.koioss.com/v1alpha1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KoiosPlatformRestore</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">koios-restore-2026-11-05</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">backup_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">koios-backup-2026-11-05</span>
+<span class="w">  </span><span class="nt">deployment_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">koios-restored</span>
+<span class="w">  </span><span class="nt">spec_overrides</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">hostname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">koios-restored.example.com</span>
+<span class="l l-Scalar l-Scalar-Plain">EOF</span>
+</pre></div>
+</div>
+<p>The operator creates the new platform held, restores each database into it (with the files of
+automation hub), and then lets it start. The restore is complete when its <code class="docutils literal notranslate"><span class="pre">Complete</span></code> column is
+<code class="docutils literal notranslate"><span class="pre">true</span></code>; its status lists the restored components:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">kubectl get koiosplatformrestore koios-restore-2026-11-05 -n koios</span>
+<span class="l l-Scalar l-Scalar-Plain">kubectl get koiosplatformrestore koios-restore-2026-11-05 -n koios \</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">-o jsonpath='{.status.restoredComponents}{"\n"}'</span>
+</pre></div>
+</div>
+<p>The restored platform becomes available service by service. Its gateway starts without the service
+nodes copied from the original, so it sends no requests to the original services, and each service is
+registered, with new service keys, as it comes up. Until then, requests to that service fail (for
+example with <code class="docutils literal notranslate"><span class="pre">503</span></code>).</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>A restored platform is a copy of the original, including what points outside it. When the
+original keeps running, check before you use the copy:</p>
+<ul class="simple">
+<li><p>its address: change <code class="docutils literal notranslate"><span class="pre">hostname</span></code> (or <code class="docutils literal notranslate"><span class="pre">route_host</span></code>) with <code class="docutils literal notranslate"><span class="pre">spec_overrides</span></code>;</p></li>
+<li><p>an external Redis: give the copy its own with <code class="docutils literal notranslate"><span class="pre">spec_overrides</span></code>, as two platforms must not
+share one;</p></li>
+<li><p>credentials and integrations that point to the original platform, such as the credential an
+Event-Driven Ansible activation uses to launch jobs: update them before you enable
+activations and schedules in the copy;</p></li>
+<li><p>trust between the two: the copy signs the tokens its gateway passes to its services with the
+same keys and issuer as the original, so both platforms trust the same tokens. Treat the copy
+as part of the security boundary of the original.</p></li>
+</ul>
+</div>
+<p>A restore resumes where it stopped: components already recorded as restored in its status are
+skipped. But if it fails after restoring a component’s database and before recording that component
+(for example, while it extracts the files of automation hub), retrying fails, because that database
+is no longer empty. Start again with a new destination.</p>
+<p>To restore from files that are no longer tied to a <code class="docutils literal notranslate"><span class="pre">KoiosPlatformBackup</span></code> (for example, after
+copying them into a new cluster), use <code class="docutils literal notranslate"><span class="pre">backup_dir</span></code> and <code class="docutils literal notranslate"><span class="pre">spec.&lt;component&gt;.backup_pvc</span></code> instead of
+<code class="docutils literal notranslate"><span class="pre">backup_name</span></code>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="proxy_support.html" class="btn btn-neutral float-left" title="16. Proxy Support" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="security_best_practices.html" class="btn btn-neutral float-right" title="18. Security Best Practices" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Koios Solutions. Portions 2026, Red Hat, Inc. and 2026, CtrlIQ, Inc..</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+<p class="koios-legal">Licensed under the <a href="../LICENSE.txt">Apache License 2.0</a>; see the <a href="../NOTICE.txt">NOTICE</a> for the origin of this documentation.</p>
+
+</body>
+</html>

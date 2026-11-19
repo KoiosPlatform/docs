@@ -1,0 +1,321 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>18. Security Best Practices &ndash; Koios Automation Platform</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ansible.css?v=5657ca2d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/rtd-ethical-ads.css?v=289b023e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/dark.css?v=82723a23" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments-dark.css?v=027e451e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/koios.css?v=808fdb03" />
+
+  
+    <link rel="shortcut icon" href="../_static/images/koios-favicon.svg"/>
+    <link rel="canonical" href="https://docs.koioss.com/administration/security_best_practices.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2d018451"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=b8bcef97"></script>
+      <script src="../_static/js/theme-toggle.js?v=59cbb094"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="19. The awx-manage Utility" href="awx-manage.html" />
+    <link rel="prev" title="17. Backup and Restore" href="backup_restore.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+<script>
+  (function () {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('koios-docs-theme');
+    } catch (e) {}
+    // Without a stored choice, follow the system preference (dark when it cannot be read).
+    var light = false;
+    try { light = window.matchMedia('(prefers-color-scheme: light)').matches; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', stored || (light ? 'light' : 'dark'));
+  })();
+</script>
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="#" class="asc-theme-toggle" title="Switch theme" aria-label="Switch theme"><svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg></a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../_static/images/koios-mark-white.svg"
+    alt="Koios">
+  <div class="DocSiteNav-title">Koios Automation Platform</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Koios Automation Platform
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Koios Automation Platform Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Install and upgrade</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade_migration/index.html">Upgrades and Migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configure the platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/index.html">Configure the platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Access management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access/index.html">Authentication and access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation execution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">Automating with Koios Automation Platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation decisions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../eda/index.html">Event-Driven Ansible</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hub/index.html">Automation hub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operate</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../operate/index.html">Operate</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Administering Koios Automation Platform Deployments</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html">Administering Koios Automation Platform Deployments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="init_script.html">1. Starting, Stopping, and Restarting Koios Automation Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="supported_architectures.html">2. Supported Architectures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom_inventory_script.html">3. Custom Inventory Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scm-inv-source.html">4. Inventory File Importing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi-creds-assignment.html">5. Multi-Credential Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="management_jobs.html">6. Management Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clustering.html">7. Clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="containers_instance_groups.html">8. Container and Instance Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instances.html">9. Managing Capacity With Instances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topology_viewer.html">10. Topology Viewer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logfiles.html">11. Automation controller Logfiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">12. Logging and Aggregation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">13. Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html">14. Improving Automation Controller Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secret_handling.html">15. Secret handling and connection security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proxy_support.html">16. Proxy Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backup_restore.html">17. Backup and Restore</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">18. Security Best Practices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#understand-the-architecture-of-ansible-and-automation-controller">18.1. Understand the architecture of Ansible and automation controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#granting-access">18.2. Granting access</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#minimize-administrative-accounts">18.2.1. Minimize administrative accounts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#minimize-local-system-access">18.2.2. Minimize local system access</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#remove-access-to-credentials-from-users">18.2.3. Remove access to credentials from users</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#enforce-separation-of-duties">18.2.4. Enforce separation of duties</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#available-resources">18.3. Available resources</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#audit-and-logging-functionality">18.3.1. Audit and logging functionality</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#existing-security-functionality">18.3.2. Existing security functionality</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#external-account-stores">18.3.3. External account stores</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#password-policies">18.3.4. Password policies</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="awx-manage.html">19. The <em>awx-manage</em> Utility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configure_koios.html">20. Automation Controller Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="isolation_variables.html">21. Isolation functionality and variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kerberos_auth.html">22. Kerberos Authentication for Windows Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html">23. Troubleshooting Automation Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tipsandtricks.html">24. Automation controller Tips and Tricks</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration as code and API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/casc.html">Configuration as code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rest_api/index.html">automation controller API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/releases.html">Releases</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Koios Automation Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Administering Koios Automation Platform Deployments</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">18. </span>Security Best Practices</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <section id="security-best-practices">
+<span id="ag-security-best-practices"></span><h1><span class="section-number">18. </span>Security Best Practices<a class="headerlink" href="#security-best-practices" title="Link to this heading"></a></h1>
+<p>Automation controller is deployed in a secure fashion for use to automate typical environments. However, managing certain operating system environments, automation, and automation platforms, may require some additional best practices to ensure security. This document describes best practices for automation in a secure manner.</p>
+<section id="understand-the-architecture-of-ansible-and-automation-controller">
+<h2><span class="section-number">18.1. </span>Understand the architecture of Ansible and automation controller<a class="headerlink" href="#understand-the-architecture-of-ansible-and-automation-controller" title="Link to this heading"></a></h2>
+<p>Ansible and automation controller comprise a general purpose, declarative, automation platform. That means that once an Ansible playbook is launched (via automation controller, or directly on the command line), the playbook, inventory, and credentials provided to Ansible are considered to be the source of truth.  If policies are desired around external verification of specific playbook content, job definition, or inventory contents, these processes must be undertaken before the automation is launched (whether via the automation controller web UI, or the automation controller API).</p>
+<p>These can take many forms. The use of source control, branching, and mandatory code review is best practice for Ansible automation. There are many tools that can help create process flow around using source control in this manner.</p>
+<p>At a higher level, many tools exist that allow for creation of approvals and policy-based actions around arbitrary workflows, including automation; these tools can then use Ansible via automation controller’s API to perform automation.</p>
+<p>We recommend all customers of automation controller select a secure default administrator password at time of installation.  See <a class="reference internal" href="tipsandtricks.html#tips-change-password"><span class="std std-ref">Changing the Admin Password</span></a> for more information.</p>
+<p>Automation controller exposes services on certain well-known ports, such as port 80 for HTTP traffic and port 443 for HTTPS traffic.  We recommend that you do not expose automation controller on the open internet, significantly reducing the threat surface of your installation.</p>
+</section>
+<section id="granting-access">
+<h2><span class="section-number">18.2. </span>Granting access<a class="headerlink" href="#granting-access" title="Link to this heading"></a></h2>
+<p>Granting access to certain parts of the system exposes security risks. Apply the following practices to help secure access:</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#minimize-administrative-accounts" id="id2">Minimize administrative accounts</a></p></li>
+<li><p><a class="reference internal" href="#minimize-local-system-access" id="id3">Minimize local system access</a></p></li>
+<li><p><a class="reference internal" href="#remove-access-to-credentials-from-users" id="id4">Remove access to credentials from users</a></p></li>
+<li><p><a class="reference internal" href="#enforce-separation-of-duties" id="id5">Enforce separation of duties</a></p></li>
+</ul>
+</nav>
+<section id="minimize-administrative-accounts">
+<h3><a class="toc-backref" href="#id2" role="doc-backlink"><span class="section-number">18.2.1. </span>Minimize administrative accounts</a><a class="headerlink" href="#minimize-administrative-accounts" title="Link to this heading"></a></h3>
+<p>Minimizing the access to system administrative accounts is crucial for maintaining a secure system. A system administrator/root user can access, edit, and disrupt any system application. Keep the number of people/accounts with root access to as small of a group as possible. Do not give out <cite>sudo</cite> to <cite>root</cite> or <cite>awx</cite> (awx user) to untrusted users. Know that when restricting administrative access via mechanisms like <cite>sudo</cite>, that restricting to a certain set of commands may still give a wide range of access. Any command that allows for execution of a shell or arbitrary shell commands, or any command that can change files on the system, is fundamentally equivalent to full root access.</p>
+<p>In an automation controller context, any automation controller ‘system administrator’ or ‘superuser’ account can edit, change, and update any inventory or automation definition in automation controller. Restrict this to the minimum set of users possible for low-level automation controller configuration and disaster recovery only.</p>
+</section>
+<section id="minimize-local-system-access">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">18.2.2. </span>Minimize local system access</a><a class="headerlink" href="#minimize-local-system-access" title="Link to this heading"></a></h3>
+<p>Automation controller, when used with best practices, should not require local user access except for administrative purposes. Non-administrator users should not have access to the automation controller system.</p>
+</section>
+<section id="remove-access-to-credentials-from-users">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">18.2.3. </span>Remove access to credentials from users</a><a class="headerlink" href="#remove-access-to-credentials-from-users" title="Link to this heading"></a></h3>
+<p>If an automation credential is only stored in automation controller, it can be further secured. Services such as OpenSSH can be configured to only allow credentials on connections from specific addresses. Credentials used by automation can be different than credentials used by system administrators for disaster-recovery or other ad-hoc management, allowing for easier auditing.</p>
+</section>
+<section id="enforce-separation-of-duties">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">18.2.4. </span>Enforce separation of duties</a><a class="headerlink" href="#enforce-separation-of-duties" title="Link to this heading"></a></h3>
+<p>Different pieces of automation may need to access a system at different levels. For example, you may have low-level system automation that applies patches and performs security baseline checking, while a higher-level piece of automation deploys applications. By using different keys or credentials for each piece of automation, the effect of any one key vulnerability is minimized, while also allowing for easy baseline auditing.</p>
+</section>
+</section>
+<section id="available-resources">
+<h2><span class="section-number">18.3. </span>Available resources<a class="headerlink" href="#available-resources" title="Link to this heading"></a></h2>
+<p>Several resources exist in automation controller and elsewhere to ensure a secure platform. Consider utilizing the following functionality:</p>
+<nav class="contents local" id="id1">
+<ul class="simple">
+<li><p><a class="reference internal" href="#audit-and-logging-functionality" id="id6">Audit and logging functionality</a></p></li>
+<li><p><a class="reference internal" href="#existing-security-functionality" id="id7">Existing security functionality</a></p></li>
+<li><p><a class="reference internal" href="#external-account-stores" id="id8">External account stores</a></p></li>
+<li><p><a class="reference internal" href="#password-policies" id="id9">Password policies</a></p></li>
+</ul>
+</nav>
+<section id="audit-and-logging-functionality">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">18.3.1. </span>Audit and logging functionality</a><a class="headerlink" href="#audit-and-logging-functionality" title="Link to this heading"></a></h3>
+<p>For any administrative access, it is key to audit and watch for actions.</p>
+<p>For automation controller, this is done via the built-in Activity Stream support that logs all changes within automation controller, as well as via the automation logs.</p>
+<p>Best practices dictate collecting logging and auditing centrally, rather than reviewing it on the local system. It is recommended that automation controller be configured to use whatever IDS and/or logging/auditing (Splunk) is standard in your environment. Automation controller includes built-in logging integrations for Elastic Stack, Splunk, Sumologic, Loggly, and more. See <a class="reference internal" href="logging.html#ag-logging"><span class="std std-ref">Logging and Aggregation</span></a> for more information.</p>
+</section>
+<section id="existing-security-functionality">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">18.3.2. </span>Existing security functionality</a><a class="headerlink" href="#existing-security-functionality" title="Link to this heading"></a></h3>
+<p>Do not disable SELinux, and do not disable automation controller’s existing multi-tenant containment. Use automation controller’s role-based access control (RBAC) to delegate the minimum level of privileges required to run automation. Use Teams in automation controller to assign permissions to groups of users rather than to users individually. See <a class="reference internal" href="../userguide/security.html#rbac-ug"><span class="std std-ref">Role-Based Access Control</span></a> in the <em>User Guide</em>.</p>
+</section>
+<section id="external-account-stores">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink"><span class="section-number">18.3.3. </span>External account stores</a><a class="headerlink" href="#external-account-stores" title="Link to this heading"></a></h3>
+<p>Maintaining a full set of users just in automation controller can be a time-consuming task in a large organization, prone to error. Koios Automation Platform supports connecting to external account sources such as LDAP, SAML 2.0 and OpenID Connect providers; see <a class="reference internal" href="../access/authentication.html"><span class="doc">Authentication methods</span></a>. Using this eliminates a source of error when working with permissions.</p>
+</section>
+<section id="password-policies">
+<span id="ag-security-django-password"></span><h3><a class="toc-backref" href="#id9" role="doc-backlink"><span class="section-number">18.3.4. </span>Password policies</a><a class="headerlink" href="#password-policies" title="Link to this heading"></a></h3>
+<p>The passwords of local users are gateway passwords: users log in through the platform gateway, not
+through the controller. Set the rules (minimum length, digits, uppercase and special characters) in
+the gateway’s <strong>Password Security</strong> settings; see <a class="reference internal" href="../access/sessions.html"><span class="doc">Sessions and passwords</span></a>. They apply when a password
+is set or changed. Settings of the controller, such as <code class="docutils literal notranslate"><span class="pre">AUTH_PASSWORD_VALIDATORS</span></code>, do not affect
+platform logins.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="backup_restore.html" class="btn btn-neutral float-left" title="17. Backup and Restore" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="awx-manage.html" class="btn btn-neutral float-right" title="19. The awx-manage Utility" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Koios Solutions. Portions 2026, Red Hat, Inc. and 2026, CtrlIQ, Inc..</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+<p class="koios-legal">Licensed under the <a href="../LICENSE.txt">Apache License 2.0</a>; see the <a href="../NOTICE.txt">NOTICE</a> for the origin of this documentation.</p>
+
+</body>
+</html>

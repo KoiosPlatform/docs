@@ -1,0 +1,267 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1. Quick Start &ndash; Koios Automation Platform</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ansible.css?v=5657ca2d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/rtd-ethical-ads.css?v=289b023e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/dark.css?v=82723a23" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments-dark.css?v=027e451e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/koios.css?v=808fdb03" />
+
+  
+    <link rel="shortcut icon" href="../_static/images/koios-favicon.svg"/>
+    <link rel="canonical" href="https://docs.koioss.com/quickstart/quick_start.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2d018451"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=b8bcef97"></script>
+      <script src="../_static/js/theme-toggle.js?v=59cbb094"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2. Log In as the Platform Administrator" href="login_superuser.html" />
+    <link rel="prev" title="Koios Automation Platform Quick Start" href="index.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+<script>
+  (function () {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('koios-docs-theme');
+    } catch (e) {}
+    // Without a stored choice, follow the system preference (dark when it cannot be read).
+    var light = false;
+    try { light = window.matchMedia('(prefers-color-scheme: light)').matches; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', stored || (light ? 'light' : 'dark'));
+  })();
+</script>
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="#" class="asc-theme-toggle" title="Switch theme" aria-label="Switch theme"><svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg></a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../_static/images/koios-mark-white.svg"
+    alt="Koios">
+  <div class="DocSiteNav-title">Koios Automation Platform</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Koios Automation Platform
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Koios Automation Platform Quick Start</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html">Koios Automation Platform Quick Start</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1. Quick Start</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#initial-demo-data">1.1. Initial demo data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="login_superuser.html">2. Log In as the Platform Administrator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examine_dashboard.html">3. Examine the Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html">4. Review the Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create_organization.html">5. Review the Organization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create_user.html">6. Review the Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create_inventory.html">7. Review the Inventory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create_credential.html">8. Review the Credential</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create_project.html">9. Review and Sync the Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create_job.html">10. Review the Job Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launch.html">11. Launch the Demo Job</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Install and upgrade</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade_migration/index.html">Upgrades and Migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configure the platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/index.html">Configure the platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Access management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access/index.html">Authentication and access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation execution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">Automating with Koios Automation Platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation decisions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../eda/index.html">Event-Driven Ansible</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hub/index.html">Automation hub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operate</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../operate/index.html">Operate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../administration/index.html">Administering Koios Automation Platform Deployments</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration as code and API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/casc.html">Configuration as code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rest_api/index.html">automation controller API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/releases.html">Releases</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Koios Automation Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Koios Automation Platform Quick Start</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">1. </span>Quick Start</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <section id="quick-start">
+<h1><span class="section-number">1. </span>Quick Start<a class="headerlink" href="#quick-start" title="Link to this heading"></a></h1>
+<p id="index-0">This walkthrough launches the supplied <code class="docutils literal notranslate"><span class="pre">hello_world.yml</span></code> playbook against the demo inventory’s <code class="docutils literal notranslate"><span class="pre">localhost</span></code> host. The host uses a local Ansible connection inside the job’s execution environment, so you do not need a separate SSH target or an SSH private key for this example.</p>
+<p>Before you begin:</p>
+<ul class="simple">
+<li><p>Install Koios Automation Platform and complete <a class="reference internal" href="../install/first-login.html"><span class="doc">First login</span></a>. For installation methods, see <a class="reference internal" href="../install/index.html"><span class="doc">Install</span></a>.</p></li>
+<li><p>Use the initial platform administrator account, or an account with the permissions needed to see the resources and launch the template. This walkthrough uses the administrator.</p></li>
+<li><p>Before using the release images, obtain registry read access from the project; the installer repository requires a separate read permission. See <a class="reference internal" href="../install/registry-access.html"><span class="doc">Registry access</span></a> for the private-distribution prerequisites.</p></li>
+<li><p>Ensure the controller can sync the public sample Git repository and the cluster can pull the configured execution environment image and schedule job pods.</p></li>
+</ul>
+<section id="initial-demo-data">
+<h2><span class="section-number">1.1. </span>Initial demo data<a class="headerlink" href="#initial-demo-data" title="Link to this heading"></a></h2>
+<p>With the default <code class="docutils literal notranslate"><span class="pre">spec.controller.create_preload_data:</span> <span class="pre">true</span></code>, the controller creates the following data when it has no organizations:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 28.0%" />
+<col style="width: 72.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Resource</p></th>
+<th class="head"><p>Initial content</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Default</strong></p></td>
+<td><p>Organization that owns the demo project, inventory and Machine credential.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Demo Inventory</strong></p></td>
+<td><p>Contains <code class="docutils literal notranslate"><span class="pre">localhost</span></code> with a local connection and the execution environment’s Python interpreter.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Demo Credential</strong></p></td>
+<td><p>Machine credential containing the initial controller superuser’s username, normally <code class="docutils literal notranslate"><span class="pre">admin</span></code>; no SSH password or private key is supplied.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Ansible Galaxy</strong></p></td>
+<td><p>Managed Galaxy credential pointing to <code class="docutils literal notranslate"><span class="pre">https://galaxy.ansible.com/</span></code>, associated with Default for content downloads.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Demo Project</strong></p></td>
+<td><p>Git project pointing to <code class="docutils literal notranslate"><span class="pre">https://github.com/ansible/ansible-tower-samples</span></code>, with <code class="docutils literal notranslate"><span class="pre">hello_world.yml</span></code> in its initial playbook list.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Demo Job Template</strong></p></td>
+<td><p>Runs <code class="docutils literal notranslate"><span class="pre">hello_world.yml</span></code> from Demo Project against Demo Inventory, with Demo Credential attached.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Preload data is conditional, not a continuous repair mechanism. It is not created when disabled or when the controller already has an organization. Removing a demo resource does not trigger its recreation while an organization remains. A user without access may also see an incomplete list. If the resources are missing, ask the platform administrator whether this walkthrough applies; use the linked User Guide procedures to create equivalent resources instead of assuming the demo names exist.</p>
+<p>The next pages review the resources, sync the project and launch the job. A successful demo verifies this local execution path; it does not establish connectivity to other managed hosts or external services.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Koios Automation Platform Quick Start" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="login_superuser.html" class="btn btn-neutral float-right" title="2. Log In as the Platform Administrator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Koios Solutions. Portions 2026, Red Hat, Inc. and 2026, CtrlIQ, Inc..</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+<p class="koios-legal">Licensed under the <a href="../LICENSE.txt">Apache License 2.0</a>; see the <a href="../NOTICE.txt">NOTICE</a> for the origin of this documentation.</p>
+
+</body>
+</html>

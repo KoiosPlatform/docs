@@ -1,0 +1,462 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>15. Project Signing and Verification &ndash; Koios Automation Platform</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ansible.css?v=5657ca2d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/rtd-ethical-ads.css?v=289b023e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/dark.css?v=82723a23" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments-dark.css?v=027e451e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/koios.css?v=808fdb03" />
+
+  
+    <link rel="shortcut icon" href="../_static/images/koios-favicon.svg"/>
+    <link rel="canonical" href="https://docs.koioss.com/userguide/project-sign.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2d018451"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=b8bcef97"></script>
+      <script src="../_static/js/theme-toggle.js?v=59cbb094"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="16. Inventories" href="inventories.html" />
+    <link rel="prev" title="14. Projects" href="projects.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+<script>
+  (function () {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('koios-docs-theme');
+    } catch (e) {}
+    // Without a stored choice, follow the system preference (dark when it cannot be read).
+    var light = false;
+    try { light = window.matchMedia('(prefers-color-scheme: light)').matches; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', stored || (light ? 'light' : 'dark'));
+  })();
+</script>
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="#" class="asc-theme-toggle" title="Switch theme" aria-label="Switch theme"><svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg></a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../_static/images/koios-mark-white.svg"
+    alt="Koios">
+  <div class="DocSiteNav-title">Koios Automation Platform</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Koios Automation Platform
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Koios Automation Platform Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Install and upgrade</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade_migration/index.html">Upgrades and Migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configure the platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/index.html">Configure the platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Access management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access/index.html">Authentication and access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation execution</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Automating with Koios Automation Platform</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html">Automating with Koios Automation Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html">1. Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging_in.html">2. Logging In</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main_menu.html">3. The User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main_menu.html#the-settings-menu">4. The Settings Menu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="search_sort.html">5. Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="organizations.html">6. Organizations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="users.html">7. Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="teams.html">8. Teams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credentials.html">9. Credentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credential_plugins.html">10. Secret Management System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credential_types.html">11. Custom Credential Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="execution_environments.html">12. Execution Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ee_reference.html">13. Execution Environment Setup Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="projects.html">14. Projects</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">15. Project Signing and Verification</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prerequisites">15.1. Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-a-gpg-key-to-automation-controller">15.2. Add a GPG key to automation controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#access-the-ansible-sign-cli-utility">15.3. Access the <code class="docutils literal notranslate"><span class="pre">ansible-sign</span></code> CLI utility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#signing-your-project">15.4. Signing your project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#verifying-your-project">15.5. Verifying your project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#automate-signing">15.6. Automate signing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="inventories.html">16. Inventories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventory_plugins_templates.html">17. Supported Inventory Plugin Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="labels.html">18. Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_templates.html">19. Job Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_slices.html">20. Job Slicing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflows.html">21. Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_templates.html">22. Workflow Job Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instance_groups.html">23. Instance Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jobs.html">24. Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhooks.html">25. Working with Webhooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notifications.html">26. Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notification_parameters_supported.html">27. Supported Attributes for Custom Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduling.html">28. Schedules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="best_practices.html">29. Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">30. Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html">31. Glossary</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation decisions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../eda/index.html">Event-Driven Ansible</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hub/index.html">Automation hub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operate</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../operate/index.html">Operate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../administration/index.html">Administering Koios Automation Platform Deployments</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration as code and API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/casc.html">Configuration as code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rest_api/index.html">automation controller API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/releases.html">Releases</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Koios Automation Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Automating with Koios Automation Platform</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">15. </span>Project Signing and Verification</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <section id="project-signing-and-verification">
+<span id="ug-content-signing"></span><h1><span class="section-number">15. </span>Project Signing and Verification<a class="headerlink" href="#project-signing-and-verification" title="Link to this heading"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Content signature validation uses the <a class="reference internal" href="credentials.html#ug-credentials-gpg-public-key"><span class="std std-ref">GPG Public Key credential type</span></a>,
+available in Koios Automation Platform since 2026.11.8.</p>
+</div>
+<p id="index-0">Project signing and verification provides the ability to sign files in your project directory and then verify whether or not that content has changed in any way, or files have been added or removed from the project unexpectedly. To accomplish this, a private key for signing and a matching public key for verifying are needed.</p>
+<p>For project maintainers, the supported way to perform content signing is to use a utility called, <code class="docutils literal notranslate"><span class="pre">ansible-sign</span></code>, through the command-line interface (CLI) that comes with it.</p>
+<p>The CLI aims to make it easy to use cryptographic technology like GNU Privacy Guard (GPG) to validate that specified files within a project have not been tampered with in any way. Currently, GPG is the only supported means of signing and validation.</p>
+<p>Automation controller uses the GPG Public Key credential to verify signed project content. After a matching public key has been associated with the signed project, automation controller will verify that the files included during signing have not changed, and detects files added or removed unexpectedly. If the signature is invalid or a covered file has changed, validation fails the project update. Jobs waiting for that update cannot proceed with it. Review the project update output to confirm that verification completed successfully.</p>
+<p>Assuming that the repository has already been configured for signing and verification (see below), the usual workflow for altering the project becomes the following:</p>
+<ol class="arabic simple">
+<li><p>User has a project repository set up already and wants to make a change to a file.</p></li>
+<li><p>User makes the change, runs <code class="docutils literal notranslate"><span class="pre">ansible-sign</span> <span class="pre">project</span> <span class="pre">gpg-sign</span> <span class="pre">/path/to/project</span></code>,  which updates a checksum manifest and signs it.</p></li>
+<li><p>User commits the change and the updated checksum manifest and the signature to the repository.</p></li>
+<li><p>When the user syncs the project, automation controller (already configured, in this scenario) pulls in the new changes, checks that the public key associated with the project in automation controller matches the private key that the checksum manifest was signed with (this prevents tampering with the checksum manifest itself), then re-calculates checksums of each file in the manifest to ensure that the checksum matches (and thus that no file has changed). It also looks to ensure that all files are accounted for: They must have been either included in, or excluded from, the <code class="docutils literal notranslate"><span class="pre">MANIFEST.in</span></code> file discussed below; if files have been added or removed unexpectedly, verification will fail.</p></li>
+</ol>
+<section id="prerequisites">
+<h2><span class="section-number">15.1. </span>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>A valid GPG public/private keypair is required for signing content. Refer to <a class="reference external" href="https://www.redhat.com/sysadmin/creating-gpg-keypairs">How to create GPG keypairs</a> for details.</p></li>
+</ul>
+<blockquote>
+<div><p>Visit the <a class="reference external" href="https://www.gnupg.org/documentation/index.html">GnuPG documentation</a> for more information regarding GPG keys.</p>
+<p>You can verify that you have a valid GPG keypair and in your default GnuPG keyring, with the following command:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">$ gpg --list-secret-keys</span>
+</pre></div>
+</div>
+<p>If the above command produces no output, or one line of output that states, <code class="docutils literal notranslate"><span class="pre">trustdb</span> <span class="pre">was</span> <span class="pre">created</span></code>, then you do not have a secret key in your default keyring. In this case, refer to <a class="reference external" href="https://www.redhat.com/sysadmin/creating-gpg-keypairs">How to create GPG keypairs</a> to learn how to create a new keypair before proceeding. If it produces output other than that, you have a valid secret key and are ready to move on to using <code class="docutils literal notranslate"><span class="pre">ansible-sign</span></code>.</p>
+</div></blockquote>
+</section>
+<section id="add-a-gpg-key-to-automation-controller">
+<h2><span class="section-number">15.2. </span>Add a GPG key to automation controller<a class="headerlink" href="#add-a-gpg-key-to-automation-controller" title="Link to this heading"></a></h2>
+<p>Export the public key on the signing workstation with the following commands:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">$ gpg --list-keys</span>
+<span class="l l-Scalar l-Scalar-Plain">$ gpg --export --armour &lt;key fingerprint&gt; &gt; my_public_key.asc</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>Open <strong>Automation Execution &gt; Infrastructure &gt; Credentials</strong> and click <strong>Create credential</strong>.</p></li>
+<li><p>Provide the new credential a meaningful name (for example, <strong>Example GPG public key</strong>).</p></li>
+<li><p>In <strong>Credential type</strong>, select <strong>GPG Public Key</strong>.</p></li>
+<li><p>Upload the exported public key file (for example, <code class="docutils literal notranslate"><span class="pre">my_public_key.asc</span></code>) in <strong>GPG Public Key</strong>, or paste its armored text. Do not upload the private key.</p></li>
+<li><p>Click <strong>Create credential</strong> when done.</p></li>
+</ol>
+<img alt="Details of the Example GPG public key credential" src="../_images/credentials-gpg-details.png" />
+<p>Select the credential in the project’s <strong>Content signature validation credential</strong> field to request verification on future syncs; see <a class="reference internal" href="projects.html#ug-projects-add"><span class="std std-ref">projects</span></a>. Validate the workflow with signed content and deliberately altered test content before relying on it.</p>
+<p>The following example selects <strong>Example GPG public key</strong> for <strong>Signed project</strong> in the project creation form.</p>
+<img alt="Create project form for Signed project with Example GPG public key selected" src="../_images/project-create-with-gpg-creds.png" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Use the project cache SCM timeout to control how often you want automation controller to re-validate the signed content. When a project is configured to update on launch (of any job template configured to use that project), you can enable the cache timeout setting, which tells it to update after N seconds have passed since the last update. If validation is running too frequently, you can slow down how often project updates occur by specifying the time in the <strong>Cache Timeout</strong> field of the Option Details pane of the project.</p>
+<img alt="Update revision on launch checked and the Cache Timeout field in the project form" src="../_images/project-update-launch-cache-timeout.png" />
+</div>
+</section>
+<section id="access-the-ansible-sign-cli-utility">
+<h2><span class="section-number">15.3. </span>Access the <code class="docutils literal notranslate"><span class="pre">ansible-sign</span></code> CLI utility<a class="headerlink" href="#access-the-ansible-sign-cli-utility" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">ansible-sign</span></code> utility provide options for the user to sign and verify whether the project is signed.</p>
+<ol class="arabic simple">
+<li><p>Run the following command to install <code class="docutils literal notranslate"><span class="pre">ansible-sign</span></code>:</p></li>
+</ol>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">$ dnf install ansible-sign</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Verify that <code class="docutils literal notranslate"><span class="pre">ansible-sign</span></code> was successfully installed:</p></li>
+</ol>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">$ ansible-sign --version</span>
+</pre></div>
+</div>
+<p>Output similar to the following displays (possibly with a different version number):</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">ansible-sign 0.1</span>
+</pre></div>
+</div>
+<p>This indicates you have successfully installed <code class="docutils literal notranslate"><span class="pre">ansible-sign</span></code>.</p>
+</section>
+<section id="signing-your-project">
+<h2><span class="section-number">15.4. </span>Signing your project<a class="headerlink" href="#signing-your-project" title="Link to this heading"></a></h2>
+<p>As the name suggests, signing a project involves an Ansible project directory. Refer to the <a class="reference external" href="https://docs.ansible.com/ansible/latest/user_guide/sample_setup.html">Ansible documentation</a> for more sophisticated examples of project directory structures.</p>
+<p>The following sample project has a very simple structure. An inventory file, and two small playbooks under a playbooks directory:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">$ cd sample-project/</span>
+<span class="l l-Scalar l-Scalar-Plain">$ tree -a .</span>
+<span class="l l-Scalar l-Scalar-Plain">.</span>
+<span class="l l-Scalar l-Scalar-Plain">├── inventory</span>
+<span class="l l-Scalar l-Scalar-Plain">└── playbooks</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">└── get_uptime.yml</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">└── hello.yml</span>
+
+<span class="l l-Scalar l-Scalar-Plain">1 directory, 3 files</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The commands used in this section assume that your working directory is the root of your project. As a rule, <code class="docutils literal notranslate"><span class="pre">ansible-sign</span> <span class="pre">project</span></code> commands always take the project root directory as their last argument, and therefore, we use <code class="docutils literal notranslate"><span class="pre">.</span></code> to indicate the current working directory.</p>
+</div>
+<p>The way that <code class="docutils literal notranslate"><span class="pre">ansible-sign</span></code> protects content from tampering is by taking checksums (SHA256) of all of the secured files in the project, compiling those into a checksum manifest file, and then finally signing that manifest file.</p>
+<p>The first step toward signing content is to create a file that tells <code class="docutils literal notranslate"><span class="pre">ansible-sign</span></code> which files to protect. This file should be called <code class="docutils literal notranslate"><span class="pre">MANIFEST.in</span></code> and reside in the project root directory.</p>
+<p>Internally, <code class="docutils literal notranslate"><span class="pre">ansible-sign</span></code> makes use of the <code class="docutils literal notranslate"><span class="pre">distlib.manifest</span></code> module of Python’s distlib library, and thus <code class="docutils literal notranslate"><span class="pre">MANIFEST.in</span></code> must follow the syntax that this library specifies. See the <a class="reference external" href="https://packaging.python.org/en/latest/guides/using-manifest-in/#manifest-in-commands">Python Packaging User Guide</a> for an explanation of the <code class="docutils literal notranslate"><span class="pre">MANIFEST.in</span></code> file directives.</p>
+<p>In the sample project, the directives protect the inventory, the playbooks and the <code class="docutils literal notranslate"><span class="pre">MANIFEST.in</span></code> file itself, and leave out the <code class="docutils literal notranslate"><span class="pre">.git</span></code> directory, resulting in a <code class="docutils literal notranslate"><span class="pre">MANIFEST.in</span></code> file that looks like this:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">include inventory</span>
+<span class="l l-Scalar l-Scalar-Plain">recursive-include playbooks *.yml</span>
+<span class="l l-Scalar l-Scalar-Plain">include MANIFEST.in</span>
+<span class="l l-Scalar l-Scalar-Plain">prune .git</span>
+</pre></div>
+</div>
+<p>Automation controller verifies a git checkout of the project, so every file in it must be included in or excluded from <code class="docutils literal notranslate"><span class="pre">MANIFEST.in</span></code>. Without <code class="docutils literal notranslate"><span class="pre">prune</span> <span class="pre">.git</span></code>, the files of the <code class="docutils literal notranslate"><span class="pre">.git</span></code> directory are reported as added and the project sync fails.</p>
+<p>With this file in place, generate your checksum manifest file and sign it. Both of these steps are achieved in a single <code class="docutils literal notranslate"><span class="pre">ansible-sign</span></code> command:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">$ ansible-sign project gpg-sign .</span>
+<span class="l l-Scalar l-Scalar-Plain">[OK   ] GPG signing successful!</span>
+<span class="l l-Scalar l-Scalar-Plain">[NOTE ] Checksum manifest</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./.ansible-sign/sha256sum.txt</span>
+<span class="p p-Indicator">[</span><span class="nv">NOTE</span><span class="w"> </span><span class="p p-Indicator">]</span><span class="w"> </span><span class="nt">GPG summary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">signature created</span>
+</pre></div>
+</div>
+<p>Now the project has been signed.</p>
+<p>Notice that the <code class="docutils literal notranslate"><span class="pre">gpg-sign</span></code> subcommand resides under the <code class="docutils literal notranslate"><span class="pre">project</span></code> subcommand. For signing project content, every command will start with <code class="docutils literal notranslate"><span class="pre">ansible-sign</span> <span class="pre">project</span></code>. As noted above, as a rule, every <code class="docutils literal notranslate"><span class="pre">ansible-sign</span> <span class="pre">project</span></code> command takes the project root directory as its final argument.</p>
+<p>As mentioned earlier, <code class="docutils literal notranslate"><span class="pre">ansible-sign</span></code> by default makes use of your default keyring and looks for the first available secret key that it can find, to sign your project. You can specify a specific secret key to use with the <code class="docutils literal notranslate"><span class="pre">--fingerprint</span></code> option, or even a completely independent GPG home directory with the <code class="docutils literal notranslate"><span class="pre">--gnupg-home</span></code> option.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are using a desktop environment, GnuPG will automatically prompt you for your secret key’s passphrase. If this functionality does not work, or you are working without a desktop environment (e.g., via SSH), you can use the <code class="docutils literal notranslate"><span class="pre">-p/--prompt-passphrase</span></code> flag after <code class="docutils literal notranslate"><span class="pre">gpg-sign</span></code> in the above command, which will cause <code class="docutils literal notranslate"><span class="pre">ansible-sign</span></code> to prompt for the password instead.</p>
+</div>
+<p>Upon viewing the structure of the project directory, notice that a new <code class="docutils literal notranslate"><span class="pre">.ansible-sign</span></code> directory was created. This directory contains the checksum manifest and a detached GPG signature for it.</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">$ tree -a .</span>
+<span class="l l-Scalar l-Scalar-Plain">.</span>
+<span class="l l-Scalar l-Scalar-Plain">├── .ansible-sign</span>
+<span class="l l-Scalar l-Scalar-Plain">│   ├── sha256sum.txt</span>
+<span class="l l-Scalar l-Scalar-Plain">│   └── sha256sum.txt.sig</span>
+<span class="l l-Scalar l-Scalar-Plain">├── inventory</span>
+<span class="l l-Scalar l-Scalar-Plain">├── MANIFEST.in</span>
+<span class="l l-Scalar l-Scalar-Plain">└── playbooks</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">├── get_uptime.yml</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">└── hello.yml</span>
+</pre></div>
+</div>
+</section>
+<section id="verifying-your-project">
+<h2><span class="section-number">15.5. </span>Verifying your project<a class="headerlink" href="#verifying-your-project" title="Link to this heading"></a></h2>
+<p>If you want to verify that a signed Ansible project has not been altered, you can use <code class="docutils literal notranslate"><span class="pre">ansible-sign</span></code> to check whether the signature is valid and that the checksums of the files match what the checksum manifest says they should be. In particular, the <code class="docutils literal notranslate"><span class="pre">ansible-sign</span> <span class="pre">project</span> <span class="pre">gpg-verify</span></code> command can be used to automatically verify both of these conditions.</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">$ ansible-sign project gpg-verify .</span>
+<span class="l l-Scalar l-Scalar-Plain">[OK   ] GPG signature verification succeeded.</span>
+<span class="l l-Scalar l-Scalar-Plain">[OK   ] Checksum validation succeeded.</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>By default, <code class="docutils literal notranslate"><span class="pre">ansible-sign</span></code> makes use of your default GPG keyring to look for a matching public key. You can specify a keyring file with the <code class="docutils literal notranslate"><span class="pre">--keyring</span></code> option, or a different GPG home with the <code class="docutils literal notranslate"><span class="pre">--gnugpg-home</span></code> option.</p>
+</div>
+<p>If verification fails for any reason, information will be displayed to help you debug the cause. More verbosity can be enabled by passing the global <code class="docutils literal notranslate"><span class="pre">--debug</span></code> flag, immediately after <code class="docutils literal notranslate"><span class="pre">ansible-sign</span></code> in your commands.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Select a <a class="reference internal" href="credentials.html#ug-credentials-gpg-public-key"><span class="std std-ref">GPG Public Key credential</span></a> in the project’s <strong>Content signature validation credential</strong> field to enable verification on future project syncs. See <a class="reference internal" href="projects.html#ug-projects-add"><span class="std std-ref">Add a new project</span></a> for the project configuration.</p>
+</div>
+</section>
+<section id="automate-signing">
+<h2><span class="section-number">15.6. </span>Automate signing<a class="headerlink" href="#automate-signing" title="Link to this heading"></a></h2>
+<p>In environments with highly-trusted CI environments (e.g., OpenShift, Jenkins, etc.), it is possible to automate the signing process. For example, you could store your GPG private key in a CI platform of choice as a secret, and import that into GnuPG in the CI environment. You could then run through the signing workflow above within the normal CI workflow/container/environment.</p>
+<p>When signing a project using GPG, the environment variable <code class="docutils literal notranslate"><span class="pre">ANSIBLE_SIGN_GPG_PASSPHRASE</span></code> can be set to the passphrase of the signing key. This can be injected (and masked/secured) in a CI pipeline.</p>
+<p>Depending on the scenario at hand, <code class="docutils literal notranslate"><span class="pre">ansible-sign</span></code> will return with a different exit-code, during both signing and verification. This can also be useful in the context of CI and automation, as a CI environment can act differently based on the failure (for example, sending alerts for some errors but silently failing for others).</p>
+<p>These are the exit codes used in <code class="docutils literal notranslate"><span class="pre">ansible-sign</span></code> currently, which can be considered stable:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 13.3%" />
+<col style="width: 33.3%" />
+<col style="width: 53.3%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Exit code</p></th>
+<th class="head"><p>Approximate meaning</p></th>
+<th class="head"><p>Example scenarios</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success</p></td>
+<td><ul class="simple">
+<li><p>Signing was successful</p></li>
+<li><p>Verification was successful</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>General failure</p></td>
+<td><ul class="simple">
+<li><p>The checksum manifest file contained a syntax error during verification</p></li>
+<li><p>The signature file did not exist during verification</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MANIFEST.in</span></code> did not exist during signing</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>Checksum verification failure</p></td>
+<td><ul class="simple">
+<li><p>The checksum hashes calculated during verification differed from what
+was in the signed checksum manifest (e.g., a project file was changed but the signing process was not re-completed)</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>Signature verification failure</p></td>
+<td><ul class="simple">
+<li><p>The signer’s public key was not in the user’s GPG keyring</p></li>
+<li><p>The wrong GnuPG home directory or keyring file was specified</p></li>
+<li><p>The signed checksum manifest file was modified in some way</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>Signing process failure</p></td>
+<td><ul class="simple">
+<li><p>The signer’s private key was not found in the GPG keyring</p></li>
+<li><p>The wrong GnuPG home directory or keyring file was specified</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="projects.html" class="btn btn-neutral float-left" title="14. Projects" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="inventories.html" class="btn btn-neutral float-right" title="16. Inventories" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Koios Solutions. Portions 2026, Red Hat, Inc. and 2026, CtrlIQ, Inc..</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+<p class="koios-legal">Licensed under the <a href="../LICENSE.txt">Apache License 2.0</a>; see the <a href="../NOTICE.txt">NOTICE</a> for the origin of this documentation.</p>
+
+</body>
+</html>

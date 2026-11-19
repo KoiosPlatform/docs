@@ -1,0 +1,307 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>10. Authentication Methods Using the API &ndash; Koios Automation Platform</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ansible.css?v=5657ca2d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/rtd-ethical-ads.css?v=289b023e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/dark.css?v=82723a23" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments-dark.css?v=027e451e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/koios.css?v=808fdb03" />
+
+  
+    <link rel="shortcut icon" href="../_static/images/koios-favicon.svg"/>
+    <link rel="canonical" href="https://docs.koioss.com/rest_api/authentication.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2d018451"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=b8bcef97"></script>
+      <script src="../_static/js/theme-toggle.js?v=59cbb094"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="11. API Reference" href="api_ref.html" />
+    <link rel="prev" title="9. Read-only Fields" href="read_only_fields.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+<script>
+  (function () {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('koios-docs-theme');
+    } catch (e) {}
+    // Without a stored choice, follow the system preference (dark when it cannot be read).
+    var light = false;
+    try { light = window.matchMedia('(prefers-color-scheme: light)').matches; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', stored || (light ? 'light' : 'dark'));
+  })();
+</script>
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="#" class="asc-theme-toggle" title="Switch theme" aria-label="Switch theme"><svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg></a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../_static/images/koios-mark-white.svg"
+    alt="Koios">
+  <div class="DocSiteNav-title">Koios Automation Platform</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Koios Automation Platform
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Koios Automation Platform Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Install and upgrade</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade_migration/index.html">Upgrades and Migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configure the platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/index.html">Configure the platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Access management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access/index.html">Authentication and access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation execution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">Automating with Koios Automation Platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation decisions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../eda/index.html">Event-Driven Ansible</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hub/index.html">Automation hub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operate</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../operate/index.html">Operate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../administration/index.html">Administering Koios Automation Platform Deployments</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration as code and API</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../configure/casc.html">Configuration as code</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">automation controller API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html">automation controller API Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html">1. Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="browseable.html">2. Browsable API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conventions.html">3. Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sorting.html">4. Sorting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searching.html">5. Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filtering.html">6. Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pagination.html">7. Pagination</a></li>
+<li class="toctree-l2"><a class="reference internal" href="access_resources.html">8. Access Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="read_only_fields.html">9. Read-only Fields</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">10. Authentication Methods Using the API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#session-authentication">10.1. Session Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#basic-authentication">10.2. Basic Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#oauth-2-token-authentication">10.3. OAuth 2 Token Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#single-sign-on">10.4. Single Sign-On</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_ref.html">11. API Reference</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/releases.html">Releases</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Koios Automation Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">automation controller API Reference</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">10. </span>Authentication Methods Using the API</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <section id="authentication-methods-using-the-api">
+<h1><span class="section-number">10. </span>Authentication Methods Using the API<a class="headerlink" href="#authentication-methods-using-the-api" title="Link to this heading"></a></h1>
+<p id="index-0">Every API of Koios Automation Platform is reached through the platform gateway, and the gateway
+authenticates every request: the controller API under <code class="docutils literal notranslate"><span class="pre">/api/controller/</span></code>, and the gateway, EDA
+and automation hub APIs under <code class="docutils literal notranslate"><span class="pre">/api/gateway/</span></code>, <code class="docutils literal notranslate"><span class="pre">/api/eda/</span></code> and <code class="docutils literal notranslate"><span class="pre">/api/galaxy/</span></code>. A client
+authenticates once, in one of the ways below, and the same credentials work with all of them.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#session-authentication" id="id1">Session Authentication</a></p></li>
+<li><p><a class="reference internal" href="#basic-authentication" id="id2">Basic Authentication</a></p></li>
+<li><p><a class="reference internal" href="#oauth-2-token-authentication" id="id3">OAuth 2 Token Authentication</a></p></li>
+<li><p><a class="reference internal" href="#single-sign-on" id="id4">Single Sign-On</a></p></li>
+</ul>
+</nav>
+<section id="session-authentication">
+<span id="api-session-auth"></span><h2><a class="toc-backref" href="#id1" role="doc-backlink"><span class="section-number">10.1. </span>Session Authentication</a><a class="headerlink" href="#session-authentication" title="Link to this heading"></a></h2>
+<p>Sessions are what the user interface and the browsable API use. Logging in creates a session
+cookie, <code class="docutils literal notranslate"><span class="pre">gateway_sessionid</span></code>, that the browser sends with every request until the session expires
+or the user logs out.</p>
+<p>Log in to the browsable API at <code class="docutils literal notranslate"><span class="pre">https://&lt;koios-host&gt;/api/gateway/v1/login/</span></code>. With <code class="docutils literal notranslate"><span class="pre">curl</span></code>, get
+the <code class="docutils literal notranslate"><span class="pre">csrftoken</span></code> cookie first, then post the username and password with it:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>curl -c cookies.txt https://&lt;koios-host&gt;/api/gateway/v1/login/
+
+curl -b cookies.txt -c cookies.txt -X POST \
+  -H "X-CSRFToken: &lt;csrftoken from cookies.txt&gt;" \
+  --referer https://&lt;koios-host&gt;/api/gateway/v1/login/ \
+  --data-urlencode "username=&lt;user&gt;" --data-urlencode "password=&lt;password&gt;" \
+  https://&lt;koios-host&gt;/api/gateway/v1/login/
+</pre></div>
+</div>
+<p>Requests that change data must also send the <code class="docutils literal notranslate"><span class="pre">X-CSRFToken</span></code> header. Log out with a <code class="docutils literal notranslate"><span class="pre">POST</span></code> to
+<code class="docutils literal notranslate"><span class="pre">/api/gateway/v1/logout/</span></code>.</p>
+<p>Sessions are meant for browsers. For scripts and integrations, use
+<a class="reference internal" href="#api-oauth2-auth"><span class="std std-ref">tokens</span></a>. How long a session lasts, and how many a user may have at once, is
+set in <a class="reference internal" href="../access/sessions.html"><span class="doc">Sessions and passwords</span></a>.</p>
+</section>
+<section id="basic-authentication">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink"><span class="section-number">10.2. </span>Basic Authentication</a><a class="headerlink" href="#basic-authentication" title="Link to this heading"></a></h2>
+<p>Basic authentication sends the username and password with every request, in the <code class="docutils literal notranslate"><span class="pre">Authorization</span></code>
+header. It needs no setup, and suits quick checks and simple scripts:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>curl -u '&lt;user&gt;:&lt;password&gt;' https://&lt;koios-host&gt;/api/controller/v2/credentials/
+</pre></div>
+</div>
+<p>It works with users whose password the gateway checks: local users, and users of LDAP, RADIUS and
+TACACS+ methods. Users who only log in through an SSO provider have no password the gateway can
+check; they use tokens.</p>
+<p>Administrators can turn basic authentication off with <strong>Gateway Basic Auth Enabled</strong> (see
+<a class="reference internal" href="../access/sessions.html"><span class="doc">Sessions and passwords</span></a>). For more about the scheme, see
+<a class="reference external" href="https://datatracker.ietf.org/doc/html/rfc7617">RFC 7617</a>.</p>
+</section>
+<section id="oauth-2-token-authentication">
+<span id="api-oauth2-auth"></span><h2><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">10.3. </span>OAuth 2 Token Authentication</a><a class="headerlink" href="#oauth-2-token-authentication" title="Link to this heading"></a></h2>
+<p>Tokens are the recommended way for programs to use the API. A token is sent with each request in
+the <code class="docutils literal notranslate"><span class="pre">Authorization</span></code> header, acts as the user who owns it, and is limited by its scope (<code class="docutils literal notranslate"><span class="pre">read</span></code>
+or <code class="docutils literal notranslate"><span class="pre">write</span></code>). Tokens can be revoked at any time, and they expire.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>curl -H "Authorization: Bearer &lt;token&gt;" https://&lt;koios-host&gt;/api/controller/v2/job_templates/
+</pre></div>
+</div>
+<p>Create a personal token in <strong>Access Management &gt; API Tokens</strong>, or through the API:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>curl -u '&lt;user&gt;:&lt;password&gt;' -X POST -H "Content-Type: application/json" \
+  -d '{"description": "my script", "application": null, "scope": "write"}' \
+  https://&lt;koios-host&gt;/api/gateway/v1/tokens/
+</pre></div>
+</div>
+<p>The response contains the token in its <code class="docutils literal notranslate"><span class="pre">token</span></code> field; it is shown only then. Applications can
+also obtain tokens for users through the OAuth 2 flows at <code class="docutils literal notranslate"><span class="pre">/o/</span></code>. Both are described in
+<a class="reference internal" href="../access/tokens.html"><span class="doc">API tokens and OAuth applications</span></a>, along with the setting that lets users from external providers create tokens.</p>
+<p>With the token, for example, launch a job template:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>curl -X POST -H "Authorization: Bearer &lt;token&gt;" -H "Content-Type: application/json" \
+  --data '{"limit": "ansible"}' \
+  https://&lt;koios-host&gt;/api/controller/v2/job_templates/14/launch/
+</pre></div>
+</div>
+<p><strong>Python example</strong></p>
+<p><a class="reference external" href="https://pypi.org/project/awxkit/">awxkit</a> provides the <code class="docutils literal notranslate"><span class="pre">awx</span></code> command line client and a Python
+library for the controller API.</p>
+</section>
+<section id="single-sign-on">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">10.4. </span>Single Sign-On</a><a class="headerlink" href="#single-sign-on" title="Link to this heading"></a></h2>
+<p>Users of SSO methods (SAML, OIDC, Keycloak, Azure AD, Google, GitHub) log in through their provider
+in the browser; the login page shows a button for each method. Unless they also have a password
+in a password method, they cannot use basic authentication: to call the API from a program, they
+use a token. See <a class="reference internal" href="../access/authentication.html"><span class="doc">Authentication methods</span></a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="read_only_fields.html" class="btn btn-neutral float-left" title="9. Read-only Fields" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="api_ref.html" class="btn btn-neutral float-right" title="11. API Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Koios Solutions. Portions 2026, Red Hat, Inc. and 2026, CtrlIQ, Inc..</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+<p class="koios-legal">Licensed under the <a href="../LICENSE.txt">Apache License 2.0</a>; see the <a href="../NOTICE.txt">NOTICE</a> for the origin of this documentation.</p>
+
+</body>
+</html>

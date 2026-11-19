@@ -1,0 +1,353 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>22. Kerberos Authentication for Windows Jobs &ndash; Koios Automation Platform</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ansible.css?v=5657ca2d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/rtd-ethical-ads.css?v=289b023e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/dark.css?v=82723a23" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments-dark.css?v=027e451e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/koios.css?v=808fdb03" />
+
+  
+    <link rel="shortcut icon" href="../_static/images/koios-favicon.svg"/>
+    <link rel="canonical" href="https://docs.koioss.com/administration/kerberos_auth.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2d018451"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=b8bcef97"></script>
+      <script src="../_static/js/theme-toggle.js?v=59cbb094"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="23. Troubleshooting Automation Controller" href="troubleshooting.html" />
+    <link rel="prev" title="21. Isolation functionality and variables" href="isolation_variables.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+<script>
+  (function () {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('koios-docs-theme');
+    } catch (e) {}
+    // Without a stored choice, follow the system preference (dark when it cannot be read).
+    var light = false;
+    try { light = window.matchMedia('(prefers-color-scheme: light)').matches; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', stored || (light ? 'light' : 'dark'));
+  })();
+</script>
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="#" class="asc-theme-toggle" title="Switch theme" aria-label="Switch theme"><svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg></a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../_static/images/koios-mark-white.svg"
+    alt="Koios">
+  <div class="DocSiteNav-title">Koios Automation Platform</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Koios Automation Platform
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Koios Automation Platform Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Install and upgrade</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade_migration/index.html">Upgrades and Migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configure the platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/index.html">Configure the platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Access management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access/index.html">Authentication and access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation execution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">Automating with Koios Automation Platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation decisions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../eda/index.html">Event-Driven Ansible</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hub/index.html">Automation hub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operate</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../operate/index.html">Operate</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Administering Koios Automation Platform Deployments</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html">Administering Koios Automation Platform Deployments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="init_script.html">1. Starting, Stopping, and Restarting Koios Automation Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="supported_architectures.html">2. Supported Architectures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom_inventory_script.html">3. Custom Inventory Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scm-inv-source.html">4. Inventory File Importing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi-creds-assignment.html">5. Multi-Credential Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="management_jobs.html">6. Management Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clustering.html">7. Clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="containers_instance_groups.html">8. Container and Instance Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instances.html">9. Managing Capacity With Instances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topology_viewer.html">10. Topology Viewer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logfiles.html">11. Automation controller Logfiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">12. Logging and Aggregation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">13. Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html">14. Improving Automation Controller Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secret_handling.html">15. Secret handling and connection security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proxy_support.html">16. Proxy Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backup_restore.html">17. Backup and Restore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security_best_practices.html">18. Security Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awx-manage.html">19. The <em>awx-manage</em> Utility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configure_koios.html">20. Automation Controller Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="isolation_variables.html">21. Isolation functionality and variables</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">22. Kerberos Authentication for Windows Jobs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prepare-the-execution-environment">22.1. Prepare the execution environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configure-the-domain-inside-the-job-container">22.2. Configure the domain inside the job container</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mount-configuration-in-a-container-group">22.2.1. Mount configuration in a container group</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#configure-the-credential-and-inventory">22.3. Configure the credential and inventory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ticket-handling">22.4. Ticket handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#validate-with-a-windows-job">22.5. Validate with a Windows job</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html">23. Troubleshooting Automation Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tipsandtricks.html">24. Automation controller Tips and Tricks</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration as code and API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/casc.html">Configuration as code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rest_api/index.html">automation controller API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/releases.html">Releases</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Koios Automation Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Administering Koios Automation Platform Deployments</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">22. </span>Kerberos Authentication for Windows Jobs</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <section id="kerberos-authentication-for-windows-jobs">
+<h1><span class="section-number">22. </span>Kerberos Authentication for Windows Jobs<a class="headerlink" href="#kerberos-authentication-for-windows-jobs" title="Link to this heading"></a></h1>
+<p id="index-0">Koios Automation Platform can run playbooks against domain-joined Windows hosts using Kerberos over WinRM. The Ansible connection plugin runs inside the job’s execution environment (EE), where it needs the Kerberos client, Python dependencies, domain configuration and network access to the domain services and Windows targets.</p>
+<p>This page describes authentication to managed Windows hosts. Configuring a Machine credential for a job does not configure Active Directory authentication for users signing in to the platform.</p>
+<section id="prepare-the-execution-environment">
+<h2><span class="section-number">22.1. </span>Prepare the execution environment<a class="headerlink" href="#prepare-the-execution-environment" title="Link to this heading"></a></h2>
+<p>The default Koios EE recipe includes <code class="docutils literal notranslate"><span class="pre">krb5-workstation</span></code> (which supplies <code class="docutils literal notranslate"><span class="pre">kinit</span></code>), <code class="docutils literal notranslate"><span class="pre">pykerberos</span></code>, <code class="docutils literal notranslate"><span class="pre">pywinrm[kerberos,credssp]</span></code>, <code class="docutils literal notranslate"><span class="pre">pexpect</span></code> and the <code class="docutils literal notranslate"><span class="pre">ansible.windows</span></code> collection. These dependencies do not supply your organization’s realm configuration, credentials or Windows WinRM configuration. Check the image selected for the job: a custom or minimal EE can have different contents.</p>
+<p>For an EE that lacks Kerberos support, build a custom image with:</p>
+<ul class="simple">
+<li><p>The Kerberos client utilities and libraries, including an MIT Kerberos-compatible <code class="docutils literal notranslate"><span class="pre">kinit</span></code> on the container’s executable search path. On RPM-based images, the runtime package is <code class="docutils literal notranslate"><span class="pre">krb5-workstation</span></code>; compiling Python Kerberos bindings can also require <code class="docutils literal notranslate"><span class="pre">krb5-devel</span></code> and compiler dependencies during the build.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pywinrm</span></code> with its <code class="docutils literal notranslate"><span class="pre">kerberos</span></code> extra, the corresponding Python Kerberos bindings and <code class="docutils literal notranslate"><span class="pre">pexpect</span></code> installed for the Python interpreter used by Ansible.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">ansible.windows</span></code> collection for Windows modules.</p></li>
+<li><p>The required realm configuration and CA trust for the Windows HTTPS endpoint, either in the image or supplied to the job container at runtime.</p></li>
+</ul>
+<p>Install dependencies while building the EE, rather than in a running controller pod or on a Kubernetes node. Make configuration files readable by the non-root user of the job container and provide a writable temporary directory for ticket acquisition. See <a class="reference internal" href="../userguide/execution_environments.html#ug-execution-environments"><span class="std std-ref">Execution Environments</span></a> for registering the image and selecting it in the job template’s <strong>Execution environment</strong> field.</p>
+</section>
+<section id="configure-the-domain-inside-the-job-container">
+<h2><span class="section-number">22.2. </span>Configure the domain inside the job container<a class="headerlink" href="#configure-the-domain-inside-the-job-container" title="Link to this heading"></a></h2>
+<p>Work with the directory and cluster administrators to ensure that:</p>
+<ul class="simple">
+<li><p>The Windows target has a WinRM listener and permits the domain account to connect and run the required commands.</p></li>
+<li><p>The job pod can resolve the target’s fully qualified domain name (FQDN), discover or resolve the domain’s Kerberos Key Distribution Center (KDC), and reach the required KDC and WinRM ports. Account for namespace network policies and cluster DNS forwarding.</p></li>
+<li><p>The target name matches its Kerberos service principal name (SPN). Use an FQDN, such as <code class="docutils literal notranslate"><span class="pre">win01.example.com</span></code>, instead of an IP address for the WinRM connection address.</p></li>
+<li><p>The cluster nodes, KDC and Windows target have synchronized clocks, and the realm name and account principal use the case expected by the domain.</p></li>
+<li><p>For HTTPS, the EE trusts the certificate authority that issued the listener certificate, and the certificate matches the target name.</p></li>
+</ul>
+<p>Provide <code class="docutils literal notranslate"><span class="pre">/etc/krb5.conf</span></code> inside the EE. For example, the following configuration explicitly selects a KDC instead of relying on DNS SRV discovery. Replace the realm, domain and KDC with values provided by your directory administrator:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[libdefaults]</span>
+<span class="w"> </span><span class="na">default_realm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">EXAMPLE.COM</span>
+<span class="w"> </span><span class="na">dns_lookup_kdc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">false</span>
+
+<span class="k">[realms]</span>
+<span class="w"> </span><span class="na">EXAMPLE.COM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">{</span>
+<span class="w">  </span><span class="na">kdc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">dc01.example.com</span>
+<span class="w"> </span><span class="na">}</span>
+
+<span class="k">[domain_realm]</span>
+<span class="w"> </span><span class="na">.example.com</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">EXAMPLE.COM</span>
+<span class="w"> </span><span class="na">example.com</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">EXAMPLE.COM</span>
+</pre></div>
+</div>
+<p>You can include this non-secret configuration in a custom EE image. For container groups, you can instead mount it from a ConfigMap into each job pod, as described below. Editing a file in a running controller pod does not configure independent job pods and does not survive operator reconciliation or pod replacement.</p>
+<section id="mount-configuration-in-a-container-group">
+<h3><span class="section-number">22.2.1. </span>Mount configuration in a container group<a class="headerlink" href="#mount-configuration-in-a-container-group" title="Link to this heading"></a></h3>
+<p>Have the cluster administrator provision a ConfigMap named <code class="docutils literal notranslate"><span class="pre">winrm-kerberos-config</span></code> with a <code class="docutils literal notranslate"><span class="pre">krb5.conf</span></code> data key containing the configuration above, in the namespace where the container group creates job pods. Keep passwords, keytabs and ticket caches out of this ConfigMap.</p>
+<p>Open <strong>Automation Execution &gt; Infrastructure &gt; Instance Groups</strong> and configure the container group using <strong>Customize pod spec</strong> and <strong>Pod spec override</strong>. Add the following volume and mount to the existing pod specification, preserving the other settings and keeping the <code class="docutils literal notranslate"><span class="pre">worker</span></code> container first:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">containers</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">worker</span>
+<span class="w">      </span><span class="nt">volumeMounts</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">winrm-kerberos-config</span>
+<span class="w">          </span><span class="nt">mountPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/krb5.conf</span>
+<span class="w">          </span><span class="nt">subPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">krb5.conf</span>
+<span class="w">          </span><span class="nt">readOnly</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">winrm-kerberos-config</span>
+<span class="w">      </span><span class="nt">configMap</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">winrm-kerberos-config</span>
+</pre></div>
+</div>
+<p>This is a fragment showing the fields to add, not a replacement for an existing complete pod specification. Preserve existing container settings, volume mounts and volumes: list overrides replace the corresponding default lists. The controller sets the first container’s image and command from the job’s selected EE. Ensure that the job actually runs in this container group; see <a class="reference internal" href="containers_instance_groups.html#ag-container-groups"><span class="std std-ref">Container Groups</span></a> and <a class="reference internal" href="containers_instance_groups.html#ag-customize-pod-spec"><span class="std std-ref">Customize the pod spec</span></a> for scheduling, namespace and service account requirements.</p>
+<p>A volume mounted into the controller’s web or task deployment is not automatically mounted into container-group job pods. Likewise, <strong>Paths to expose to isolated jobs</strong> is not a general ConfigMap mounting mechanism: its host-path mappings apply to Kubernetes job pods only when <code class="docutils literal notranslate"><span class="pre">AWX_MOUNT_ISOLATED_PATHS_ON_K8S</span></code> is enabled, and depend on files on the Kubernetes nodes. Use the job pod specification for this ConfigMap mount.</p>
+<p>If you supply a configuration file at another path through <code class="docutils literal notranslate"><span class="pre">KRB5_CONFIG</span></code>, make that environment variable available in the EE and also forward it to managed <code class="docutils literal notranslate"><span class="pre">kinit</span></code> using the inventory variable:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">ansible_winrm_kinit_env_vars</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KRB5_CONFIG</span>
+</pre></div>
+</div>
+<p>Setting this list alone does not create the file or set <code class="docutils literal notranslate"><span class="pre">KRB5_CONFIG</span></code>. It is unnecessary for the default <code class="docutils literal notranslate"><span class="pre">/etc/krb5.conf</span></code> path shown above.</p>
+</section>
+</section>
+<section id="configure-the-credential-and-inventory">
+<h2><span class="section-number">22.3. </span>Configure the credential and inventory<a class="headerlink" href="#configure-the-credential-and-inventory" title="Link to this heading"></a></h2>
+<p>Create a credential with <strong>Credential type</strong> set to <strong>Machine</strong>. Set <strong>Username</strong> to the domain principal, for example <code class="docutils literal notranslate"><span class="pre">automation-user&#64;EXAMPLE.COM</span></code>, and supply its <strong>Password</strong> through the credential. Select this credential in the job template. See <a class="reference internal" href="../userguide/credentials.html#ug-credentials-add"><span class="std std-ref">Add a New Credential</span></a>.</p>
+<p>Create an inventory group named <code class="docutils literal notranslate"><span class="pre">windows</span></code> and add the target host, for example <code class="docutils literal notranslate"><span class="pre">win01.example.com</span></code>. Set these group variables for a WinRM HTTPS listener on port 5986:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">ansible_connection</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">winrm</span>
+<span class="nt">ansible_winrm_transport</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kerberos</span>
+<span class="nt">ansible_port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5986</span>
+<span class="nt">ansible_winrm_scheme</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https</span>
+<span class="nt">ansible_winrm_server_cert_validation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">validate</span>
+<span class="nt">ansible_winrm_kinit_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">managed</span>
+</pre></div>
+</div>
+<p>Adjust the port and listener settings to match the target. If you set <code class="docutils literal notranslate"><span class="pre">ansible_host</span></code>, use the target FQDN that matches its SPN. The EE must trust the listener’s certificate; disabling certificate validation is not a substitute for configuring that trust.</p>
+<p>Keep the password in the Machine credential, not in inventory variables or the playbook. Avoid setting <code class="docutils literal notranslate"><span class="pre">ansible_user</span></code> or <code class="docutils literal notranslate"><span class="pre">ansible_password</span></code> in inventory when relying on the Machine credential, because Ansible variables can override the credential’s connection values.</p>
+</section>
+<section id="ticket-handling">
+<h2><span class="section-number">22.4. </span>Ticket handling<a class="headerlink" href="#ticket-handling" title="Link to this heading"></a></h2>
+<p>In <code class="docutils literal notranslate"><span class="pre">managed</span></code> mode, Ansible uses the supplied username and password to obtain a ticket with <code class="docutils literal notranslate"><span class="pre">kinit</span></code> inside the EE and uses a temporary credential cache for the WinRM connection. The binary must be available in that container. If a custom image puts it elsewhere, set <code class="docutils literal notranslate"><span class="pre">ansible_winrm_kinit_cmd</span></code> to the absolute path of an MIT Kerberos-compatible executable inside the EE.</p>
+<p>Do not generate a ticket as the <code class="docutils literal notranslate"><span class="pre">awx</span></code> user on a server and expect jobs to inherit it. A Machine credential supplies connection credentials; it does not import a host’s existing ticket cache into job containers.</p>
+<p>Setting <code class="docutils literal notranslate"><span class="pre">ansible_winrm_kinit_mode:</span> <span class="pre">manual</span></code> disables automatic acquisition. Use it only with a separately designed process that supplies a valid ticket cache inside each job’s EE and manages its permissions, lifetime and cleanup. Merely changing the variable does not create or mount a ticket. Do not share a writable ticket cache between unrelated jobs.</p>
+</section>
+<section id="validate-with-a-windows-job">
+<h2><span class="section-number">22.5. </span>Validate with a Windows job<a class="headerlink" href="#validate-with-a-windows-job" title="Link to this heading"></a></h2>
+<p>Add a small test playbook to the project selected by the job template:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Verify Windows Kerberos connectivity</span>
+<span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">windows</span>
+<span class="w">  </span><span class="nt">gather_facts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">  </span><span class="nt">tasks</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Verify remote module execution</span>
+<span class="w">      </span><span class="nt">ansible.windows.win_ping</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>Launch the template with the intended inventory, Machine credential, EE and container group, then inspect the job output. A successful <code class="docutils literal notranslate"><span class="pre">win_ping</span></code> verifies module execution using that job’s connection settings; it does not validate platform user authentication or every Windows permission needed by other playbooks.</p>
+<p>When a job fails, distinguish the following causes:</p>
+<ul class="simple">
+<li><p>Missing <code class="docutils literal notranslate"><span class="pre">kinit</span></code> or Python Kerberos/WinRM modules: correct the EE image and confirm that the template uses it.</p></li>
+<li><p>KDC discovery or realm errors: check the file visible inside the job container, DNS and network access from its namespace.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Server</span> <span class="pre">not</span> <span class="pre">found</span> <span class="pre">in</span> <span class="pre">Kerberos</span> <span class="pre">database</span></code>: check the connection FQDN and the target’s SPN with the directory administrator.</p></li>
+<li><p>Authentication failures or clock-skew errors: check the Machine credential, account status, realm and time synchronization.</p></li>
+<li><p>HTTPS certificate errors: check the listener name and the trust store visible inside the EE.</p></li>
+</ul>
+<p>Keep passwords and ticket-cache contents out of diagnostic output. For connection options, including managed and manual ticket modes, see the <a class="reference external" href="https://docs.ansible.com/projects/ansible-core/2.18/collections/ansible/builtin/winrm_connection.html">Ansible WinRM connection documentation</a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="isolation_variables.html" class="btn btn-neutral float-left" title="21. Isolation functionality and variables" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="troubleshooting.html" class="btn btn-neutral float-right" title="23. Troubleshooting Automation Controller" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Koios Solutions. Portions 2026, Red Hat, Inc. and 2026, CtrlIQ, Inc..</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+<p class="koios-legal">Licensed under the <a href="../LICENSE.txt">Apache License 2.0</a>; see the <a href="../NOTICE.txt">NOTICE</a> for the origin of this documentation.</p>
+
+</body>
+</html>

@@ -1,0 +1,472 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>24. Automation controller Tips and Tricks &ndash; Koios Automation Platform</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ansible.css?v=5657ca2d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/rtd-ethical-ads.css?v=289b023e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/dark.css?v=82723a23" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments-dark.css?v=027e451e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/koios.css?v=808fdb03" />
+
+  
+    <link rel="shortcut icon" href="../_static/images/koios-favicon.svg"/>
+    <link rel="canonical" href="https://docs.koioss.com/administration/tipsandtricks.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2d018451"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=b8bcef97"></script>
+      <script src="../_static/js/theme-toggle.js?v=59cbb094"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Configuration as code" href="../configure/casc.html" />
+    <link rel="prev" title="23. Troubleshooting Automation Controller" href="troubleshooting.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+<script>
+  (function () {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('koios-docs-theme');
+    } catch (e) {}
+    // Without a stored choice, follow the system preference (dark when it cannot be read).
+    var light = false;
+    try { light = window.matchMedia('(prefers-color-scheme: light)').matches; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', stored || (light ? 'light' : 'dark'));
+  })();
+</script>
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="#" class="asc-theme-toggle" title="Switch theme" aria-label="Switch theme"><svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg></a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../_static/images/koios-mark-white.svg"
+    alt="Koios">
+  <div class="DocSiteNav-title">Koios Automation Platform</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Koios Automation Platform
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Koios Automation Platform Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Install and upgrade</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade_migration/index.html">Upgrades and Migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configure the platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/index.html">Configure the platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Access management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access/index.html">Authentication and access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation execution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">Automating with Koios Automation Platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation decisions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../eda/index.html">Event-Driven Ansible</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hub/index.html">Automation hub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operate</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../operate/index.html">Operate</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Administering Koios Automation Platform Deployments</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html">Administering Koios Automation Platform Deployments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="init_script.html">1. Starting, Stopping, and Restarting Koios Automation Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="supported_architectures.html">2. Supported Architectures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom_inventory_script.html">3. Custom Inventory Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scm-inv-source.html">4. Inventory File Importing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi-creds-assignment.html">5. Multi-Credential Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="management_jobs.html">6. Management Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clustering.html">7. Clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="containers_instance_groups.html">8. Container and Instance Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instances.html">9. Managing Capacity With Instances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topology_viewer.html">10. Topology Viewer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logfiles.html">11. Automation controller Logfiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">12. Logging and Aggregation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">13. Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html">14. Improving Automation Controller Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secret_handling.html">15. Secret handling and connection security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proxy_support.html">16. Proxy Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backup_restore.html">17. Backup and Restore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security_best_practices.html">18. Security Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awx-manage.html">19. The <em>awx-manage</em> Utility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configure_koios.html">20. Automation Controller Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="isolation_variables.html">21. Isolation functionality and variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kerberos_auth.html">22. Kerberos Authentication for Windows Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html">23. Troubleshooting Automation Controller</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">24. Automation controller Tips and Tricks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#using-the-automation-controller-cli-tool">24.1. Using the automation controller CLI Tool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#changing-the-admin-password">24.2. Changing the Admin Password</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-an-admin-from-the-command-line">24.3. Creating an Admin from the Command Line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setting-up-a-jump-host-to-use-with-automation-controller">24.4. Setting up a jump host to use with automation controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#view-ansible-outputs-for-json-commands-when-using-automation-controller">24.5. View Ansible outputs for JSON commands when using automation controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#locate-and-configure-the-ansible-configuration-file">24.6. Locate and configure the Ansible configuration file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#view-a-listing-of-all-ansible-variables">24.7. View a listing of all ansible_ variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-allow-jinja-in-extra-vars-variable">24.8. The ALLOW_JINJA_IN_EXTRA_VARS variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-execution-environments">24.9. Using execution environments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuring-the-public-url-for-notifications">24.10. Configuring the public URL for notifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#launching-jobs-with-curl">24.11. Launching Jobs with curl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dynamic-inventory-and-private-ip-addresses">24.12. Dynamic Inventory and private IP addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filtering-instances-returned-by-the-dynamic-inventory-sources-in-automation-controller">24.13. Filtering instances returned by the dynamic inventory sources in automation controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-an-unreleased-module-from-ansible-source-with-automation-controller">24.14. Using an unreleased module from Ansible source with automation controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-callback-plugins-with-automation-controller">24.15. Using callback plugins with automation controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#connecting-to-windows-with-winrm">24.16. Connecting to Windows with winrm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#importing-existing-inventory-files-and-host-group-vars-into-automation-controller">24.17. Importing existing inventory files and host/group vars into automation controller</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration as code and API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/casc.html">Configuration as code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rest_api/index.html">automation controller API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/releases.html">Releases</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Koios Automation Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Administering Koios Automation Platform Deployments</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">24. </span>Automation controller Tips and Tricks</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <section id="automation-controller-tips-and-tricks">
+<span id="tips-and-tricks"></span><h1><span class="section-number">24. </span>Automation controller Tips and Tricks<a class="headerlink" href="#automation-controller-tips-and-tricks" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<span id="index-0"></span><ul class="simple">
+<li><p><a class="reference internal" href="#using-the-automation-controller-cli-tool" id="id1">Using the automation controller CLI Tool</a></p></li>
+<li><p><a class="reference internal" href="#changing-the-admin-password" id="id2">Changing the Admin Password</a></p></li>
+<li><p><a class="reference internal" href="#creating-an-admin-from-the-command-line" id="id3">Creating an Admin from the Command Line</a></p></li>
+<li><p><a class="reference internal" href="#setting-up-a-jump-host-to-use-with-automation-controller" id="id4">Setting up a jump host to use with automation controller</a></p></li>
+<li><p><a class="reference internal" href="#view-ansible-outputs-for-json-commands-when-using-automation-controller" id="id5">View Ansible outputs for JSON commands when using automation controller</a></p></li>
+<li><p><a class="reference internal" href="#locate-and-configure-the-ansible-configuration-file" id="id6">Locate and configure the Ansible configuration file</a></p></li>
+<li><p><a class="reference internal" href="#view-a-listing-of-all-ansible-variables" id="id7">View a listing of all ansible_ variables</a></p></li>
+<li><p><a class="reference internal" href="#the-allow-jinja-in-extra-vars-variable" id="id8">The ALLOW_JINJA_IN_EXTRA_VARS variable</a></p></li>
+<li><p><a class="reference internal" href="#using-execution-environments" id="id9">Using execution environments</a></p></li>
+<li><p><a class="reference internal" href="#configuring-the-public-url-for-notifications" id="id10">Configuring the public URL for notifications</a></p></li>
+<li><p><a class="reference internal" href="#launching-jobs-with-curl" id="id11">Launching Jobs with curl</a></p></li>
+<li><p><a class="reference internal" href="#dynamic-inventory-and-private-ip-addresses" id="id12">Dynamic Inventory and private IP addresses</a></p></li>
+<li><p><a class="reference internal" href="#filtering-instances-returned-by-the-dynamic-inventory-sources-in-automation-controller" id="id13">Filtering instances returned by the dynamic inventory sources in automation controller</a></p></li>
+<li><p><a class="reference internal" href="#using-an-unreleased-module-from-ansible-source-with-automation-controller" id="id14">Using an unreleased module from Ansible source with automation controller</a></p></li>
+<li><p><a class="reference internal" href="#using-callback-plugins-with-automation-controller" id="id15">Using callback plugins with automation controller</a></p></li>
+<li><p><a class="reference internal" href="#connecting-to-windows-with-winrm" id="id16">Connecting to Windows with winrm</a></p></li>
+<li><p><a class="reference internal" href="#importing-existing-inventory-files-and-host-group-vars-into-automation-controller" id="id17">Importing existing inventory files and host/group vars into automation controller</a></p></li>
+</ul>
+</nav>
+<section id="using-the-automation-controller-cli-tool">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink"><span class="section-number">24.1. </span>Using the automation controller CLI Tool</a><a class="headerlink" href="#using-the-automation-controller-cli-tool" title="Link to this heading"></a></h2>
+<p id="index-1">Automation controller has a full-featured command line interface. Refer to <a class="reference external" href="https://docs.ansible.com/automation-controller/latest/html/controllercli/usage.html">automation controller Command Line Interface</a>  documentation for configuration and usage instructions.</p>
+<blockquote>
+<div></div></blockquote>
+</section>
+<section id="changing-the-admin-password">
+<span id="tips-change-password"></span><h2><a class="toc-backref" href="#id2" role="doc-backlink"><span class="section-number">24.2. </span>Changing the Admin Password</a><a class="headerlink" href="#changing-the-admin-password" title="Link to this heading"></a></h2>
+<p id="index-2">The <code class="docutils literal notranslate"><span class="pre">admin</span></code> user is a user of the platform gateway. The operator creates it once, with the password
+of the Secret <code class="docutils literal notranslate"><span class="pre">&lt;platform&gt;-admin-password</span></code> (or of <code class="docutils literal notranslate"><span class="pre">admin_password_secret</span></code>), and does not change it
+afterwards.</p>
+<p>To change the password, edit the user in <strong>Access Management &gt; Users</strong>, or run <code class="docutils literal notranslate"><span class="pre">changepassword</span></code> in
+the gateway (for example, if the password is lost), with the name of the administrator (<code class="docutils literal notranslate"><span class="pre">admin</span></code>
+unless <code class="docutils literal notranslate"><span class="pre">spec.admin_user</span></code> sets another):</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">kubectl exec -it -n &lt;namespace&gt; deploy/&lt;platform&gt;-gateway -c api -- \</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">aap-gateway-manage changepassword admin</span>
+</pre></div>
+</div>
+<p>The Secret keeps the initial password: after a change, it no longer holds the password in use.</p>
+<p>To set rules for passwords, see <a class="reference internal" href="security_best_practices.html#ag-security-django-password"><span class="std std-ref">Password policies</span></a>.</p>
+</section>
+<section id="creating-an-admin-from-the-command-line">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">24.3. </span>Creating an Admin from the Command Line</a><a class="headerlink" href="#creating-an-admin-from-the-command-line" title="Link to this heading"></a></h2>
+<p id="index-3">To create another platform administrator (superuser) from the command line, run <code class="docutils literal notranslate"><span class="pre">createsuperuser</span></code>
+in the gateway and enter the details when prompted:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">kubectl exec -it -n &lt;namespace&gt; deploy/&lt;platform&gt;-gateway -c api -- \</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">aap-gateway-manage createsuperuser</span>
+</pre></div>
+</div>
+</section>
+<section id="setting-up-a-jump-host-to-use-with-automation-controller">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">24.4. </span>Setting up a jump host to use with automation controller</a><a class="headerlink" href="#setting-up-a-jump-host-to-use-with-automation-controller" title="Link to this heading"></a></h2>
+<p id="index-4">Credentials supplied by automation controller will not flow to the jump host via ProxyCommand. They are only used for the end-node once the tunneled connection is set up.</p>
+<p>To make this work, configure a fixed user/keyfile in the automation controller user’s SSH config in the ProxyCommand definition that sets up the connection through the jump host. For example:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">Host tampa</span>
+<span class="l l-Scalar l-Scalar-Plain">Hostname 10.100.100.11</span>
+<span class="l l-Scalar l-Scalar-Plain">IdentityFile [privatekeyfile]</span>
+
+<span class="l l-Scalar l-Scalar-Plain">Host 10.100..</span>
+<span class="l l-Scalar l-Scalar-Plain">Proxycommand ssh -W [jumphostuser]@%h:%p tampa</span>
+</pre></div>
+</div>
+<p>You can also add a jump host to your automation controller instance through Inventory variables. These variables can be set at either the inventory, group, or host level. To add this, navigate to your inventory and in the <code class="docutils literal notranslate"><span class="pre">variables</span></code> field of whichever level you choose, add the following variables:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="nt">ansible_user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;user_name&gt;</span>
+<span class="nt">ansible_connection</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ssh</span>
+<span class="nt">ansible_ssh_common_args</span><span class="p">:</span><span class="w"> </span><span class="s">'-o</span><span class="nv"> </span><span class="s">ProxyCommand="ssh</span><span class="nv"> </span><span class="s">-W</span><span class="nv"> </span><span class="s">%h:%p</span><span class="nv"> </span><span class="s">-q</span><span class="nv"> </span><span class="s">&lt;user_name&gt;@&lt;jump_server_name&gt;"'</span>
+</pre></div>
+</div>
+</section>
+<section id="view-ansible-outputs-for-json-commands-when-using-automation-controller">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">24.5. </span>View Ansible outputs for JSON commands when using automation controller</a><a class="headerlink" href="#view-ansible-outputs-for-json-commands-when-using-automation-controller" title="Link to this heading"></a></h2>
+<p id="index-5">When working with automation controller, you can use the API to obtain the Ansible outputs for commands in JSON format.</p>
+<p>To view the Ansible outputs, browse to:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">https://&lt;koios host&gt;/api/controller/v2/jobs/&lt;job_id&gt;/job_events/</span>
+</pre></div>
+</div>
+</section>
+<section id="locate-and-configure-the-ansible-configuration-file">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">24.6. </span>Locate and configure the Ansible configuration file</a><a class="headerlink" href="#locate-and-configure-the-ansible-configuration-file" title="Link to this heading"></a></h2>
+<p id="index-6">While Ansible does not require a configuration file, OS packages often include a default one in <code class="docutils literal notranslate"><span class="pre">/etc/ansible/ansible.cfg</span></code> for possible customization. In order to use a custom <code class="docutils literal notranslate"><span class="pre">ansible.cfg</span></code> file, place it at the root of your project. Automation controller runs <code class="docutils literal notranslate"><span class="pre">ansible-playbook</span></code> from the root of the project directory, where it will then find the custom <code class="docutils literal notranslate"><span class="pre">ansible.cfg</span></code> file. An <code class="docutils literal notranslate"><span class="pre">ansible.cfg</span></code> anywhere else in the project will be ignored.</p>
+<p>To learn which values you can use in this file, refer to the <a class="reference external" href="https://github.com/ansible/ansible/blob/devel/examples/ansible.cfg">configuration file on github</a>.</p>
+<p>Using the defaults are acceptable for starting out, but know that you can configure the default module path or connection type here, as well as other things.</p>
+<p>Automation controller overrides some ansible.cfg options. For example, automation controller stores the SSH ControlMaster sockets, the SSH agent socket, and any other per-job run items in a per-job temporary directory that is passed to the container used for job execution.</p>
+</section>
+<section id="view-a-listing-of-all-ansible-variables">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">24.7. </span>View a listing of all ansible_ variables</a><a class="headerlink" href="#view-a-listing-of-all-ansible-variables" title="Link to this heading"></a></h2>
+<p id="index-7">Ansible by default gathers “facts” about the machines under its management, accessible in Playbooks and in templates. To view all facts available about a machine, run the <code class="docutils literal notranslate"><span class="pre">setup</span></code> module as an ad hoc action:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">ansible -m setup hostname</span>
+</pre></div>
+</div>
+<p>This prints out a dictionary of all facts available for that particular host. For more information, refer to: <a class="reference external" href="https://docs.ansible.com/ansible/playbooks_variables.html#information-discovered-from-systems-facts">https://docs.ansible.com/ansible/playbooks_variables.html#information-discovered-from-systems-facts</a></p>
+</section>
+<section id="the-allow-jinja-in-extra-vars-variable">
+<span id="ag-tips-jinja-extravars"></span><h2><a class="toc-backref" href="#id8" role="doc-backlink"><span class="section-number">24.8. </span>The ALLOW_JINJA_IN_EXTRA_VARS variable</a><a class="headerlink" href="#the-allow-jinja-in-extra-vars-variable" title="Link to this heading"></a></h2>
+<p>Setting <code class="docutils literal notranslate"><span class="pre">ALLOW_JINJA_IN_EXTRA_VARS</span> <span class="pre">=</span> <span class="pre">template</span></code> only works for saved job template extra variables. Prompted variables and survey variables are excluded from the ‘template’. This parameter has three values: <code class="docutils literal notranslate"><span class="pre">template</span></code> to allow usage of Jinja saved directly on a job template definition (the default), <code class="docutils literal notranslate"><span class="pre">never</span></code> to disable all Jinja usage (recommended), and <code class="docutils literal notranslate"><span class="pre">always</span></code> to always allow Jinja (strongly discouraged, but an option for prior compatibility).</p>
+<p>Set it in <strong>Settings &gt; Automation Execution &gt; Job</strong>, field <strong>When can extra variables contain Jinja templates?</strong> (click <strong>Edit</strong> to change it):</p>
+<img alt="Job settings with the When can extra variables contain Jinja templates? field" src="../_images/settings-jobs-jinja.png" />
+</section>
+<section id="using-execution-environments">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink"><span class="section-number">24.9. </span>Using execution environments</a><a class="headerlink" href="#using-execution-environments" title="Link to this heading"></a></h2>
+<p id="index-8">See <a class="reference internal" href="../userguide/execution_environments.html#ug-execution-environments"><span class="std std-ref">Execution Environments</span></a> in the <em>User Guide</em>.</p>
+</section>
+<section id="configuring-the-public-url-for-notifications">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">24.10. </span>Configuring the public URL for notifications</a><a class="headerlink" href="#configuring-the-public-url-for-notifications" title="Link to this heading"></a></h2>
+<p id="index-9">Open <strong>Settings &gt; Automation Execution &gt; System</strong> and verify <strong>Base URL of the service</strong> (<code class="docutils literal notranslate"><span class="pre">TOWER_URL_BASE</span></code>). Set it to the public HTTPS URL users use to reach Koios Automation Platform, for example <code class="docutils literal notranslate"><span class="pre">https://koios.example.com</span></code>, and save the settings. You can also inspect or configure it at <code class="docutils literal notranslate"><span class="pre">/api/controller/v2/settings/system/</span></code>. See <a class="reference internal" href="configure_koios.html#configure-koios-system"><span class="std std-ref">System Settings</span></a>.</p>
+<img alt="Automation controller System settings with the Base URL of the service field" src="../_images/configure-koios-system-misc-baseurl.png" />
+<p>The upstream default is <code class="docutils literal notranslate"><span class="pre">https://platformhost</span></code>. Verify the effective value after installation rather than assuming that notification links already use the public platform URL.</p>
+</section>
+<section id="launching-jobs-with-curl">
+<span id="launch-jobs-curl"></span><h2><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">24.11. </span>Launching Jobs with curl</a><a class="headerlink" href="#launching-jobs-with-curl" title="Link to this heading"></a></h2>
+<p id="index-10">Launching jobs with automation controller API is simple. Here are some easy to follow examples using the <code class="docutils literal notranslate"><span class="pre">curl</span></code> tool.</p>
+<p>Assuming that your Job Template ID is ‘1’, your automation controller IP is 192.168.42.100, and that <code class="docutils literal notranslate"><span class="pre">admin</span></code> and <code class="docutils literal notranslate"><span class="pre">awxsecret</span></code> are valid login credentials, you can create a new job this way:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">curl -f -k -H 'Content-Type</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">application/json' -XPOST \</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">--user admin:awxsecret \</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">http://192.168.42.100/api/controller/v2/job_templates/1/launch/</span>
+</pre></div>
+</div>
+<p>This returns a JSON object that you can parse and use to extract the ‘id’ field, which is the ID of the newly created job.</p>
+<p>You can also pass extra variables to the Job Template call, such as is shown in the following example:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>curl -f -k -H 'Content-Type: application/json' -XPOST \
+    -d '{"extra_vars":{"foo":"bar"}}' \
+    --user admin:awxsecret http://192.168.42.100/api/controller/v2/job_templates/1/launch/
+</pre></div>
+</div>
+<p>You can view the live API documentation by logging into <a class="reference external" href="http://192.168.42.100/api/">http://192.168.42.100/api/</a> and browsing around to the various objects available.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">extra_vars</span></code> parameter accepts a JSON object directly. The template must allow the supplied variables through its survey or <strong>Prompt on launch</strong> setting for variables; otherwise launch overrides can be ignored.</p>
+</div>
+</section>
+<section id="dynamic-inventory-and-private-ip-addresses">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink"><span class="section-number">24.12. </span>Dynamic Inventory and private IP addresses</a><a class="headerlink" href="#dynamic-inventory-and-private-ip-addresses" title="Link to this heading"></a></h2>
+<p id="index-11">Use the current <code class="docutils literal notranslate"><span class="pre">amazon.aws.aws_ec2</span></code> inventory plugin options to choose the connection address. Open <strong>Automation Execution &gt; Infrastructure &gt; Inventories</strong>, select the inventory, open <strong>Sources</strong>, and edit its Amazon EC2 source. In <strong>Source variables</strong>, set:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">compose</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">ansible_host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">private_ip_address</span>
+</pre></div>
+</div>
+<p>Save the source and sync it. The plugin discovers instances according to the credentials, regions and filters configured for the source; an Elastic IP is not a requirement for discovering a VPC instance. Inspect an imported host’s variables to verify <code class="docutils literal notranslate"><span class="pre">ansible_host</span></code> before running a job.</p>
+<p>The execution node or container group pod that runs the job needs network connectivity to the selected private addresses. The controller itself does not have to reside in the VPC.</p>
+</section>
+<section id="filtering-instances-returned-by-the-dynamic-inventory-sources-in-automation-controller">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink"><span class="section-number">24.13. </span>Filtering instances returned by the dynamic inventory sources in automation controller</a><a class="headerlink" href="#filtering-instances-returned-by-the-dynamic-inventory-sources-in-automation-controller" title="Link to this heading"></a></h2>
+<p id="index-12">By default, the dynamic inventory sources in automation controller (AWS, Google, etc) return all instances available to the cloud credentials being used. They are automatically joined into groups based on various attributes. For example, AWS instances are grouped by region, by tag name and value, by security groups, etc. To target specific instances in your environment, write your playbooks so that they target the generated group names. For example:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tag_Name_webserver</span>
+<span class="w">  </span><span class="nt">tasks</span><span class="p">:</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+</pre></div>
+</div>
+<p>You can also use the <code class="docutils literal notranslate"><span class="pre">Limit</span></code> field in the Job Template settings to limit a playbook run to a certain group, groups, hosts, or a combination thereof. The syntax is the same as the <code class="docutils literal notranslate"><span class="pre">--limit</span> <span class="pre">parameter</span></code> on the ansible-playbook command line.</p>
+<p>You may also create your own groups by copying the auto-generated groups into your custom groups. Make sure that the <code class="docutils literal notranslate"><span class="pre">Overwrite</span></code> option is disabled on your dynamic inventory source, otherwise subsequent synchronization operations will delete and replace your custom groups.</p>
+</section>
+<section id="using-an-unreleased-module-from-ansible-source-with-automation-controller">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink"><span class="section-number">24.14. </span>Using an unreleased module from Ansible source with automation controller</a><a class="headerlink" href="#using-an-unreleased-module-from-ansible-source-with-automation-controller" title="Link to this heading"></a></h2>
+<p id="index-13">If there is a feature that is available in the latest Ansible core branch that you would like to leverage with your automation controller system, making use of it in automation controller is fairly simple.</p>
+<p>First, determine which is the updated module you want to use from the available Ansible Core Modules or Ansible Extra Modules GitHub repositories.</p>
+<p>Next, create a new directory, at the same directory level of your Ansible source playbooks, named <code class="docutils literal notranslate"><span class="pre">/library</span></code>.</p>
+<p>Once this is created, copy the module you want to use and drop it into the <code class="docutils literal notranslate"><span class="pre">/library</span></code> directory–it will be consumed first over your system modules and can be removed once you have updated the stable version via your normal package manager.</p>
+</section>
+<section id="using-callback-plugins-with-automation-controller">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink"><span class="section-number">24.15. </span>Using callback plugins with automation controller</a><a class="headerlink" href="#using-callback-plugins-with-automation-controller" title="Link to this heading"></a></h2>
+<p id="index-14">Ansible has a flexible method of handling actions during playbook runs, called callback plugins. You can use these plugins with automation controller to do things like notify services upon playbook runs or failures, send emails after every playbook run, etc. For official documentation on the callback plugin architecture, refer to: <a class="reference external" href="http://docs.ansible.com/developing_plugins.html#callbacks">http://docs.ansible.com/developing_plugins.html#callbacks</a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Automation controller does not support the <code class="docutils literal notranslate"><span class="pre">stdout</span></code> callback plugin because Ansible only allows one, and it is already being used by automation controller for streaming event data.</p>
+</div>
+<p>You may also want to review some example plugins, which should be modified for site-specific purposes, such as those available at:
+<a class="reference external" href="https://github.com/ansible/ansible/tree/devel/lib/ansible/plugins/callback">https://github.com/ansible/ansible/tree/devel/lib/ansible/plugins/callback</a></p>
+<p>To use these plugins, put the callback plugin <code class="docutils literal notranslate"><span class="pre">.py</span></code> file into a directory called <code class="docutils literal notranslate"><span class="pre">callback_plugins</span></code> alongside your playbook in your project. To search additional directories, enter their paths as a YAML list (one <code class="docutils literal notranslate"><span class="pre">-</span> <span class="pre">/path</span></code> item per line) or a JSON array in the <strong>Ansible Callback Plugins</strong> field of <strong>Settings &gt; Automation Execution &gt; Job</strong> (the field appears when you click <strong>Edit</strong>). Automation controller passes them to Ansible as <code class="docutils literal notranslate"><span class="pre">ANSIBLE_CALLBACK_PLUGINS</span></code>, so the paths must exist inside the execution environment that runs the job:</p>
+<img alt="Edit form of the Job settings with the Ansible Callback Plugins field" src="../_images/configure-koios-jobs-callback.png" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To have most callbacks shipped with Ansible applied globally, you must add them to the <code class="docutils literal notranslate"><span class="pre">callbacks_enabled</span></code> option (<code class="docutils literal notranslate"><span class="pre">callback_whitelist</span></code> in older Ansible versions) of your <code class="docutils literal notranslate"><span class="pre">ansible.cfg</span></code>. If you have a custom callbacks, refer to the Ansible documentation for <a class="reference external" href="https://docs.ansible.com/ansible/latest/plugins/callback.html#enabling-callback-plugins">Enabling callback plugins</a>.</p>
+</div>
+</section>
+<section id="connecting-to-windows-with-winrm">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink"><span class="section-number">24.16. </span>Connecting to Windows with winrm</a><a class="headerlink" href="#connecting-to-windows-with-winrm" title="Link to this heading"></a></h2>
+<p id="index-15">By default automation controller attempts to <code class="docutils literal notranslate"><span class="pre">ssh</span></code> to hosts. You must add the <code class="docutils literal notranslate"><span class="pre">winrm</span></code> connection info to the group variables to which the Windows hosts belong.  To get started, edit the Windows group in which the hosts reside and place the variables in the source/edit screen for the group.</p>
+<p>To add <code class="docutils literal notranslate"><span class="pre">winrm</span></code> connection info:</p>
+<p>Edit the properties for the selected group by clicking on the <img alt="Edit action" src="../_images/edit-button.png" /> button to the right of the group name that contains the Windows servers.  In the “variables” section, add your connection information as such: <code class="docutils literal notranslate"><span class="pre">ansible_connection:</span> <span class="pre">winrm</span></code></p>
+<p>Once done, save your edits. If Ansible was previously attempting an SSH connection and failed, you should re-run the job template.</p>
+</section>
+<section id="importing-existing-inventory-files-and-host-group-vars-into-automation-controller">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink"><span class="section-number">24.17. </span>Importing existing inventory files and host/group vars into automation controller</a><a class="headerlink" href="#importing-existing-inventory-files-and-host-group-vars-into-automation-controller" title="Link to this heading"></a></h2>
+<p id="index-16">To import an existing static inventory and the accompanying host and group vars into automation controller, your inventory should be in a structure that looks similar to the following:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">inventory/</span>
+<span class="l l-Scalar l-Scalar-Plain">|-- group_vars</span>
+<span class="l l-Scalar l-Scalar-Plain">|   `-- mygroup</span>
+<span class="l l-Scalar l-Scalar-Plain">|-- host_vars</span>
+<span class="l l-Scalar l-Scalar-Plain">|   `-- myhost</span>
+<span class="l l-Scalar l-Scalar-Plain">`-- hosts</span>
+</pre></div>
+</div>
+<p>To import these hosts and vars, run the <code class="docutils literal notranslate"><span class="pre">awx-manage</span></code> command:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">awx-manage inventory_import --source=inventory/ \</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">--inventory-name="My automation controller Inventory"</span>
+</pre></div>
+</div>
+<p>If you only have a single flat file of inventory, a file called ansible-hosts, for example, import it like the following:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">awx-manage inventory_import --source=./ansible-hosts \</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">--inventory-name="My automation controller Inventory"</span>
+</pre></div>
+</div>
+<p>In case of conflicts or to overwrite an inventory named “My automation controller Inventory”, run:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">awx-manage inventory_import --source=inventory/ \</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">--inventory-name="My automation controller Inventory" \</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">--overwrite --overwrite-vars</span>
+</pre></div>
+</div>
+<p>If you receive an error, such as:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="nt">ValueError</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">need more than 1 value to unpack</span>
+</pre></div>
+</div>
+<p>Create a directory to hold the hosts file, as well as the group_vars:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">mkdir -p inventory-directory/group_vars</span>
+</pre></div>
+</div>
+<p>Then, for each of the groups that have :vars listed, create a file called <code class="docutils literal notranslate"><span class="pre">inventory-directory/group_vars/&lt;groupname&gt;</span></code> and format the variables in YAML format.</p>
+<p>Once broken out, the importer will handle the conversion correctly.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="troubleshooting.html" class="btn btn-neutral float-left" title="23. Troubleshooting Automation Controller" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../configure/casc.html" class="btn btn-neutral float-right" title="Configuration as code" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Koios Solutions. Portions 2026, Red Hat, Inc. and 2026, CtrlIQ, Inc..</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+<p class="koios-legal">Licensed under the <a href="../LICENSE.txt">Apache License 2.0</a>; see the <a href="../NOTICE.txt">NOTICE</a> for the origin of this documentation.</p>
+
+</body>
+</html>

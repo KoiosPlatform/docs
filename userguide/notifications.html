@@ -1,0 +1,713 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>26. Notifications &ndash; Koios Automation Platform</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ansible.css?v=5657ca2d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/rtd-ethical-ads.css?v=289b023e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/dark.css?v=82723a23" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments-dark.css?v=027e451e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/koios.css?v=808fdb03" />
+
+  
+    <link rel="shortcut icon" href="../_static/images/koios-favicon.svg"/>
+    <link rel="canonical" href="https://docs.koioss.com/userguide/notifications.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2d018451"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=b8bcef97"></script>
+      <script src="../_static/js/theme-toggle.js?v=59cbb094"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="27. Supported Attributes for Custom Notifications" href="notification_parameters_supported.html" />
+    <link rel="prev" title="25. Working with Webhooks" href="webhooks.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+<script>
+  (function () {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('koios-docs-theme');
+    } catch (e) {}
+    // Without a stored choice, follow the system preference (dark when it cannot be read).
+    var light = false;
+    try { light = window.matchMedia('(prefers-color-scheme: light)').matches; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', stored || (light ? 'light' : 'dark'));
+  })();
+</script>
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="#" class="asc-theme-toggle" title="Switch theme" aria-label="Switch theme"><svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg></a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../_static/images/koios-mark-white.svg"
+    alt="Koios">
+  <div class="DocSiteNav-title">Koios Automation Platform</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Koios Automation Platform
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Koios Automation Platform Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Install and upgrade</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade_migration/index.html">Upgrades and Migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configure the platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/index.html">Configure the platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Access management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access/index.html">Authentication and access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation execution</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Automating with Koios Automation Platform</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html">Automating with Koios Automation Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html">1. Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging_in.html">2. Logging In</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main_menu.html">3. The User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main_menu.html#the-settings-menu">4. The Settings Menu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="search_sort.html">5. Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="organizations.html">6. Organizations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="users.html">7. Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="teams.html">8. Teams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credentials.html">9. Credentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credential_plugins.html">10. Secret Management System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credential_types.html">11. Custom Credential Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="execution_environments.html">12. Execution Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ee_reference.html">13. Execution Environment Setup Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="projects.html">14. Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project-sign.html">15. Project Signing and Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventories.html">16. Inventories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventory_plugins_templates.html">17. Supported Inventory Plugin Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="labels.html">18. Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_templates.html">19. Job Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_slices.html">20. Job Slicing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflows.html">21. Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_templates.html">22. Workflow Job Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instance_groups.html">23. Instance Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jobs.html">24. Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhooks.html">25. Working with Webhooks</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">26. Notifications</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#notification-hierarchy">26.1. Notification Hierarchy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#workflow">26.2. Workflow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-notification-template">26.3. Create a Notification Template</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#notification-types">26.4. Notification Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#aws-sns">26.4.1. AWS SNS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#email">26.4.2. Email</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#grafana">26.4.3. Grafana</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#irc">26.4.4. IRC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mattermost">26.4.5. Mattermost</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pagerduty">26.4.6. PagerDuty</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rocket-chat">26.4.7. Rocket.Chat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#slack">26.4.8. Slack</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#twilio">26.4.9. Twilio</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#webhook">26.4.10. Webhook</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#create-custom-notifications">26.5. Create custom notifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#enable-and-disable-notifications">26.6. Enable and Disable Notifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configure-the-host-hostname-for-notifications">26.7. Configure the <code class="docutils literal notranslate"><span class="pre">host</span></code> hostname for notifications</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#reset-the-tower-url-base">26.7.1. Reset the <code class="docutils literal notranslate"><span class="pre">TOWER_URL_BASE</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#notifications-api">26.8. Notifications API</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notification_parameters_supported.html">27. Supported Attributes for Custom Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduling.html">28. Schedules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="best_practices.html">29. Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">30. Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html">31. Glossary</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation decisions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../eda/index.html">Event-Driven Ansible</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hub/index.html">Automation hub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operate</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../operate/index.html">Operate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../administration/index.html">Administering Koios Automation Platform Deployments</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration as code and API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/casc.html">Configuration as code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rest_api/index.html">automation controller API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/releases.html">Releases</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Koios Automation Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Automating with Koios Automation Platform</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">26. </span>Notifications</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <section id="notifications">
+<span id="ug-notifications"></span><h1><span class="section-number">26. </span>Notifications<a class="headerlink" href="#notifications" title="Link to this heading"></a></h1>
+<p id="index-0">A <a class="reference internal" href="glossary.html#term-Notification-Template"><span class="xref std std-term">Notification Template</span></a> is an instance of a <a class="reference internal" href="glossary.html#term-Notification"><span class="xref std std-term">Notification</span></a> type (Email, Slack, Webhook, etc.) with a name, description, and a defined configuration.</p>
+<p>For example:</p>
+<ul class="simple">
+<li><p>A username, password, server, and recipients are needed for an Email notification template</p></li>
+<li><p>The token and a list of channels are needed for a Slack notification template</p></li>
+<li><p>The URL and Headers are needed for a Webhook notification template</p></li>
+</ul>
+<p>A Notification is a manifestation of the notification template; for example, when a job fails, a notification is sent using the configuration defined by the notification template.</p>
+<p>At a high level, the typical flow for the notification system works as follows:</p>
+<ul class="simple">
+<li><p>A user creates a notification template to the REST API at the <code class="docutils literal notranslate"><span class="pre">/api/controller/v2/notification_templates</span></code> endpoint (either through the API or through the UI).</p></li>
+<li><p>A user assigns the notification template to any of the various objects that support it (all variants of job templates as well as organizations and projects) and at the appropriate trigger level for which they want the notification (started, success or error). For example a user may wish to assign a particular notification template to trigger when Job Template 1 fails. In which case, they will associate the notification template with the job template at <code class="docutils literal notranslate"><span class="pre">/api/controller/v2/job_templates/n/notification_templates_error</span></code> API endpoint.</p></li>
+<li><p>You can set notifications on job start, not just job end. Users and teams are also able to define their own notifications that can be attached to arbitrary jobs.</p></li>
+</ul>
+<section id="notification-hierarchy">
+<span id="ug-notifications-hierarchy"></span><h2><span class="section-number">26.1. </span>Notification Hierarchy<a class="headerlink" href="#notification-hierarchy" title="Link to this heading"></a></h2>
+<p id="index-1">Notification templates assigned at certain levels will inherit templates defined on parent objects as such:</p>
+<ul class="simple">
+<li><p>Jobs will use the notifiers enabled on their job template, and inherit the ones of the project used by the job template and of the organization of the job template.</p></li>
+<li><p>Project updates will use the notifiers enabled on the project, and inherit the ones of the organization of the project.</p></li>
+<li><p>Inventory updates will use the notifiers enabled on their inventory source, and inherit the ones of the organization of the inventory.</p></li>
+<li><p>Workflow jobs will use the notifiers enabled on their workflow job template, and inherit the ones of its organization, including the approval notifications.</p></li>
+<li><p>Ad hoc commands will use the notifiers of the organization of the inventory.</p></li>
+</ul>
+</section>
+<section id="workflow">
+<h2><span class="section-number">26.2. </span>Workflow<a class="headerlink" href="#workflow" title="Link to this heading"></a></h2>
+<p id="index-2">When a job succeeds or fails, the error or success handler will pull a list of relevant notification templates using the procedure defined above. It will then create a Notification object for each one containing relevant details about the job and then sends it to the destination (email addresses, slack channel(s), sms numbers, etc). These Notification objects are available as related resources on job types (jobs, inventory updates, project updates), and also at <code class="docutils literal notranslate"><span class="pre">/api/controller/v2/notifications</span></code>. You may also see what notifications have been sent from a notification templates by examining its related resources.</p>
+<p>If a notification fails, it will not impact the job associated to it or cause it to fail. The status of the notification can be viewed at its detail endpoint (<code class="docutils literal notranslate"><span class="pre">/api/controller/v2/notifications/&lt;n&gt;</span></code>).</p>
+</section>
+<section id="create-a-notification-template">
+<span id="ug-notifications-create"></span><h2><span class="section-number">26.3. </span>Create a Notification Template<a class="headerlink" href="#create-a-notification-template" title="Link to this heading"></a></h2>
+<p id="index-3">To create a Notification Template:</p>
+<ol class="arabic simple">
+<li><p>Open <strong>Automation Execution &gt; Administration &gt; Notifiers</strong>. The list shows the notifiers, with the status of their last notification, their type and organization; the actions of each row edit, test (<strong>Test notifier</strong>, bell icon), duplicate or delete them.</p></li>
+</ol>
+<img alt="The Notifiers list" src="../_images/notifications-notifiers-list.png" />
+<ol class="arabic simple" start="2">
+<li><p>Click <strong>Create notifier</strong>.</p></li>
+</ol>
+<img alt="The Create notifier form" src="../_images/notifications-template-add-new.png" />
+<ol class="arabic simple" start="3">
+<li><p>Enter the <strong>Name</strong> of the notifier and a <strong>Description</strong>, and select the <strong>Organization</strong> (required) it belongs to.</p></li>
+<li><p>Choose the <strong>Notification type</strong>. The <strong>Type Details</strong> section shows the fields of that type; refer to the subsequent sections for additional information.</p></li>
+<li><p>Optionally turn on <strong>Customize messages</strong>; see <a class="reference internal" href="#ug-custom-notifications"><span class="std std-ref">Create custom notifications</span></a>.</p></li>
+<li><p>Once all required information is complete, click <strong>Save notifier</strong>. Use <strong>Test notifier</strong> to send a test notification; the result shows in the <strong>Status</strong> of the notifier.</p></li>
+</ol>
+<p>A notifier has <strong>Details</strong>, <strong>Team Access</strong> and <strong>User Access</strong> tabs; the access tabs give roles on the notifier to users and teams.</p>
+</section>
+<section id="notification-types">
+<span id="ug-notifications-types"></span><h2><span class="section-number">26.4. </span>Notification Types<a class="headerlink" href="#notification-types" title="Link to this heading"></a></h2>
+<p id="index-4">Notification types supported with automation controller:</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#aws-sns" id="id2">AWS SNS</a></p></li>
+<li><p><a class="reference internal" href="#email" id="id3">Email</a></p></li>
+<li><p><a class="reference internal" href="#grafana" id="id4">Grafana</a></p></li>
+<li><p><a class="reference internal" href="#irc" id="id5">IRC</a></p></li>
+<li><p><a class="reference internal" href="#mattermost" id="id6">Mattermost</a></p></li>
+<li><p><a class="reference internal" href="#pagerduty" id="id7">PagerDuty</a></p></li>
+<li><p><a class="reference internal" href="#rocket-chat" id="id8">Rocket.Chat</a></p></li>
+<li><p><a class="reference internal" href="#slack" id="id9">Slack</a></p></li>
+<li><p><a class="reference internal" href="#twilio" id="id10">Twilio</a></p></li>
+<li><p><a class="reference internal" href="#webhook" id="id11">Webhook</a></p>
+<ul>
+<li><p><a class="reference internal" href="#webhook-payloads" id="id12">Webhook payloads</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<p>Each of these have their own configuration and behavioral semantics and testing them may need to be approached in different ways. Additionally, you can customize each type of notification down to a specific detail, or a set of criteria to trigger a notification. See <a class="reference internal" href="#ug-custom-notifications"><span class="std std-ref">Create custom notifications</span></a> for more detail on configuring custom notifications. The following sections will give as much detail as possible on each type of notification.</p>
+<section id="aws-sns">
+<h3><a class="toc-backref" href="#id2" role="doc-backlink"><span class="section-number">26.4.1. </span>AWS SNS</a><a class="headerlink" href="#aws-sns" title="Link to this heading"></a></h3>
+<p>The <a class="reference external" href="https://aws.amazon.com/sns/">AWS SNS</a> notification type supports sending messages into an SNS topic. The <strong>Notification type</strong> list of the user interface does not offer it: create these notifiers with the API (<code class="docutils literal notranslate"><span class="pre">notification_type:</span> <span class="pre">awssns</span></code>) or the <code class="docutils literal notranslate"><span class="pre">awx.awx</span></code> collection.</p>
+<p>You must provide the following details to setup a SNS notification:</p>
+<ul class="simple">
+<li><p>AWS Region</p></li>
+<li><p>AWS Access Key ID</p></li>
+<li><p>AWS Secret Access Key</p></li>
+<li><p>AWS SNS Topic ARN</p></li>
+</ul>
+</section>
+<section id="email">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">26.4.2. </span>Email</a><a class="headerlink" href="#email" title="Link to this heading"></a></h3>
+<p>The email notification type supports a wide variety of SMTP servers and has support for TLS/SSL connections.</p>
+<p>You must provide the following details to setup an email notification:</p>
+<ul class="simple">
+<li><p>Host</p></li>
+<li><p>Recipient list (one address per line)</p></li>
+<li><p>Sender email</p></li>
+<li><p>Port</p></li>
+<li><p>Timeout (in seconds): allows you to specify up to 120 seconds, the length of time automation controller may attempt connecting to the email server before giving up.</p></li>
+</ul>
+<p>Optionally, a <strong>Username</strong> and <strong>Password</strong> for the SMTP server, and the <strong>Use TLS</strong> or <strong>Use SSL</strong> options for an encrypted connection.</p>
+<img alt="Email notification template" src="../_images/notification-template-email.png" />
+</section>
+<section id="grafana">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">26.4.3. </span>Grafana</a><a class="headerlink" href="#grafana" title="Link to this heading"></a></h3>
+<p>Grafana is a fairly straightforward integration. First, create an API Key in the <a class="reference external" href="http://docs.grafana.org/tutorials/api_org_token_howto/">Grafana system</a> (this is the token that is given to automation controller).</p>
+<p>You must provide the following details to setup a Grafana notification:</p>
+<ul class="simple">
+<li><p>Grafana URL: The URL of the Grafana API service, generally <code class="docutils literal notranslate"><span class="pre">http://yourcompany.grafana.com</span></code>.</p></li>
+<li><p>Grafana API Key: The user must first create an API Key in the Grafana system (this is the token that is given to automation controller).</p></li>
+</ul>
+<p>The other options of note are:</p>
+<ul class="simple">
+<li><p>ID of the Dashboard: When you created an API Key for the Grafana account, you can set up a dashboard with its own unique ID.</p></li>
+<li><p>ID of the Panel: If you added panels and graphs to your Grafana interface, you can specify its ID here.</p></li>
+<li><p>Tags for the Annotation: Enter keywords that help identify the type(s) of events(s) of the notification you are configuring.</p></li>
+<li><p>Disable SSL Verification: turns off verification of the target’s certificate, so the controller can no longer tell the real server from an impostor, and the notification and its credentials can be exposed. For a server whose certificate comes from a private CA, trust that CA instead with <code class="docutils literal notranslate"><span class="pre">bundle_cacert_secret</span></code> in the <code class="docutils literal notranslate"><span class="pre">KoiosPlatform</span></code> (see <a class="reference internal" href="../reference/koiosplatform.html"><span class="doc">KoiosPlatform</span></a>); use this option only as a temporary diagnosis.</p></li>
+</ul>
+<img alt="Grafana notification template" src="../_images/notification-template-grafana.png" />
+</section>
+<section id="irc">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">26.4.4. </span>IRC</a><a class="headerlink" href="#irc" title="Link to this heading"></a></h3>
+<p>The IRC notification takes the form of an IRC bot that will connect, deliver its messages to channel(s) or individual user(s), and then disconnect. The notification bot also supports SSL authentication. The bot does not currently support Nickserv identification. If a channel or user does not exist or is not on-line then the Notification will not fail; the failure scenario is reserved specifically for connectivity.</p>
+<p>Connectivity information is straightforward:</p>
+<ul class="simple">
+<li><p>IRC Server Password (optional): IRC servers can require a password to connect. If the server does not require one, leave blank</p></li>
+<li><p>IRC Server Port: The IRC server Port</p></li>
+<li><p>IRC Server Address: The host name or address of the IRC server</p></li>
+<li><p>IRC Nick: The bot’s nickname once it connects to the server</p></li>
+<li><p>Destination Channels or Users: A list of users and/or channels to which to send the notification.</p></li>
+<li><p>Use SSL (optional): Should the bot use SSL when connecting to the IRC server. Check it to connect with SSL.</p></li>
+</ul>
+<img alt="IRC notification template" src="../_images/notification-template-irc.png" />
+</section>
+<section id="mattermost">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">26.4.5. </span>Mattermost</a><a class="headerlink" href="#mattermost" title="Link to this heading"></a></h3>
+<p>The Mattermost notification type provides a simple interface to Mattermost’s messaging and collaboration workspace. The parameters that can be specified are:</p>
+<ul class="simple">
+<li><p>Target URL (required): The full URL that will be POSTed to</p></li>
+<li><p>Username</p></li>
+<li><p>Channel</p></li>
+<li><p>Icon URL: specifies the icon to display for this notification</p></li>
+<li><p>Disable SSL verification: checking this option disables the verification of the target’s certificate (<code class="docutils literal notranslate"><span class="pre">mattermost_no_verify_ssl</span></code>), so the controller can no longer tell the real server from an impostor, and the notification can be exposed. Leave it unchecked. For a server whose certificate comes from a private CA, trust that CA instead with <code class="docutils literal notranslate"><span class="pre">bundle_cacert_secret</span></code> in the <code class="docutils literal notranslate"><span class="pre">KoiosPlatform</span></code> (see <a class="reference internal" href="../reference/koiosplatform.html"><span class="doc">KoiosPlatform</span></a>); check it only as a temporary diagnosis.</p></li>
+</ul>
+<img alt="Mattermost notification template" src="../_images/notification-template-mattermost.png" />
+</section>
+<section id="pagerduty">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">26.4.6. </span>PagerDuty</a><a class="headerlink" href="#pagerduty" title="Link to this heading"></a></h3>
+<p>PagerDuty is a fairly straightforward integration. First, create an API Key in the <a class="reference external" href="https://support.pagerduty.com/docs/generating-api-keys">PagerDuty system</a> (this is the token that is given to automation controller) and then create a “Service” which provides an “Integration Key” that will also be given to automation controller. The other required options are:</p>
+<ul class="simple">
+<li><p>API Token: The user must first create an API Key in the PagerDuty system (this is the token that is given to automation controller).</p></li>
+<li><p>PagerDuty Subdomain: When you sign up for the PagerDuty account, you receive a unique subdomain to communicate with. For instance, if you signed up as “testuser”, the web dashboard will be at <code class="docutils literal notranslate"><span class="pre">testuser.pagerduty.com</span></code> and you will give the API <code class="docutils literal notranslate"><span class="pre">testuser</span></code> as the subdomain (not the full domain).</p></li>
+<li><p>API Service/Integration Key</p></li>
+<li><p>Client Identifier: This will be sent along with the alert content to the pagerduty service to help identify the service that is using the api key/service. This is helpful if multiple integrations are using the same API key and service.</p></li>
+</ul>
+<img alt="PagerDuty notification template" src="../_images/notification-template-pagerduty.png" />
+</section>
+<section id="rocket-chat">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink"><span class="section-number">26.4.7. </span>Rocket.Chat</a><a class="headerlink" href="#rocket-chat" title="Link to this heading"></a></h3>
+<p>The Rocket.Chat notification type provides an interface to Rocket.Chat’s collaboration and communication platform. The parameters that can be specified are:</p>
+<ul class="simple">
+<li><p>Target URL (required): The full URL that will be POSTed to</p></li>
+<li><p>Username</p></li>
+<li><p>Icon URL: specifies the icon to display for this notification</p></li>
+<li><p>Disable SSL Verification: turns off verification of the target’s certificate, so the controller can no longer tell the real server from an impostor, and the notification and its credentials can be exposed. For a server whose certificate comes from a private CA, trust that CA instead with <code class="docutils literal notranslate"><span class="pre">bundle_cacert_secret</span></code> in the <code class="docutils literal notranslate"><span class="pre">KoiosPlatform</span></code> (see <a class="reference internal" href="../reference/koiosplatform.html"><span class="doc">KoiosPlatform</span></a>); use this option only as a temporary diagnosis.</p></li>
+</ul>
+<img alt="Rocket.Chat notification template" src="../_images/notification-template-rocketchat.png" />
+</section>
+<section id="slack">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink"><span class="section-number">26.4.8. </span>Slack</a><a class="headerlink" href="#slack" title="Link to this heading"></a></h3>
+<p>Slack, a collaborative team communication and messaging tool, is pretty easy to configure.</p>
+<p>You must supply the following to setup Slack notifications:</p>
+<ul class="simple">
+<li><p>A Slack app (refer to the <a class="reference external" href="https://api.slack.com/authentication/basics">Basic App Setup</a> page of the Slack documentation for information on how to create one)</p></li>
+<li><p>A token (refer to <a class="reference external" href="https://api.slack.com/bot-users">Enabling Interactions with Bots</a> and specific details on bot tokens on the <a class="reference external" href="https://api.slack.com/authentication/token-types#bot">Token Types</a> documentation page)</p></li>
+<li><p>The destination channels, one per line, and optionally a notification color</p></li>
+</ul>
+<p>Once you have a bot/app set up, you must navigate to “Your Apps”, click on the newly-created app and then go to <strong>Add features and functionality</strong>, which allows you to configure incoming webhooks, bots, and permissions; as well as <strong>Install your app to your workspace</strong>.</p>
+<p>You must also invite the notification bot to join the channel(s) in question in Slack. Note that private messages are not supported.</p>
+<img alt="Slack notification template" src="../_images/notification-template-slack.png" />
+</section>
+<section id="twilio">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">26.4.9. </span>Twilio</a><a class="headerlink" href="#twilio" title="Link to this heading"></a></h3>
+<p>Twilio service is an Voice and SMS automation service. Once you are signed in, you must create a phone number from which the message will be sent. You can then define a “Messaging Service” under Programmable SMS and associate the number you created before with it.</p>
+<p>Note that you may need to verify this number or some other information before you are allowed to use it to send to any numbers. The Messaging Service does not need a status callback URL nor does it need the ability to Process inbound messages.</p>
+<p>Under your individual (or sub) account settings, you will have API credentials. Twilio uses two credentials to determine which account an API request is coming from. The “Account SID”, which acts as a username, and the “Auth Token” which acts as a password.</p>
+<p>To setup Twilio, provide the following details:</p>
+<ul class="simple">
+<li><p>Account Token</p></li>
+<li><p>Source Phone Number (this is the number associated with the messaging service above and must be given in the form of “+15556667777”)</p></li>
+<li><p>Destination SMS numbers (one per line, in international format with <code class="docutils literal notranslate"><span class="pre">+</span></code> and the country code, for example <code class="docutils literal notranslate"><span class="pre">+15556667777</span></code>)</p></li>
+<li><p>Account SID</p></li>
+</ul>
+<img alt="Twilio notification template" src="../_images/notification-template-twilio.png" />
+</section>
+<section id="webhook">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">26.4.10. </span>Webhook</a><a class="headerlink" href="#webhook" title="Link to this heading"></a></h3>
+<p>The webhook notification type provides a simple interface to sending POSTs to a predefined web service. Automation controller will POST to this address using application/json content type with the data payload containing all relevant details in json format. Some web service APIs expect HTTP requests to be in a certain format with certain fields. You can configure more of the webhook notification in the following ways:</p>
+<ul class="simple">
+<li><p>configure the HTTP method (using <strong>POST</strong> or <strong>PUT</strong>)</p></li>
+<li><p>body of the outgoing request</p></li>
+<li><p>configure authentication (using basic auth)</p></li>
+</ul>
+<p>The parameters for configuring webhooks are:</p>
+<ul class="simple">
+<li><p>Username</p></li>
+<li><p>Basic Auth Password</p></li>
+<li><p>Target URL (required): The full URL to which the webhook notification will be PUT or POSTed.</p></li>
+<li><p>Disable SSL Verification: turns off verification of the target’s certificate, so the controller can no longer tell the real server from an impostor, and the notification and its credentials can be exposed. For a server whose certificate comes from a private CA, trust that CA instead with <code class="docutils literal notranslate"><span class="pre">bundle_cacert_secret</span></code> in the <code class="docutils literal notranslate"><span class="pre">KoiosPlatform</span></code> (see <a class="reference internal" href="../reference/koiosplatform.html"><span class="doc">KoiosPlatform</span></a>); use this option only as a temporary diagnosis.</p></li>
+<li><p>HTTP headers: Headers in YAML or JSON form where the keys and values are strings.
+For example, <code class="docutils literal notranslate"><span class="pre">{&quot;Authentication&quot;:</span> <span class="pre">&quot;&lt;token&gt;&quot;,</span> <span class="pre">&quot;MessageType&quot;:</span> <span class="pre">&quot;Test&quot;}</span></code></p></li>
+<li><p>HTTP Method (required). Select the method for your webhook:</p>
+<ul>
+<li><p>POST: Creates a new resource. Also acts as a catch-all for operations that do not fit into the other categories. It is likely you need to POST unless you know your webhook service expects a PUT.</p></li>
+<li><p>PUT: Updates a specific resource (by an identifier) or a collection of resources. PUT can also be used to create a specific resource if the resource identifier is known beforehand.</p></li>
+</ul>
+</li>
+</ul>
+<img alt="Webhook notification template" src="../_images/notification-template-webhook.png" />
+<section id="webhook-payloads">
+<h4><a class="toc-backref" href="#id12" role="doc-backlink"><span class="section-number">26.4.10.1. </span>Webhook payloads</a><a class="headerlink" href="#webhook-payloads" title="Link to this heading"></a></h4>
+<p>Automation controller sends by default the following data at the webhook endpoint:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">job id</span>
+<span class="l l-Scalar l-Scalar-Plain">name</span>
+<span class="l l-Scalar l-Scalar-Plain">url</span>
+<span class="l l-Scalar l-Scalar-Plain">created_by</span>
+<span class="l l-Scalar l-Scalar-Plain">started</span>
+<span class="l l-Scalar l-Scalar-Plain">finished</span>
+<span class="l l-Scalar l-Scalar-Plain">status</span>
+<span class="l l-Scalar l-Scalar-Plain">traceback</span>
+<span class="l l-Scalar l-Scalar-Plain">inventory</span>
+<span class="l l-Scalar l-Scalar-Plain">project</span>
+<span class="l l-Scalar l-Scalar-Plain">playbook</span>
+<span class="l l-Scalar l-Scalar-Plain">credential</span>
+<span class="l l-Scalar l-Scalar-Plain">limit</span>
+<span class="l l-Scalar l-Scalar-Plain">extra_vars</span>
+<span class="l l-Scalar l-Scalar-Plain">hosts</span>
+</pre></div>
+</div>
+<p>An example of a <code class="docutils literal notranslate"><span class="pre">started</span></code> notifications via webhook message as it is returned by automation controller:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">{</span><span class="s">"id"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">38</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"name"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"Demo</span><span class="nv"> </span><span class="s">Job</span><span class="nv"> </span><span class="s">Template"</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"url"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"https://host/execution/jobs/playbook/38"</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"created_by"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"bianca"</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"started"</span><span class="p p-Indicator">:</span>
+<span class="s">"2020-07-28T19:57:07.888193+00:00"</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"finished"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">null</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"status"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"running"</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"traceback"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">""</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"inventory"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"Demo</span><span class="nv"> </span><span class="s">Inventory"</span><span class="p p-Indicator">,</span>
+<span class="s">"project"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"Demo</span><span class="nv"> </span><span class="s">Project"</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"playbook"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"hello_world.yml"</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"credential"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"Demo</span><span class="nv"> </span><span class="s">Credential"</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"limit"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">""</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"extra_vars"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"{}"</span><span class="p p-Indicator">,</span>
+<span class="s">"hosts"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">{}}</span>
+</pre></div>
+</div>
+<p>Automation controller returns by default the following data at the webhook endpoint for a <code class="docutils literal notranslate"><span class="pre">success</span></code>/<code class="docutils literal notranslate"><span class="pre">fail</span></code> status:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">job id</span>
+<span class="l l-Scalar l-Scalar-Plain">name</span>
+<span class="l l-Scalar l-Scalar-Plain">url</span>
+<span class="l l-Scalar l-Scalar-Plain">created_by</span>
+<span class="l l-Scalar l-Scalar-Plain">started</span>
+<span class="l l-Scalar l-Scalar-Plain">finished</span>
+<span class="l l-Scalar l-Scalar-Plain">status</span>
+<span class="l l-Scalar l-Scalar-Plain">traceback</span>
+<span class="l l-Scalar l-Scalar-Plain">inventory</span>
+<span class="l l-Scalar l-Scalar-Plain">project</span>
+<span class="l l-Scalar l-Scalar-Plain">playbook</span>
+<span class="l l-Scalar l-Scalar-Plain">credential</span>
+<span class="l l-Scalar l-Scalar-Plain">limit</span>
+<span class="l l-Scalar l-Scalar-Plain">extra_vars</span>
+<span class="l l-Scalar l-Scalar-Plain">hosts</span>
+</pre></div>
+</div>
+<p>An example of a <code class="docutils literal notranslate"><span class="pre">success</span></code>/<code class="docutils literal notranslate"><span class="pre">fail</span></code> notifications via webhook message as it is returned by automation controller:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">{</span><span class="s">"id"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">46</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"name"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"automation</span><span class="nv"> </span><span class="s">controller-Collection-tests-awx_job_wait-long_running-XVFBGRSAvUUIrYKn"</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"url"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"https://host/execution/jobs/playbook/46"</span><span class="p p-Indicator">,</span>
+<span class="s">"created_by"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"bianca"</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"started"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"2020-07-28T20:43:36.966686+00:00"</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"finished"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"2020-07-28T20:43:44.936072+00:00"</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"status"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"failed"</span><span class="p p-Indicator">,</span>
+<span class="s">"traceback"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">""</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"inventory"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"Demo</span><span class="nv"> </span><span class="s">Inventory"</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"project"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"automation</span><span class="nv"> </span><span class="s">controller-Collection-tests-awx_job_wait-long_running-JJSlglnwtsRJyQmw"</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"playbook"</span><span class="p p-Indicator">:</span>
+<span class="s">"fail.yml"</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"credential"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">null</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"limit"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">""</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"extra_vars"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"{\"sleep_interval\":</span><span class="nv"> </span><span class="s">300}"</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"hosts"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="s">"localhost"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="s">"failed"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">true</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"changed"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">0</span><span class="p p-Indicator">,</span>
+<span class="s">"dark"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"failures"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"ok"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"processed"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"skipped"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"rescued"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"ignored"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">0</span><span class="p p-Indicator">}}}</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="create-custom-notifications">
+<span id="ug-custom-notifications"></span><h2><span class="section-number">26.5. </span>Create custom notifications<a class="headerlink" href="#create-custom-notifications" title="Link to this heading"></a></h2>
+<p>You can <a class="reference internal" href="notification_parameters_supported.html#ir-notifications-reference"><span class="std std-ref">customize the text content</span></a> of each of the <a class="reference internal" href="#ug-notifications-types"><span class="std std-ref">Notification Types</span></a> by turning on <strong>Customize messages</strong> at the bottom of the notifier form.</p>
+<img alt="The Customize messages section of a Slack notifier with its default messages" src="../_images/notification-template-customize.png" />
+<p>You can provide a custom message for various job events:</p>
+<ul class="simple">
+<li><p>Start</p></li>
+<li><p>Success</p></li>
+<li><p>Error</p></li>
+<li><p>Workflow approved</p></li>
+<li><p>Workflow denied</p></li>
+<li><p>Workflow running</p></li>
+<li><p>Workflow timed out</p></li>
+</ul>
+<p>The message forms vary depending on the type of notification you are configuring. In the form, email and PagerDuty notifications have a message (the subject) and a message body for each event, webhook notifications only a message body, and the other notification types only a message for each type of event. In the API, Grafana notifiers also have a body, and AWS SNS notifiers only a body.</p>
+<p>The message fields are pre-populated with a template containing a top-level variable, <code class="docutils literal notranslate"><span class="pre">job</span></code> coupled with an attribute, such as <code class="docutils literal notranslate"><span class="pre">id</span></code> or <code class="docutils literal notranslate"><span class="pre">name</span></code>, for example. Templates are enclosed in curly braces and may draw from a fixed set of fields provided by automation controller, as shown in the pre-populated fields.</p>
+<p>This pre-populated field suggests commonly displayed messages to a recipient who is notified of an event. You can, however, customize these messages with different criteria by adding your own attribute(s) for the job as needed. Custom notification messages are rendered using Jinja - the same templating engine used by Ansible playbooks.</p>
+<p>Messages and message bodies have different types of content:</p>
+<ul>
+<li><p>messages will always just be strings (one-liners only; new lines are not allowed)</p></li>
+<li><p>message bodies will be either a dictionary or block of text:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>the message body for <em>Webhooks</em> and <em>PagerDuty</em> uses dictionary definitions. The default message body for these is <code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">job_metadata</span> <span class="pre">}}</span></code>, you can either leave that as is or provide your own dictionary</p></li>
+<li><p>the message body for email uses a block of text or a multi-line string. The default message body is:</p></li>
+</ul>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>{{ job_friendly_name }} #{{ job.id }} had status {{ job.status }}, view details at {{ url }} {{ job_metadata }}
+</pre></div>
+</div>
+<p>You can tweak this text (leaving <code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">job_metadata</span> <span class="pre">}}</span></code> in, or drop <code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">job_metadata</span> <span class="pre">}}</span></code> altogether). Since the body is a block of text, it can really be any string you want.</p>
+<p><code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">job_metadata</span> <span class="pre">}}</span></code> gets rendered as a dictionary containing fields that describe the job being executed. In all cases, <code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">job_metadata</span> <span class="pre">}}</span></code> will include the following fields:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">url</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">created_by</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">started</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">finished</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">status</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">traceback</span></code></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>At the present time, you cannot query individual fields within <code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">job_metadata</span> <span class="pre">}}</span></code>. When using <code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">job_metadata</span> <span class="pre">}}</span></code> in a notification template, all data
+will be returned.</p>
+</div>
+<p>The resulting dictionary will look something like this:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">{</span><span class="s">"id"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">18</span><span class="p p-Indicator">,</span>
+<span class="w"> </span><span class="s">"name"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"Project</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">Space</span><span class="nv"> </span><span class="s">Procedures"</span><span class="p p-Indicator">,</span>
+<span class="w"> </span><span class="s">"url"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"https://host/execution/jobs/project/18"</span><span class="p p-Indicator">,</span>
+<span class="w"> </span><span class="s">"created_by"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"admin"</span><span class="p p-Indicator">,</span>
+<span class="w"> </span><span class="s">"started"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"2019-10-26T00:20:45.139356+00:00"</span><span class="p p-Indicator">,</span>
+<span class="w"> </span><span class="s">"finished"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"2019-10-26T00:20:55.769713+00:00"</span><span class="p p-Indicator">,</span>
+<span class="w"> </span><span class="s">"status"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"successful"</span><span class="p p-Indicator">,</span>
+<span class="w"> </span><span class="s">"traceback"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">""</span>
+<span class="p p-Indicator">}</span>
+</pre></div>
+</div>
+<p>If <code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">job_metadata</span> <span class="pre">}}</span></code> is rendered in a job, it will include the following additional fields:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">inventory</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">project</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">playbook</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">credential</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">limit</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">extra_vars</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hosts</span></code></p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>The resulting dictionary will look something like:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">{</span><span class="s">"id"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">12</span><span class="p p-Indicator">,</span>
+<span class="w"> </span><span class="s">"name"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"JobTemplate</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">Launch</span><span class="nv"> </span><span class="s">Rockets"</span><span class="p p-Indicator">,</span>
+<span class="w"> </span><span class="s">"url"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"https://host/execution/jobs/playbook/12"</span><span class="p p-Indicator">,</span>
+<span class="w"> </span><span class="s">"created_by"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"admin"</span><span class="p p-Indicator">,</span>
+<span class="w"> </span><span class="s">"started"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"2019-10-26T00:02:07.943774+00:00"</span><span class="p p-Indicator">,</span>
+<span class="w"> </span><span class="s">"finished"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">null</span><span class="p p-Indicator">,</span>
+<span class="w"> </span><span class="s">"status"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"running"</span><span class="p p-Indicator">,</span>
+<span class="w"> </span><span class="s">"traceback"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">""</span><span class="p p-Indicator">,</span>
+<span class="w"> </span><span class="s">"inventory"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"Inventory</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">Fleet"</span><span class="p p-Indicator">,</span>
+<span class="w"> </span><span class="s">"project"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"Project</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">Space</span><span class="nv"> </span><span class="s">Procedures"</span><span class="p p-Indicator">,</span>
+<span class="w"> </span><span class="s">"playbook"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"launch.yml"</span><span class="p p-Indicator">,</span>
+<span class="w"> </span><span class="s">"credential"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"Credential</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">Mission</span><span class="nv"> </span><span class="s">Control"</span><span class="p p-Indicator">,</span>
+<span class="w"> </span><span class="s">"limit"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">""</span><span class="p p-Indicator">,</span>
+<span class="w"> </span><span class="s">"extra_vars"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"{}"</span><span class="p p-Indicator">,</span>
+<span class="w"> </span><span class="s">"hosts"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+<span class="p p-Indicator">}</span>
+</pre></div>
+</div>
+<p>If <code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">job_metadata</span> <span class="pre">}}</span></code> is rendered in a workflow job, it will include the following additional field:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">body</span></code> (this will enumerate all the nodes in the workflow job and includes a description of the job associated with each node)</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>The resulting dictionary will look something like this:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">{</span><span class="s">"id"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">14</span><span class="p p-Indicator">,</span>
+<span class="w"> </span><span class="s">"name"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"Workflow</span><span class="nv"> </span><span class="s">Job</span><span class="nv"> </span><span class="s">Template</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">Launch</span><span class="nv"> </span><span class="s">Mars</span><span class="nv"> </span><span class="s">Mission"</span><span class="p p-Indicator">,</span>
+<span class="w"> </span><span class="s">"url"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"https://host/execution/jobs/workflow/14"</span><span class="p p-Indicator">,</span>
+<span class="w"> </span><span class="s">"created_by"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"admin"</span><span class="p p-Indicator">,</span>
+<span class="w"> </span><span class="s">"started"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"2019-10-26T00:11:04.554468+00:00"</span><span class="p p-Indicator">,</span>
+<span class="w"> </span><span class="s">"finished"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"2019-10-26T00:11:24.249899+00:00"</span><span class="p p-Indicator">,</span>
+<span class="w"> </span><span class="s">"status"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"successful"</span><span class="p p-Indicator">,</span>
+<span class="w"> </span><span class="s">"traceback"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">""</span><span class="p p-Indicator">,</span>
+<span class="w"> </span><span class="s">"body"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"Workflow</span><span class="nv"> </span><span class="s">job</span><span class="nv"> </span><span class="s">summary:</span>
+
+<span class="w">         </span><span class="s">node</span><span class="nv"> </span><span class="s">#1</span><span class="nv"> </span><span class="s">spawns</span><span class="nv"> </span><span class="s">job</span><span class="nv"> </span><span class="s">#15,</span><span class="nv"> </span><span class="s">\"Assemble</span><span class="nv"> </span><span class="s">Fleet</span><span class="nv"> </span><span class="s">JT\",</span><span class="nv"> </span><span class="s">which</span><span class="nv"> </span><span class="s">finished</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">status</span><span class="nv"> </span><span class="s">successful.</span>
+<span class="w">         </span><span class="s">node</span><span class="nv"> </span><span class="s">#2</span><span class="nv"> </span><span class="s">spawns</span><span class="nv"> </span><span class="s">job</span><span class="nv"> </span><span class="s">#16,</span><span class="nv"> </span><span class="s">\"Mission</span><span class="nv"> </span><span class="s">Start</span><span class="nv"> </span><span class="s">approval</span><span class="nv"> </span><span class="s">node\",</span><span class="nv"> </span><span class="s">which</span><span class="nv"> </span><span class="s">finished</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">status</span><span class="nv"> </span><span class="s">successful.\n</span>
+<span class="w">         </span><span class="s">node</span><span class="nv"> </span><span class="s">#3</span><span class="nv"> </span><span class="s">spawns</span><span class="nv"> </span><span class="s">job</span><span class="nv"> </span><span class="s">#17,</span><span class="nv"> </span><span class="s">\"Deploy</span><span class="nv"> </span><span class="s">Fleet\",</span><span class="nv"> </span><span class="s">which</span><span class="nv"> </span><span class="s">finished</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">status</span><span class="nv"> </span><span class="s">successful."</span>
+<span class="p p-Indicator">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+<p>For more detail, refer to <a class="reference external" href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#using-variables-with-jinja2">Using variables with Jinja2</a>.</p>
+<p>Automation controller requires valid syntax in order to retrieve the correct data to display the messages. For a list of supported attributes and the proper syntax construction, refer to the <a class="reference internal" href="notification_parameters_supported.html#ir-notifications-reference"><span class="std std-ref">Supported Attributes for Custom Notifications</span></a> section of this guide.</p>
+<p>If you create a notification template that uses invalid syntax or references unusable fields, an error message displays indicating the nature of the error. If you delete a notification’s custom message, the default message is shown in its place.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you save the notifier without editing the custom messages (or edit and revert back to the default values), its <strong>Details</strong> tab shows no messages. If you edit and save any of the values, the messages display in the <strong>Details</strong> tab.</p>
+</div>
+<img alt="Details of a webhook notifier without custom messages" src="../_images/notifications-with-without-messages.png" />
+</section>
+<section id="enable-and-disable-notifications">
+<span id="ug-notifications-on-off"></span><h2><span class="section-number">26.6. </span>Enable and Disable Notifications<a class="headerlink" href="#enable-and-disable-notifications" title="Link to this heading"></a></h2>
+<p>You can select which notifications to notify you when a specific job starts, in addition to notifying you on success or failure at the end of the job run. Some behaviors to keep in mind:</p>
+<ul class="simple">
+<li><p>if a workflow template (WFJT) has notification on start enabled, and a job template (JT) within that workflow also has notification on start enabled, you will receive notifications for both</p></li>
+<li><p>you can enable notifications to run on many JTs within a WFJT</p></li>
+<li><p>you can enable notifications to run on a sliced job template (SJT) start and each slice will generate a notification</p></li>
+<li><p>when you enable a notification to run on job start, and that notification gets deleted, the JT continues to run, but will result in an error message</p></li>
+</ul>
+<p>You can enable notifications on job start, job success, and job failure, or any combination thereof, from the <strong>Notifications</strong> tab of the following resources:</p>
+<ul class="simple">
+<li><p>Job Templates</p></li>
+<li><p>Workflow Job Templates</p></li>
+<li><p>Projects (shown in the example below)</p></li>
+<li><p>Inventory Sources</p></li>
+<li><p>Organizations (in <strong>Access Management &gt; Organizations</strong>; the notifiers enabled there, including the <strong>Approval</strong> ones, apply to the jobs of the organization, see <a class="reference internal" href="#ug-notifications-hierarchy"><span class="std std-ref">Notification Hierarchy</span></a>)</p></li>
+</ul>
+<img alt="List of project notifications" src="../_images/projects-notifications-example-list.png" />
+<img alt="The Notifications tab of an organization" src="../_images/notifications-organization-tab.png" />
+<p>For workflow templates that have approval nodes, in addition to <em>Start</em>, <em>Success</em>, and <em>Failure</em>, you can enable or disable certain approval-related events:</p>
+<img alt="List of project notifications with approval nodes option" src="../_images/wf-template-completed-notifications-view.png" />
+<p>Refer to <a class="reference internal" href="workflow_templates.html#ug-wf-approval-nodes"><span class="std std-ref">Approval nodes</span></a> for additional detail on working with these types of nodes.</p>
+</section>
+<section id="configure-the-host-hostname-for-notifications">
+<h2><span class="section-number">26.7. </span>Configure the <code class="docutils literal notranslate"><span class="pre">host</span></code> hostname for notifications<a class="headerlink" href="#configure-the-host-hostname-for-notifications" title="Link to this heading"></a></h2>
+<p id="index-5">The links in notifications use the <strong>Base URL of the service</strong> (<code class="docutils literal notranslate"><span class="pre">TOWER_URL_BASE</span></code>) of automation controller, in <strong>Settings &gt; Automation Execution &gt; System</strong> (see <a class="reference internal" href="../administration/configure_koios.html#configure-koios-system"><span class="std std-ref">System Settings</span></a>). In Koios Automation Platform its default value is <code class="docutils literal notranslate"><span class="pre">https://platformhost</span></code>: set it to the public address of the platform, which is in <code class="docutils literal notranslate"><span class="pre">status.URL</span></code> of the <code class="docutils literal notranslate"><span class="pre">KoiosPlatform</span></code> (see <a class="reference internal" href="../configure/index.html"><span class="doc">Configure the platform</span></a>). Click <strong>Edit</strong> to change it.</p>
+<img alt="The System Settings page with the Base URL of the service" src="../_images/configure-koios-system-misc-baseurl.png" />
+<section id="reset-the-tower-url-base">
+<h3><span class="section-number">26.7.1. </span>Reset the <code class="docutils literal notranslate"><span class="pre">TOWER_URL_BASE</span></code><a class="headerlink" href="#reset-the-tower-url-base" title="Link to this heading"></a></h3>
+<p id="index-6">If notifications show a wrong address, set <strong>Base URL of the service</strong> (<code class="docutils literal notranslate"><span class="pre">TOWER_URL_BASE</span></code>) in the controller’s <strong>System</strong> settings to the address you wish to appear in notifications. If the setting is declared in <code class="docutils literal notranslate"><span class="pre">spec.controller.extra_settings</span></code> of the <code class="docutils literal notranslate"><span class="pre">KoiosPlatform</span></code>, it is read-only in the user interface; change it there (see <a class="reference internal" href="../administration/troubleshooting.html#admin-troubleshooting-extra-settings"><span class="std std-ref">Deployment-managed settings</span></a>).</p>
+</section>
+</section>
+<section id="notifications-api">
+<h2><span class="section-number">26.8. </span>Notifications API<a class="headerlink" href="#notifications-api" title="Link to this heading"></a></h2>
+<p id="index-7">Use the <code class="docutils literal notranslate"><span class="pre">started</span></code>, <code class="docutils literal notranslate"><span class="pre">success</span></code>, or <code class="docutils literal notranslate"><span class="pre">error</span></code> endpoints:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">/api/controller/v2/organizations/N/notification_templates_started/</span>
+<span class="l l-Scalar l-Scalar-Plain">/api/controller/v2/organizations/N/notification_templates_success/</span>
+<span class="l l-Scalar l-Scalar-Plain">/api/controller/v2/organizations/N/notification_templates_error/</span>
+</pre></div>
+</div>
+<p>Additionally, the <code class="docutils literal notranslate"><span class="pre">../../../N/notification_templates_started</span></code> endpoints have <strong>GET</strong> and <strong>POST</strong> actions for:</p>
+<ul class="simple">
+<li><p>Organizations</p></li>
+<li><p>Projects</p></li>
+<li><p>Inventory Sources</p></li>
+<li><p>Job Templates</p></li>
+<li><p>System Job Templates</p></li>
+<li><p>Workflow Job Templates</p></li>
+</ul>
+<p>Organizations and workflow job templates also have <code class="docutils literal notranslate"><span class="pre">notification_templates_approvals</span></code> endpoints, with <strong>GET</strong> and <strong>POST</strong> actions, for the approval notifications:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">/api/controller/v2/organizations/N/notification_templates_approvals/</span>
+<span class="l l-Scalar l-Scalar-Plain">/api/controller/v2/workflow_job_templates/N/notification_templates_approvals/</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="webhooks.html" class="btn btn-neutral float-left" title="25. Working with Webhooks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="notification_parameters_supported.html" class="btn btn-neutral float-right" title="27. Supported Attributes for Custom Notifications" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Koios Solutions. Portions 2026, Red Hat, Inc. and 2026, CtrlIQ, Inc..</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+<p class="koios-legal">Licensed under the <a href="../LICENSE.txt">Apache License 2.0</a>; see the <a href="../NOTICE.txt">NOTICE</a> for the origin of this documentation.</p>
+
+</body>
+</html>

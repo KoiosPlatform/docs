@@ -1,0 +1,17 @@
+Koios Automation Platform documentation
+Copyright Koios Solutions. Licensed under the Apache License, Version 2.0 (LICENSE).
+
+This site is derived from the Ascender documentation site (docs/docsite: Sphinx configuration, theme,
+user guide, administration, quick start and REST API pages), itself derived from the AWX documentation,
+both under the Apache License 2.0; copyright remains with their authors (Red Hat, Inc. and CtrlIQ, Inc.).
+The theme (sphinx_koios_theme) derives from sphinx_ascender_theme, based on the Sphinx Ansible theme
+and the Read the Docs theme (MIT). Other pages adapt documentation from:
+
+* AWX Operator — https://github.com/ansible/awx-operator (docs/)
+* AWX — https://github.com/ansible/awx (docs/docsite)
+* Ascender — https://github.com/ctrliq/ascender (docs/docsite: user guide, administration, quick start)
+* ansible-rulebook — https://github.com/ansible/ansible-rulebook (docs/)
+* eda-server — https://github.com/ansible/eda-server (docs/)
+
+Documentation of galaxy-operator (GPL-2.0) and eda-server-operator (no published license) is used only
+as a reference, not copied.

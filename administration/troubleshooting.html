@@ -1,0 +1,329 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>23. Troubleshooting Automation Controller &ndash; Koios Automation Platform</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ansible.css?v=5657ca2d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/rtd-ethical-ads.css?v=289b023e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/dark.css?v=82723a23" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments-dark.css?v=027e451e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/koios.css?v=808fdb03" />
+
+  
+    <link rel="shortcut icon" href="../_static/images/koios-favicon.svg"/>
+    <link rel="canonical" href="https://docs.koioss.com/administration/troubleshooting.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2d018451"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=b8bcef97"></script>
+      <script src="../_static/js/theme-toggle.js?v=59cbb094"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="24. Automation controller Tips and Tricks" href="tipsandtricks.html" />
+    <link rel="prev" title="22. Kerberos Authentication for Windows Jobs" href="kerberos_auth.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+<script>
+  (function () {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('koios-docs-theme');
+    } catch (e) {}
+    // Without a stored choice, follow the system preference (dark when it cannot be read).
+    var light = false;
+    try { light = window.matchMedia('(prefers-color-scheme: light)').matches; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', stored || (light ? 'light' : 'dark'));
+  })();
+</script>
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="#" class="asc-theme-toggle" title="Switch theme" aria-label="Switch theme"><svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg></a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../_static/images/koios-mark-white.svg"
+    alt="Koios">
+  <div class="DocSiteNav-title">Koios Automation Platform</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Koios Automation Platform
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Koios Automation Platform Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Install and upgrade</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade_migration/index.html">Upgrades and Migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configure the platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/index.html">Configure the platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Access management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access/index.html">Authentication and access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation execution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">Automating with Koios Automation Platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation decisions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../eda/index.html">Event-Driven Ansible</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hub/index.html">Automation hub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operate</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../operate/index.html">Operate</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Administering Koios Automation Platform Deployments</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html">Administering Koios Automation Platform Deployments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="init_script.html">1. Starting, Stopping, and Restarting Koios Automation Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="supported_architectures.html">2. Supported Architectures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom_inventory_script.html">3. Custom Inventory Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scm-inv-source.html">4. Inventory File Importing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi-creds-assignment.html">5. Multi-Credential Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="management_jobs.html">6. Management Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clustering.html">7. Clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="containers_instance_groups.html">8. Container and Instance Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instances.html">9. Managing Capacity With Instances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topology_viewer.html">10. Topology Viewer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logfiles.html">11. Automation controller Logfiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">12. Logging and Aggregation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">13. Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html">14. Improving Automation Controller Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secret_handling.html">15. Secret handling and connection security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proxy_support.html">16. Proxy Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backup_restore.html">17. Backup and Restore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security_best_practices.html">18. Security Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awx-manage.html">19. The <em>awx-manage</em> Utility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configure_koios.html">20. Automation Controller Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="isolation_variables.html">21. Isolation functionality and variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kerberos_auth.html">22. Kerberos Authentication for Windows Jobs</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">23. Troubleshooting Automation Controller</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#troubleshooting-settings">23.1. Troubleshooting settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deployment-managed-settings">23.2. Deployment-managed settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#collect-diagnostic-information">23.3. Collect diagnostic information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#connection-failures">23.4. Connection failures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#login-and-tls-failures">23.5. Login and TLS failures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#playbook-failures-and-missing-playbooks">23.6. Playbook failures and missing playbooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#jobs-that-remain-pending-or-waiting">23.7. Jobs that remain pending or waiting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cancel-a-job">23.8. Cancel a job</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#external-databases">23.9. External databases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cloud-inventories-and-private-addresses">23.10. Cloud inventories and private addresses</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tipsandtricks.html">24. Automation controller Tips and Tricks</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration as code and API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/casc.html">Configuration as code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rest_api/index.html">automation controller API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/releases.html">Releases</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Koios Automation Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Administering Koios Automation Platform Deployments</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">23. </span>Troubleshooting Automation Controller</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <section id="troubleshooting-automation-controller">
+<span id="admin-troubleshooting"></span><h1><span class="section-number">23. </span>Troubleshooting Automation Controller<a class="headerlink" href="#troubleshooting-automation-controller" title="Link to this heading"></a></h1>
+<p id="index-0">Start with the job’s <strong>Output</strong> and <strong>Details</strong> under <strong>Automation Execution &gt; Jobs</strong>, then check the selected inventory, project, execution environment and instance group. A controller job, a container group pod and a remote execution node are different layers; diagnose the layer that reports the failure.</p>
+<section id="troubleshooting-settings">
+<h2><span class="section-number">23.1. </span>Troubleshooting settings<a class="headerlink" href="#troubleshooting-settings" title="Link to this heading"></a></h2>
+<p>As a platform administrator, open <strong>Settings &gt; Automation Execution &gt; Troubleshooting</strong> and click <strong>Edit</strong>.</p>
+<img alt="Settings navigation with Automation Execution Troubleshooting selected." src="../_images/settings_troubleshooting_highlighted.png" />
+<p>The current settings are check boxes:</p>
+<ul class="simple">
+<li><p><strong>Enable or Disable tmp dir cleanup</strong> (<code class="docutils literal notranslate"><span class="pre">AWX_CLEANUP_PATHS</span></code>): selected by default. Controls removal of the controller’s temporary job staging paths; it is not a global cleanup of Kubernetes storage.</p></li>
+<li><p><strong>Debug Web Requests</strong> (<code class="docutils literal notranslate"><span class="pre">AWX_REQUEST_PROFILE</span></code>): enables request timing diagnostics; it is not a replacement for job verbosity.</p></li>
+<li><p><strong>Release Receptor Work</strong> (<code class="docutils literal notranslate"><span class="pre">RECEPTOR_RELEASE_WORK</span></code>): selected by default. Releases Receptor work after processing. Clearing it retains work for investigation and can retain container group job pods; it does not recover artifacts already removed.</p></li>
+<li><p><strong>Keep receptor work on error</strong> (<code class="docutils literal notranslate"><span class="pre">RECEPTOR_KEEP_WORK_ON_ERROR</span></code>): retains work when the worker detects an <code class="docutils literal notranslate"><span class="pre">error</span></code> result. This does not mean every playbook <code class="docutils literal notranslate"><span class="pre">failed</span></code> result is retained.</p></li>
+</ul>
+<img alt="Troubleshooting settings edit form with the four diagnostic check boxes." src="../_images/troubleshooting_options.png" />
+<p>Click <strong>Save</strong> to apply the settings or <strong>Cancel</strong> to discard edits. Enable retention only for a bounded investigation and restore cleanup afterwards; retained work can include inventory, credential material and large job artifacts. Do not share those files or unredacted pod logs.</p>
+</section>
+<section id="deployment-managed-settings">
+<span id="admin-troubleshooting-extra-settings"></span><h2><span class="section-number">23.2. </span>Deployment-managed settings<a class="headerlink" href="#deployment-managed-settings" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">KoiosPlatform</span></code> passes custom settings to each component as <code class="docutils literal notranslate"><span class="pre">setting</span></code>/<code class="docutils literal notranslate"><span class="pre">value</span></code> pairs: <code class="docutils literal notranslate"><span class="pre">spec.controller.extra_settings</span></code> for automation controller and <code class="docutils literal notranslate"><span class="pre">spec.extra_settings</span></code> for the platform gateway. The operator applies them and rolls out the affected pods. Do not edit settings files inside pods or on cluster hosts; reconciliation replaces generated configuration.</p>
+<p>Controller values are rendered as Python expressions. Quote string values inside the YAML string, while numeric and boolean expressions use Python syntax. For example, merge the following into the existing resource rather than replacing its whole spec:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">controller</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">extra_settings</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">setting</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MAX_PAGE_SIZE</span>
+<span class="w">        </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">"500"</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">setting</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LOG_AGGREGATOR_LEVEL</span>
+<span class="w">        </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">"'DEBUG'"</span>
+</pre></div>
+</div>
+<p>Settings defined this way are read-only in the controller UI and API. Change their declaration in the <code class="docutils literal notranslate"><span class="pre">KoiosPlatform</span></code> instead. Gateway <code class="docutils literal notranslate"><span class="pre">spec.extra_settings</span></code> values are serialized by the platform operator; do not assume controller expression quoting applies to them. See <a class="reference internal" href="../reference/koiosplatform.html"><span class="doc">KoiosPlatform</span></a>.</p>
+<p>Authentication providers are configured in the platform gateway, not with controller authentication settings; see <a class="reference internal" href="../access/authentication.html"><span class="doc">Authentication methods</span></a>.</p>
+</section>
+<section id="collect-diagnostic-information">
+<span id="admin-troubleshooting-sosreport"></span><h2><span class="section-number">23.3. </span>Collect diagnostic information<a class="headerlink" href="#collect-diagnostic-information" title="Link to this heading"></a></h2>
+<p>Use the intended isolated kubeconfig and explicit context. Begin with status and resource names, without dumping the complete platform configuration or Secrets:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>kubectl --context &lt;context&gt; -n &lt;namespace&gt; get koiosplatform &lt;platform&gt; -o jsonpath='{.status.conditions}'
+kubectl --context &lt;context&gt; -n &lt;namespace&gt; get pods
+kubectl --context &lt;context&gt; -n &lt;namespace&gt; get deployments
+</pre></div>
+</div>
+<p>On OpenShift, <code class="docutils literal notranslate"><span class="pre">oc</span></code> can be used instead of <code class="docutils literal notranslate"><span class="pre">kubectl</span></code>. Inspect the affected pod’s status and events for scheduling, image-pull, probe or resource failures. Inspect a bounded amount of the relevant container’s logs, for example:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>kubectl --context &lt;context&gt; -n &lt;namespace&gt; logs deploy/&lt;platform&gt;-controller-task -c &lt;platform&gt;-controller-task --tail=100
+kubectl --context &lt;context&gt; -n &lt;namespace&gt; logs deploy/&lt;platform&gt;-controller-web -c &lt;platform&gt;-controller-web --tail=100
+</pre></div>
+</div>
+<p>Identify the operator Deployment and container in its own namespace before collecting its logs. Review and redact output before sharing it: logs, events, inventory and request data may contain sensitive values. A broad namespace inspection archive can collect sensitive resources and should not be attached unreviewed to an issue.</p>
+</section>
+<section id="connection-failures">
+<h2><span class="section-number">23.4. </span>Connection failures<a class="headerlink" href="#connection-failures" title="Link to this heading"></a></h2>
+<p>Check the job’s Machine credential, remote username, inventory address and any <code class="docutils literal notranslate"><span class="pre">ansible_host</span></code> or connection variables. For SSH-based automation, it is the execution node or job pod that needs network access to the managed host. Successful SSH from an administrator’s workstation does not establish connectivity from the job’s execution environment. Other Ansible connection plugins have their own requirements.</p>
+<p>Also verify DNS, routing, firewalls, the required ports and SSH host keys from the execution location. The controller web pod does not execute the playbook.</p>
+</section>
+<section id="login-and-tls-failures">
+<h2><span class="section-number">23.5. </span>Login and TLS failures<a class="headerlink" href="#login-and-tls-failures" title="Link to this heading"></a></h2>
+<p>Users log in through the platform gateway Route or Ingress. Configure the public address and certificates in the <code class="docutils literal notranslate"><span class="pre">KoiosPlatform</span></code>; a controller setting does not change how the gateway serves logins. For authentication errors, check the gateway and the selected authentication method rather than changing users with controller management commands. See <a class="reference internal" href="../access/authentication.html"><span class="doc">Authentication methods</span></a> and <a class="reference internal" href="../reference/koiosplatform.html"><span class="doc">KoiosPlatform</span></a>.</p>
+</section>
+<section id="playbook-failures-and-missing-playbooks">
+<h2><span class="section-number">23.6. </span>Playbook failures and missing playbooks<a class="headerlink" href="#playbook-failures-and-missing-playbooks" title="Link to this heading"></a></h2>
+<p>Verify that the project sync succeeded and the job template selects the expected project revision, playbook and execution environment. Playbooks must be valid YAML that Ansible can parse. Include required collections and libraries in the project dependencies or execution environment as appropriate; installing them on a controller host does not make them available to a job container.</p>
+<p>The play’s <code class="docutils literal notranslate"><span class="pre">hosts</span></code> expression can target any matching inventory hosts or groups; it does not have to be <code class="docutils literal notranslate"><span class="pre">all</span></code>. The template’s <strong>Limit</strong> narrows that selection further. Check spelling, case, group names and the selected inventory when no hosts match.</p>
+<p>If a playbook is absent from the template’s <strong>Playbook</strong> selector, check the project revision and successful sync, then its file name and contents. See <a class="reference internal" href="../userguide/projects.html#ug-projects"><span class="std std-ref">Projects</span></a> and <a class="reference internal" href="../userguide/job_templates.html#ug-jobtemplates"><span class="std std-ref">Job Templates</span></a>.</p>
+</section>
+<section id="jobs-that-remain-pending-or-waiting">
+<h2><span class="section-number">23.7. </span>Jobs that remain pending or waiting<a class="headerlink" href="#jobs-that-remain-pending-or-waiting" title="Link to this heading"></a></h2>
+<p>Check the job’s <strong>Details</strong> and explanatory status, then distinguish controller scheduling from Kubernetes pod scheduling:</p>
+<ul class="simple">
+<li><p>Verify project and inventory update dependencies, workflow approvals and any concurrency restrictions.</p></li>
+<li><p>Under <strong>Automation Execution &gt; Infrastructure &gt; Instance Groups</strong>, inspect the group selected for the job and its job/fork limits. For remote execution, verify that a healthy, enabled execution instance has available capacity.</p></li>
+<li><p>For container groups, inspect the job pod’s phase and events. Resource requests, quotas, admission policies and image-pull failures can prevent a pod from starting even when controller scheduling has assigned the job.</p></li>
+<li><p>Check controller task pod readiness and resource pressure. Increasing playbook forks does not create controller or cluster capacity.</p></li>
+</ul>
+<p>If the cause is still unclear, collect the bounded diagnostics described in <a class="reference internal" href="#admin-troubleshooting-sosreport"><span class="std std-ref">Collect diagnostic information</span></a>.</p>
+</section>
+<section id="cancel-a-job">
+<h2><span class="section-number">23.8. </span>Cancel a job<a class="headerlink" href="#cancel-a-job" title="Link to this heading"></a></h2>
+<p>Open the running job under <strong>Automation Execution &gt; Jobs</strong> and use <strong>Cancel job</strong>. Cancellation asks the execution worker to stop the job; it does not roll back changes already made on managed hosts. Remote operations already dispatched can continue independently. The canceled job remains in job history, and shared project or inventory updates are not automatically deleted.</p>
+</section>
+<section id="external-databases">
+<h2><span class="section-number">23.9. </span>External databases<a class="headerlink" href="#external-databases" title="Link to this heading"></a></h2>
+<p>A new platform needs empty databases. Do not point a new deployment at the databases of another platform, current or removed. Use the platform’s supported database configuration and backup/restore workflow; see <a class="reference internal" href="../reference/koiosplatform.html"><span class="doc">KoiosPlatform</span></a>.</p>
+</section>
+<section id="cloud-inventories-and-private-addresses">
+<h2><span class="section-number">23.10. </span>Cloud inventories and private addresses<a class="headerlink" href="#cloud-inventories-and-private-addresses" title="Link to this heading"></a></h2>
+<p>For an Amazon EC2 inventory source, configure the credential and source as described in <a class="reference internal" href="../userguide/credentials.html#ug-credentials-cred-types"><span class="std std-ref">Credential Types</span></a> and <a class="reference internal" href="../userguide/inventories.html#ug-inventory-sources"><span class="std std-ref">Inventory Sources</span></a>. Use the inventory plugin’s options rather than the old EC2 script option <code class="docutils literal notranslate"><span class="pre">vpc_destination_variable</span></code>.</p>
+<p>Where a supported inventory plugin is used, instance discovery depends on its credentials, regions and filters, not on the presence of an Elastic IP. For a compatible <code class="docutils literal notranslate"><span class="pre">amazon.aws.aws_ec2</span></code> plugin configuration, <code class="docutils literal notranslate"><span class="pre">compose.ansible_host:</span> <span class="pre">private_ip_address</span></code> selects the private connection address. The execution node or pod must be able to reach that address; the controller does not need to reside inside the VPC.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="kerberos_auth.html" class="btn btn-neutral float-left" title="22. Kerberos Authentication for Windows Jobs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tipsandtricks.html" class="btn btn-neutral float-right" title="24. Automation controller Tips and Tricks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Koios Solutions. Portions 2026, Red Hat, Inc. and 2026, CtrlIQ, Inc..</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+<p class="koios-legal">Licensed under the <a href="../LICENSE.txt">Apache License 2.0</a>; see the <a href="../NOTICE.txt">NOTICE</a> for the origin of this documentation.</p>
+
+</body>
+</html>

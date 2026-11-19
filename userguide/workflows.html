@@ -1,0 +1,353 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>21. Workflows &ndash; Koios Automation Platform</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ansible.css?v=5657ca2d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/rtd-ethical-ads.css?v=289b023e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/dark.css?v=82723a23" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments-dark.css?v=027e451e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/koios.css?v=808fdb03" />
+
+  
+    <link rel="shortcut icon" href="../_static/images/koios-favicon.svg"/>
+    <link rel="canonical" href="https://docs.koioss.com/userguide/workflows.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2d018451"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=b8bcef97"></script>
+      <script src="../_static/js/theme-toggle.js?v=59cbb094"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="22. Workflow Job Templates" href="workflow_templates.html" />
+    <link rel="prev" title="20. Job Slicing" href="job_slices.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+<script>
+  (function () {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('koios-docs-theme');
+    } catch (e) {}
+    // Without a stored choice, follow the system preference (dark when it cannot be read).
+    var light = false;
+    try { light = window.matchMedia('(prefers-color-scheme: light)').matches; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', stored || (light ? 'light' : 'dark'));
+  })();
+</script>
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="#" class="asc-theme-toggle" title="Switch theme" aria-label="Switch theme"><svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg></a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../_static/images/koios-mark-white.svg"
+    alt="Koios">
+  <div class="DocSiteNav-title">Koios Automation Platform</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Koios Automation Platform
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Koios Automation Platform Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Install and upgrade</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade_migration/index.html">Upgrades and Migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configure the platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/index.html">Configure the platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Access management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access/index.html">Authentication and access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation execution</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Automating with Koios Automation Platform</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html">Automating with Koios Automation Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html">1. Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging_in.html">2. Logging In</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main_menu.html">3. The User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main_menu.html#the-settings-menu">4. The Settings Menu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="search_sort.html">5. Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="organizations.html">6. Organizations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="users.html">7. Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="teams.html">8. Teams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credentials.html">9. Credentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credential_plugins.html">10. Secret Management System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credential_types.html">11. Custom Credential Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="execution_environments.html">12. Execution Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ee_reference.html">13. Execution Environment Setup Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="projects.html">14. Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project-sign.html">15. Project Signing and Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventories.html">16. Inventories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventory_plugins_templates.html">17. Supported Inventory Plugin Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="labels.html">18. Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_templates.html">19. Job Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_slices.html">20. Job Slicing</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">21. Workflows</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#workflow-scenarios-and-considerations">21.1. Workflow scenarios and considerations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#extra-variables">21.2. Extra Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#workflow-states">21.3. Workflow States</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#role-based-access-controls">21.4. Role-Based Access Controls</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_templates.html">22. Workflow Job Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instance_groups.html">23. Instance Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jobs.html">24. Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhooks.html">25. Working with Webhooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notifications.html">26. Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notification_parameters_supported.html">27. Supported Attributes for Custom Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduling.html">28. Schedules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="best_practices.html">29. Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">30. Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html">31. Glossary</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation decisions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../eda/index.html">Event-Driven Ansible</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hub/index.html">Automation hub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operate</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../operate/index.html">Operate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../administration/index.html">Administering Koios Automation Platform Deployments</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration as code and API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/casc.html">Configuration as code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rest_api/index.html">automation controller API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/releases.html">Releases</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Koios Automation Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Automating with Koios Automation Platform</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">21. </span>Workflows</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <section id="workflows">
+<span id="ug-workflows"></span><h1><span class="section-number">21. </span>Workflows<a class="headerlink" href="#workflows" title="Link to this heading"></a></h1>
+<p id="index-0">Workflows allow you to configure a sequence of disparate job templates (or workflow templates) that may or may not share inventory, playbooks, or permissions. However, workflows have ‘admin’ and ‘execute’ permissions, similar to job templates. A workflow accomplishes the task of tracking the full set of jobs that were part of the release process as a single unit.</p>
+<p>Job or workflow templates are linked together using a graph-like structure called nodes. These nodes can be job templates, workflow job templates, project syncs, inventory syncs, approvals or management jobs. A template can be part of different workflows or used multiple times in the same workflow. A copy of the graph structure is saved to a workflow job when you launch the workflow.</p>
+<p>The example below shows a workflow with a project sync, two job templates, an approval and an inventory sync:</p>
+<img alt="A workflow with a project sync, job templates, an approval and an inventory sync" src="../_images/wf-editor-create-new-add-template-example.png" />
+<p>As the workflow runs, jobs are spawned from the node’s linked template. Nodes linking to a job template which has prompt-driven fields (<code class="docutils literal notranslate"><span class="pre">job_type</span></code>, <code class="docutils literal notranslate"><span class="pre">job_tags</span></code>, <code class="docutils literal notranslate"><span class="pre">skip_tags</span></code>, <code class="docutils literal notranslate"><span class="pre">limit</span></code>) can contain those fields, and will not be prompted on launch. Job templates that prompt for an inventory or credentials without defaults can be used in a workflow if the node provides those values in its <strong>Prompts</strong> step; credentials that ask for a password at launch cannot be used in a workflow node.</p>
+<section id="workflow-scenarios-and-considerations">
+<h2><span class="section-number">21.1. </span>Workflow scenarios and considerations<a class="headerlink" href="#workflow-scenarios-and-considerations" title="Link to this heading"></a></h2>
+<p>Consider the following scenarios for building workflows:</p>
+<ul class="simple">
+<li><p>A root node always runs when the workflow starts (<strong>Run always</strong>), and its run condition is not editable.</p></li>
+<li><p>A node can have multiple parents and children may be linked to any of the states of success, failure, or always. If always, then the state is neither success or failure. States apply at the node level, not at the workflow job template level.</p></li>
+<li><p>The workflow job <strong>fails</strong> if a node fails (or ends in error, is canceled, or has no template to run) and that node has no <strong>Run on fail</strong> or <strong>Run always</strong> child to handle it; its explanation is then “No error handling paths found, marking workflow as failed”, and the nodes are named in the log of the controller. Otherwise, when all the nodes that had to run have finished, the workflow job is successful, even if some nodes failed and their error paths ran.</p></li>
+<li><p>If you remove a node within the workflow, its child nodes are connected to its parent nodes and keep their run condition, unless a link between them already exists or the new parent is <strong>Start</strong> (then the link becomes <strong>Run always</strong>); see <a class="reference internal" href="workflow_templates.html#ug-wf-building-scenarios"><span class="std std-ref">Node building scenarios</span></a>.</p></li>
+<li><p>You could have a convergent workflow, where multiple jobs converge into one. In this scenario, any of the jobs or all of them must complete as specified before the next one runs, depending on the <a class="reference internal" href="workflow_templates.html#convergence-node"><span class="std std-ref">convergence</span></a> setting of the converging node. In both cases the converging node waits until all its parents that run have finished; <strong>Any</strong> then needs one of them to meet the run condition of its link, and <strong>All</strong> needs every one. For example, automation controller can run two job templates in parallel and, when they both finish and succeed, trigger a third one that converges with <strong>All</strong>.</p></li>
+<li><p>Prompts for inventory and surveys will apply to workflow nodes in workflow job templates.</p></li>
+<li><p>If you launch from the API, running a <code class="docutils literal notranslate"><span class="pre">get</span></code> command displays a list of warnings and highlights missing components. The basic workflow for a workflow job template is illustrated below.</p></li>
+</ul>
+<img alt="Workflow Diagram" src="../_images/workflow-diagram.png" />
+<ul class="simple">
+<li><p>It is possible to launch several workflows simultaneously, and set a schedule for when to launch them. You can set notifications on workflows, such as when a job completes, similar to that of job templates.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Job slicing is intended to scale job executions horizontally. Enabling job slicing on a job template divides an inventory to be acted upon in the number of slices configured at launch time and then starts a job for each slice.</p>
+<p>It is expected that the number of slices will be equal to or less than the number of controller nodes. Setting an extremely high number of job slices (e.g., thousands), while allowed, can cause performance degradation as the job scheduler is not designed to schedule simultaneously thousands of workflow nodes, which are what the sliced jobs become.</p>
+</div>
+<ul class="simple">
+<li><p>A workflow can include other workflows (nested workflows). A workflow that would include itself, directly or through its ancestors, is recursive: automation controller refuses to start it, and that child workflow job fails with an explanation of the recursion. The parent workflow continues through its failure paths, if any.</p></li>
+<li><p>Artifacts gathered in jobs in the sub-workflow will be passed to downstream nodes.</p></li>
+<li><p>An inventory can be set at the workflow level, or prompt for inventory on launch.</p></li>
+<li><p>When launched, all job templates in the workflow that have <code class="docutils literal notranslate"><span class="pre">ask_inventory_on_launch=true</span></code> will use the workflow level inventory.</p></li>
+<li><p>Job templates that do not prompt for inventory will ignore the workflow inventory and run against their own inventory.</p></li>
+<li><p>If a workflow prompts for inventory, schedules and other workflow nodes may provide the inventory.</p></li>
+<li><p>In a workflow convergence scenario, <code class="docutils literal notranslate"><span class="pre">set_stats</span></code> data will be merged in an undefined way, so it is recommended that you set unique keys.</p></li>
+</ul>
+</section>
+<section id="extra-variables">
+<h2><span class="section-number">21.2. </span>Extra Variables<a class="headerlink" href="#extra-variables" title="Link to this heading"></a></h2>
+<p id="index-1">Also similar to job templates, workflows use surveys to specify variables to be used in the playbooks in the workflow, called extra_vars. Survey variables are combined with extra_vars defined on the workflow job template, and saved to the workflow job extra_vars. extra_vars in the workflow job are combined with job template variables when spawning jobs within the workflow.</p>
+<p>For a job template launched by a workflow, the extra variables of the job are combined in this order, where later ones override earlier ones with the same name:</p>
+<ol class="arabic simple">
+<li><p>the extra variables of the job template, as in <a class="reference internal" href="job_templates.html#ug-jobtemplates-extravars"><span class="std std-ref">Extra Variables</span></a>;</p></li>
+<li><p>the extra variables prompted in the workflow node;</p></li>
+<li><p>the artifacts of the previous jobs in the workflow (the variables they set with <code class="docutils literal notranslate"><span class="pre">set_stats</span></code>);</p></li>
+<li><p>the extra variables of the workflow job: those of the workflow job template, then the answers of its survey (including default values), then the extra variables given at launch.</p></li>
+</ol>
+<p>Workflows included in a workflow will follow the same variable precedence - they will only inherit variables if they are specifically prompted for, or defined as part of a survey.</p>
+<p>In addition to the workflow <code class="docutils literal notranslate"><span class="pre">extra_vars</span></code>, jobs and workflows ran as part of a workflow can inherit variables in the artifacts dictionary of a parent job in the workflow (also combining with ancestors further upstream in its branch). These can be defined by the <code class="docutils literal notranslate"><span class="pre">set_stats</span></code> <a class="reference external" href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/set_stats_module.html">Ansible module</a>.</p>
+<p>If you use the <code class="docutils literal notranslate"><span class="pre">set_stats</span></code> module in your playbook, you can produce results that can be consumed downstream by another job, for example, to pass the version that a deployment installed to the job that verifies it. In this example, there are two playbooks that can be combined in a workflow to exercise artifact passing:</p>
+<ul class="simple">
+<li><p><strong>invoke_set_stats.yml</strong>: first playbook in the workflow:</p></li>
+</ul>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localhost</span>
+<span class="w">  </span><span class="nt">gather_facts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">  </span><span class="nt">tasks</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Decide the release to deploy</span>
+<span class="w">      </span><span class="nt">ansible.builtin.set_fact</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">release</span><span class="p">:</span><span class="w"> </span><span class="s">"1.4.2"</span>
+
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Pass the release to the next nodes of the workflow</span>
+<span class="w">      </span><span class="nt">ansible.builtin.set_stats</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">data</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">deployed_release</span><span class="p">:</span><span class="w"> </span><span class="s">"</span><span class="cp">{{</span> <span class="nv">release</span> <span class="cp">}}</span><span class="s">"</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>use_set_stats.yml</strong>: second playbook in the workflow</p></li>
+</ul>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localhost</span>
+<span class="w">  </span><span class="nt">gather_facts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">  </span><span class="nt">tasks</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Show the release received from the previous node</span>
+<span class="w">      </span><span class="nt">ansible.builtin.debug</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">"Verifying</span><span class="nv"> </span><span class="s">release</span><span class="nv"> </span><span class="cp">{{</span> <span class="nv">deployed_release</span> <span class="cp">}}</span><span class="s">"</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">set_stats</span></code> module processes this workflow as follows:</p>
+<ol class="arabic simple">
+<li><p>The <strong>invoke_set_stats</strong> playbook invokes <code class="docutils literal notranslate"><span class="pre">set_stats</span></code> to save <code class="docutils literal notranslate"><span class="pre">deployed_release</span></code> as an artifact of its job.</p></li>
+<li><p>The next node of the workflow receives the artifacts of its parent as extra variables, so the <strong>use_set_stats</strong> playbook can use <code class="docutils literal notranslate"><span class="pre">deployed_release</span></code>.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For artifacts to work, keep the default setting, <code class="docutils literal notranslate"><span class="pre">per_host</span> <span class="pre">=</span> <span class="pre">False</span></code> in the <code class="docutils literal notranslate"><span class="pre">set_stats</span></code> module.</p>
+</div>
+</section>
+<section id="workflow-states">
+<h2><span class="section-number">21.3. </span>Workflow States<a class="headerlink" href="#workflow-states" title="Link to this heading"></a></h2>
+<p>The workflow job can have the following states:</p>
+<ul class="simple">
+<li><p>New and Pending</p></li>
+<li><p>Waiting</p></li>
+<li><p>Running</p></li>
+<li><p>Success</p></li>
+<li><p>Failed (see the scenarios above)</p></li>
+<li><p>Error</p></li>
+<li><p>Canceled</p></li>
+</ul>
+<p>Canceling a job of a workflow marks that node as canceled, which counts as a failure: its <strong>Run on fail</strong> and <strong>Run always</strong> children still run. Canceling the workflow job cancels its running jobs and starts no new nodes.</p>
+</section>
+<section id="role-based-access-controls">
+<h2><span class="section-number">21.4. </span>Role-Based Access Controls<a class="headerlink" href="#role-based-access-controls" title="Link to this heading"></a></h2>
+<p>To edit and delete a workflow job template, you must have its admin role. To create a workflow job template, you need the <strong>Organization WorkflowJobTemplate Admin</strong> role on its organization (organization administrators and system administrators have it); if it uses an inventory, you also need the Use role on that inventory. However, you can run a workflow job template that contains job templates you don’t have permissions for. Similar to projects, organization admins can create a blank workflow and then grant an ‘admin_role’ to a low-level user, after which they can go about delegating more access and building the graph. You must have execute access to a job template to add it to a workflow job template.</p>
+<p>Other tasks such as the ability to make a duplicate copy and re-launch a workflow can also be performed, depending on what kinds of permissions are granted to a particular user. Generally, you should have permissions to all the resources used in a workflow (like job templates) before relaunching or making a copy.</p>
+<p>For more information on performing the tasks described in this section, refer to the <a class="reference internal" href="../administration/index.html#ag-start"><span class="std std-ref">Administration Guide</span></a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="job_slices.html" class="btn btn-neutral float-left" title="20. Job Slicing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="workflow_templates.html" class="btn btn-neutral float-right" title="22. Workflow Job Templates" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Koios Solutions. Portions 2026, Red Hat, Inc. and 2026, CtrlIQ, Inc..</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+<p class="koios-legal">Licensed under the <a href="../LICENSE.txt">Apache License 2.0</a>; see the <a href="../NOTICE.txt">NOTICE</a> for the origin of this documentation.</p>
+
+</body>
+</html>

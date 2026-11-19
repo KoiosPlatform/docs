@@ -1,0 +1,869 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>19. Job Templates &ndash; Koios Automation Platform</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ansible.css?v=5657ca2d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/rtd-ethical-ads.css?v=289b023e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/dark.css?v=82723a23" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments-dark.css?v=027e451e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/koios.css?v=808fdb03" />
+
+  
+    <link rel="shortcut icon" href="../_static/images/koios-favicon.svg"/>
+    <link rel="canonical" href="https://docs.koioss.com/userguide/job_templates.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2d018451"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=b8bcef97"></script>
+      <script src="../_static/js/theme-toggle.js?v=59cbb094"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="20. Job Slicing" href="job_slices.html" />
+    <link rel="prev" title="18. Labels" href="labels.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+<script>
+  (function () {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('koios-docs-theme');
+    } catch (e) {}
+    // Without a stored choice, follow the system preference (dark when it cannot be read).
+    var light = false;
+    try { light = window.matchMedia('(prefers-color-scheme: light)').matches; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', stored || (light ? 'light' : 'dark'));
+  })();
+</script>
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="#" class="asc-theme-toggle" title="Switch theme" aria-label="Switch theme"><svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg></a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../_static/images/koios-mark-white.svg"
+    alt="Koios">
+  <div class="DocSiteNav-title">Koios Automation Platform</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Koios Automation Platform
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Koios Automation Platform Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Install and upgrade</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade_migration/index.html">Upgrades and Migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configure the platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/index.html">Configure the platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Access management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access/index.html">Authentication and access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation execution</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Automating with Koios Automation Platform</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html">Automating with Koios Automation Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html">1. Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging_in.html">2. Logging In</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main_menu.html">3. The User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main_menu.html#the-settings-menu">4. The Settings Menu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="search_sort.html">5. Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="organizations.html">6. Organizations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="users.html">7. Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="teams.html">8. Teams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credentials.html">9. Credentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credential_plugins.html">10. Secret Management System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credential_types.html">11. Custom Credential Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="execution_environments.html">12. Execution Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ee_reference.html">13. Execution Environment Setup Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="projects.html">14. Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project-sign.html">15. Project Signing and Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventories.html">16. Inventories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventory_plugins_templates.html">17. Supported Inventory Plugin Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="labels.html">18. Labels</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">19. Job Templates</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-job-template">19.1. Create a Job Template</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-permissions">19.2. Add Permissions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#work-with-notifications">19.3. Work with Notifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#view-completed-jobs">19.4. View Completed Jobs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scheduling">19.5. Scheduling</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#schedule-a-job-template">19.5.1. Schedule a Job Template</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#surveys">19.6. Surveys</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#create-a-survey">19.6.1. Create a Survey</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#optional-survey-questions">19.6.2. Optional Survey Questions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#launch-a-job-template">19.7. Launch a Job Template</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#copy-a-job-template">19.8. Copy a Job Template</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gathering-facts">19.8.1. Gathering Facts</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#fact-caching">19.9. Fact Caching</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#benefits-of-fact-caching">19.9.1. Benefits of Fact Caching</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#utilizing-cloud-credentials">19.10. Utilizing Cloud Credentials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#provisioning-callbacks">19.11. Provisioning Callbacks</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#passing-extra-variables-to-provisioning-callbacks">19.11.1. Passing Extra Variables to Provisioning Callbacks</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#extra-variables">19.12. Extra Variables</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#relaunching-job-templates">19.12.1. Relaunching Job Templates</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="job_slices.html">20. Job Slicing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflows.html">21. Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_templates.html">22. Workflow Job Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instance_groups.html">23. Instance Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jobs.html">24. Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhooks.html">25. Working with Webhooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notifications.html">26. Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notification_parameters_supported.html">27. Supported Attributes for Custom Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduling.html">28. Schedules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="best_practices.html">29. Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">30. Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html">31. Glossary</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation decisions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../eda/index.html">Event-Driven Ansible</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hub/index.html">Automation hub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operate</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../operate/index.html">Operate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../administration/index.html">Administering Koios Automation Platform Deployments</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration as code and API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/casc.html">Configuration as code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rest_api/index.html">automation controller API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/releases.html">Releases</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Koios Automation Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Automating with Koios Automation Platform</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">19. </span>Job Templates</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <section id="job-templates">
+<span id="ug-jobtemplates"></span><h1><span class="section-number">19. </span>Job Templates<a class="headerlink" href="#job-templates" title="Link to this heading"></a></h1>
+<p id="index-0">A <a class="reference internal" href="glossary.html#term-Job-Template"><span class="xref std std-term">job template</span></a> is a definition and set of parameters for running an Ansible job. Job templates are useful to execute the same job many times. Job templates also encourage the reuse of Ansible playbook content and collaboration between teams.</p>
+<p>Open <strong>Automation Execution &gt; Templates</strong>. The <strong>Automation Templates</strong> list shows the job templates and workflow job templates you can see, with their type, labels, organization and when they last ran. Expand a row with the arrow next to it to see more details. The list is sorted by name, but you can sort by other criteria, or search by various fields and attributes of a template.</p>
+<p><img alt="The Automation Templates list with two job templates" src="../_images/job-templates-home-with-example-job-template.png" /></p>
+<p>Each row has <strong>Launch template</strong> (rocket icon), <strong>Edit template</strong> (pencil icon) and, in its menu, <strong>Duplicate template</strong> and <strong>Delete template</strong>. To delete several templates, select them and click <strong>Delete templates</strong> in the toolbar menu. Before deleting a job template, be sure it is not used in a workflow job template.</p>
+<blockquote id="deletion-warning">
+<div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When you delete items, a confirmation window lists them and asks you to confirm the deletion; it does not list the other items that use them. Templates that used a deleted item keep existing without it: a job template without project cannot be launched until you select another one; without inventory, it needs another one, selected in the template or, if the template prompts for it, at launch; a deleted credential is simply removed from the templates, which run without it. Below is an example of the confirmation window:</p>
+<img alt="The confirmation window to permanently delete an inventory" src="../_images/warning-deletion-dependencies.png" />
+</div>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Job templates can be used to build a workflow template. Workflow job templates have <strong>View workflow visualizer</strong> in their row menu, to build the workflow graphically. Many parameters in a job template allow you to enable <strong>Prompt on launch</strong> that can be modified at the workflow level, and do not affect the values assigned at the job template level. For instructions, see the <a class="reference internal" href="workflow_templates.html#ug-wf-editor"><span class="std std-ref">Workflow Visualizer</span></a> section.</p>
+</div>
+<section id="create-a-job-template">
+<h2><span class="section-number">19.1. </span>Create a Job Template<a class="headerlink" href="#create-a-job-template" title="Link to this heading"></a></h2>
+<p>To create a new job template:</p>
+<ol class="arabic simple">
+<li><p>In the Templates list, click <strong>Create template</strong> and select <strong>Create job template</strong>.</p></li>
+</ol>
+<img alt="The Create template menu" src="../_images/job-templates-create-menu.png" />
+<ol class="arabic simple" start="2">
+<li><p>Enter the appropriate details into the following fields:</p></li>
+</ol>
+<p><img alt="The Create job template form" src="../_images/job-templates-create-new-job-template.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If a field has the <strong>Prompt on launch</strong> checkbox selected, launching the job will prompt you for the value for that field upon launch. Most prompted values will override any values set in the job template; exceptions are noted below.</p>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 13.3%" />
+<col style="width: 53.3%" />
+<col style="width: 33.3%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Options</p></th>
+<th class="head"><p>Prompt on launch</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Name</strong></p></td>
+<td><p>Enter a name for the job template (required).</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Description</strong></p></td>
+<td><p>Enter an arbitrary description as appropriate (optional).</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Job type</strong></p></td>
+<td><dl class="simple">
+<dt>Choose a job type:</dt><dd><ul class="simple">
+<li><p><strong>Run</strong>: Execute the playbook when launched, running Ansible tasks on the selected hosts.</p></li>
+<li><p><strong>Check</strong>: Perform a “dry run” of the playbook and report changes that would be made without actually making them. Tasks that do not support check mode will be skipped and will not report potential changes.</p></li>
+</ul>
+</dd>
+</dl>
+<p>More information on job types can be found in the <a class="reference external" href="https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_intro.html#playbook-execution">Playbook execution</a> section of the Ansible documentation.</p>
+</td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Inventory</strong></p></td>
+<td><p>Choose the inventory to be used with this job template from the inventories available to the currently logged in user. You need the Use role on an inventory to use it in a job template. It is required unless it is prompted on launch.</p></td>
+<td><p>Yes. Prompts appear in the <strong>Prompts</strong> step of the launch wizard.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Project</strong></p></td>
+<td><p>Choose the project to be used with this job template from the projects available to the currently logged in user (required).</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Source control branch</strong></p></td>
+<td><p>This field is only present if you chose a project that allows branch override. Specify the overriding branch to use in your job run. If left blank, the specified branch (or commit hash or tag) from the project is used. For more detail, see <a class="reference internal" href="jobs.html#ug-job-branching"><span class="std std-ref">job branch overriding</span></a>.</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Playbook</strong></p></td>
+<td><p>Choose the playbook to be launched with this job template from the playbooks found in the selected project (required). It is available once a project is selected.</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Execution environment</strong></p></td>
+<td><p>Select the container image to be used to run this job. If left blank, the execution environment of the project, the organization or the default one is used.</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Credentials</strong></p></td>
+<td><p>Choose the credentials to be used with this job template. You can select one credential of each type, except Vault credentials with different Vault IDs.</p></td>
+<td><ul class="simple">
+<li><p>If selected, upon launching a job template that has a default credential and supplying another credential will replace the default credential if it is the same type. Example of such a message:</p></li>
+</ul>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">Job Template default credentials must be replaced</span>
+<span class="l l-Scalar l-Scalar-Plain">with one of the same type. Please select a credential</span>
+<span class="l l-Scalar l-Scalar-Plain">for the following types in order to proceed</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Machine.</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Alternatively, you can add more credentials as you see fit.</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Policy enforcement</strong></p></td>
+<td><p>A policy to evaluate before the jobs of this template run, when policy enforcement is configured (optional).</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Labels</strong></p></td>
+<td><ul class="simple">
+<li><p>Optionally supply labels that describe this job template, such as “dev” or “test”. Labels can be used to group and filter job templates and completed jobs.</p></li>
+<li><p>Type a name to select an existing label or to create a new one. Labels belong to the organization of the job template. Members of the organization can create labels on a job template if they have edit permissions (such as the admin role).</p></li>
+<li><p>Jobs get the labels of the job template when they are launched, and keep them: removing a label from the job template does not remove it from the jobs that were already launched. A label that is no longer used by any template, job or other resource is deleted.</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p>If selected, even if a default value is supplied, you will be prompted upon launch to supply additional labels if needed.</p></li>
+<li><p>You cannot remove the default labels at launch, only the ones you added.</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Forks</strong></p></td>
+<td><p>The number of parallel or simultaneous processes to use while executing the playbook. A value of zero uses the Ansible default setting, which is 5 parallel processes unless overridden in the <code class="docutils literal notranslate"><span class="pre">ansible.cfg</span></code> of the project or the execution environment.</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Limit</strong></p></td>
+<td><p>A host pattern to further constrain the list of hosts managed or affected by the playbook. Multiple patterns can be separated by colons (<code class="docutils literal notranslate"><span class="pre">:</span></code>). As with core Ansible, <code class="docutils literal notranslate"><span class="pre">a:b</span></code> means “in group a or b”, <code class="docutils literal notranslate"><span class="pre">a:b:&amp;c</span></code> means “in a or b but must be in c”, and <code class="docutils literal notranslate"><span class="pre">a:!b</span></code> means “in a, and definitely not in b”. For more information and examples refer to <a class="reference external" href="https://docs.ansible.com/ansible/latest/inventory_guide/intro_patterns.html">Patterns</a> in the Ansible documentation.</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Verbosity</strong></p></td>
+<td><p>Control the level of output Ansible produces as the playbook executes. Choose the verbosity from Normal to various Verbose or Debug settings. Verbose logging includes the output of all commands. Debug logging is exceedingly verbose and includes information on SSH operations that can be useful in certain support instances. Most users do not need to see debug mode output.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Verbosity 5 causes automation controller to block heavily when jobs are running, which could delay reporting that the job has finished (even though it has) and can cause the browser tab to lock up.</p>
+</div>
+</td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Job slicing</strong></p></td>
+<td><p>Specify the number of slices you want this job template to run. Each slice will run the same tasks against a portion of the inventory. For more information about job slices, see <a class="reference internal" href="job_slices.html#ug-job-slice"><span class="std std-ref">Job Slicing</span></a>.</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Timeout</strong></p></td>
+<td><dl class="simple">
+<dt>Allows you to specify the length of time (in seconds) that the job may run before it is canceled. Some caveats for setting the timeout value:</dt><dd><ul class="simple">
+<li><p>There is a global timeout defined in the settings which defaults to 0, indicating no timeout.</p></li>
+<li><p>A negative timeout (&lt;0) on a job template is a true “no timeout” on the job.</p></li>
+<li><p>A timeout of 0 on a job template defaults the job to the global timeout (which is no timeout by default).</p></li>
+<li><p>A positive timeout sets the timeout for that job template.</p></li>
+</ul>
+</dd>
+</dl>
+</td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Show changes</strong></p></td>
+<td><p>Allows you to see the changes made by Ansible tasks.</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Instance groups</strong></p></td>
+<td><p>Choose <a class="reference internal" href="../administration/containers_instance_groups.html#ag-instance-groups"><span class="std std-ref">Instance Groups</span></a> to associate with this job template, in order of preference. Note, job template instance groups contribute to the job scheduling criteria, see <a class="reference internal" href="../administration/containers_instance_groups.html#ag-instance-groups-job-runtime-behavior"><span class="std std-ref">Job Runtime Behavior</span></a> and <a class="reference internal" href="../administration/containers_instance_groups.html#ag-instance-groups-control-where-job-runs"><span class="std std-ref">Control Where a Job Runs</span></a> for rules. You need the Use role on an instance group to use it in a job template.</p></td>
+<td><ul class="simple">
+<li><p>Yes. If selected, you are providing the jobs preferred instance groups in order of preference. If the first group is out of capacity, subsequent groups in the list will be considered until one with capacity is available, at which point that will be selected to run the job.</p></li>
+<li><p>If you prompt for an instance group, what you enter replaces the normal instance group hierarchy and overrides all of the organizations’ and inventories’ instance groups.</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><strong>Job tags</strong></p></td>
+<td><p>Type and select or create the tags that specify which parts of the playbook should be executed. For more information and examples refer to <a class="reference external" href="https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_tags.html">Tags</a> in the Ansible documentation.</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Skip tags</strong></p></td>
+<td><p>Type and select or create the tags of the tasks or parts of the playbook to skip. For more information and examples refer to <a class="reference external" href="https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_tags.html">Tags</a> in the Ansible documentation.</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Extra variables</strong></p></td>
+<td><ul class="simple">
+<li><p>Pass extra command line variables to the playbook. This is the “-e” or “–extra-vars” command line parameter for ansible-playbook that is documented in the Ansible documentation at <a class="reference external" href="https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_variables.html#defining-variables-at-runtime">Defining variables at runtime</a>.</p></li>
+<li><p>Provide key/value pairs using either YAML or JSON. These variables have a maximum value of precedence and overrides other variables specified elsewhere. An example value might be:</p></li>
+</ul>
+<blockquote>
+<div><div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="nt">git_branch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">production</span>
+<span class="nt">release_version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.5</span>
+</pre></div>
+</div>
+</div></blockquote>
+</td>
+<td><p>Yes. If you want to be able to specify <code class="docutils literal notranslate"><span class="pre">extra_vars</span></code> on a schedule, you must select <strong>Prompt on launch</strong> for <strong>Extra variables</strong> on the job template, or enable a survey on the job template, then those answered survey questions become <code class="docutils literal notranslate"><span class="pre">extra_vars</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="3">
+<li><p><strong>Options</strong>: Specify options for launching this template, if necessary.</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Privilege escalation</strong>: If checked, you enable this playbook to run as an administrator. This is the equivalent of passing the <code class="docutils literal notranslate"><span class="pre">--become</span></code> option to the <code class="docutils literal notranslate"><span class="pre">ansible-playbook</span></code> command.</p></li>
+<li><p><strong>Provisioning callback</strong>: If checked, you enable a host to call back to automation controller via the REST API and invoke the launch of a job from this job template. It asks for a <strong>Host config key</strong>. Refer to <a class="reference internal" href="#ug-provisioning-callbacks"><span class="std std-ref">Provisioning Callbacks</span></a> for additional information.</p></li>
+<li><p><strong>Enable webhook</strong>: Turns on the ability to launch the job template from a GitHub, GitLab or Bitbucket Data Center webhook.</p></li>
+<li><p><strong>Concurrent jobs</strong>: If checked, separate launches of this job template can run at the same time instead of waiting for the previous job to finish. The slices of a single sliced launch always run simultaneously, with or without this option. Refer to <a class="reference internal" href="jobs.html#ug-job-concurrency"><span class="std std-ref">Automation controller Capacity Determination and Job Impact</span></a> for additional information.</p></li>
+<li><p><strong>Enable fact storage</strong>: When checked, automation controller will store gathered facts for all hosts in an inventory related to the job running. See <a class="reference internal" href="#ug-fact-caching"><span class="std std-ref">Fact Caching</span></a>.</p></li>
+<li><p><strong>Prevent instance group fallback</strong>: Check this option to allow only the instance groups listed in the <strong>Instance groups</strong> field above to execute the job. If unchecked, all available instances in the execution pool will be used based on the hierarchy described in <a class="reference internal" href="../administration/containers_instance_groups.html#ag-instance-groups-control-where-job-runs"><span class="std std-ref">Control Where a Job Runs</span></a>. Click the help icon next to the option for more information.</p></li>
+</ul>
+</div></blockquote>
+<blockquote id="ug-jt-enable-webhooks">
+<div><p>If you enable webhooks, the <strong>Webhook details</strong> section asks for additional information:</p>
+<blockquote>
+<div><img alt="The Webhook details section of the Create job template form" src="../_images/job-templates-options-webhooks.png" />
+<ul class="simple">
+<li><p><strong>Webhook service</strong>: Select which service to listen for webhooks from: GitHub, GitLab or Bitbucket Data Center.</p></li>
+<li><p><strong>Webhook URL</strong>: Automatically populated with the URL for the webhook service to POST requests to.</p></li>
+<li><p><strong>Webhook key</strong>: The shared secret used by the webhook service to sign payloads sent to automation controller. A new key is generated when the template is saved, and you can regenerate it with the button next to the field. Configure it in the webhook settings of the service so that automation controller accepts its webhooks.</p></li>
+<li><p><strong>Webhook credential</strong>: A token credential used to send status updates to the webhook service. For supported providers and configuration, see <a class="reference internal" href="webhooks.html#ug-webhooks"><span class="std std-ref">Working with Webhooks</span></a>; the credential types and their fields are documented in <a class="reference internal" href="credentials.html#ug-credentials-cred-types"><span class="std std-ref">Credential Types</span></a>.</p></li>
+</ul>
+<p>For additional information on setting up webhooks, see <a class="reference internal" href="webhooks.html#ug-webhooks"><span class="std std-ref">Working with Webhooks</span></a>.</p>
+</div></blockquote>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li><p>When you have completed configuring the details of the job template, click <strong>Create job template</strong>.</p></li>
+</ol>
+<p>The template opens in its <strong>Details</strong> tab, with <strong>Launch template</strong> and <strong>Edit template</strong> at the top and the <strong>Team Access</strong>, <strong>User Access</strong>, <strong>Schedules</strong>, <strong>Jobs</strong>, <strong>Survey</strong> and, when your permissions allow it, <strong>Notifications</strong> tabs.</p>
+<img alt="Details of a job template" src="../_images/job-templates-job-template-details.png" />
+</section>
+<section id="add-permissions">
+<h2><span class="section-number">19.2. </span>Add Permissions<a class="headerlink" href="#add-permissions" title="Link to this heading"></a></h2>
+<p>The <strong>User Access</strong> and <strong>Team Access</strong> tabs list the users and teams with roles on the job template; <strong>Assign users</strong> and <strong>Assign teams</strong> give roles to more of them, such as <strong>JobTemplate Execute</strong> to launch it. Users must exist first; see <a class="reference internal" href="users.html#ug-users"><span class="std std-ref">Users</span></a>.</p>
+</section>
+<section id="work-with-notifications">
+<h2><span class="section-number">19.3. </span>Work with Notifications<a class="headerlink" href="#work-with-notifications" title="Link to this heading"></a></h2>
+<p>The <strong>Notifications</strong> tab lists the notifiers you can use with the job template.</p>
+<img alt="The Notifications tab of a job template with a notifier enabled on success and failure" src="../_images/job-template-completed-notifications-view.png" />
+<p>Use the <strong>Start</strong>, <strong>Success</strong> and <strong>Failure</strong> toggles to enable or disable each notifier for the jobs of this template. For more detail, see <a class="reference internal" href="notifications.html#ug-notifications-on-off"><span class="std std-ref">Enable and Disable Notifications</span></a>.</p>
+<p>If no notifiers have been set up, create them in <strong>Automation Execution &gt; Administration &gt; Notifiers</strong>. Refer to <a class="reference internal" href="notifications.html#ug-notifications-types"><span class="std std-ref">Notification Types</span></a> for additional details on configuring various notification types and extended messaging.</p>
+</section>
+<section id="view-completed-jobs">
+<h2><span class="section-number">19.4. </span>View Completed Jobs<a class="headerlink" href="#view-completed-jobs" title="Link to this heading"></a></h2>
+<p>The <strong>Jobs</strong> tab lists the jobs launched from the job template, with their status and when they started and finished. Expand a row to see more details, such as who launched the job and with which inventory, project and credentials; click a job to open its output. You can filter the list using any of these criteria. The row actions relaunch a job.</p>
+<img alt="The Jobs tab of a job template" src="../_images/job-template-completed-jobs-view.png" />
+<p>Sliced jobs are shown as a workflow job with the number of slices that ran; see <a class="reference internal" href="job_slices.html#ug-job-slice"><span class="std std-ref">Job Slicing</span></a>.</p>
+</section>
+<section id="scheduling">
+<h2><span class="section-number">19.5. </span>Scheduling<a class="headerlink" href="#scheduling" title="Link to this heading"></a></h2>
+<p id="index-1">Access the schedules for a particular job template from the <strong>Schedules</strong> tab.</p>
+<p><img alt="The Schedules tab of a job template with a weekly schedule" src="../_images/job-templates-schedules.png" /></p>
+<section id="schedule-a-job-template">
+<h3><span class="section-number">19.5.1. </span>Schedule a Job Template<a class="headerlink" href="#schedule-a-job-template" title="Link to this heading"></a></h3>
+<p id="index-2">To schedule a job template run, click <strong>Create schedule</strong> in the <strong>Schedules</strong> tab. Existing schedules can be edited, enabled or disabled from the same tab. Refer to <a class="reference internal" href="scheduling.html#ug-scheduling"><span class="std std-ref">Schedules</span></a> for more information.</p>
+<p>If the job template prompts for values on launch, the schedule asks for them too. If <strong>Prompt on launch</strong> was selected for the <strong>Credentials</strong> field, you cannot remove the default machine credential of the schedule without replacing it with another machine credential. If the job template has a survey with required questions, the schedule must answer them.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To be able to set <code class="docutils literal notranslate"><span class="pre">extra_vars</span></code> on schedules, you must select <strong>Prompt on launch</strong> for <strong>Extra variables</strong> on the job template, or configure and enable a survey on the job template, then those answered survey questions become <code class="docutils literal notranslate"><span class="pre">extra_vars</span></code>.</p>
+</div>
+</section>
+</section>
+<section id="surveys">
+<span id="ug-surveys"></span><h2><span class="section-number">19.6. </span>Surveys<a class="headerlink" href="#surveys" title="Link to this heading"></a></h2>
+<p id="index-3">Job types of Run or Check will provide a way to set up surveys in the job template. Surveys set extra variables for the playbook similar to ‘Prompt for Extra Variables’ does, but in a user-friendly question and answer way. Surveys also allow for validation of user input. Click the <strong>Survey</strong> tab to create a survey.</p>
+<p>Use cases for surveys are numerous. An example might be if operations wanted to give developers a “push to stage” button they could run without advanced Ansible knowledge. When launched, this task could prompt for answers to questions such as, “What tag should we release?”</p>
+<p>Many types of questions can be asked, including multiple-choice questions.</p>
+<section id="create-a-survey">
+<span id="ug-surveys-create"></span><h3><span class="section-number">19.6.1. </span>Create a Survey<a class="headerlink" href="#create-a-survey" title="Link to this heading"></a></h3>
+<p id="index-4">To create a survey:</p>
+<ol class="arabic simple">
+<li><p>In the <strong>Survey</strong> tab, click <strong>Create survey question</strong>.</p></li>
+<li><p>A survey can consist of any number of questions. For each question, enter the following information:</p></li>
+</ol>
+<ul class="simple">
+<li><p><strong>Question</strong>: The question to ask the user</p></li>
+<li><p><strong>Description</strong>: (optional) A description of what’s being asked of the user.</p></li>
+<li><p><strong>Answer variable name</strong>: The Ansible variable name to store the user’s response in. This is the variable to be used by the playbook. Variable names cannot contain spaces.</p></li>
+<li><p><strong>Answer type</strong>: Choose from the following question types.</p>
+<ul>
+<li><p><em>Text</em>: A single line of text. You can set the minimum and maximum length (in characters) for this answer.</p></li>
+<li><p><em>Textarea</em>: A multi-line text field. You can set the minimum and maximum length (in characters) for this answer.</p></li>
+<li><p><em>Password</em>: Responses are treated as sensitive information, much like an actual password is treated. You can set the minimum and maximum length (in characters) for this answer.</p></li>
+<li><p><em>Multiple Choice (single select)</em>: A list of options, of which only one can be selected at a time. Enter the options in the form.</p></li>
+<li><p><em>Multiple Choice (multiple select)</em>: A list of options, any number of which can be selected at a time. Enter the options in the form.</p></li>
+<li><p><em>Integer</em>: An integer number. You can set the minimum and maximum value for this answer.</p></li>
+<li><p><em>Float</em>: A decimal number. You can set the minimum and maximum value for this answer.</p></li>
+</ul>
+</li>
+<li><p><strong>Required</strong>: Whether or not an answer to this question is required from the user.</p></li>
+<li><p><strong>Minimum length</strong> and <strong>Maximum length</strong> (<strong>Minimum</strong> and <strong>Maximum</strong> for numbers): Specify if a certain length or value of the answer is required.</p></li>
+<li><p><strong>Default answer</strong>: The default answer to the question. This value is pre-filled in the interface and is used if the answer is not provided by the user.</p></li>
+</ul>
+<img alt="The form to create a survey question" src="../_images/job-template-create-survey.png" />
+<ol class="arabic simple" start="3">
+<li><p>Once you have entered the question information, click <strong>Create survey question</strong>.</p></li>
+</ol>
+<p>The question displays in the <strong>Survey</strong> tab. For any question, you can click the pencil icon to edit it, or select questions and use <strong>Delete survey questions</strong> in the toolbar menu. Use the <strong>Survey enabled</strong> switch to enable or disable the survey.</p>
+<p><img alt="The Survey tab of a job template with two questions" src="../_images/job-template-completed-survey.png" /></p>
+<p>If you have more than one survey question, use <strong>Manage question order</strong> in the toolbar menu to rearrange the questions by dragging them, and click <strong>Apply</strong>.</p>
+<img alt="The Manage question order window" src="../_images/job-template-rearrange-survey.png" />
+<ol class="arabic simple" start="4">
+<li><p>To add more questions, click <strong>Create survey question</strong> again.</p></li>
+</ol>
+</section>
+<section id="optional-survey-questions">
+<h3><span class="section-number">19.6.2. </span>Optional Survey Questions<a class="headerlink" href="#optional-survey-questions" title="Link to this heading"></a></h3>
+<p id="index-5">The <strong>Required</strong> setting on a survey question determines whether the answer is optional or not for the user interacting with it.</p>
+<p>Behind the scenes, optional survey variables can be passed to the playbook in <code class="docutils literal notranslate"><span class="pre">extra_vars</span></code>, even when they aren’t filled in.</p>
+<ul class="simple">
+<li><p>If a non-text variable (input type) is marked as optional, and is not filled in, no survey <code class="docutils literal notranslate"><span class="pre">extra_var</span></code> is passed to the playbook.</p></li>
+<li><p>If a text input or text area input is marked as optional, is not filled in, and has a minimum <code class="docutils literal notranslate"><span class="pre">length</span> <span class="pre">&gt;</span> <span class="pre">0</span></code>, no survey <code class="docutils literal notranslate"><span class="pre">extra_var</span></code> is passed to the playbook.</p></li>
+<li><p>If a text input or text area input is marked as optional, is not filled in, and has a minimum <code class="docutils literal notranslate"><span class="pre">length</span> <span class="pre">===</span> <span class="pre">0</span></code>, that survey <code class="docutils literal notranslate"><span class="pre">extra_var</span></code> is passed to the playbook, with the value set to an empty string ( “” ).</p></li>
+</ul>
+</section>
+</section>
+<section id="launch-a-job-template">
+<h2><span class="section-number">19.7. </span>Launch a Job Template<a class="headerlink" href="#launch-a-job-template" title="Link to this heading"></a></h2>
+<p id="index-6">A major benefit of automation controller is the push-button deployment of Ansible playbooks. You can easily configure a template to store all parameters you would normally pass to the ansible-playbook on the command line–not just the playbooks, but the inventory, credentials, extra variables, and all options and settings you can specify on the command line.</p>
+<p>Easier deployments drive consistency, by running your playbooks the same way each time, and allow you to delegate responsibilities–even users who aren’t Ansible experts can run playbooks written by others.</p>
+<p>Launch a job template by any of the following ways:</p>
+<ul class="simple">
+<li><p>In the Templates list, click <strong>Launch template</strong> (rocket icon) in the row of the template.</p></li>
+<li><p>In the job template, click <strong>Launch template</strong>.</p></li>
+</ul>
+<p>A job may require additional information to run. The launch wizard then asks for it in these steps, as needed:</p>
+<ul class="simple">
+<li><p><strong>Prompts</strong>: the fields with <strong>Prompt on launch</strong> selected</p></li>
+<li><p><strong>Credential Passwords</strong>: passwords or passphrases of the credentials that have been set to ask at launch</p></li>
+<li><p><strong>Survey</strong>: the questions of the survey, if one is enabled</p></li>
+<li><p><strong>Review</strong>: a summary of the values, before you click <strong>Finish</strong> to launch the job</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If a job has user-provided values, then those are respected upon relaunch. If the user did not specify a value, then the job uses the default value from the job template. Jobs are not relaunched as-is. They are relaunched with the user prompts re-applied to the job template.</p>
+</div>
+<p>Below is an example job launch that prompts for job tags, and runs the example survey created in <a class="reference internal" href="#ug-surveys"><span class="std std-ref">Surveys</span></a>.</p>
+<p><img alt="The Prompts step of the launch wizard asking for job tags" src="../_images/job-launch-with-prompt-at-launch-jobtags.png" /></p>
+<p><img alt="The Survey step of the launch wizard" src="../_images/job-launch-with-prompt-at-launch-survey.png" /></p>
+<p id="ug-jt-job-variables">Along with any extra variables set in the job template and survey, automation controller automatically adds the following variables to the job environment. These variables are defined by the system and cannot be overridden; variables about the job context, like <code class="docutils literal notranslate"><span class="pre">tower_job_template_name</span></code>, are not affected if they are set in <code class="docutils literal notranslate"><span class="pre">extra_vars</span></code>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tower_job_id</span></code>: The Job ID for this job run</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tower_job_launch_type</span></code>: The description to indicate how the job was started:</p>
+<ul>
+<li><p><strong>manual</strong>: Job was started manually by a user.</p></li>
+<li><p><strong>relaunch</strong>: Job was started via relaunch.</p></li>
+<li><p><strong>callback</strong>: Job was started via host callback.</p></li>
+<li><p><strong>scheduled</strong>: Job was started from a schedule.</p></li>
+<li><p><strong>dependency</strong>: Job was started as a dependency of another job.</p></li>
+<li><p><strong>workflow</strong>: Job was started from a workflow job.</p></li>
+<li><p><strong>webhook</strong>: Job was started from a webhook event.</p></li>
+<li><p><strong>sync</strong>: Job was started from a project sync.</p></li>
+<li><p><strong>scm</strong>: Job was created as an Inventory SCM sync (deprecated).</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tower_job_template_id</span></code>: The Job Template ID that this job run uses</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tower_job_template_name</span></code>: The Job Template name that this job uses</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tower_execution_node</span></code>: The Execution Node name that launched this job</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tower_project_revision</span></code>: The current revision of the project the job template uses (<code class="docutils literal notranslate"><span class="pre">scm_revision</span></code> of the project). When the job overrides the branch, the revision of the job itself can differ; it is in the job’s field <code class="docutils literal notranslate"><span class="pre">scm_revision</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tower_project_scm_branch</span></code>: The configured default branch of the project the job template uses</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tower_job_scm_branch</span></code>: If the branch is overridden by the job, the value is shown here</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tower_user_email</span></code>: The user email of the automation controller user that started this job. This is not available for callback or scheduled jobs.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tower_user_first_name</span></code>: The user’s first name of the automation controller user that started this job. This is not available for callback or scheduled jobs.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tower_user_id</span></code>: The user ID of the automation controller user that started this job. This is not available for callback or scheduled jobs.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tower_user_last_name</span></code>: The user’s last name of the automation controller user that started this job. This is not available for callback or scheduled jobs.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tower_user_name</span></code>: The user name of the automation controller user that started this job. This is not available for callback or scheduled jobs.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tower_schedule_id</span></code>: If applicable, the ID of the schedule that launched this job</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tower_schedule_name</span></code>: If applicable, the name of the schedule that launched this job</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tower_workflow_job_id</span></code>: If applicable, the ID of the workflow job that launched this job</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tower_workflow_job_name</span></code>: If applicable, the name of the workflow job that launched this job. Note this is also the same as the workflow job template.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tower_workflow_job_launch_type</span></code>: If applicable, how the workflow job that launched this job was started</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tower_parent_job_schedule_id</span></code> and <code class="docutils literal notranslate"><span class="pre">tower_parent_job_schedule_name</span></code>: If applicable, the schedule that launched the parent workflow job</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tower_inventory_id</span></code>: If applicable, the ID of the inventory this job uses</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tower_inventory_name</span></code>: If applicable, the name of the inventory this job uses</p></li>
+</ul>
+<p>Each variable is also defined with the deprecated <code class="docutils literal notranslate"><span class="pre">awx_</span></code> prefix (for example, <code class="docutils literal notranslate"><span class="pre">awx_job_id</span></code>) while the <strong>Include Deprecated AWX Variable Prefix</strong> setting, in <strong>Settings &gt; Automation Execution &gt; Job</strong>, is enabled (the default). Prefer the <code class="docutils literal notranslate"><span class="pre">tower_</span></code> names.</p>
+<p>Upon launch, automation controller automatically opens the output of the new job.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can relaunch a job from the job list to re-run it on all hosts or just failed hosts in the specified inventory. Refer to <a class="reference internal" href="jobs.html#ug-jobs"><span class="std std-ref">Jobs</span></a> for more detail.</p>
+</div>
+<p>When slice jobs are running, job lists display the workflow and job slices, as well as a link to view their details individually; see <a class="reference internal" href="job_slices.html#ug-job-slice"><span class="std std-ref">Job Slicing</span></a>.</p>
+<div class="admonition note" id="ug-jobtemplates-bulk-api">
+<p class="admonition-title">Note</p>
+<p>You may launch jobs in bulk using the endpoint <code class="docutils literal notranslate"><span class="pre">/api/controller/v2/bulk/job_launch/</span></code> of the API. This endpoint accepts JSON and you can specify a list of unified job templates (such as job templates, project updates, etc) to launch. The user must have the appropriate permission to launch all the jobs. Either all jobs are launched, or an error is returned indicating why the operation was not able to complete. Use the <strong>OPTIONS</strong> request to return relevant schema.</p>
+</div>
+</section>
+<section id="copy-a-job-template">
+<h2><span class="section-number">19.8. </span>Copy a Job Template<a class="headerlink" href="#copy-a-job-template" title="Link to this heading"></a></h2>
+<p>If you choose to copy Job Template, it <strong>does not</strong> copy any associated schedule, notifications, or permissions. Schedules and notifications must be recreated by the user or admin creating the copy of the Job Template. The user copying the Job Template will be granted the admin permission, but no permissions are assigned (copied) to the Job Template.</p>
+<ol class="arabic simple">
+<li><p>In the Templates list, open the row menu of the template you want to copy and click <strong>Duplicate template</strong>.</p></li>
+</ol>
+<p>The new template, named after the original one with a timestamp, displays in the list of templates.</p>
+<ol class="arabic simple" start="2">
+<li><p>Click the new template and click <strong>Edit template</strong>.</p></li>
+<li><p>Replace the contents of the <strong>Name</strong> field with a new name, and provide or modify the entries in the other fields to complete this page.</p></li>
+<li><p>Click <strong>Save job template</strong> when done.</p></li>
+</ol>
+<section id="gathering-facts">
+<span id="ug-jobtemplates-scanjobs"></span><h3><span class="section-number">19.8.1. </span>Gathering Facts<a class="headerlink" href="#gathering-facts" title="Link to this heading"></a></h3>
+<p id="index-7">Automation controller does not ship special scan playbooks or modules: to collect information about hosts, run a playbook that gathers facts with the standard modules and enable <strong>Enable fact storage</strong> on its job template, so that the facts are stored for each host (see <a class="reference internal" href="#ug-fact-caching"><span class="std std-ref">Fact Caching</span></a>). For example:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">all</span>
+<span class="w">  </span><span class="nt">gather_facts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">tasks</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Gather the installed packages</span>
+<span class="w">      </span><span class="nt">ansible.builtin.package_facts</span><span class="p">:</span>
+
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Gather the services</span>
+<span class="w">      </span><span class="nt">ansible.builtin.service_facts</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>The stored facts appear in the <strong>Facts</strong> tab of each host and can be used, for example, in smart and constructed inventories (see <a class="reference internal" href="inventories.html#ug-inventories"><span class="std std-ref">Inventories</span></a>). Gathering package and service facts usually needs <strong>Privilege escalation</strong> and credentials for which <code class="docutils literal notranslate"><span class="pre">become</span></code> is possible.</p>
+<p>For a custom fact module, place it in the <code class="docutils literal notranslate"><span class="pre">library/</span></code> directory of the project and call it from the playbook; it must return its data under <code class="docutils literal notranslate"><span class="pre">ansible_facts</span></code>. Refer to the <a class="reference external" href="https://docs.ansible.com/ansible/latest/dev_guide/developing_modules_general.html#creating-an-info-or-a-facts-module">Creating an info or a facts module</a> section of the Ansible documentation for more information.</p>
+</section>
+</section>
+<section id="fact-caching">
+<span id="ug-fact-caching"></span><h2><span class="section-number">19.9. </span>Fact Caching<a class="headerlink" href="#fact-caching" title="Link to this heading"></a></h2>
+<p id="index-8">Automation controller can store and retrieve facts on a per-host basis through an Ansible Fact Cache plugin. This behavior is configurable on a per-job template basis. Fact caching is turned off by default but can be enabled to serve fact requests for all hosts in an inventory related to the job running. This allows you to use job templates with <code class="docutils literal notranslate"><span class="pre">--limit</span></code> while still having access to the entire inventory of host facts. A global timeout that the plugin enforces per host can be specified (in seconds) with <strong>Per-Host Ansible Fact Cache Timeout</strong> in <strong>Settings &gt; Automation Execution &gt; Job</strong>:</p>
+<img alt="The Job Settings page with the Per-Host Ansible Fact Cache Timeout" src="../_images/configure-koios-jobs-fact-cache-timeout.png" />
+<p>Upon launching a job that uses fact cache (<code class="docutils literal notranslate"><span class="pre">use_fact_cache=True</span></code>), automation controller will store all <code class="docutils literal notranslate"><span class="pre">ansible_facts</span></code> associated with each host in the inventory associated with the job.  The Ansible Fact Cache plugin that ships with automation controller will only be enabled on jobs with fact cache enabled (<code class="docutils literal notranslate"><span class="pre">use_fact_cache=True</span></code>).</p>
+<p>When a job that has fact cache enabled (<code class="docutils literal notranslate"><span class="pre">use_fact_cache=True</span></code>) finishes running, automation controller will restore all records for the hosts in the inventory.  Any records with update times <em>newer</em> than the currently stored facts per-host will be updated in the database.</p>
+<p>New and changed facts will be logged via automation controller’s logging facility. Specifically, to the <code class="docutils literal notranslate"><span class="pre">system_tracking</span></code> namespace or logger. The logging payload will include the fields:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">host_name</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">inventory_id</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ansible_facts</span></code></p></li>
+</ul>
+</div></blockquote>
+<p>where <code class="docutils literal notranslate"><span class="pre">ansible_facts</span></code> is a dictionary of all Ansible facts for <code class="docutils literal notranslate"><span class="pre">host_name</span></code> in the automation controller inventory, <code class="docutils literal notranslate"><span class="pre">inventory_id</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If a hostname includes a forward slash (<code class="docutils literal notranslate"><span class="pre">/</span></code>), fact cache will not work for that host. If you have an inventory with 100 hosts and one host has a <code class="docutils literal notranslate"><span class="pre">/</span></code> in the name, 99 of those hosts will still collect facts.</p>
+</div>
+<section id="benefits-of-fact-caching">
+<h3><span class="section-number">19.9.1. </span>Benefits of Fact Caching<a class="headerlink" href="#benefits-of-fact-caching" title="Link to this heading"></a></h3>
+<p>Fact caching saves a significant amount of time over running fact gathering. If you have a playbook in a job that runs against a thousand hosts and forks, you could easily spend 10 minutes gathering facts across all of those hosts. But if you run a job on a regular basis, the first run of it caches these facts and the next run will just pull them from the database. This cuts the runtime of jobs against large inventories, including Smart Inventories, by an enormous magnitude.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Do not modify the <code class="docutils literal notranslate"><span class="pre">ansible.cfg</span></code> file to apply fact caching. Custom fact caching could conflict with automation controller’s fact caching feature. It is recommended to use the fact caching module that comes with automation controller.</p>
+</div>
+<p>You can choose to use cached facts in your job by enabling <strong>Enable fact storage</strong> in the <strong>Options</strong> of the job template.</p>
+<img alt="The options of a job template with Enable fact storage checked" src="../_images/job-templates-options-use-factcache.png" />
+<p>To clear facts, you need to run the Ansible <code class="docutils literal notranslate"><span class="pre">clear_facts</span></code> <a class="reference external" href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/meta_module.html#examples">meta task</a>. Below is an example playbook that uses the Ansible <code class="docutils literal notranslate"><span class="pre">clear_facts</span></code> meta task.</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">all</span>
+<span class="w">  </span><span class="nt">gather_facts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">  </span><span class="nt">tasks</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Clear gathered facts from all currently targeted hosts</span>
+<span class="w">      </span><span class="nt">meta</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">clear_facts</span>
+</pre></div>
+</div>
+<p>You can find the API endpoint for fact caching at:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">https://&lt;koios host&gt;/api/controller/v2/hosts/&lt;id&gt;/ansible_facts/</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="utilizing-cloud-credentials">
+<span id="ug-cloudcredentials"></span><h2><span class="section-number">19.10. </span>Utilizing Cloud Credentials<a class="headerlink" href="#utilizing-cloud-credentials" title="Link to this heading"></a></h2>
+<p id="index-9">Credentials for cloud and other external services can be associated with a job template. Their injectors supply values to the playbook through environment variables, files or extra variables, depending on the type. See <a class="reference internal" href="credentials.html#ug-credentials-cred-types"><span class="std std-ref">Credential Types</span></a> for the available types and fields, and <a class="reference internal" href="credential_plugins.html#ug-credential-plugins"><span class="std std-ref">Secret Management System</span></a> for linking inputs to an external secret source.</p>
+<p>Meanwhile, a custom credential type can inject the values that the modules of a service expect, for example the <code class="docutils literal notranslate"><span class="pre">AWS_ACCESS_KEY_ID</span></code> and <code class="docutils literal notranslate"><span class="pre">AWS_SECRET_ACCESS_KEY</span></code> environment variables, which all the AWS modules read without setting their key options. See <a class="reference internal" href="credential_types.html#ug-credential-types"><span class="std std-ref">Custom Credential Types</span></a>. The playbooks should use these values through the modules and never print them.</p>
+</section>
+<section id="provisioning-callbacks">
+<span id="ug-provisioning-callbacks"></span><h2><span class="section-number">19.11. </span>Provisioning Callbacks<a class="headerlink" href="#provisioning-callbacks" title="Link to this heading"></a></h2>
+<p id="index-10">Provisioning callbacks are a feature of automation controller that allow a host to initiate a playbook run against itself, rather than waiting for a user to launch a job to manage the host from the user interface. Please note that provisioning callbacks are <em>only</em> used to run playbooks on the calling host. Provisioning callbacks are meant for cloud bursting (i.e. new instances with a need for client to server communication for configuration (such as transmitting an authorization key)), not to run a job against another host. This provides for automatically configuring a system after it has been provisioned by another system (such as AWS auto-scaling, or a OS provisioning system like kickstart or preseed) or for launching a job programmatically without invoking the automation controller API directly. The Job Template launched only runs against the host requesting the provisioning.</p>
+<p>Frequently this would be accessed via a firstboot type script, or from cron.</p>
+<p>To enable callbacks, check <strong>Provisioning callback</strong> in the <strong>Options</strong> of the job template and enter a <strong>Host config key</strong>. Once the template is saved, its details show the <strong>Provisioning callback URL</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you intend to use automation controller’s provisioning callback feature with a dynamic inventory, <strong>Update on launch</strong> should be set for the inventory source of the inventory used in the job template.</p>
+</div>
+<img alt="The options of a job template with Provisioning callback checked and the Host config key field" src="../_images/provisioning-callbacks-config.png" />
+<p>The Host config key ensures that foreign hosts with the URL cannot request configuration. Please provide a custom value for Host config key. The host key may be reused across multiple hosts to apply this job template against multiple hosts. Should you wish to control what hosts are able to request configuration, the key may be changed at any time.</p>
+<p>To callback manually via REST, look at the callback URL in the UI, which is of the form:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">https://&lt;KOIOS_HOST&gt;/api/controller/v2/job_templates/7/callback/</span>
+</pre></div>
+</div>
+<p>The ‘7’ in this sample URL is the job template ID in automation controller.</p>
+<p>The request from the host must be a POST. Here is an example using curl (all on a single line):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-k<span class="w"> </span>-f<span class="w"> </span>-i<span class="w"> </span>-H<span class="w"> </span><span class="s1">'Content-Type:application/json'</span><span class="w"> </span>-XPOST<span class="w"> </span>-d<span class="w"> </span><span class="s1">'{"host_config_key": "redhat"}'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">                 </span>https://&lt;KOIOS_HOST&gt;/api/controller/v2/job_templates/7/callback/
+</pre></div>
+</div>
+<p>The requesting host must be defined in your inventory for the callback to succeed. If automation controller fails to locate the host either by name or IP address in one of your defined inventories, the request is denied. When running a Job Template in this way, the host initiating the playbook run against itself must be in the inventory. If the host is missing from the inventory, the request fails with a <code class="docutils literal notranslate"><span class="pre">No</span> <span class="pre">matching</span> <span class="pre">host</span> <span class="pre">could</span> <span class="pre">be</span> <span class="pre">found!</span></code> error message.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If your host is not in inventory and <strong>Update on launch</strong> is set for the inventory source, automation controller attempts to update the inventory source before running the callback.</p>
+</div>
+<p>Automation controller identifies the calling host from the address of the request. It collects every address found in the headers listed in the <strong>Remote Host Headers</strong> setting, adds their reverse DNS names, and compares the results against each host’s <code class="docutils literal notranslate"><span class="pre">ansible_host</span></code> value (or host name) in the job template’s inventory. The job runs only if exactly one host matches. If no host matches, the request fails with <code class="docutils literal notranslate"><span class="pre">No</span> <span class="pre">matching</span> <span class="pre">host</span> <span class="pre">could</span> <span class="pre">be</span> <span class="pre">found!</span></code>, and if more than one host matches, it fails with <code class="docutils literal notranslate"><span class="pre">Multiple</span> <span class="pre">hosts</span> <span class="pre">matched</span> <span class="pre">the</span> <span class="pre">request!</span></code>.</p>
+<p>When automation controller runs on Kubernetes, it sits behind an ingress controller, so the default <strong>Remote Host Headers</strong> setting identifies every callback as coming from the ingress rather than from the calling host. To use provisioning callbacks, configure automation controller to read the client address from <code class="docutils literal notranslate"><span class="pre">X-Forwarded-For</span></code> and make sure your ingress passes the real client address. See <a class="reference internal" href="../administration/proxy_support.html#ag-proxy-support"><span class="std std-ref">Proxy Support</span></a> for details, including the configuration needed on K3s.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not include ingress controller or Kubernetes node addresses in an inventory used for provisioning callbacks. Depending on your configuration, automation controller can see the ingress address alongside the calling host’s address and run the job against the ingress host instead.</p>
+</div>
+<p>Successful requests result in a new job, where the results and history can be viewed.</p>
+<p>Instead of a simple <code class="docutils literal notranslate"><span class="pre">curl</span></code> request, you can use the example scripts of AWX, <code class="docutils literal notranslate"><span class="pre">tools/scripts/request_tower_configuration.sh</span></code> (Linux/UNIX) and <code class="docutils literal notranslate"><span class="pre">tools/scripts/request_tower_configuration.ps1</span></code> (Windows), from the <a class="reference external" href="https://github.com/ansible/awx/tree/devel/tools/scripts">AWX repository</a>. They are not installed in the platform: copy them to the hosts. They call <code class="docutils literal notranslate"><span class="pre">/api/v2/job_templates/&lt;id&gt;/callback/</span></code>, which the platform gateway does not serve; change that path to <code class="docutils literal notranslate"><span class="pre">/api/controller/v2/job_templates/&lt;id&gt;/callback/</span></code> in the script. Usage is described in the source code of the file by passing the <code class="docutils literal notranslate"><span class="pre">-h</span></code> flag, as shown below:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">./request_tower_configuration.sh -h</span>
+<span class="l l-Scalar l-Scalar-Plain">Usage</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./request_tower_configuration.sh &lt;options&gt;</span>
+
+<span class="l l-Scalar l-Scalar-Plain">Request server configuration from Ansible Tower.</span>
+
+<span class="nt">OPTIONS</span><span class="p">:</span>
+<span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-h      Show this message</span>
+<span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-s      Tower server (e.g. https://tower.example.com) (required)</span>
+<span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-k      Allow insecure SSL connections and transfers</span>
+<span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-c      Host config key (required)</span>
+<span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-t      Job template ID (required)</span>
+<span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-e      Extra variables</span>
+</pre></div>
+</div>
+<p>This script has some intelligence, it knows how to retry commands and is therefore a more robust way to use callbacks than a simple curl request. As written, the script retries once per minute for up to ten minutes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please note that this is an example script. You should edit this script if you need more dynamic behavior when detecting failure scenarios, as any non-200 error code may not be a transient error requiring retry.</p>
+</div>
+<p>Most likely you will use callbacks with dynamic inventory in automation controller, such as pulling cloud inventory from one of the supported cloud providers. In these cases, along with setting <strong>Update on launch</strong>, be sure to configure a cache timeout for the inventory source, to avoid hammering of your Cloud’s API endpoints. Since the script polls once per minute for up to ten minutes, a suggested cache invalidation time for inventory (configured on the inventory source itself) would be one or two minutes.</p>
+<p>While we recommend against running the script from a cron job, a suggested cron interval would be perhaps every 30 minutes. Repeated configuration can be easily handled by scheduling in automation controller, so the primary use of callbacks by most users is to enable a base image that is bootstrapped into the latest configuration upon coming online. To do so, running at first boot is a better practice. First boot scripts are just simple init scripts that typically self-delete, so you would set up an init script that called a copy of the script and make that into an autoscaling image.</p>
+<section id="passing-extra-variables-to-provisioning-callbacks">
+<h3><span class="section-number">19.11.1. </span>Passing Extra Variables to Provisioning Callbacks<a class="headerlink" href="#passing-extra-variables-to-provisioning-callbacks" title="Link to this heading"></a></h3>
+<p id="index-11">Just as you can pass <code class="docutils literal notranslate"><span class="pre">extra_vars</span></code> in a regular Job Template, you can also pass them to provisioning callbacks, provided that the job template has <strong>Prompt on launch</strong> selected for <strong>Extra variables</strong>; otherwise the callback ignores them, even with a survey. To pass <code class="docutils literal notranslate"><span class="pre">extra_vars</span></code>, the data sent must be part of the body of the POST request as application/json (as the content type). Use the following JSON format as an example when adding your own <code class="docutils literal notranslate"><span class="pre">extra_vars</span></code> to be passed:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="s">'{"extra_vars":</span><span class="nv"> </span><span class="s">{"variable1":"value1","variable2":"value2",...}}'</span>
+</pre></div>
+</div>
+<p>You can also pass extra variables to the Job Template call using <code class="docutils literal notranslate"><span class="pre">curl</span></code>, such as is shown in the following example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>curl<span class="w"> </span>-f<span class="w"> </span>-H<span class="w"> </span><span class="s1">'Content-Type: application/json'</span><span class="w"> </span>-XPOST<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-d<span class="w"> </span><span class="s1">'{"host_config_key": "redhat", "extra_vars": {"foo": "bar"}}'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>https://&lt;KOIOS_HOST&gt;/api/controller/v2/job_templates/7/callback/
+</pre></div>
+</div>
+<p>For more information, refer to <a class="reference internal" href="../administration/tipsandtricks.html#launch-jobs-curl"><span class="std std-ref">Launching Jobs with Curl</span></a>.</p>
+</section>
+</section>
+<section id="extra-variables">
+<span id="ug-jobtemplates-extravars"></span><h2><span class="section-number">19.12. </span>Extra Variables<a class="headerlink" href="#extra-variables" title="Link to this heading"></a></h2>
+<div class="admonition note" id="index-12">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">extra_vars</span></code> passed to the job launch API are only honored if one of the following is true:</p>
+<ul class="simple">
+<li><p>They correspond to variables in an enabled survey</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ask_variables_on_launch</span></code> is set to True</p></li>
+</ul>
+</div>
+<p>When you pass survey variables, they are passed as extra variables (<code class="docutils literal notranslate"><span class="pre">extra_vars</span></code>) within automation controller. This can be tricky, as passing extra variables to a job template (as you would do with a survey) can override other variables being passed from the inventory and project.</p>
+<p>By default, <code class="docutils literal notranslate"><span class="pre">extra_vars</span></code> are marked as <code class="docutils literal notranslate"><span class="pre">!unsafe</span></code> unless you specify them on the job template’s <strong>Extra variables</strong> field. These are trusted, because they can only be added by users with enough privileges to add or edit a Job Template. For example, nested variables do not expand when entered as a prompt, as the Jinja brackets are treated as a string. For more information about unsafe variables, see <a class="reference external" href="https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_advanced_syntax.html#unsafe-or-raw-strings">unsafe or raw strings</a>.</p>
+<p>For example, say that you have a defined variable for an inventory for <code class="docutils literal notranslate"><span class="pre">debug</span> <span class="pre">=</span> <span class="pre">true</span></code>. It is entirely possible that this variable, <code class="docutils literal notranslate"><span class="pre">debug</span> <span class="pre">=</span> <span class="pre">true</span></code>, can be overridden in a job template survey, because <code class="docutils literal notranslate"><span class="pre">extra_vars</span></code> have the highest precedence over inventory, group and host variables.</p>
+<p>Within <code class="docutils literal notranslate"><span class="pre">extra_vars</span></code>, the values given at launch (prompted extra variables and survey answers) override the defaults of the job template and of the survey. A survey question therefore does not protect a variable: to keep a value fixed, define it only in the template’s <strong>Extra variables</strong> and do not prompt for it nor ask for it in the survey.</p>
+<p>If specifying the <code class="docutils literal notranslate"><span class="pre">ALLOW_JINJA_IN_EXTRA_VARS</span></code> parameter, refer to the <a class="reference internal" href="../administration/tipsandtricks.html#ag-tips-jinja-extravars"><span class="std std-ref">automation controller Tips and Tricks</span></a> section of the <em>Administration Guide</em> to configure it in the Jobs Settings screen of the user interface.</p>
+<div class="admonition note" id="index-13">
+<p class="admonition-title">Note</p>
+<p>The Job Template extra variables dictionary is merged with the Survey variables.</p>
+</div>
+<p>Here are some simplified examples of <code class="docutils literal notranslate"><span class="pre">extra_vars</span></code> in YAML and JSON formats:</p>
+<p>The configuration in YAML format:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="nt">launch_to_orbit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">satellites</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sputnik</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">explorer</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">satcom</span>
+</pre></div>
+</div>
+<p>The configuration in JSON format:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">{</span>
+<span class="w">  </span><span class="s">"launch_to_orbit"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">true</span><span class="p p-Indicator">,</span>
+<span class="w">  </span><span class="s">"satellites"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">"sputnik"</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"explorer"</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"satcom"</span><span class="p p-Indicator">]</span>
+<span class="p p-Indicator">}</span>
+</pre></div>
+</div>
+<p>Ansible applies its own <a class="reference external" href="https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_variables.html#understanding-variable-precedence">variable precedence</a> inside each job. The variables that automation controller supplies enter it at these levels:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 45.0%" />
+<col style="width: 55.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Automation controller</p></th>
+<th class="head"><p>Ansible precedence level</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Inventory variables</p></td>
+<td><p>inventory variables of the <code class="docutils literal notranslate"><span class="pre">all</span></code> group</p></td>
+</tr>
+<tr class="row-odd"><td><p>Group variables</p></td>
+<td><p>inventory <code class="docutils literal notranslate"><span class="pre">group_vars</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Host variables (including those imported by inventory sources)</p></td>
+<td><p>inventory <code class="docutils literal notranslate"><span class="pre">host_vars</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">group_vars</span></code>, <code class="docutils literal notranslate"><span class="pre">host_vars</span></code>, roles, plays and tasks of the project</p></td>
+<td><p>the same levels as in any Ansible run</p></td>
+</tr>
+<tr class="row-even"><td><p>Extra variables of the job (see below)</p></td>
+<td><p>extra variables, which always win</p></td>
+</tr>
+</tbody>
+</table>
+<p>Interactive prompts of plays (<code class="docutils literal notranslate"><span class="pre">vars_prompt</span></code>) are not supported, because jobs run without a terminal; use a survey instead.</p>
+<p>The extra variables of a job are combined in this order, where later ones override earlier ones with the same name:</p>
+<ol class="arabic simple">
+<li><p>the <strong>Extra variables</strong> of the job template;</p></li>
+<li><p>the answers of its survey, when the survey is enabled, including the default values of the questions that are not answered;</p></li>
+<li><p>the extra variables given at launch, when the template prompts for them.</p></li>
+</ol>
+<section id="relaunching-job-templates">
+<h3><span class="section-number">19.12.1. </span>Relaunching Job Templates<a class="headerlink" href="#relaunching-job-templates" title="Link to this heading"></a></h3>
+<p id="index-14">A relaunched job has <code class="docutils literal notranslate"><span class="pre">launch_type</span></code> set to <code class="docutils literal notranslate"><span class="pre">relaunch</span></code>. Jobs are not relaunched as-is: when the job template still exists and the job saved the values given at launch (prompts and survey answers), the relaunch creates a new job from the <strong>current</strong> job template and re-applies those values to it. The fields that were not prompted, including the template’s own <strong>Extra variables</strong>, come from the job template as it is now.</p>
+<p>For example, say that you launch a job template with no <code class="docutils literal notranslate"><span class="pre">extra_vars</span></code>, which results in the creation of a job called <strong>j1</strong>. Next, say that you edit the job template and add some <code class="docutils literal notranslate"><span class="pre">extra_vars</span></code> (such as <code class="docutils literal notranslate"><span class="pre">hello:</span> <span class="pre">world</span></code>). Relaunching <strong>j1</strong> creates <strong>j2</strong>, which uses the current job template, so <strong>j2</strong> has <code class="docutils literal notranslate"><span class="pre">hello:</span> <span class="pre">world</span></code>. If <strong>j1</strong> had been launched with prompted <code class="docutils literal notranslate"><span class="pre">extra_vars</span></code>, <strong>j2</strong> would also get those values, re-applied on top of the template.</p>
+<p>Only when the job template no longer exists, or the job has no saved launch values, does the relaunch copy the fields of the original job.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="labels.html" class="btn btn-neutral float-left" title="18. Labels" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="job_slices.html" class="btn btn-neutral float-right" title="20. Job Slicing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Koios Solutions. Portions 2026, Red Hat, Inc. and 2026, CtrlIQ, Inc..</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+<p class="koios-legal">Licensed under the <a href="../LICENSE.txt">Apache License 2.0</a>; see the <a href="../NOTICE.txt">NOTICE</a> for the origin of this documentation.</p>
+
+</body>
+</html>

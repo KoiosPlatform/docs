@@ -1,0 +1,617 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>9. Managing Capacity With Instances &ndash; Koios Automation Platform</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ansible.css?v=5657ca2d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/rtd-ethical-ads.css?v=289b023e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/dark.css?v=82723a23" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments-dark.css?v=027e451e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/koios.css?v=808fdb03" />
+
+  
+    <link rel="shortcut icon" href="../_static/images/koios-favicon.svg"/>
+    <link rel="canonical" href="https://docs.koioss.com/administration/instances.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2d018451"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=b8bcef97"></script>
+      <script src="../_static/js/theme-toggle.js?v=59cbb094"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="10. Topology Viewer" href="topology_viewer.html" />
+    <link rel="prev" title="8. Container and Instance Groups" href="containers_instance_groups.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+<script>
+  (function () {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('koios-docs-theme');
+    } catch (e) {}
+    // Without a stored choice, follow the system preference (dark when it cannot be read).
+    var light = false;
+    try { light = window.matchMedia('(prefers-color-scheme: light)').matches; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', stored || (light ? 'light' : 'dark'));
+  })();
+</script>
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="#" class="asc-theme-toggle" title="Switch theme" aria-label="Switch theme"><svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg></a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../_static/images/koios-mark-white.svg"
+    alt="Koios">
+  <div class="DocSiteNav-title">Koios Automation Platform</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Koios Automation Platform
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Koios Automation Platform Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Install and upgrade</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade_migration/index.html">Upgrades and Migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configure the platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/index.html">Configure the platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Access management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access/index.html">Authentication and access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation execution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">Automating with Koios Automation Platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation decisions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../eda/index.html">Event-Driven Ansible</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hub/index.html">Automation hub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operate</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../operate/index.html">Operate</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Administering Koios Automation Platform Deployments</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html">Administering Koios Automation Platform Deployments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="init_script.html">1. Starting, Stopping, and Restarting Koios Automation Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="supported_architectures.html">2. Supported Architectures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom_inventory_script.html">3. Custom Inventory Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scm-inv-source.html">4. Inventory File Importing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi-creds-assignment.html">5. Multi-Credential Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="management_jobs.html">6. Management Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clustering.html">7. Clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="containers_instance_groups.html">8. Container and Instance Groups</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">9. Managing Capacity With Instances</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prerequisites">9.1. Prerequisites</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#preparing-the-node">9.1.1. Preparing the node</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#common-topologies">9.2. Common topologies</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#simple-topology">9.2.1. Simple topology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mesh-topology">9.2.2. Mesh topology</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#add-an-instance">9.3. Add an instance</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#outbound-peers">9.3.1. Outbound peers</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#manage-instances">9.4. Manage instances</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#instance-states">9.4.1. Instance states</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#remove-an-external-instance">9.4.2. Remove an external instance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#execution-node-health-checks">9.4.3. Execution-node health checks</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#using-a-custom-receptor-ca">9.5. Using a custom Receptor CA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-a-private-image-for-the-default-ee">9.6. Using a private image for the default EE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#troubleshooting">9.7. Troubleshooting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fact-cache-not-working">9.7.1. Fact cache not working</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#container-permission-errors">9.7.2. Container permission errors</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="topology_viewer.html">10. Topology Viewer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logfiles.html">11. Automation controller Logfiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">12. Logging and Aggregation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">13. Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html">14. Improving Automation Controller Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secret_handling.html">15. Secret handling and connection security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proxy_support.html">16. Proxy Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backup_restore.html">17. Backup and Restore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security_best_practices.html">18. Security Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awx-manage.html">19. The <em>awx-manage</em> Utility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configure_koios.html">20. Automation Controller Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="isolation_variables.html">21. Isolation functionality and variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kerberos_auth.html">22. Kerberos Authentication for Windows Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html">23. Troubleshooting Automation Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tipsandtricks.html">24. Automation controller Tips and Tricks</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration as code and API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/casc.html">Configuration as code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rest_api/index.html">automation controller API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/releases.html">Releases</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Koios Automation Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Administering Koios Automation Platform Deployments</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">9. </span>Managing Capacity With Instances</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <section id="managing-capacity-with-instances">
+<span id="ag-instances"></span><h1><span class="section-number">9. </span>Managing Capacity With Instances<a class="headerlink" href="#managing-capacity-with-instances" title="Link to this heading"></a></h1>
+<p id="index-0">Open <strong>Automation Execution &gt; Infrastructure &gt; Instances</strong> to inspect controller instances and register external execution or hop nodes. Registering a node creates its controller record; it does not install or configure the remote machine. The node is outside the Kubernetes cluster and is provisioned separately with its install bundle. Scale controller pods through the <code class="docutils literal notranslate"><span class="pre">KoiosPlatform</span></code>, not by creating control instances in this form.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In Koios Automation Platform, jobs run by default in the <code class="docutils literal notranslate"><span class="pre">default</span></code> container group, inside the
+cluster, and no mesh is needed. Validated in Koios: execution nodes outside the cluster on
+Kubernetes (Rocky Linux 9 and Debian 13, see <a class="reference internal" href="#ag-instances-node-os"><span class="std std-ref">Preparing the node</span></a>) and on OpenShift (Rocky
+Linux 9), the default execution environment from a private registry, and the mesh ingress on OpenShift. A separate hop node outside
+the cluster has not been tested yet. The Koios operator installs the <code class="docutils literal notranslate"><span class="pre">AWXMeshIngress</span></code> resource type
+and reconciles the mesh ingresses you create.</p>
+</div>
+<p>Instances serve as nodes in your mesh topology. Automation mesh allows you to extend the footprint of your automation. Where you launch a job and where the <code class="docutils literal notranslate"><span class="pre">ansible-playbook</span></code> runs can be in different locations.</p>
+<img alt="Site A pointing to Site B and dotted arrows to two hosts from Site B" src="../_images/instances_mesh_concept.drawio.png" />
+<p>Automation mesh is useful for:</p>
+<ul class="simple">
+<li><p>traversing difficult network topologies</p></li>
+<li><p>bringing execution capabilities (the machine running <code class="docutils literal notranslate"><span class="pre">ansible-playbook</span></code>) closer to your target hosts</p></li>
+</ul>
+<p>The nodes (control, hop, and execution instances) are interconnected via receptor, forming a virtual mesh.</p>
+<img alt="Control node pointing to hop node, which is pointing to two execution nodes." src="../_images/instances_mesh_concept_with_nodes.drawio.png" />
+<section id="prerequisites">
+<h2><span class="section-number">9.1. </span>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h2>
+<ul>
+<li><p>A Red Hat family (RHEL 9 and compatible) or Debian operating system, prepared as described in
+<a class="reference internal" href="#ag-instances-node-os"><span class="std std-ref">Preparing the node</span></a>. Bring a machine online with that OS. Use a stable IP address or DNS hostname. Name resolution and connectivity must work in the direction of each peer connection. If control nodes connect directly to this machine, they must be able to reach its listener port (for example, 27199). A node using mesh ingress can instead initiate the connection towards the cluster.</p>
+<p>In general, the more CPU cores and memory the machine has, the more jobs that can be scheduled to run on that machine at once. See <a class="reference internal" href="../userguide/jobs.html#ug-job-concurrency"><span class="std std-ref">Automation controller Capacity Determination and Job Impact</span></a> for more information on capacity.</p>
+</li>
+<li><p>The system that is going to run the install bundle to setup the remote node requires the collection <code class="docutils literal notranslate"><span class="pre">ansible.receptor</span></code> to be installed:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>If machine has access to the internet:</p></li>
+</ul>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">ansible-galaxy collection install -r requirements.yml</span>
+</pre></div>
+</div>
+<p>Installing the receptor collection dependency from the <code class="docutils literal notranslate"><span class="pre">requirements.yml</span></code> file will consistently retrieve the receptor version specified there, as well as any other collection dependencies that may be needed in the future.</p>
+<ul class="simple">
+<li><p>If machine does not have access to the internet, refer to <a class="reference external" href="https://docs.ansible.com/ansible/latest/collections_guide/collections_installing.html#downloading-a-collection-for-offline-use">Downloading a collection for offline use</a>.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Use a platform administrator account with controller system administrator permissions to create, edit or remove instances. System auditors can inspect instances and existing health-check results; starting a health check requires controller system administrator permission. Auditor access does not grant permission to change instances.</p></li>
+<li><p>The execution environment that jobs use on the node must be pullable from it. Images in a private registry, such as
+the default execution environment of Koios Automation Platform, need a <strong>Container Registry</strong> credential on the execution environment:
+an external node pulls with Podman and uses the credential of the execution environment rather than the
+cluster namespace’s pull secrets (see <a class="reference internal" href="#ag-instances-private-ee"><span class="std std-ref">Using a private image for the default EE</span></a>).</p></li>
+</ul>
+<section id="preparing-the-node">
+<span id="ag-instances-node-os"></span><h3><span class="section-number">9.1.1. </span>Preparing the node<a class="headerlink" href="#preparing-the-node" title="Link to this heading"></a></h3>
+<p>Execution nodes have been validated in Koios with Rocky Linux 9 and Debian 13. The preparation below applies only to the external execution machine, not to a controller host or cluster node. Run provisioning from a separate administration environment with the required Ansible tools and privileges. Each adjustment below is shown with the error it avoids.</p>
+<p><strong>Primary group of the receptor user (bundles from before 2026.11.6).</strong> Since 2026.11.6 the bundle
+gives the <code class="docutils literal notranslate"><span class="pre">awx</span></code> user its own <code class="docutils literal notranslate"><span class="pre">awx</span></code> primary group, and nothing needs to be done. Bundles downloaded
+from older releases created the user without naming its group, and it could end up with another
+primary group (<code class="docutils literal notranslate"><span class="pre">users</span></code> on both Rocky Linux 9 and Debian 13); rootless podman then fails in every job
+with <em>newuidmap: Target process is owned by a different user</em>. On a node installed with such a bundle,
+download the bundle again and run it, or check it with <code class="docutils literal notranslate"><span class="pre">id</span> <span class="pre">awx</span></code> and, if the primary group is not
+<code class="docutils literal notranslate"><span class="pre">awx</span></code>, fix it with receptor stopped:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">sudo systemctl stop receptor</span>
+<span class="l l-Scalar l-Scalar-Plain">sudo usermod -g awx awx</span>
+<span class="l l-Scalar l-Scalar-Plain">sudo -u awx -H podman system migrate</span>
+<span class="l l-Scalar l-Scalar-Plain">sudo systemctl start receptor</span>
+</pre></div>
+</div>
+<p><strong>On Debian</strong> (validated with Debian 13; other releases are expected to need the same, but have not
+been tested), the install bundle and the way jobs run on a node, written for the Red Hat family, also
+need the following.</p>
+<p><strong>Python packages from pip.</strong> The bundle installs <code class="docutils literal notranslate"><span class="pre">ansible-runner</span></code> and <code class="docutils literal notranslate"><span class="pre">receptorctl</span></code> with the
+system <code class="docutils literal notranslate"><span class="pre">pip3</span></code>, which Debian blocks (<em>error: externally-managed-environment</em>). Allow it only while the
+bundle runs: if <code class="docutils literal notranslate"><span class="pre">/etc/pip.conf</span></code> does not exist yet, create it before running the bundle, and remove
+it afterwards (repeat this whenever you run the bundle again):</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">printf '[global]\nbreak-system-packages = true\n' | sudo tee /etc/pip.conf</span>
+<span class="l l-Scalar l-Scalar-Plain"># ... run the install bundle ...</span>
+<span class="l l-Scalar l-Scalar-Plain">sudo rm /etc/pip.conf</span>
+</pre></div>
+</div>
+<p><strong>CA trust paths.</strong> The <strong>Paths to expose to isolated jobs</strong> setting (<code class="docutils literal notranslate"><span class="pre">AWX_ISOLATION_SHOW_PATHS</span></code>,
+under <strong>Settings &gt; Automation Execution &gt; Job</strong>) can expose the execution host’s <code class="docutils literal notranslate"><span class="pre">/etc/pki/ca-trust</span></code> and
+<code class="docutils literal notranslate"><span class="pre">/usr/share/pki</span></code> to the execution environment of jobs that run on external nodes, when those paths are configured. Those paths do not exist on Debian, and jobs
+fail with <em>mounting overlay failed “/etc/pki/ca-trust”</em>. There are two ways out:</p>
+<ul>
+<li><p>If the execution environment carries the certificate authorities your jobs need, remove those two paths from the
+setting. This is a change for every node of the controller, so check it against the other nodes.</p></li>
+<li><p>To keep using the node’s certificate authorities, recreate the Red Hat layout with Debian’s bundle
+(do not create the directories empty: they would hide the execution environment’s own certificate authorities):</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">sudo install -d -m 0755 /etc/pki/ca-trust/extracted/pem /etc/pki/ca-trust/extracted/openssl /usr/share/pki</span>
+<span class="l l-Scalar l-Scalar-Plain">sudo install -m 0644 /etc/ssl/certs/ca-certificates.crt /etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem</span>
+<span class="l l-Scalar l-Scalar-Plain">sudo install -m 0644 /etc/ssl/certs/ca-certificates.crt /etc/pki/ca-trust/extracted/openssl/ca-bundle.trust.crt</span>
+</pre></div>
+</div>
+<p>Repeat the copies after <code class="docutils literal notranslate"><span class="pre">update-ca-certificates</span></code> when you add certificate authorities to the node.</p>
+</li>
+</ul>
+</section>
+</section>
+<section id="common-topologies">
+<h2><span class="section-number">9.2. </span>Common topologies<a class="headerlink" href="#common-topologies" title="Link to this heading"></a></h2>
+<p>Instances make up the network of devices that communicate with one another. They are the building blocks of an automation mesh. These building blocks serve as nodes in a mesh topology. There are several kinds of instances:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Node Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Control</p></td>
+<td><p>Nodes that run persistent automation controller services, and delegate jobs to hybrid and execution nodes</p></td>
+</tr>
+<tr class="row-odd"><td><p>Hybrid</p></td>
+<td><p>Nodes that run persistent automation controller services and execute jobs
+(not applicable to operator-based installations)</p></td>
+</tr>
+<tr class="row-even"><td><p>Hop</p></td>
+<td><p>Used for relaying across the mesh only</p></td>
+</tr>
+<tr class="row-odd"><td><p>Execution</p></td>
+<td><p>Nodes that run jobs delivered from control nodes (jobs submitted from the user’s Ansible automation)</p></td>
+</tr>
+</tbody>
+</table>
+<section id="simple-topology">
+<h3><span class="section-number">9.2.1. </span>Simple topology<a class="headerlink" href="#simple-topology" title="Link to this heading"></a></h3>
+<p>One of the ways to expand job capacity is to create a standalone execution node that can be added to run alongside the Kubernetes deployment of automation controller. These machines will not be a part of the automation controller Kubernetes cluster. The control nodes running in the cluster will connect and submit work to these machines via Receptor. The machines are registered in automation controller as type “execution” instances, meaning they will only be used to run automation controller jobs, not dispatch work or handle web requests as control nodes do.</p>
+<p>Hop nodes can be added to sit between the control plane of automation controller and standalone execution nodes. These machines will not be a part of the automation controller Kubernetes cluster and they will be registered in automation controller as node type “hop”, meaning they will only handle inbound and outbound traffic for otherwise unreachable nodes in a different or more strict network.</p>
+<p>Below is an example of an automation controller task pod with two execution nodes. Traffic to execution node 2 flows through a hop node that is setup between it and the control plane.</p>
+<img alt="Automation controller task pod with a hop node between the control plane of automation controller and standalone execution nodes." src="../_images/instances_koios_task_pods_hopnode.drawio.png" />
+<p>Below are sample values used to configure each node in a simple topology:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 21.1%" />
+<col style="width: 31.6%" />
+<col style="width: 10.5%" />
+<col style="width: 21.1%" />
+<col style="width: 15.8%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Instance type</p></th>
+<th class="head"><p>Hostname</p></th>
+<th class="head"><p>Listener port</p></th>
+<th class="head"><p>Peers from control nodes</p></th>
+<th class="head"><p>Peers</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Control plane</p></td>
+<td><p>awx-task-65d6d96987-mgn9j</p></td>
+<td><p>n/a</p></td>
+<td><p>n/a</p></td>
+<td><p>[hop node]</p></td>
+</tr>
+<tr class="row-odd"><td><p>Hop node</p></td>
+<td><p>awx-hop-node</p></td>
+<td><p>27199</p></td>
+<td><p>True</p></td>
+<td><p>[]</p></td>
+</tr>
+<tr class="row-even"><td><p>Execution node</p></td>
+<td><p>awx-example.com</p></td>
+<td><p>n/a</p></td>
+<td><p>False</p></td>
+<td><p>[hop node]</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="mesh-topology">
+<h3><span class="section-number">9.2.2. </span>Mesh topology<a class="headerlink" href="#mesh-topology" title="Link to this heading"></a></h3>
+<p>Mesh ingress is a feature that allows remote nodes to connect inbound to the control plane. This is especially useful when creating remote nodes in restricted networking environments that disallow inbound traffic.</p>
+<img alt="Mesh ingress architecture showing the peering relationship between nodes." src="../_images/instances_mesh_ingress_topology.drawio.png" />
+<p>Below are sample values used to configure each node in a mesh ingress topology:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 21.1%" />
+<col style="width: 31.6%" />
+<col style="width: 10.5%" />
+<col style="width: 21.1%" />
+<col style="width: 15.8%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Instance type</p></th>
+<th class="head"><p>Hostname</p></th>
+<th class="head"><p>Listener port</p></th>
+<th class="head"><p>Peers from control nodes</p></th>
+<th class="head"><p>Peers</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Control plane</p></td>
+<td><p>awx-task-65d6d96987-mgn9j</p></td>
+<td><p>n/a</p></td>
+<td><p>n/a</p></td>
+<td><p>[hop node]</p></td>
+</tr>
+<tr class="row-odd"><td><p>Hop node</p></td>
+<td><p>awx-mesh-ingress-1</p></td>
+<td><p>27199</p></td>
+<td><p>True</p></td>
+<td><p>[]</p></td>
+</tr>
+<tr class="row-even"><td><p>Execution node</p></td>
+<td><p>awx-example.com</p></td>
+<td><p>n/a</p></td>
+<td><p>False</p></td>
+<td><p>[hop node]</p></td>
+</tr>
+</tbody>
+</table>
+<p id="ag-instances-mesh-ingress">To create the mesh ingress, create an <code class="docutils literal notranslate"><span class="pre">AWXMeshIngress</span></code> resource in the namespace of the platform. The
+Koios operator installs its type and reconciles it. <code class="docutils literal notranslate"><span class="pre">deployment_name</span></code> is the controller of the
+platform (<code class="docutils literal notranslate"><span class="pre">&lt;platform&gt;-controller</span></code>); on OpenShift, <code class="docutils literal notranslate"><span class="pre">ingress_type:</span> <span class="pre">route</span></code> publishes it through a
+passthrough Route on port 443:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">kubectl apply -n koios -f - &lt;&lt;'EOF'</span>
+<span class="l l-Scalar l-Scalar-Plain">apiVersion</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">awx.ansible.com/v1alpha1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AWXMeshIngress</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">koios-mesh</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">deployment_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">koios-controller</span>
+<span class="w">  </span><span class="nt">ingress_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">route</span>
+<span class="l l-Scalar l-Scalar-Plain">EOF</span>
+</pre></div>
+</div>
+<p>The controller registers the mesh ingress as a hop node with the external address of the Route. To use
+it from a node:</p>
+<ol class="arabic simple">
+<li><p>Make sure the node resolves the Route’s host name (<code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">get</span> <span class="pre">route</span> <span class="pre">-n</span> <span class="pre">koios</span> <span class="pre">koios-mesh</span> <span class="pre">-o</span>
+<span class="pre">jsonpath='{.spec.host}'</span></code>). Nodes outside the cluster often use a public DNS that does not know the
+cluster’s domain.</p></li>
+<li><p>Edit the external instance and clear <strong>Peers from control nodes</strong>. On its <strong>Peers</strong> tab, use
+<strong>Associate peers</strong> to select the mesh ingress listener address, so the node connects inbound
+and no control node tries to reach it.</p></li>
+<li><p>Download the node’s install bundle again and run it (see <a class="reference internal" href="#ag-instances-add"><span class="std std-ref">Add an instance</span></a>).</p></li>
+</ol>
+<p>For other options, see <a class="reference external" href="https://github.com/ansible/awx-operator/blob/devel/docs/user-guide/advanced-configuration/mesh-ingress.md">Mesh Ingress</a> in the upstream AWX Operator documentation. Then add the node to an instance group, as with any execution node. Whatever execution environment image is used to run a playbook must be pullable from the node (see <a class="reference internal" href="#ag-instances-private-ee"><span class="std std-ref">Using a private image for the default EE</span></a>), and everything the playbook uses must be reachable from it.</p>
+<a class="reference internal image-reference" href="../_images/instances-job-template-using-remote-execution-ig.png"><img alt="Job template using the instance group with the execution node to run jobs." src="../_images/instances-job-template-using-remote-execution-ig.png" style="width: 1400px;" />
+</a>
+</section>
+</section>
+<section id="add-an-instance">
+<span id="ag-instances-add"></span><h2><span class="section-number">9.3. </span>Add an instance<a class="headerlink" href="#add-an-instance" title="Link to this heading"></a></h2>
+<p>To register an external execution or hop node:</p>
+<ol class="arabic simple">
+<li><p>Open <strong>Automation Execution &gt; Infrastructure &gt; Instances</strong> and click <strong>Create instance</strong>.</p></li>
+<li><p>Set <strong>Host name</strong> to the node’s resolvable hostname or IP address. Choose <strong>Execution</strong> or <strong>Hop</strong> in <strong>Instance type</strong>. These values cannot be changed after creation.</p></li>
+<li><p>Set <strong>Listener port</strong> when the node will accept inbound Receptor connections. Select <strong>Peers from control nodes</strong> only when control nodes should initiate connections to this listener; a listener port is required for that option.</p></li>
+<li><p>Under <strong>Options</strong>, select <strong>Enable instance</strong> to allow execution jobs and <strong>Managed by policy</strong> to allow automatic instance-group membership. <strong>Instance state</strong> is read-only and initially <code class="docutils literal notranslate"><span class="pre">installed</span></code>. Associate outbound peers after creating the instance.</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/instances_create_new.png"><img alt="Create instance form with hostname, type, listener port and options." src="../_images/instances_create_new.png" style="width: 1400px;" />
+</a>
+<ol class="arabic simple" start="5">
+<li><p>Click <strong>Create instance</strong>. The <strong>Details</strong> tab opens. For existing instances, use <strong>Edit instance</strong> and <strong>Save instance</strong> for permitted changes. Managed control instances are maintained by the operator and cannot be deprovisioned through this workflow.</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/instances_create_details.png"><img alt="Details of an external execution instance registered but not installed yet, reported as Unavailable." src="../_images/instances_create_details.png" style="width: 1400px;" />
+</a>
+<ol class="arabic simple" start="6">
+<li><p>If outbound peering is required, configure the instance’s <strong>Peers</strong> tab as described below before downloading its bundle.</p></li>
+<li><p>On <strong>Details</strong>, use the download control in <strong>Download bundle</strong>. The bundle contains private node keys as well as certificates, Receptor configuration and the installation playbook. Keep it private and do not attach it to issues or documentation.</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/instances_install_bundle.png"><img alt="Instance Details showing the Download bundle field and download control." src="../_images/instances_install_bundle.png" style="width: 1400px;" />
+</a>
+<ol class="arabic simple" start="8">
+<li><p>Extract the bundle in a private working directory on a separate administration machine with access to the external node. Install its declared collection dependencies there:</p></li>
+</ol>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ansible-galaxy collection install -r requirements.yml
+</pre></div>
+</div>
+<ol class="arabic simple" start="9">
+<li><p>Set <code class="docutils literal notranslate"><span class="pre">ansible_user</span></code> and <code class="docutils literal notranslate"><span class="pre">ansible_ssh_private_key_file</span></code> in the bundle’s <code class="docutils literal notranslate"><span class="pre">inventory.yml</span></code> for the account that provisions the remote node. The supplied inventory already sets <code class="docutils literal notranslate"><span class="pre">ansible_host</span></code> to the registered hostname. These SSH credentials are for provisioning the external machine; they are not credentials for logging in to the platform.</p></li>
+<li><p>Run the bundle from that administration environment:</p></li>
+</ol>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ansible-playbook -i inventory.yml install_receptor.yml
+</pre></div>
+</div>
+<p>The playbook uses privilege escalation on the remote node. It creates the Receptor account and configures Receptor; execution nodes also need Podman and Ansible Runner. Review the downloaded <code class="docutils literal notranslate"><span class="pre">requirements.yml</span></code> and playbook before applying them. See <a class="reference internal" href="#ag-instances-node-os"><span class="std std-ref">Preparing the node</span></a> for the documented node preparation requirements.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Running a bundle again does not replace the node’s certificates if they already exist. When moving a node to another controller or rotating its certificates, download the appropriate bundle and use <code class="docutils literal notranslate"><span class="pre">-e</span> <span class="pre">receptor_replace_tls=true</span></code>. Otherwise, the existing certificates may still be signed by the previous controller’s CA and fail validation.</p>
+</div>
+<p>For an execution node, use <strong>Run health check</strong> and wait for the asynchronous result. Verify that the instance is <code class="docutils literal notranslate"><span class="pre">ready</span></code>, enabled and assigned to the instance group your job template uses before launching a job there. A hop node routes traffic and does not provide execution capacity.</p>
+<section id="outbound-peers">
+<h3><span class="section-number">9.3.1. </span>Outbound peers<a class="headerlink" href="#outbound-peers" title="Link to this heading"></a></h3>
+<p>Open the instance’s <strong>Peers</strong> tab to inspect its outbound peer addresses.</p>
+<a class="reference internal image-reference" href="../_images/instances_peers_tab.png"><img alt="Peers tab showing the listener addresses used for outbound connections." src="../_images/instances_peers_tab.png" style="width: 1400px;" />
+</a>
+<p>Click <strong>Associate peers</strong>, select eligible listener addresses and confirm the selection. To remove associations, select rows and use <strong>Disassociate peers</strong>. Each association selects a Receptor listener address.</p>
+<a class="reference internal image-reference" href="../_images/instances_associate_peer.png"><img alt="The Select peer addresses window; empty when no other instance has a listener address." src="../_images/instances_associate_peer.png" style="width: 1400px;" />
+</a>
+<p>The controller rejects self-peering, duplicate peers on one instance and a direct reverse peer relationship. Select the direction that matches network reachability. Hop-to-hop connections are not categorically prohibited. <strong>Peers from control nodes</strong> controls automatic inbound peering from control nodes and is separate from this outbound list.</p>
+<p>After changing a remote node’s peers or listener configuration, download its updated bundle and run it again to apply the configuration on that machine. Changing the controller record alone does not reconfigure remote Receptor. For a graphical view, see <a class="reference internal" href="topology_viewer.html#ag-topology-viewer"><span class="std std-ref">Topology Viewer</span></a>.</p>
+</section>
+</section>
+<section id="manage-instances">
+<h2><span class="section-number">9.4. </span>Manage instances<a class="headerlink" href="#manage-instances" title="Link to this heading"></a></h2>
+<p>The Instances list under <strong>Automation Execution &gt; Infrastructure &gt; Instances</strong> supports filtering, sorting and selecting instances for actions.</p>
+<a class="reference internal image-reference" href="../_images/instances_list_view.png"><img alt="Instances list with control and execution nodes and their available actions." src="../_images/instances_list_view.png" style="width: 1400px;" />
+</a>
+<p>Open an instance’s <strong>Details</strong> to inspect <strong>Node type</strong>, <strong>Status</strong>, <strong>Instance groups</strong>, <strong>Used capacity</strong>, <strong>Running jobs</strong>, <strong>Memory</strong>, <strong>Last health check</strong>, <strong>Forks</strong>, <strong>Enabled</strong> and any <strong>Errors</strong>. Fields vary by node type. The <strong>Forks</strong> control adjusts <code class="docutils literal notranslate"><span class="pre">capacity_adjustment</span></code>; it is not a live CPU utilization limit. See <a class="reference internal" href="performance.html#ag-performance"><span class="std std-ref">Improving Automation Controller Performance</span></a>.</p>
+<section id="instance-states">
+<span id="node-statuses"></span><h3><span class="section-number">9.4.1. </span>Instance states<a class="headerlink" href="#instance-states" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">installed</span></code>: the instance is registered but has not yet completed a successful health check. Registration does not prove that the bundle has been run.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ready</span></code>: the instance has reported usable health data. An execution instance must also be enabled and have capacity for a job to run.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">unavailable</span></code>: the instance is offline or its health check reported a problem; inspect <strong>Errors</strong>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">deprovisioning</span></code>: removal has been requested and the controller is draining work before deleting the record.</p></li>
+</ul>
+<p>The model also has provisioning and failure states for lifecycle operations. They do not mean this UI automatically provisions a newly registered remote machine. While an execution-node health check is pending, the UI shows a running status indicator.</p>
+</section>
+<section id="remove-an-external-instance">
+<h3><span class="section-number">9.4.2. </span>Remove an external instance<a class="headerlink" href="#remove-an-external-instance" title="Link to this heading"></a></h3>
+<p>Disable the instance first if you want to stop assigning new jobs while reviewing removal. Select the external instance and use <strong>Remove instance</strong>, review the confirmation, then click <strong>Remove instance</strong> to request deprovisioning. The controller waits for its running or waiting jobs before deleting the instance record.</p>
+<a class="reference internal image-reference" href="../_images/instances_delete_prompt.png"><img alt="Permanently remove instances confirmation for an external execution node." src="../_images/instances_delete_prompt.png" style="width: 1400px;" />
+</a>
+<p>Removal does not uninstall software or erase keys on the external machine. Review the remaining topology and rerun affected remote nodes’ bundles when peer configuration changes. Do not remove or recreate managed control instances to scale the controller; use the operator.</p>
+</section>
+<section id="execution-node-health-checks">
+<span id="health-check"></span><h3><span class="section-number">9.4.3. </span>Execution-node health checks<a class="headerlink" href="#execution-node-health-checks" title="Link to this heading"></a></h3>
+<p>Use <strong>Run health check</strong> from the execution instance’s row or details actions. The API queues the check asynchronously; accepting the request does not mean the node passed. Checks are supported for execution nodes, not hop nodes.</p>
+<a class="reference internal image-reference" href="../_images/instances_health_check.png"><img alt="Execution instance Details after a failed health check, with the error in Errors." src="../_images/instances_health_check.png" style="width: 1400px;" />
+</a>
+<p>Refresh the page to inspect <strong>Last health check</strong>, <strong>Status</strong> and <strong>Errors</strong> after the task finishes. A pending check temporarily disables another check request.</p>
+<img alt="Execution instance Details with a health check still running." src="../_images/instances_health_check_pending.png" />
+<p>For connectivity errors, inspect DNS, the chosen listener and peer direction, certificate trust and the external node’s Receptor service. The topology view can help locate the affected connection:</p>
+<a class="reference internal image-reference" href="../_images/topology-viewer-instance-with-errors.png"><img alt="Topology view with an instance that reports a connection or health error." src="../_images/topology-viewer-instance-with-errors.png" style="width: 1400px;" />
+</a>
+</section>
+</section>
+<section id="using-a-custom-receptor-ca">
+<h2><span class="section-number">9.5. </span>Using a custom Receptor CA<a class="headerlink" href="#using-a-custom-receptor-ca" title="Link to this heading"></a></h2>
+<p>Set the fields described in <a class="reference external" href="https://github.com/ansible/awx-operator/blob/devel/docs/user-guide/advanced-configuration/custom-receptor-certs.md">Custom Receptor CA</a> (upstream AWX Operator documentation) under <code class="docutils literal notranslate"><span class="pre">spec.controller</span></code> of the <a class="reference internal" href="../reference/koiosplatform.html"><span class="doc">KoiosPlatform</span></a>.</p>
+</section>
+<section id="using-a-private-image-for-the-default-ee">
+<span id="ag-instances-private-ee"></span><h2><span class="section-number">9.6. </span>Using a private image for the default EE<a class="headerlink" href="#using-a-private-image-for-the-default-ee" title="Link to this heading"></a></h2>
+<p>An external node pulls the image of the execution environment with podman, using only the credential of the execution environment. For
+an image in a private registry, such as <code class="docutils literal notranslate"><span class="pre">ghcr.io/koiosplatform/koios-ee</span></code>:</p>
+<ol class="arabic simple">
+<li><p>In <strong>Automation Execution &gt; Infrastructure &gt; Credentials</strong>, create a credential of type
+<strong>Container Registry</strong>, with the registry host as <strong>Authentication URL</strong> (for example <code class="docutils literal notranslate"><span class="pre">ghcr.io</span></code>)
+and a user and token that can only read images.</p></li>
+<li><p>In <strong>Automation Execution &gt; Infrastructure &gt; Execution Environments</strong>, set that credential on the
+execution environment the jobs of the node use. You can keep a separate execution environment for external nodes, with the same image
+and the credential, and leave the default one as it is.</p></li>
+</ol>
+<p>The credential is also used inside the cluster: for jobs in a container group, the controller turns
+it into the pull secret of the job’s pod, instead of the one of the namespace. That is why a separate
+execution environment for external nodes keeps the default one unchanged. See <a class="reference internal" href="../userguide/execution_environments.html#ug-execution-environments"><span class="std std-ref">Execution Environments</span></a>.</p>
+</section>
+<section id="troubleshooting">
+<h2><span class="section-number">9.7. </span>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<p>If you encounter issues while setting up instances, refer to these troubleshooting tips.</p>
+<section id="fact-cache-not-working">
+<h3><span class="section-number">9.7.1. </span>Fact cache not working<a class="headerlink" href="#fact-cache-not-working" title="Link to this heading"></a></h3>
+<p>Check that the job template has <strong>Enable fact storage</strong> selected and the playbook gathers the facts you expect. Use <strong>Output</strong> to distinguish a fact-gathering failure from an unreachable host. Fact-cache artifacts are handled by the execution worker and returned to the controller; do not try to fix controller cache issues by editing files on a cluster node.</p>
+</section>
+<section id="container-permission-errors">
+<h3><span class="section-number">9.7.2. </span>Container permission errors<a class="headerlink" href="#container-permission-errors" title="Link to this heading"></a></h3>
+<p>A failure such as <code class="docutils literal notranslate"><span class="pre">exec</span> <span class="pre">container</span> <span class="pre">process</span> <span class="pre">...</span> <span class="pre">Permission</span> <span class="pre">denied</span></code> needs diagnosis in the execution environment and on the node that ran the job. Check image permissions, rootless Podman prerequisites and any SELinux denials on an external execution node. For a container group, inspect the job pod’s security context and the cluster’s admission policies.</p>
+<p>Do not disable SELinux or add <code class="docutils literal notranslate"><span class="pre">label=disable</span></code> as a blanket workaround. <code class="docutils literal notranslate"><span class="pre">DEFAULT_CONTAINER_RUN_OPTIONS</span></code> applies to Podman execution and does not configure container group pod security. Use supported image, storage and security-context configuration for the execution path you are using. See <a class="reference internal" href="troubleshooting.html#admin-troubleshooting-extra-settings"><span class="std std-ref">Deployment-managed settings</span></a> and <a class="reference internal" href="../userguide/execution_environments.html#ug-execution-environments"><span class="std std-ref">Execution Environments</span></a>.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="containers_instance_groups.html" class="btn btn-neutral float-left" title="8. Container and Instance Groups" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="topology_viewer.html" class="btn btn-neutral float-right" title="10. Topology Viewer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Koios Solutions. Portions 2026, Red Hat, Inc. and 2026, CtrlIQ, Inc..</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+<p class="koios-legal">Licensed under the <a href="../LICENSE.txt">Apache License 2.0</a>; see the <a href="../NOTICE.txt">NOTICE</a> for the origin of this documentation.</p>
+
+</body>
+</html>

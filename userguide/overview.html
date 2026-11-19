@@ -1,0 +1,393 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1. Overview &ndash; Koios Automation Platform</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ansible.css?v=5657ca2d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/rtd-ethical-ads.css?v=289b023e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/dark.css?v=82723a23" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments-dark.css?v=027e451e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/koios.css?v=808fdb03" />
+
+  
+    <link rel="shortcut icon" href="../_static/images/koios-favicon.svg"/>
+    <link rel="canonical" href="https://docs.koioss.com/userguide/overview.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2d018451"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=b8bcef97"></script>
+      <script src="../_static/js/theme-toggle.js?v=59cbb094"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2. Logging In" href="logging_in.html" />
+    <link rel="prev" title="Automating with Koios Automation Platform" href="index.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+<script>
+  (function () {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('koios-docs-theme');
+    } catch (e) {}
+    // Without a stored choice, follow the system preference (dark when it cannot be read).
+    var light = false;
+    try { light = window.matchMedia('(prefers-color-scheme: light)').matches; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', stored || (light ? 'light' : 'dark'));
+  })();
+</script>
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="#" class="asc-theme-toggle" title="Switch theme" aria-label="Switch theme"><svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg></a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../_static/images/koios-mark-white.svg"
+    alt="Koios">
+  <div class="DocSiteNav-title">Koios Automation Platform</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Koios Automation Platform
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Koios Automation Platform Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Install and upgrade</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade_migration/index.html">Upgrades and Migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configure the platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/index.html">Configure the platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Access management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access/index.html">Authentication and access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation execution</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Automating with Koios Automation Platform</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html">Automating with Koios Automation Platform</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1. Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#real-time-playbook-output-and-exploration">1.1. Real-time Playbook Output and Exploration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#push-button-automation">1.2. “Push Button” Automation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#role-based-access-control-and-auditing">1.3. Role-Based Access Control and Auditing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cloud-autoscaling-flexibility">1.4. Cloud &amp; Autoscaling Flexibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-ideal-restful-api">1.5. The Ideal RESTful API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#backup-and-restore">1.6. Backup and Restore</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ansible-galaxy-integration">1.7. Ansible Galaxy Integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inventory-support-for-openstack">1.8. Inventory Support for OpenStack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#remote-command-execution">1.9. Remote Command Execution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#system-tracking">1.10. System Tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#integrated-notifications">1.11. Integrated Notifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#satellite-integration">1.12. Satellite Integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-time-job-customization">1.13. Run-time Job Customization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#user-interface">1.14. User Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#execution-environments">1.15. Execution Environments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#authentication">1.16. Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cluster-management">1.17. Cluster Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#container-platform-support">1.18. Container Platform Support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#workflow-capabilities">1.19. Workflow Capabilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#job-distribution">1.20. Job Distribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fips-validation-status">1.21. FIPS validation status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#limit-the-number-of-hosts-per-organization">1.22. Limit the number of hosts per organization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inventory-plugins">1.23. Inventory Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#secret-management-system">1.24. Secret Management System</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="logging_in.html">2. Logging In</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main_menu.html">3. The User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main_menu.html#the-settings-menu">4. The Settings Menu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="search_sort.html">5. Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="organizations.html">6. Organizations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="users.html">7. Users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="teams.html">8. Teams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credentials.html">9. Credentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credential_plugins.html">10. Secret Management System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="credential_types.html">11. Custom Credential Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="execution_environments.html">12. Execution Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ee_reference.html">13. Execution Environment Setup Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="projects.html">14. Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project-sign.html">15. Project Signing and Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventories.html">16. Inventories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventory_plugins_templates.html">17. Supported Inventory Plugin Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="labels.html">18. Labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_templates.html">19. Job Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="job_slices.html">20. Job Slicing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflows.html">21. Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow_templates.html">22. Workflow Job Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instance_groups.html">23. Instance Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jobs.html">24. Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhooks.html">25. Working with Webhooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notifications.html">26. Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notification_parameters_supported.html">27. Supported Attributes for Custom Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduling.html">28. Schedules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="best_practices.html">29. Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">30. Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html">31. Glossary</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation decisions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../eda/index.html">Event-Driven Ansible</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hub/index.html">Automation hub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operate</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../operate/index.html">Operate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../administration/index.html">Administering Koios Automation Platform Deployments</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration as code and API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/casc.html">Configuration as code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rest_api/index.html">automation controller API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/releases.html">Releases</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Koios Automation Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Automating with Koios Automation Platform</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">1. </span>Overview</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <section id="overview">
+<span id="id1"></span><h1><span class="section-number">1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h1>
+<p id="index-0">Thank you for your interest in Koios Automation Platform. Koios Automation Platform makes it possible for users across an organization to share, vet, and manage automation content by means of a simple, powerful, and agentless technical implementation. IT managers can provide guidelines on how automation is applied to individual teams. Meanwhile, automation developers retain the freedom to write tasks that use existing knowledge, without the operational overhead of conforming to complex tools and frameworks. It is a more secure and stable foundation for deploying end-to-end automation solutions, from hybrid cloud to the edge.</p>
+<p>Koios Automation Platform allows users to define, operate, scale, and delegate automation across their organization.</p>
+<section id="real-time-playbook-output-and-exploration">
+<h2><span class="section-number">1.1. </span>Real-time Playbook Output and Exploration<a class="headerlink" href="#real-time-playbook-output-and-exploration" title="Link to this heading"></a></h2>
+<p id="index-1">Watch playbooks run in real time, seeing each host as they check in. Easily go back and explore the results for specific tasks and hosts in great detail. Search for specific plays or hosts and see just those results, or quickly zero in on errors that need to be corrected.</p>
+</section>
+<section id="push-button-automation">
+<h2><span class="section-number">1.2. </span>“Push Button” Automation<a class="headerlink" href="#push-button-automation" title="Link to this heading"></a></h2>
+<p id="index-2">Access your favorite projects and re-trigger execution from the web interface with a minimum of clicking. Koios Automation Platform will ask for input variables, prompt for your credentials, kick off and monitor the job, and display results and host history over time.</p>
+</section>
+<section id="role-based-access-control-and-auditing">
+<h2><span class="section-number">1.3. </span>Role-Based Access Control and Auditing<a class="headerlink" href="#role-based-access-control-and-auditing" title="Link to this heading"></a></h2>
+<p id="index-3">Koios Automation Platform allows for the granting of permissions to perform a specific task (such as to view, create, or modify a file) to different teams or explicit users through role-based access control (RBAC).</p>
+<p>Keep some projects private, while allowing some users to edit inventory and others to run playbooks against only certain systems–either in check (dry run) or live mode. You can also allow certain users to use credentials without exposing the credentials to them. Regardless of what you do, Koios Automation Platform records the history of operations and who made them–including objects edited and jobs launched.</p>
+<p>Assign resource roles to users or teams to grant access to job templates, inventories, projects and credentials. Team members inherit the roles assigned to the team. See <a class="reference internal" href="security.html#rbac-ug"><span class="std std-ref">Role-Based Access Control</span></a> for role definitions, assignments and resource scope.</p>
+<p>Koios Automation Platform includes an ‘Auditor’ type, who can see all aspects of the systems automation, but has no permission to run or change automation, for those that need a system-level auditor. (This may also be useful for a service account that scrapes automation information from the REST API.) Refer to <a class="reference internal" href="security.html#rbac-ug"><span class="std std-ref">Role-Based Access Control</span></a> for more information.</p>
+</section>
+<section id="cloud-autoscaling-flexibility">
+<h2><span class="section-number">1.4. </span>Cloud &amp; Autoscaling Flexibility<a class="headerlink" href="#cloud-autoscaling-flexibility" title="Link to this heading"></a></h2>
+<p id="index-4">Koios Automation Platform features a powerful provisioning callback feature that allows nodes to request configuration on demand. While optional, this is an ideal solution for a cloud auto-scaling scenario, integrating with provisioning servers like Cobbler, or when dealing with managed systems with unpredictable uptimes. Requiring no management software to be installed on remote nodes, the callback solution can be triggered via a simple call to ‘curl’ or ‘wget’, and is easily embeddable in init scripts, kickstarts, or preseeds. Access is controlled such that only machines in inventory can request configuration.</p>
+</section>
+<section id="the-ideal-restful-api">
+<h2><span class="section-number">1.5. </span>The Ideal RESTful API<a class="headerlink" href="#the-ideal-restful-api" title="Link to this heading"></a></h2>
+<p id="index-5">The Koios Automation Platform REST API is the ideal RESTful API for a systems management application, with all resources fully discoverable, paginated, searchable, and well modeled. A styled API browser allows API exploration from the API root at <code class="docutils literal notranslate"><span class="pre">http://&lt;server</span> <span class="pre">name&gt;/api/</span></code>, showing off every resource and relation. Everything that can be done in the user interface can be done in the API - and more.</p>
+</section>
+<section id="backup-and-restore">
+<h2><span class="section-number">1.6. </span>Backup and Restore<a class="headerlink" href="#backup-and-restore" title="Link to this heading"></a></h2>
+<p id="index-6">Koios Automation Platform is backed up and restored through the Koios operator, which captures the database, the secrets that encrypt it, and the deployment configuration. See <a class="reference internal" href="../administration/backup_restore.html#ag-backup-restore"><span class="std std-ref">Backup and Restore</span></a>.</p>
+</section>
+<section id="ansible-galaxy-integration">
+<h2><span class="section-number">1.7. </span>Ansible Galaxy Integration<a class="headerlink" href="#ansible-galaxy-integration" title="Link to this heading"></a></h2>
+<p id="index-7">When it comes to describing your automation, everyone repeats the DRY mantra–“Don’t Repeat Yourself.” Using centralized copies of Ansible roles, such as in Ansible Galaxy, allows you to bring that philosophy to your playbooks. By including an Ansible Galaxy requirements.yml file in your project directory, Koios Automation Platform automatically fetches the roles your playbook needs from Galaxy, GitHub, or your local source control. Refer to <a class="reference internal" href="projects.html#ug-galaxy"><span class="std std-ref">Ansible Galaxy Support</span></a> for more information.</p>
+</section>
+<section id="inventory-support-for-openstack">
+<h2><span class="section-number">1.8. </span>Inventory Support for OpenStack<a class="headerlink" href="#inventory-support-for-openstack" title="Link to this heading"></a></h2>
+<p id="index-8">An OpenStack inventory source discovers cloud resources for use in automation. See <a class="reference internal" href="inventories.html#ug-inventory-sources"><span class="std std-ref">Inventory Sources</span></a> for supported inventory sources and their configuration.</p>
+</section>
+<section id="remote-command-execution">
+<h2><span class="section-number">1.9. </span>Remote Command Execution<a class="headerlink" href="#remote-command-execution" title="Link to this heading"></a></h2>
+<p id="index-9">Often times, you just need to do a simple task on a few hosts, whether it’s add a single user, update a single security vulnerability, or restart a misbehaving service. Koios Automation Platform includes remote command execution–any task that you can describe as a single Ansible play can be run on a host or group of hosts in your inventory, allowing you to get managing your systems quickly and easily. Plus, it is all backed by an RBAC engine and detailed audit logging, removing any questions regarding who has done what to what machines.</p>
+</section>
+<section id="system-tracking">
+<h2><span class="section-number">1.10. </span>System Tracking<a class="headerlink" href="#system-tracking" title="Link to this heading"></a></h2>
+<p id="index-10">You can collect facts by using the fact caching feature. Refer to <a class="reference internal" href="job_templates.html#ug-fact-caching"><span class="std std-ref">Fact Caching</span></a> for more detail.</p>
+</section>
+<section id="integrated-notifications">
+<h2><span class="section-number">1.11. </span>Integrated Notifications<a class="headerlink" href="#integrated-notifications" title="Link to this heading"></a></h2>
+<p id="index-11">Koios Automation Platform allows you to easily keep track of the status of your automation. You can configure stackable notifications for job templates, projects, or entire organizations, and configure different notifications for job start, job success, job failure, and job approval (for workflow nodes). The following notification sources are supported:</p>
+<ul class="simple">
+<li><p>AWS SNS</p></li>
+<li><p>Email</p></li>
+<li><p>Grafana</p></li>
+<li><p>IRC</p></li>
+<li><p>Mattermost</p></li>
+<li><p>PagerDuty</p></li>
+<li><p>Rocket.Chat</p></li>
+<li><p>Slack</p></li>
+<li><p>Twilio</p></li>
+<li><p>Webhook (post to an arbitrary webhook, for integration into other tools)</p></li>
+</ul>
+<p>Additionally, you can <a class="reference internal" href="notifications.html#ug-custom-notifications"><span class="std std-ref">customize notification messages</span></a> for each of the above notification types.</p>
+</section>
+<section id="satellite-integration">
+<h2><span class="section-number">1.12. </span>Satellite Integration<a class="headerlink" href="#satellite-integration" title="Link to this heading"></a></h2>
+<p id="index-12">Dynamic inventory sources for Red Hat Satellite 6 are supported.</p>
+</section>
+<section id="run-time-job-customization">
+<h2><span class="section-number">1.13. </span>Run-time Job Customization<a class="headerlink" href="#run-time-job-customization" title="Link to this heading"></a></h2>
+<p id="index-13">Bringing the flexibility of the Ansible command line, you can prompt for any of the following:</p>
+<ul class="simple">
+<li><p>inventory</p></li>
+<li><p>credential</p></li>
+<li><p>job tags</p></li>
+<li><p>limits</p></li>
+</ul>
+</section>
+<section id="user-interface">
+<h2><span class="section-number">1.14. </span>User Interface<a class="headerlink" href="#user-interface" title="Link to this heading"></a></h2>
+<p id="index-14">The layout of the user interface is organized with intuitive navigational elements. With information displayed at-a-glance, it is intuitive to find and use the automation you need. Compact and expanded viewing modes show and hide information as needed, and various built-in attributes make it easy to sort.</p>
+</section>
+<section id="execution-environments">
+<h2><span class="section-number">1.15. </span>Execution Environments<a class="headerlink" href="#execution-environments" title="Link to this heading"></a></h2>
+<p id="index-15">An execution environment is a container image with Ansible and the dependencies needed by a job. Select an image for the job rather than configuring a Python virtual environment on the controller host. See <a class="reference internal" href="execution_environments.html#ug-execution-environments"><span class="std std-ref">Execution Environments</span></a> for image selection, building a custom image and execution isolation.</p>
+</section>
+<section id="authentication">
+<h2><span class="section-number">1.16. </span>Authentication<a class="headerlink" href="#authentication" title="Link to this heading"></a></h2>
+<p id="index-16">Koios Automation Platform supports LDAP, SAML, token-based authentication. The platform gateway manages login methods and OAuth 2 tokens. See <a class="reference internal" href="../access/index.html"><span class="doc">Authentication and access</span></a> for authentication providers, identity mapping, sessions and API tokens.</p>
+</section>
+<section id="cluster-management">
+<h2><span class="section-number">1.17. </span>Cluster Management<a class="headerlink" href="#cluster-management" title="Link to this heading"></a></h2>
+<p id="index-17">Run-time management of cluster groups allows for easily configurable scaling.</p>
+</section>
+<section id="container-platform-support">
+<h2><span class="section-number">1.18. </span>Container Platform Support<a class="headerlink" href="#container-platform-support" title="Link to this heading"></a></h2>
+<p id="index-18">Koios Automation Platform is available as a containerized pod service for Kubernetes environments that can be scaled up and down easily as needed.</p>
+</section>
+<section id="workflow-capabilities">
+<h2><span class="section-number">1.19. </span>Workflow Capabilities<a class="headerlink" href="#workflow-capabilities" title="Link to this heading"></a></h2>
+<p id="index-19">Workflows provide these capabilities for provisioning, deployment and orchestration:</p>
+<ul class="simple">
+<li><p><strong>Inventory overrides for Workflows</strong>. You can override an inventory across a workflow at workflow definition time, or even at launch time. Define your application deployment workflow, and then easily re-use them in multiple environments.</p></li>
+<li><p><strong>Convergence nodes for Workflows</strong>. When modeling complex processes, you sometimes need to wait for multiple steps to finish before proceeding. Workflow steps can wait for any number of prior workflow steps to complete properly before proceeding.</p></li>
+<li><p><strong>Workflow Nesting</strong>. Re-use individual workflows as components of a larger workflow. Examples include combining provisioning and application deployment workflows into a single master workflow.</p></li>
+<li><p><strong>Workflow Pause and Approval</strong>. You can build workflows containing approval nodes that require user intervention. This makes it possible to pause workflows in between playbooks so that a user can give approval (or denial) for continuing on to the next step in the workflow.</p></li>
+</ul>
+</section>
+<section id="job-distribution">
+<h2><span class="section-number">1.20. </span>Job Distribution<a class="headerlink" href="#job-distribution" title="Link to this heading"></a></h2>
+<p id="index-20">As automation moves enterprise-wide, the need to automate at scale grows. Koios Automation Platform offers the ability to take a fact gathering or
+configuration job running across thousands of machines and slice it into individual job slices that can be distributed across your Koios Automation Platform cluster for increased reliability, faster job completion, and better cluster utilization. If you need to change a parameter across 15,000 switches at
+scale, or gather information across your multi-thousand-node RHEL estate, job slicing distributes the work across eligible execution capacity.</p>
+</section>
+<section id="fips-validation-status">
+<h2><span class="section-number">1.21. </span>FIPS validation status<a class="headerlink" href="#fips-validation-status" title="Link to this heading"></a></h2>
+<p>Deployment of Koios Automation Platform in a FIPS-enabled environment has not been validated. This documentation does not claim FIPS certification or compliance for the platform or its execution environment images.</p>
+</section>
+<section id="limit-the-number-of-hosts-per-organization">
+<h2><span class="section-number">1.22. </span>Limit the number of hosts per organization<a class="headerlink" href="#limit-the-number-of-hosts-per-organization" title="Link to this heading"></a></h2>
+<p id="index-21">Lots of large organizations have instances shared among many organizations, and do not want any one organization using all the hosts. A superuser can set an upper limit on an organization by writing <code class="docutils literal notranslate"><span class="pre">max_hosts</span></code> through the API, at <code class="docutils literal notranslate"><span class="pre">/api/controller/v2/organizations/N/</span></code>; there is no field for it in the web interface. Bulk host creation refuses to take an organization past that limit.</p>
+</section>
+<section id="inventory-plugins">
+<h2><span class="section-number">1.23. </span>Inventory Plugins<a class="headerlink" href="#inventory-plugins" title="Link to this heading"></a></h2>
+<p id="index-22">Inventory sources use plugins supplied by Ansible collections in the execution environment. See <a class="reference internal" href="inventories.html#ug-inventory-sources"><span class="std std-ref">Inventory Sources</span></a> for source configuration and <a class="reference internal" href="inventory_plugins_templates.html#ir-inv-plugin-templates-reference"><span class="std std-ref">Supported Inventory Plugin Templates</span></a> for plugin configuration examples.</p>
+</section>
+<section id="secret-management-system">
+<h2><span class="section-number">1.24. </span>Secret Management System<a class="headerlink" href="#secret-management-system" title="Link to this heading"></a></h2>
+<p id="index-23">With a secret management system, external credentials are stored and supplied for use in Koios Automation Platform so you don’t have to provide them directly.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Automating with Koios Automation Platform" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="logging_in.html" class="btn btn-neutral float-right" title="2. Logging In" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Koios Solutions. Portions 2026, Red Hat, Inc. and 2026, CtrlIQ, Inc..</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+<p class="koios-legal">Licensed under the <a href="../LICENSE.txt">Apache License 2.0</a>; see the <a href="../NOTICE.txt">NOTICE</a> for the origin of this documentation.</p>
+
+</body>
+</html>

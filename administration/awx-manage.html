@@ -1,0 +1,340 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>19. The awx-manage Utility &ndash; Koios Automation Platform</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ansible.css?v=5657ca2d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/rtd-ethical-ads.css?v=289b023e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/dark.css?v=82723a23" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments-dark.css?v=027e451e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/koios.css?v=808fdb03" />
+
+  
+    <link rel="shortcut icon" href="../_static/images/koios-favicon.svg"/>
+    <link rel="canonical" href="https://docs.koioss.com/administration/awx-manage.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2d018451"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=b8bcef97"></script>
+      <script src="../_static/js/theme-toggle.js?v=59cbb094"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="20. Automation Controller Configuration" href="configure_koios.html" />
+    <link rel="prev" title="18. Security Best Practices" href="security_best_practices.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+<script>
+  (function () {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('koios-docs-theme');
+    } catch (e) {}
+    // Without a stored choice, follow the system preference (dark when it cannot be read).
+    var light = false;
+    try { light = window.matchMedia('(prefers-color-scheme: light)').matches; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', stored || (light ? 'light' : 'dark'));
+  })();
+</script>
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="#" class="asc-theme-toggle" title="Switch theme" aria-label="Switch theme"><svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg></a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../_static/images/koios-mark-white.svg"
+    alt="Koios">
+  <div class="DocSiteNav-title">Koios Automation Platform</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Koios Automation Platform
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Koios Automation Platform Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Install and upgrade</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade_migration/index.html">Upgrades and Migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configure the platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/index.html">Configure the platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Access management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access/index.html">Authentication and access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation execution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">Automating with Koios Automation Platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation decisions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../eda/index.html">Event-Driven Ansible</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hub/index.html">Automation hub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operate</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../operate/index.html">Operate</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Administering Koios Automation Platform Deployments</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html">Administering Koios Automation Platform Deployments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="init_script.html">1. Starting, Stopping, and Restarting Koios Automation Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="supported_architectures.html">2. Supported Architectures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom_inventory_script.html">3. Custom Inventory Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scm-inv-source.html">4. Inventory File Importing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi-creds-assignment.html">5. Multi-Credential Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="management_jobs.html">6. Management Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clustering.html">7. Clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="containers_instance_groups.html">8. Container and Instance Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instances.html">9. Managing Capacity With Instances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topology_viewer.html">10. Topology Viewer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logfiles.html">11. Automation controller Logfiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">12. Logging and Aggregation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">13. Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html">14. Improving Automation Controller Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secret_handling.html">15. Secret handling and connection security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proxy_support.html">16. Proxy Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backup_restore.html">17. Backup and Restore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security_best_practices.html">18. Security Best Practices</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">19. The <em>awx-manage</em> Utility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#inventory-import">19.1. Inventory Import</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cleanup-of-old-data">19.2. Cleanup of old data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cluster-management">19.3. Cluster management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#token-and-session-management">19.4. Token and session management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#host-metrics">19.5. Host metrics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="configure_koios.html">20. Automation Controller Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="isolation_variables.html">21. Isolation functionality and variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kerberos_auth.html">22. Kerberos Authentication for Windows Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html">23. Troubleshooting Automation Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tipsandtricks.html">24. Automation controller Tips and Tricks</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration as code and API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/casc.html">Configuration as code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rest_api/index.html">automation controller API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/releases.html">Releases</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Koios Automation Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Administering Koios Automation Platform Deployments</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">19. </span>The <em>awx-manage</em> Utility</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <section id="the-awx-manage-utility">
+<span id="ag-manage-utility"></span><h1><span class="section-number">19. </span>The <em>awx-manage</em> Utility<a class="headerlink" href="#the-awx-manage-utility" title="Link to this heading"></a></h1>
+<p id="index-0">The <code class="docutils literal notranslate"><span class="pre">awx-manage</span></code> utility performs advanced automation controller maintenance. It is installed in
+the controller image, not on the administrator’s workstation or the Kubernetes node. Prefer the
+UI, API and <a class="reference internal" href="management_jobs.html#ag-management-jobs"><span class="std std-ref">management jobs</span></a> for routine work.</p>
+<p>Run commands as the existing <code class="docutils literal notranslate"><span class="pre">awx</span></code> user in the controller task container. Set an explicit
+namespace and the controller resource name (<code class="docutils literal notranslate"><span class="pre">spec.controller.name</span></code>; by default
+<code class="docutils literal notranslate"><span class="pre">&lt;platform&gt;-controller</span></code>). The task Deployment and its main container are both named
+<code class="docutils literal notranslate"><span class="pre">&lt;controller&gt;-task</span></code>. For example, inspect command help without changing any data:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">kubectl --context &lt;context&gt; -n &lt;namespace&gt; exec deploy/&lt;controller&gt;-task \</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">-c &lt;controller&gt;-task -- awx-manage inventory_import --help</span>
+</pre></div>
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">oc</span></code> in place of <code class="docutils literal notranslate"><span class="pre">kubectl</span></code> on OpenShift. Every controller command below uses this execution
+context; replace the example inventory ID, paths and dates for your deployment. Do not install
+packages, edit generated configuration or run commands as root inside the controller container.
+The operator reconciles deployment configuration from <code class="docutils literal notranslate"><span class="pre">KoiosPlatform</span></code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Management commands can modify or permanently delete controller data. Review their help and
+scope and take a backup before maintenance; see <a class="reference internal" href="backup_restore.html#ag-backup-restore"><span class="std std-ref">Backup and Restore</span></a>. Do not run them from
+an automation job as a replacement for the platform API.</p>
+</div>
+<section id="inventory-import">
+<h2><span class="section-number">19.1. </span>Inventory Import<a class="headerlink" href="#inventory-import" title="Link to this heading"></a></h2>
+<p id="index-1">For normal inventory synchronization, use an inventory source backed by a project; see <a class="reference internal" href="scm-inv-source.html#ag-inv-import"><span class="std std-ref">Inventory File Importing</span></a>. Direct <code class="docutils literal notranslate"><span class="pre">inventory_import</span></code> is an advanced alternative for a file or directory already available to the controller task container.</p>
+<p>To use <code class="docutils literal notranslate"><span class="pre">awx-manage</span></code> properly, you must first create an inventory in automation controller to use as the destination for the import.</p>
+<p>The source path is inside the task container, not on the workstation that runs <code class="docutils literal notranslate"><span class="pre">kubectl</span></code>. Use an existing mounted inventory file or directory and verify its permissions; do not assume the example path exists or that a file copied into an ephemeral pod will persist.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">inventory_import</span></code> command synchronizes an automation controller inventory object with a text-based inventory file, dynamic inventory script, or a directory of one or more of the above as supported by core Ansible.</p>
+<p>When running this command, specify either an <code class="docutils literal notranslate"><span class="pre">--inventory-id</span></code> or <code class="docutils literal notranslate"><span class="pre">--inventory-name</span></code>, and the path to the Ansible inventory source (<code class="docutils literal notranslate"><span class="pre">--source</span></code>).</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">kubectl --context &lt;context&gt; -n &lt;namespace&gt; exec deploy/&lt;controller&gt;-task \</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">-c &lt;controller&gt;-task -- awx-manage inventory_import \</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">--source=&lt;mounted-inventory-path&gt; --inventory-id=&lt;inventory-id&gt;</span>
+</pre></div>
+</div>
+<p>By default, inventory data already stored in automation controller blends with data from the external source. To use only the external data, specify <code class="docutils literal notranslate"><span class="pre">--overwrite</span></code>. To specify that any existing hosts get variable data exclusively from the <code class="docutils literal notranslate"><span class="pre">--source</span></code>, specify <code class="docutils literal notranslate"><span class="pre">--overwrite_vars</span></code>. The default behavior adds any new variables from the external source, overwriting keys that already exist, but preserves any variables that were not sourced from the external data source.</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">kubectl --context &lt;context&gt; -n &lt;namespace&gt; exec deploy/&lt;controller&gt;-task \</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">-c &lt;controller&gt;-task -- awx-manage inventory_import \</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">--source=&lt;mounted-inventory-path&gt; --inventory-id=&lt;inventory-id&gt; --overwrite</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Edits and additions to Inventory host variables persist beyond an inventory sync as long as <code class="docutils literal notranslate"><span class="pre">--overwrite_vars</span></code> is <strong>not</strong> set.</p>
+</div>
+</section>
+<section id="cleanup-of-old-data">
+<h2><span class="section-number">19.2. </span>Cleanup of old data<a class="headerlink" href="#cleanup-of-old-data" title="Link to this heading"></a></h2>
+<p id="index-2"><code class="docutils literal notranslate"><span class="pre">awx-manage</span></code> has a variety of commands used to clean old data from automation controller. The automation controller administrators can use the Management Jobs interface for access or use the command line.</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">kubectl --context &lt;context&gt; -n &lt;namespace&gt; exec deploy/&lt;controller&gt;-task \</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">-c &lt;controller&gt;-task -- awx-manage cleanup_jobs --help</span>
+</pre></div>
+</div>
+<p>The cleanup operation permanently deletes the job details and output older than the specified retention period; the example above only displays help.</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">kubectl --context &lt;context&gt; -n &lt;namespace&gt; exec deploy/&lt;controller&gt;-task \</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">-c &lt;controller&gt;-task -- awx-manage cleanup_activitystream --help</span>
+</pre></div>
+</div>
+<p>The cleanup operation permanently deletes <a class="reference internal" href="../userguide/main_menu.html#ug-activitystreams"><span class="std std-ref">Activity Stream</span></a> data older than the specified retention period; the example above only displays help.</p>
+</section>
+<section id="cluster-management">
+<h2><span class="section-number">19.3. </span>Cluster management<a class="headerlink" href="#cluster-management" title="Link to this heading"></a></h2>
+<p id="index-3">Configure controller replicas and placement through <code class="docutils literal notranslate"><span class="pre">KoiosPlatform</span></code>; see <a class="reference internal" href="clustering.html#ag-clustering"><span class="std std-ref">Clustering</span></a>.
+Manage external execution nodes through the platform’s Instances interface. Do not use internal
+instance-provisioning commands to manage pods owned by the operator.</p>
+</section>
+<section id="token-and-session-management">
+<span id="ag-token-utility"></span><h2><span class="section-number">19.4. </span>Token and session management<a class="headerlink" href="#token-and-session-management" title="Link to this heading"></a></h2>
+<p id="index-4">Users log in to Koios Automation Platform through the platform gateway, and the gateway owns their
+sessions and OAuth2 tokens. <code class="docutils literal notranslate"><span class="pre">awx-manage</span></code> does not manage them: the controller commands
+<code class="docutils literal notranslate"><span class="pre">expire_sessions</span></code> and <code class="docutils literal notranslate"><span class="pre">cleanup_sessions</span></code> only act on sessions of the controller itself, not on
+platform logins, so they do not remove anyone’s access to the platform.</p>
+<p>Manage tokens from <a class="reference internal" href="../access/tokens.html"><span class="doc">API tokens and OAuth applications</span></a> (UI and API) or with <code class="docutils literal notranslate"><span class="pre">aap-gateway-manage</span></code> in the
+gateway pod (container <code class="docutils literal notranslate"><span class="pre">api</span></code> of the <code class="docutils literal notranslate"><span class="pre">&lt;platform&gt;-gateway</span></code> Deployment):</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">$ kubectl --context &lt;context&gt; -n &lt;namespace&gt; exec deploy/&lt;platform&gt;-gateway -c api -- \</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">aap-gateway-manage revoke_oauth2_tokens --user example_user --all</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">revoke_oauth2_tokens</span></code></dt><dd><p>Revokes OAuth2 access tokens: of every user, or of one user with <code class="docutils literal notranslate"><span class="pre">--user</span> <span class="pre">&lt;username&gt;</span></code>. Add
+<code class="docutils literal notranslate"><span class="pre">--all</span></code> to revoke their refresh tokens too. Revoking tokens does not end the user’s browser
+sessions.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">create_oauth2_token</span> <span class="pre">--user</span> <span class="pre">&lt;username&gt;</span></code></dt><dd><p>Creates a personal access token with the <code class="docutils literal notranslate"><span class="pre">write</span></code> scope for a user and prints it once. For a
+read-only token, create it from <a class="reference internal" href="../access/tokens.html"><span class="doc">API tokens and OAuth applications</span></a>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">cleanup_tokens</span></code></dt><dd><p>Deletes expired and revoked tokens from the database.</p>
+</dd>
+</dl>
+<p>Sessions end after <strong>Session Cookie Age</strong>, and <strong>Maximum Number of Simultaneous Logged In Sessions</strong>
+limits how many a user may have; both are gateway settings (see <a class="reference internal" href="../access/sessions.html"><span class="doc">Sessions and passwords</span></a>).
+<code class="docutils literal notranslate"><span class="pre">aap-gateway-manage</span> <span class="pre">clearsessions</span></code> deletes expired sessions from the session store.</p>
+</section>
+<section id="host-metrics">
+<h2><span class="section-number">19.5. </span>Host metrics<a class="headerlink" href="#host-metrics" title="Link to this heading"></a></h2>
+<p id="index-5">To collect usage information about unique hosts automated across a time period, use this command:</p>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">kubectl --context &lt;context&gt; -n &lt;namespace&gt; exec deploy/&lt;controller&gt;-task \</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">-c &lt;controller&gt;-task -- awx-manage host_metric \</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">--since YYYY-MM-DD --until YYYY-MM-DD --json</span>
+</pre></div>
+</div>
+<p>The parameters <code class="docutils literal notranslate"><span class="pre">--since</span></code> and <code class="docutils literal notranslate"><span class="pre">--until</span></code> specify date ranges and are optional, but one of them has to be present. The <code class="docutils literal notranslate"><span class="pre">--json</span></code> flag specifies the output format and is optional.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="security_best_practices.html" class="btn btn-neutral float-left" title="18. Security Best Practices" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="configure_koios.html" class="btn btn-neutral float-right" title="20. Automation Controller Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Koios Solutions. Portions 2026, Red Hat, Inc. and 2026, CtrlIQ, Inc..</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+<p class="koios-legal">Licensed under the <a href="../LICENSE.txt">Apache License 2.0</a>; see the <a href="../NOTICE.txt">NOTICE</a> for the origin of this documentation.</p>
+
+</body>
+</html>

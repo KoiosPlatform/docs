@@ -1,0 +1,322 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>14. Improving Automation Controller Performance &ndash; Koios Automation Platform</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ansible.css?v=5657ca2d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/rtd-ethical-ads.css?v=289b023e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/dark.css?v=82723a23" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments-dark.css?v=027e451e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/koios.css?v=808fdb03" />
+
+  
+    <link rel="shortcut icon" href="../_static/images/koios-favicon.svg"/>
+    <link rel="canonical" href="https://docs.koioss.com/administration/performance.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2d018451"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=b8bcef97"></script>
+      <script src="../_static/js/theme-toggle.js?v=59cbb094"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="15. Secret handling and connection security" href="secret_handling.html" />
+    <link rel="prev" title="13. Metrics" href="metrics.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+<script>
+  (function () {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('koios-docs-theme');
+    } catch (e) {}
+    // Without a stored choice, follow the system preference (dark when it cannot be read).
+    var light = false;
+    try { light = window.matchMedia('(prefers-color-scheme: light)').matches; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', stored || (light ? 'light' : 'dark'));
+  })();
+</script>
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="#" class="asc-theme-toggle" title="Switch theme" aria-label="Switch theme"><svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg></a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../_static/images/koios-mark-white.svg"
+    alt="Koios">
+  <div class="DocSiteNav-title">Koios Automation Platform</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Koios Automation Platform
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Koios Automation Platform Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Install and upgrade</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade_migration/index.html">Upgrades and Migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configure the platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/index.html">Configure the platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Access management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access/index.html">Authentication and access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation execution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">Automating with Koios Automation Platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation decisions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../eda/index.html">Event-Driven Ansible</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hub/index.html">Automation hub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operate</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../operate/index.html">Operate</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Administering Koios Automation Platform Deployments</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html">Administering Koios Automation Platform Deployments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="init_script.html">1. Starting, Stopping, and Restarting Koios Automation Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="supported_architectures.html">2. Supported Architectures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom_inventory_script.html">3. Custom Inventory Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scm-inv-source.html">4. Inventory File Importing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi-creds-assignment.html">5. Multi-Credential Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="management_jobs.html">6. Management Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clustering.html">7. Clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="containers_instance_groups.html">8. Container and Instance Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instances.html">9. Managing Capacity With Instances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topology_viewer.html">10. Topology Viewer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logfiles.html">11. Automation controller Logfiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">12. Logging and Aggregation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics.html">13. Metrics</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">14. Improving Automation Controller Performance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#understand-the-workload">14.1. Understand the workload</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#execution-capacity">14.2. Execution capacity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scale-through-the-operator">14.3. Scale through the operator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#callback-receiver-workers">14.3.1. Callback receiver workers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#job-scheduling">14.3.2. Job scheduling</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#monitor-the-platform">14.4. Monitor the platform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#event-volume-and-live-output">14.5. Event volume and live output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database-and-storage">14.6. Database and storage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#api-clients">14.7. API clients</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="secret_handling.html">15. Secret handling and connection security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proxy_support.html">16. Proxy Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backup_restore.html">17. Backup and Restore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security_best_practices.html">18. Security Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awx-manage.html">19. The <em>awx-manage</em> Utility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configure_koios.html">20. Automation Controller Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="isolation_variables.html">21. Isolation functionality and variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kerberos_auth.html">22. Kerberos Authentication for Windows Jobs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html">23. Troubleshooting Automation Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tipsandtricks.html">24. Automation controller Tips and Tricks</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration as code and API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/casc.html">Configuration as code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rest_api/index.html">automation controller API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/releases.html">Releases</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Koios Automation Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Administering Koios Automation Platform Deployments</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">14. </span>Improving Automation Controller Performance</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <section id="improving-automation-controller-performance">
+<span id="ag-performance"></span><h1><span class="section-number">14. </span>Improving Automation Controller Performance<a class="headerlink" href="#improving-automation-controller-performance" title="Link to this heading"></a></h1>
+<p id="index-0">Tune Koios Automation Platform against a representative workload and measured resource use. Historical controller benchmarks, fixed node ratios and database-connection formulas from other installation methods are not sizing guarantees for this operator deployment.</p>
+<p>By default, jobs run in container group pods. External execution nodes are an additional execution path, while the controller’s web and task pods provide API, scheduling and event-processing capacity. More execution capacity alone does not increase the controller’s ability to process output or serve API requests.</p>
+<section id="understand-the-workload">
+<span id="ag-performance-improvements"></span><h2><span class="section-number">14.1. </span>Understand the workload<a class="headerlink" href="#understand-the-workload" title="Link to this heading"></a></h2>
+<p>The task manager assigns eligible jobs to execution resources. Dispatch workers submit work through Receptor and consume results. Callback receiver workers process queued job events and write them to the database. The web service serves API requests and job output. PostgreSQL, Redis, the gateway and cluster storage can each become a bottleneck.</p>
+<p>Measure at least:</p>
+<ul class="simple">
+<li><p>Peak concurrent jobs, inventory sizes, playbook forks and job duration.</p></li>
+<li><p>Event volume and size, including verbosity and large module results.</p></li>
+<li><p>API traffic and concurrent users viewing job output.</p></li>
+<li><p>CPU and memory use, CPU throttling, pod restarts, storage latency and available space.</p></li>
+<li><p>Job queueing time, Kubernetes pod startup time and callback-processing delay.</p></li>
+</ul>
+<p>Use a baseline before changing a setting, change one constraint at a time, and compare the same workload afterwards. A larger capacity estimate is not evidence of higher throughput.</p>
+</section>
+<section id="execution-capacity">
+<h2><span class="section-number">14.2. </span>Execution capacity<a class="headerlink" href="#execution-capacity" title="Link to this heading"></a></h2>
+<p>Remote execution instances report CPU and memory capacity estimates. <code class="docutils literal notranslate"><span class="pre">capacity_adjustment</span></code> selects a point between the smaller and larger estimate; it is not a percentage of live CPU utilization. The controller does not continuously adjust scheduling to the actual resource consumption of each playbook.</p>
+<p>Open <strong>Automation Execution &gt; Infrastructure &gt; Instances</strong>, select an execution instance and inspect <strong>Used capacity</strong>, <strong>Running jobs</strong>, <strong>Memory</strong> and <strong>Forks</strong>. Adjust <strong>Forks</strong> conservatively and monitor real utilization. A disabled or unavailable execution instance does not provide usable job capacity. Hop nodes route mesh traffic and have no execution capacity; hybrid nodes are not part of this operator deployment.</p>
+<img alt="Execution instance Details showing Forks, Used capacity and running jobs." src="../_images/perf-capacity-adj-instances.png" />
+<p>For an ordinary playbook job, task impact is based on the smaller of inventory host count and requested forks, plus one. A forks value of zero uses the default of five in that calculation. Job slicing and other job types have their own accounting, so do not multiply a fixed forks figure by every job type.</p>
+<p>Container groups are limited differently: their configured maximum concurrent jobs and forks constrain controller scheduling, while the pod specification’s resource requests and limits, namespace quota and cluster capacity determine whether Kubernetes can run the job pods. A pod can remain Pending after the controller has assigned it. See <a class="reference internal" href="containers_instance_groups.html#ag-instance-groups"><span class="std std-ref">Instance Groups</span></a> and <a class="reference internal" href="../userguide/execution_environments.html#ug-execution-environments"><span class="std std-ref">Execution Environments</span></a>.</p>
+<p>Use dedicated instance groups when workloads need separate execution resources. Verify the job template’s chosen group and fallback behavior rather than assuming a group name alone isolates all workloads.</p>
+</section>
+<section id="scale-through-the-operator">
+<h2><span class="section-number">14.3. </span>Scale through the operator<a class="headerlink" href="#scale-through-the-operator" title="Link to this heading"></a></h2>
+<p>Declare deployment changes in the <code class="docutils literal notranslate"><span class="pre">KoiosPlatform</span></code> rather than manually scaling generated Deployments or changing files inside containers. See <a class="reference internal" href="../reference/koiosplatform.html"><span class="doc">KoiosPlatform</span></a>.</p>
+<p>Relevant controller fields under <code class="docutils literal notranslate"><span class="pre">spec.controller</span></code> include:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">task_resource_requirements</span></code> and <code class="docutils literal notranslate"><span class="pre">web_resource_requirements</span></code> for requests and limits of the corresponding controller containers.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ee_resource_requirements</span></code> for the control-plane execution environment container, which is distinct from a container group’s job pod specification.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">task_replicas</span></code> and <code class="docutils literal notranslate"><span class="pre">web_replicas</span></code> for separate task and web scaling.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">extra_settings</span></code> for controller settings that are not exposed as writable UI fields.</p></li>
+</ul>
+<p>Scaling web replicas can improve API capacity, while task replicas add scheduling and event-processing resources. Confirm database and Redis capacity, project storage access and cluster scheduling before increasing replicas. The platform gateway also has its own replicas and resource requirements under <code class="docutils literal notranslate"><span class="pre">spec.api</span></code>; increasing controller web replicas alone does not scale the public gateway.</p>
+<section id="callback-receiver-workers">
+<h3><span class="section-number">14.3.1. </span>Callback receiver workers<a class="headerlink" href="#callback-receiver-workers" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">JOB_EVENT_WORKERS</span></code> controls the callback receiver worker count. AWX defaults to four workers. The controller operator derives a larger value from <code class="docutils literal notranslate"><span class="pre">spec.controller.task_resource_requirements.limits.cpu</span></code> when the converted CPU limit has an integer value greater than four. An explicit controller extra setting can override the generated value.</p>
+<p>More workers can process more queued events, but also consume memory, database connections and CPU. Compare event-processing delay and CPU pressure before increasing workers. Worker count is not automatically sized from every Kubernetes node’s total CPUs.</p>
+</section>
+<section id="job-scheduling">
+<h3><span class="section-number">14.3.2. </span>Job scheduling<a class="headerlink" href="#job-scheduling" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">START_TASK_LIMIT</span></code> limits how many jobs a task manager run starts; its default is 100. <code class="docutils literal notranslate"><span class="pre">TASK_MANAGER_TIMEOUT</span></code> and <code class="docutils literal notranslate"><span class="pre">TASK_MANAGER_TIMEOUT_GRACE_PERIOD</span></code> bound scheduling work. A larger start limit can lengthen a scheduler run and does not supply missing execution capacity or fix pod scheduling failures.</p>
+<p>Inspect <code class="docutils literal notranslate"><span class="pre">task_manager__schedule_seconds</span></code> and pending-job causes before tuning these settings. Configure deployment-level values through <code class="docutils literal notranslate"><span class="pre">spec.controller.extra_settings</span></code>; see <a class="reference internal" href="troubleshooting.html#admin-troubleshooting-extra-settings"><span class="std std-ref">Deployment-managed settings</span></a>.</p>
+</section>
+</section>
+<section id="monitor-the-platform">
+<h2><span class="section-number">14.4. </span>Monitor the platform<a class="headerlink" href="#monitor-the-platform" title="Link to this heading"></a></h2>
+<p>Automation controller exposes Prometheus-format data at <code class="docutils literal notranslate"><span class="pre">/api/controller/v2/metrics/</span></code>. By default, access requires a controller system administrator or system auditor. Use a suitably authorized integration credential; do not expose the endpoint anonymously merely to simplify scraping.</p>
+<p>Useful metrics include:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">awx_database_connections_total</span></code>: current database connections.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">callback_receiver_event_processing_avg_seconds</span></code>: average processing time per event within callback receiver batches.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">task_manager__schedule_seconds</span></code>: time spent in a task manager scheduling run.</p></li>
+</ul>
+<p>Interpret these with Kubernetes container metrics and database, Redis and storage monitoring. A slow callback receiver can delay visible output even when execution nodes finish work quickly. Monitor gateway and other platform services separately; controller metrics are not a complete platform health check.</p>
+</section>
+<section id="event-volume-and-live-output">
+<h2><span class="section-number">14.5. </span>Event volume and live output<a class="headerlink" href="#event-volume-and-live-output" title="Link to this heading"></a></h2>
+<p>Use appropriate job verbosity and avoid unnecessary output of large data structures. Extra logging increases event ingestion, database storage and browser work; it can also expose sensitive module results.</p>
+<p>Controller settings include <code class="docutils literal notranslate"><span class="pre">MAX_EVENT_RES_DATA</span></code>, <code class="docutils literal notranslate"><span class="pre">EVENT_STDOUT_MAX_BYTES_DISPLAY</span></code> and <code class="docutils literal notranslate"><span class="pre">MAX_WEBSOCKET_EVENT_RATE</span></code>. They affect different stages of result storage, output display and WebSocket delivery; inspect their source and observed effects before changing them. A truncation limit is not a substitute for provisioning adequate event-processing capacity.</p>
+<p><code class="docutils literal notranslate"><span class="pre">UI_LIVE_UPDATES_ENABLED=False</span></code> suppresses most detailed event broadcasts in the controller, while retaining a minimal set of event notifications. It is not exposed by the current settings UI. If needed, declare it through <code class="docutils literal notranslate"><span class="pre">spec.controller.extra_settings</span></code> and verify the effect on the current job output UI.</p>
+<p><strong>Enable Activity Stream</strong>, under <strong>Settings &gt; Automation Execution &gt; System</strong>, controls audit activity capture. It does not disable live job events and should not be used as a substitute for the live-update setting.</p>
+<img alt="System settings showing Enable Activity Stream, an audit setting separate from live job output." src="../_images/perf-enable-activity-stream.png" />
+</section>
+<section id="database-and-storage">
+<h2><span class="section-number">14.6. </span>Database and storage<a class="headerlink" href="#database-and-storage" title="Link to this heading"></a></h2>
+<p>Database needs depend on concurrent requests, task replicas, callback workers, job start/finish bursts and other platform components. Do not apply a fixed connection count per legacy controller host. Monitor connection use and retain headroom for migrations, maintenance and recovery.</p>
+<p>For the platform-managed PostgreSQL deployment, declare resources in <code class="docutils literal notranslate"><span class="pre">spec.database.resource_requirements</span></code> and PostgreSQL parameters in <code class="docutils literal notranslate"><span class="pre">spec.database.postgres_extra_settings</span></code>. The operator generates and mounts the configuration. For an external database, coordinate changes with its administrator. Do not edit a running pod’s <code class="docutils literal notranslate"><span class="pre">postgresql.conf</span></code> as a persistent configuration method.</p>
+<p>Keep autovacuum enabled and monitor table growth, dead tuples and maintenance activity. Size <code class="docutils literal notranslate"><span class="pre">shared_buffers</span></code>, <code class="docutils literal notranslate"><span class="pre">work_mem</span></code>, <code class="docutils literal notranslate"><span class="pre">maintenance_work_mem</span></code> and <code class="docutils literal notranslate"><span class="pre">max_connections</span></code> together with the database container’s memory limit. <code class="docutils literal notranslate"><span class="pre">work_mem</span></code> can be consumed by multiple operations within multiple concurrent queries; dividing total RAM by a connection count is not a safe universal sizing rule.</p>
+<p>Also monitor project, job-artifact and database storage, as well as retained data. Use supported management-job retention settings and backup policies; avoid deleting files or database rows manually to recover space.</p>
+</section>
+<section id="api-clients">
+<h2><span class="section-number">14.7. </span>API clients<a class="headerlink" href="#api-clients" title="Link to this heading"></a></h2>
+<p>Use paginated queries, bounded concurrency and retry backoff. Batch operations where the API supports them, and use notifications instead of frequent job-status polling when appropriate. Do not use an arbitrary per-node connection limit as a platform-wide recommendation.</p>
+<p>For automation clients, use platform gateway tokens with the permissions they need; see <a class="reference internal" href="../access/tokens.html"><span class="doc">API tokens and OAuth applications</span></a>. Measure the public gateway and controller API paths together when investigating authentication or request latency.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="metrics.html" class="btn btn-neutral float-left" title="13. Metrics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="secret_handling.html" class="btn btn-neutral float-right" title="15. Secret handling and connection security" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Koios Solutions. Portions 2026, Red Hat, Inc. and 2026, CtrlIQ, Inc..</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+<p class="koios-legal">Licensed under the <a href="../LICENSE.txt">Apache License 2.0</a>; see the <a href="../NOTICE.txt">NOTICE</a> for the origin of this documentation.</p>
+
+</body>
+</html>

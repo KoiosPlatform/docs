@@ -1,0 +1,430 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Operational runbooks &ndash; Koios Automation Platform</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ansible.css?v=5657ca2d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/rtd-ethical-ads.css?v=289b023e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/dark.css?v=82723a23" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/pygments-dark.css?v=027e451e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/koios.css?v=808fdb03" />
+
+  
+    <link rel="shortcut icon" href="../_static/images/koios-favicon.svg"/>
+    <link rel="canonical" href="https://docs.koioss.com/operate/runbooks.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2d018451"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=b8bcef97"></script>
+      <script src="../_static/js/theme-toggle.js?v=59cbb094"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Administering Koios Automation Platform Deployments" href="../administration/index.html" />
+    <link rel="prev" title="Logs and diagnostics" href="logs.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+<script>
+  (function () {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('koios-docs-theme');
+    } catch (e) {}
+    // Without a stored choice, follow the system preference (dark when it cannot be read).
+    var light = false;
+    try { light = window.matchMedia('(prefers-color-scheme: light)').matches; } catch (e) {}
+    document.documentElement.setAttribute('data-theme', stored || (light ? 'light' : 'dark'));
+  })();
+</script>
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="#" class="asc-theme-toggle" title="Switch theme" aria-label="Switch theme"><svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/></svg></a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../_static/images/koios-mark-white.svg"
+    alt="Koios">
+  <div class="DocSiteNav-title">Koios Automation Platform</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Koios Automation Platform
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <p class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/index.html">Koios Automation Platform Quick Start</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Install and upgrade</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../upgrade_migration/index.html">Upgrades and Migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configure the platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/index.html">Configure the platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Access management</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../access/index.html">Authentication and access</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation execution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">Automating with Koios Automation Platform</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation decisions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../eda/index.html">Event-Driven Ansible</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Automation content</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../hub/index.html">Automation hub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Operate</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Operate</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="health.html">Check platform health</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logs.html">Logs and diagnostics</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Operational runbooks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#platform-does-not-reach-successful">Platform does not reach Successful</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gateway-returns-502-or-503-for-a-service">Gateway returns 502 or 503 for a service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#controller-job-remains-pending">Controller job remains pending</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#eda-activation-cannot-start-its-decision-environment">EDA activation cannot start its decision environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hub-collection-import-fails">Hub collection import fails</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#managed-postgresql-storage-is-full">Managed PostgreSQL storage is full</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#after-restoring-a-backup">After restoring a backup</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#components-and-workloads">Components and workloads</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#status">Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#upgrades">Upgrades</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#backup-and-restore">Backup and restore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#daily-operation">Daily operation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#idle-mode">Idle mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#deleting-a-platform">Deleting a platform</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../administration/index.html">Administering Koios Automation Platform Deployments</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration as code and API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configure/casc.html">Configuration as code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rest_api/index.html">automation controller API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/releases.html">Releases</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Koios Automation Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Operate</a></li>
+      <li class="breadcrumb-item active">Operational runbooks</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <section id="operational-runbooks">
+<span id="operate-runbooks"></span><h1>Operational runbooks<a class="headerlink" href="#operational-runbooks" title="Link to this heading"></a></h1>
+<p>Start with <a class="reference internal" href="health.html"><span class="std std-doc">Check platform health</span></a> and <a class="reference internal" href="logs.html"><span class="std std-doc">Logs and diagnostics</span></a>. Use an explicit
+cluster context and namespace for every Kubernetes/OpenShift command. Apply supported platform
+changes through <code class="docutils literal notranslate"><span class="pre">KoiosPlatform</span></code> and application changes through the UI/API; generated Deployments,
+StatefulSet templates and service registrations are not repair interfaces.</p>
+<p>The endpoint/workload baseline was verified on 2026-11-18. The failure-recovery procedures below
+are guidance from the operator and service sources; they have <strong>not been validated as end-to-end
+failure drills</strong> on Koios. Plan disruptive storage and restore work with the responsible administrator.</p>
+<section id="platform-does-not-reach-successful">
+<h2>Platform does not reach Successful<a class="headerlink" href="#platform-does-not-reach-successful" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Stage</p></th>
+<th class="head"><p>Procedure</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Symptom</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Successful</span></code> never becomes True, <code class="docutils literal notranslate"><span class="pre">Failure=True</span></code>, or reconciliation repeatedly reports the same error.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Check</p></td>
+<td><p>Read all condition reasons/messages, the selected component names and actual workload readiness. Check idle mode or a restore hold first. Inspect namespace events, unbound PVCs and image pull failures. Inspect gateway operator logs, then the affected child operator’s logs. <strong>Awaiting next reconciliation</strong> alone is not a failure.</p></td>
+</tr>
+<tr class="row-even"><td><p>Action</p></td>
+<td><p>Correct the reported setting in the owning CR through the platform’s declarative configuration. Resolve registry access, unavailable storage, quota or external database/CA dependencies through their approved configuration workflows. If an operator itself is unavailable, repair its installation using the matching installer/OLM procedure. Do not bypass reconciliation by editing generated Deployments.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Verify</p></td>
+<td><p>Wait for <code class="docutils literal notranslate"><span class="pre">Successful=True</span></code> and <code class="docutils literal notranslate"><span class="pre">Failure=False</span></code>, check expected replicas and the service endpoints, then perform a representative application operation. Do not require <code class="docutils literal notranslate"><span class="pre">Running=False</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Use the <a class="reference internal" href="../reference/koiosplatform.html"><span class="std std-doc">KoiosPlatform reference</span></a> for supported fields and
+<a class="reference internal" href="../install/index.html"><span class="std std-doc">Install and upgrade</span></a> for operator installation. Preserve the original error
+before changing several settings at once.</p>
+</section>
+<section id="gateway-returns-502-or-503-for-a-service">
+<h2>Gateway returns 502 or 503 for a service<a class="headerlink" href="#gateway-returns-502-or-503-for-a-service" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Stage</p></th>
+<th class="head"><p>Procedure</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Symptom</p></td>
+<td><p>The gateway responds, but a controller, EDA or hub request fails with 502/503.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Check</p></td>
+<td><p>Compare gateway <code class="docutils literal notranslate"><span class="pre">ping/</span></code> with the authenticated gateway <code class="docutils literal notranslate"><span class="pre">status/</span></code> and the affected service’s endpoint from the <a class="reference internal" href="health.html"><span class="std std-doc">health table</span></a>. Inspect gateway <code class="docutils literal notranslate"><span class="pre">api</span></code> and <code class="docutils literal notranslate"><span class="pre">proxy</span></code> logs and the child service’s readiness/events/logs. Check that the component is enabled, not idle or still being restored. A successful gateway ping does not establish downstream health.</p></td>
+</tr>
+<tr class="row-even"><td><p>Action</p></td>
+<td><p>Correct the failing service’s supported CR configuration or its external dependency. Let the operators restore workloads and service registration. A restore can temporarily return 503 while a service registers. Do not create registrations or point the proxy at another platform by hand.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Verify</p></td>
+<td><p>The service endpoint responds with its expected status/body and the gateway no longer reports the affected service failure. Verify a job, activation or content operation for that service, as appropriate.</p></td>
+</tr>
+</tbody>
+</table>
+<p>A 401 on the protected gateway status endpoint without credentials is expected; it is a different
+problem from a proxy 502/503. Follow <a class="reference internal" href="../administration/backup_restore.html"><span class="std std-doc">Backup and restore</span></a> if
+registration is still being rebuilt after a restore.</p>
+</section>
+<section id="controller-job-remains-pending">
+<h2>Controller job remains pending<a class="headerlink" href="#controller-job-remains-pending" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Stage</p></th>
+<th class="head"><p>Procedure</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Symptom</p></td>
+<td><p>A job remains Pending instead of starting.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Check</p></td>
+<td><p>Open <strong>Automation Execution &gt; Jobs</strong> and inspect the job’s details, dependencies and assigned instance group. Check <strong>Automation Execution &gt; Infrastructure &gt; Instance Groups</strong>, <strong>Instances</strong> and <strong>Topology View</strong> for available capacity and node health. Inspect controller task logs; for container groups, also inspect execution pod scheduling, resource/quota and image pull events.</p></td>
+</tr>
+<tr class="row-even"><td><p>Action</p></td>
+<td><p>Correct instance-group assignments or supported concurrency/capacity settings in the UI/API. Reduce competing work or adjust supported platform resources through the CR when capacity is insufficient. Resolve blocked project/inventory updates or execution-image access through their application objects. Do not force job database states or delete running job pods to manufacture capacity.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Verify</p></td>
+<td><p>The affected job starts and its final result/output is appropriate. Check the following queued job as well, so one successful retry does not hide persistent capacity starvation.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Use <a class="reference internal" href="../administration/performance.html"><span class="std std-doc">Performance</span></a>,
+<a class="reference internal" href="../administration/instances.html"><span class="std std-doc">Instances</span></a>, <a class="reference internal" href="../administration/topology_viewer.html"><span class="std std-doc">Topology Viewer</span></a>
+and <a class="reference internal" href="../userguide/instance_groups.html"><span class="std std-doc">Instance Groups</span></a> for the canonical capacity model.
+The controller web Deployment’s replica count alone is not a measure of job execution capacity.</p>
+</section>
+<section id="eda-activation-cannot-start-its-decision-environment">
+<h2>EDA activation cannot start its decision environment<a class="headerlink" href="#eda-activation-cannot-start-its-decision-environment" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Stage</p></th>
+<th class="head"><p>Procedure</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Symptom</p></td>
+<td><p>An activation remains Starting or fails before rulebook output appears.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Check</p></td>
+<td><p>Open its <strong>History</strong> instance and inspect output; check activation-worker logs and runtime pod events. Confirm the decision environment’s full image reference, registry reachability and pull policy. Distinguish image authorization failures from scheduling/quota failures.</p></td>
+</tr>
+<tr class="row-even"><td><p>Action</p></td>
+<td><p>Correct the decision environment in <strong>Automation Decisions &gt; Decision Environments</strong>. For a separate private image, create the EDA <strong>Container Registry</strong> credential under <strong>Automation Decisions &gt; Infrastructure &gt; Credentials</strong> and select it in the decision environment. For the release image, reconcile the installer’s registry-access configuration/pull secret through the documented setup. A controller registry credential does not configure EDA. After correction, enable/restart the activation as appropriate; disable repeated failing instances while investigating.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Verify</p></td>
+<td><p>A new History instance starts with the intended image. Expect Running for a listening rulebook or Completed for a finite one with restart policy Never. Follow a test event into Rule Audit and verify any controller job separately.</p></td>
+</tr>
+</tbody>
+</table>
+<p>See <a class="reference internal" href="../eda/troubleshooting.html#decision-environment-image-cannot-be-pulled"><span class="std std-ref">EDA image pull troubleshooting</span></a>
+and <a class="reference internal" href="../install/registry-access.html"><span class="std std-doc">Registry access</span></a>. Never resolve a pull failure by printing
+registry Secrets or embedding a password in the image URL.</p>
+</section>
+<section id="hub-collection-import-fails">
+<h2>Hub collection import fails<a class="headerlink" href="#hub-collection-import-fails" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Stage</p></th>
+<th class="head"><p>Procedure</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Symptom</p></td>
+<td><p>Upload is accepted but import fails, or the collection cannot be installed after publishing.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Check</p></td>
+<td><p>Open <strong>View import logs</strong> from <strong>Automation Content &gt; Collection Approvals</strong>, or the namespace’s <strong>Imports</strong> view (<strong>My imports</strong>). Inspect the matching task and hub worker log, not only the CLI’s final lines. Determine whether failure occurred during import, approval or client installation.</p></td>
+</tr>
+<tr class="row-even"><td><p>Action</p></td>
+<td><p>Fix the reported collection metadata/content and rebuild. For example, include <code class="docutils literal notranslate"><span class="pre">requires_ansible</span></code> in <code class="docutils literal notranslate"><span class="pre">meta/runtime.yml</span></code>. If a version already exists, publish a new version rather than overwriting different content. After a successful import to staging, an authorized approver moves it to published through the UI/API. Do not alter hub database records or artifact files manually.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Verify</p></td>
+<td><p>Import succeeds, the intended version is in published, and a clean client can install it from the published distribution. Staging membership alone does not establish installability from published.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Follow <a class="reference internal" href="../hub/first-collection.html"><span class="std std-doc">Publish your first collection</span></a> and
+<a class="reference internal" href="../hub/troubleshooting.html"><span class="std std-doc">Hub troubleshooting</span></a> for the full procedure. The missing
+<code class="docutils literal notranslate"><span class="pre">requires_ansible</span></code>, staging/published distinction and successful installation were validated in
+that walkthrough; other failures require their own diagnosis.</p>
+</section>
+<section id="managed-postgresql-storage-is-full">
+<h2>Managed PostgreSQL storage is full<a class="headerlink" href="#managed-postgresql-storage-is-full" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Stage</p></th>
+<th class="head"><p>Procedure</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Symptom</p></td>
+<td><p>Database writes fail, service logs report insufficient disk space, or database/storage alerts fire.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Check</p></td>
+<td><p>Read <code class="docutils literal notranslate"><span class="pre">status.postgresStatefulSet</span></code>, inspect that StatefulSet’s pod/events and its actual PVC. <code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">get</span> <span class="pre">pvc</span></code> shows allocated capacity and binding, <strong>not free filesystem space</strong>. Correlate database logs with storage/filesystem monitoring; distinguish a full database volume from node ephemeral storage or a full backup/content volume.</p></td>
+</tr>
+<tr class="row-even"><td><p>Action</p></td>
+<td><p>Limit new work through application controls while planning recovery. Ask the storage administrator to expand the existing PostgreSQL PVC declaratively through the Kubernetes storage API, only if its StorageClass/CSI driver supports expansion and the filesystem can grow. Keep the CR’s existing PostgreSQL storage-size/class values: the current operator rejects changes to the StatefulSet’s immutable claim template; changing the CR size is not an automatic PVC-expansion interface. If expansion is unavailable, plan recovery to adequately sized storage using the canonical backup/restore procedure and a verified recoverable backup.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Verify</p></td>
+<td><p>Confirm PVC resize completion, filesystem space and database readiness, then repeat service checks and a controlled write operation. PVC capacity alone does not verify filesystem growth or recovered database writes. Check that reconciliation remains successful.</p></td>
+</tr>
+</tbody>
+</table>
+<p>PVC expansion and full-volume recovery have <strong>not been validated here</strong>. Do not patch StatefulSet
+claim templates, delete database/WAL files, delete the PVC or run ad hoc SQL cleanup. Preserve the
+last verified backup. Use <a class="reference internal" href="../administration/backup_restore.html"><span class="std std-doc">Backup and restore</span></a> for recovery
+planning, including destination storage overrides. A restore from an older backup has a recovery
+point determined by that backup, not by the time of the failure.</p>
+<p>After recovery, review <a class="reference internal" href="../administration/management_jobs.html"><span class="std std-doc">Management Jobs</span></a> for supported
+controller data-retention work and <a class="reference internal" href="../administration/metrics.html"><span class="std std-doc">Metrics</span></a> for monitoring. Retention
+jobs need a functioning database and are not a universal emergency remedy for an already full disk.</p>
+</section>
+<section id="after-restoring-a-backup">
+<h2>After restoring a backup<a class="headerlink" href="#after-restoring-a-backup" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Stage</p></th>
+<th class="head"><p>Procedure</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Symptom</p></td>
+<td><p>A restored platform is still becoming available, or needs acceptance before use.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Check</p></td>
+<td><p>Follow the restore resource’s completion status and restored-component list. Check the destination’s hostname, database/Redis isolation and intended storage against the <a class="reference internal" href="../administration/backup_restore.html"><span class="std std-doc">restore guide</span></a>. A restored copy includes schedules, credentials and integration targets from the source.</p></td>
+</tr>
+<tr class="row-even"><td><p>Action</p></td>
+<td><p>Let the restore operator finish its hold/restore/resume sequence; do not start child Deployments manually. Use the restore’s supported overrides for a distinct destination, especially separate empty external databases/connection Secrets. Review schedules, activations, notifications, webhooks and external targets through the UI/API before allowing the copy to act on production systems. Use an isolated recovery environment when those targets must not be contacted during startup.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Verify</p></td>
+<td><p>The restore reports complete and expected components restored; <code class="docutils literal notranslate"><span class="pre">Successful=True</span></code> and <code class="docutils literal notranslate"><span class="pre">Failure=False</span></code> follow on the new platform. Repeat workload and endpoint checks. In an isolated, approved scope, verify login, credential usability, a controller job, EDA operation and hub content access for enabled components. Confirm the source platform was not changed.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Use <a class="reference internal" href="../administration/backup_restore.html"><span class="std std-doc">Backup and restore</span></a> as the canonical resource/field
+reference. Keep backup copies and their encryption material under the documented access controls.
+Review the next backup policy for the recovered platform; an available login page alone is not
+restore acceptance.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="logs.html" class="btn btn-neutral float-left" title="Logs and diagnostics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../administration/index.html" class="btn btn-neutral float-right" title="Administering Koios Automation Platform Deployments" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Koios Solutions. Portions 2026, Red Hat, Inc. and 2026, CtrlIQ, Inc..</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+<p class="koios-legal">Licensed under the <a href="../LICENSE.txt">Apache License 2.0</a>; see the <a href="../NOTICE.txt">NOTICE</a> for the origin of this documentation.</p>
+
+</body>
+</html>
